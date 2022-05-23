@@ -6,13 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:Jan Savage]">
 <meta name="description" content="﷽
-We will now directly proceed.
-Why is Julia beautiful? Suppose I want to write a &amp;ldquo;verb&amp;rdquo;, which we call a function in programming, that returns (gives us) a greeting. In Julia, this is how we do it:
-function greetbot()  return &amp;#34;how do you do?&amp;#34; end So, function is a reserved keyword that is used to construction a procedure in Julia. The name greetbot I chose can be anything that is clear and suitable to the task." />
+This is the first and free chapter of my upcoming programming in Julia textbook. The book assumes no pre-requisites, but moves at a fast pace, all the while avoiding any irrational jumps, the confusing jargon overload, or the boring handwaving so typical in many programming books.
+We use Julia for two main reasons: it is a good teaching language, but also an important real-world-ready new language, which boasts C-like speed, Kotlin-like safety, Ruby-like flexibility and programmer-happiness, A touch of Lispiness, Pythonesque clarity and terseness (even clearer than Python), and Matlab-like quant powers." />
 <meta name="keywords" content="programming" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="https://www.dersavage.com/hello_julia/" />
+<link rel="canonical" href="https://dersavage.github.io/main/hello_julia/" />
 
 
     <title>
@@ -28,46 +27,43 @@ function greetbot()  return &amp;#34;how do you do?&amp;#34; end So, function is
 
 
 
-<link rel="stylesheet" href="https://www.dersavage.com/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
+<link rel="stylesheet" href="https://dersavage.github.io/main/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://www.dersavage.com/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://www.dersavage.com/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://www.dersavage.com/favicon-16x16.png">
-    <link rel="manifest" href="https://www.dersavage.com/site.webmanifest">
-    <link rel="mask-icon" href="https://www.dersavage.com/safari-pinned-tab.svg" color="">
-    <link rel="shortcut icon" href="https://www.dersavage.com/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dersavage.github.io/main/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dersavage.github.io/main/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dersavage.github.io/main/favicon-16x16.png">
+    <link rel="manifest" href="https://dersavage.github.io/main/site.webmanifest">
+    <link rel="mask-icon" href="https://dersavage.github.io/main/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://dersavage.github.io/main/favicon.ico">
     <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="Hello Julia?">
 <meta itemprop="description" content="﷽
-We will now directly proceed.
-Why is Julia beautiful? Suppose I want to write a &ldquo;verb&rdquo;, which we call a function in programming, that returns (gives us) a greeting. In Julia, this is how we do it:
-function greetbot()  return &#34;how do you do?&#34; end So, function is a reserved keyword that is used to construction a procedure in Julia. The name greetbot I chose can be anything that is clear and suitable to the task."><meta itemprop="datePublished" content="2022-05-09T00:00:00+00:00" />
+This is the first and free chapter of my upcoming programming in Julia textbook. The book assumes no pre-requisites, but moves at a fast pace, all the while avoiding any irrational jumps, the confusing jargon overload, or the boring handwaving so typical in many programming books.
+We use Julia for two main reasons: it is a good teaching language, but also an important real-world-ready new language, which boasts C-like speed, Kotlin-like safety, Ruby-like flexibility and programmer-happiness, A touch of Lispiness, Pythonesque clarity and terseness (even clearer than Python), and Matlab-like quant powers."><meta itemprop="datePublished" content="2022-05-09T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="4589"><meta itemprop="image" content="https://www.dersavage.com"/>
+<meta itemprop="wordCount" content="5500"><meta itemprop="image" content="https://dersavage.github.io/main/"/>
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://www.dersavage.com"/>
+<meta name="twitter:image" content="https://dersavage.github.io/main/"/>
 
 <meta name="twitter:title" content="Hello Julia?"/>
 <meta name="twitter:description" content="﷽
-We will now directly proceed.
-Why is Julia beautiful? Suppose I want to write a &ldquo;verb&rdquo;, which we call a function in programming, that returns (gives us) a greeting. In Julia, this is how we do it:
-function greetbot()  return &#34;how do you do?&#34; end So, function is a reserved keyword that is used to construction a procedure in Julia. The name greetbot I chose can be anything that is clear and suitable to the task."/>
+This is the first and free chapter of my upcoming programming in Julia textbook. The book assumes no pre-requisites, but moves at a fast pace, all the while avoiding any irrational jumps, the confusing jargon overload, or the boring handwaving so typical in many programming books.
+We use Julia for two main reasons: it is a good teaching language, but also an important real-world-ready new language, which boasts C-like speed, Kotlin-like safety, Ruby-like flexibility and programmer-happiness, A touch of Lispiness, Pythonesque clarity and terseness (even clearer than Python), and Matlab-like quant powers."/>
 
 
 
 
     <meta property="og:title" content="Hello Julia?" />
 <meta property="og:description" content="﷽
-We will now directly proceed.
-Why is Julia beautiful? Suppose I want to write a &ldquo;verb&rdquo;, which we call a function in programming, that returns (gives us) a greeting. In Julia, this is how we do it:
-function greetbot()  return &#34;how do you do?&#34; end So, function is a reserved keyword that is used to construction a procedure in Julia. The name greetbot I chose can be anything that is clear and suitable to the task." />
+This is the first and free chapter of my upcoming programming in Julia textbook. The book assumes no pre-requisites, but moves at a fast pace, all the while avoiding any irrational jumps, the confusing jargon overload, or the boring handwaving so typical in many programming books.
+We use Julia for two main reasons: it is a good teaching language, but also an important real-world-ready new language, which boasts C-like speed, Kotlin-like safety, Ruby-like flexibility and programmer-happiness, A touch of Lispiness, Pythonesque clarity and terseness (even clearer than Python), and Matlab-like quant powers." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.dersavage.com/hello_julia/" /><meta property="og:image" content="https://www.dersavage.com"/><meta property="article:section" content="" />
+<meta property="og:url" content="https://dersavage.github.io/main/hello_julia/" /><meta property="og:image" content="https://dersavage.github.io/main/"/><meta property="article:section" content="" />
 <meta property="article:published_time" content="2022-05-09T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-05-09T00:00:00+00:00" />
 
@@ -97,7 +93,7 @@ function greetbot()  return &#34;how do you do?&#34; end So, function is a reser
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://www.dersavage.com/" style="text-decoration: none;">
+        <a href="https://dersavage.github.io/main/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">~</span>
@@ -115,7 +111,7 @@ function greetbot()  return &#34;how do you do?&#34; end So, function is a reser
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://www.dersavage.com/about/">About</a></li><li><a href="https://www.dersavage.com/julia/">Hello Julia?</a></li><li><a href="https://www.dersavage.com/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://dersavage.github.io/main/about/">About</a></li><li><a href="https://dersavage.github.io/main/julia/">Hello Julia?</a></li><li><a href="https://dersavage.github.io/main/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -146,7 +142,7 @@ function greetbot()  return &#34;how do you do?&#34; end So, function is a reser
         </div>
 
         <article>
-            <h2 class="post-title"><a href="https://www.dersavage.com/hello_julia/">Hello Julia?</a></h2>
+            <h2 class="post-title"><a href="https://dersavage.github.io/main/hello_julia/">Hello Julia?</a></h2>
 
             
             
@@ -154,6 +150,36 @@ function greetbot()  return &#34;how do you do?&#34; end So, function is a reser
 
             <div class="post-content">
                 <p>﷽</p>
+<p>This is the first and free chapter of my upcoming programming in Julia textbook. The book assumes no pre-requisites, but moves at a fast pace, all the while avoiding any irrational jumps, the confusing jargon overload, or the boring handwaving so typical in many programming books.</p>
+<p>We use Julia for two main reasons: it is a good teaching language, but also an important real-world-ready new language, which boasts C-like speed, Kotlin-like safety, Ruby-like flexibility and programmer-happiness, A touch of Lispiness, Pythonesque clarity and terseness (even clearer than Python), and Matlab-like quant powers.</p>
+<p>Obviously, a programming language cannot be the be-all for all sorts of problems. Julia is not suitable&ndash;at least as of this writing&ndash;for web development, nor it is a language for game programming, mobile app development, or guis (making applications for the desktop). Then why do we adopt it for this book?</p>
+<p>First of all, Julia is a quantitative programming language. It is very suitable where R or Python have been used, even though R and Python have established very hard-to-supplant niches for themselves. In Statistics, we have R, and in AI, ML, data analytics and engineering, Python is well established.</p>
+<p>Apparently, it would seem Julia is yet another me-too language. Or does it? The people behind Julia <a href="https://julialang.org/blog/2012/02/why-we-created-julia/">write</a>:</p>
+<p>We want a language that&rsquo;s open source, with a liberal license. We want the speed of C with the dynamism of Ruby. We want a language that&rsquo;s homoiconic, with true macros like Lisp, but with obvious, familiar mathematical notation like Matlab. We want something as usable for general programming as Python, as easy for statistics as R, as natural for string processing as Perl, as powerful for linear algebra as Matlab, as good at gluing programs together as the shell. Something that is dirt simple to learn, yet keeps the most serious hackers happy. We want it interactive and we want it compiled.</p>
+<p>If all this does not make sense, you need not worry for now. The important take away message is that Julia is powerful, but fast, easy to learn, and write and read. It was originally designed to be a language for computation&ndash;like Matlab&ndash;but it is also a general purpose programming language.</p>
+<p>Because it is a relatively new language, many packages, libariries, or frameworks have not been developed to make it a mainstream language for certain niche tasks; for instance, when Ruby was introduced to the rest of the world, it took off because Rails, a web development framework that was&ndash;and still is to this day&ndash;revolutionary, boosted its adoption and popularity.</p>
+<p>Although Ruby is now a web-dev friendly language, it is still, in the first place, a general purpose one. On the other hand, languages like Javascript and PHP were designed for the web in mind, and in the past twenty plus years, have continued to maintain a tight grip on the web niche.</p>
+<p>This is not to say you can&rsquo;t do web development in Julia. There is Genie.jl, and many other frameworks and they certainly look promising. It is simply because the existing frameworks and languages have also been improving, so in the context of web development, Julia may not be able to compete with established languages.</p>
+<p>Likewise, mobile app development is dominated by Java (and now Kotlin and Swift, with some Ruby here and there.). As mentioned earlier, Python is already very popular and there are tons of libraries (special code packages to simplify your tasks or save you time), which makes it difficult for any new language like Julia to replace it. The same logic applies to R, but in the context of stastistics.</p>
+<p>Nevertheless, we adopt Julia for this text for several important reasons:</p>
+<ul>
+<li>
+<p>Julia is very easy to learn; it is flexible enough to let the user bend it to his (no bias intended) will. When you break into programming, this is very important, since you will need to unleash your creativity in solving the problems, and the language should facilitate this. Julia does this very well.</p>
+</li>
+<li>
+<p>Julia is very elegant and beautifully-designed. It is a joy to write and a joy to read. By contrast, Python is ugly, and Java is even uglier. Other elegantly-designed languages are Kotlin, Ruby, the ML family of languages, and J (but for J, some people might disagree with me.).</p>
+</li>
+<li>
+<p>Julia is very similar to many languages, so learning Julia will help you learn those other languages faster and better. Julia is syntactically similar to Python, Ruby, Kotlin, and better yet, you can call (directly use) Python, C, and R inside Julia.</p>
+</li>
+<li>
+<p>Julia is new and designed for the future of computing. Although its adoption rate is not too wild, nor it is as popular as Python, it is growing rather fast, and with time, may become an important mainstream language.</p>
+</li>
+<li>
+<p>For data science, statistics, analytics, ML and AI, Julia is already making a name for itself. It is only a matter of time before it is adopted for other niches. The main reason is that it is super-fast, extremely-flexible, beautifully-designed, easy-to-work with, and powerful enough to justify learner effort. As you finish this book, you will begin to appreciate how Julia is so much better than many existing&ndash;but popular&ndash;programming languages.</p>
+</li>
+</ul>
+<p>Popularity is necessary but not sufficient. There are languages that are very popular but their popularity has been accidental, and due to network externalities, for instance. From the point of view of a beginner, at least, Julia is a language that will be worth its potential popularity.</p>
 <p>We will now directly proceed.</p>
 <h3 id="why-is-julia-beautiful">Why is Julia beautiful?</h3>
 <p>Suppose I want to write a &ldquo;verb&rdquo;, which we call a function in programming, that returns (gives us) a greeting. In Julia, this is how we do it:</p>
@@ -177,7 +203,7 @@ function greetbot()  return &#34;how do you do?&#34; end So, function is a reser
 <p><strong>Proceed here if you already installed Julia</strong></p>
 <p>So now, Let&rsquo;s see the greetbot in action. If you are viewing this on a mobile phone, tilt your phone horizontally so that the font looks bigger:</p>
 
-    <img src="https://www.dersavage.com/img/greetbot.gif"  alt="how do you do?"  class="center"  style="border-radius: 8px;"  />
+    <img src="https://dersavage.github.io/main/img/greetbot.gif"  alt="how do you do?"  class="center"  style="border-radius: 8px;"  />
 
 
 <p>Now we are ready to do more. You have perhaps heard of something called the Fibonacci sequence. If not, don&rsquo;t panic because we will get to the bottom of it. Suppose I show you a line made of this numbers placed in a sequence:</p>
@@ -207,7 +233,7 @@ function greetbot()  return &#34;how do you do?&#34; end So, function is a reser
 <p>A two-space indentation is a matter of standard style and good code readability, so you should follow the standard style because then your code will look easy on the eyes.</p>
 <p>Let&rsquo;s see this in action:</p>
 
-    <img src="https://www.dersavage.com/img/mathurator.gif"  alt="mathurator"  class="center"  style="border-radius: 8px;"  />
+    <img src="https://dersavage.github.io/main/img/mathurator.gif"  alt="mathurator"  class="center"  style="border-radius: 8px;"  />
 
 
 <p>Once again, if you look carefully, quite a lot is happening and we need to see exactly what. The gif is on auto-loop for a pedagogical reason. I will make an explanation here, and then you, the good and intelligent detective, have to watch the looping gif to discover which part matches which part of my explanation.</p>
@@ -229,7 +255,7 @@ function greetbot()  return &#34;how do you do?&#34; end So, function is a reser
 <p>Now we are back to the <code>mathurator</code> discusson. Whenever you have a computing problem, try to break it down to elementary bits and see if they too have any problems? If something works at the elementary, or atomic level, then this provides clues to fix our bigger problem. At the very least, it points us into the direction of a potential solution.</p>
 <p>Hence, we are asking why <code>mathurator</code> does not work as expected when a is less than b and c. What is causing the issue? We simplify it to two parameters and see that it works:</p>
 
-    <img src="https://www.dersavage.com/img/basicator.gif"  alt="basicator"  class="center"  style="border-radius: 8px;"  />
+    <img src="https://dersavage.github.io/main/img/basicator.gif"  alt="basicator"  class="center"  style="border-radius: 8px;"  />
 
 
 <p>Clearly, the <code>if-else</code> is working when we use two params. Then the problem must occur when the third param is added. Specifically, the problem occurs because of how we joined two conditionals with &amp;&amp;. What do you think should we do to resolve it? This is your task II. Play with it until you figure it out. Of course, the solution is given somewhere below, so if you got stuck you can be guided back to the land of the unstuck.</p>
@@ -317,7 +343,7 @@ The following function is very straight-forward but borrows its style from the i
 <p>In Python and some other so-called dynamic languages, there are no options to specifically specify the <em>type</em> of the data. Julia is best of both, since it can be dynamic&ndash;you need to specify the type, or if you fear errors or want to ensure nothing goes wrong, you can specifically instruct your Julia function to only take in the Int type.</p>
 <p>If you now supply a string or a float, it will throw an error (tell you it fails and why):</p>
 
-    <img src="https://www.dersavage.com/img/isleap.gif"  alt="isleap"  class="center"  style="border-radius: 8px;"  />
+    <img src="https://dersavage.github.io/main/img/isleap.gif"  alt="isleap"  class="center"  style="border-radius: 8px;"  />
 
 
 <p>The error report is very clear. It says, on line 1, your input type is String (text) or Float (decimal), whereas it specifically tells you to supply the function with Int types for this to work. As an exercise, try to remove the explicit requirement in the function definition. See what kind of error messages you get when you pass in a string or a float, when no input type is specified.</p>
@@ -468,9 +494,9 @@ The following function is very straight-forward but borrows its style from the i
     <div class="footer__inner">
         <div class="footer__content">
             <span>&copy; 2022</span>
-            <span><a href="https://www.dersavage.com">Jan Savage</a></span>
+            <span><a href="https://dersavage.github.io/main/">Jan Savage</a></span>
             
-            <span><a href="https://www.dersavage.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://dersavage.github.io/main/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
             
         </div>
     </div>
@@ -491,7 +517,7 @@ The following function is very straight-forward but borrows its style from the i
 
 
 
-<script type="text/javascript" src="https://www.dersavage.com/bundle.min.a2c5b062c87998f04d1b5dfb6a89a1b2d79786c21d0cb63a05e8a2082984b64b77d80955e3b97eab17273775162ba372511b711fea2f7608f216e68a67bb22d6.js" integrity="sha512-osWwYsh5mPBNG137aomhsteXhsIdDLY6BeiiCCmEtkt32AlV47l&#43;qxcnN3UWK6NyURtxH&#43;ovdgjyFuaKZ7si1g=="></script>
+<script type="text/javascript" src="https://dersavage.github.io/main/bundle.min.a2c5b062c87998f04d1b5dfb6a89a1b2d79786c21d0cb63a05e8a2082984b64b77d80955e3b97eab17273775162ba372511b711fea2f7608f216e68a67bb22d6.js" integrity="sha512-osWwYsh5mPBNG137aomhsteXhsIdDLY6BeiiCCmEtkt32AlV47l&#43;qxcnN3UWK6NyURtxH&#43;ovdgjyFuaKZ7si1g=="></script>
 
 
 

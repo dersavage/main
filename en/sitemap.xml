@@ -2,65 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.dersavage.com/posts/2022/05/hi/</loc>
+    <loc>https://dersavage.github.io/main/posts/2022/05/hi/</loc>
     <lastmod>2022-05-23T08:28:02+08:00</lastmod>
   </url><url>
-    <loc>https://www.dersavage.com/</loc>
+    <loc>https://dersavage.github.io/main/</loc>
     <lastmod>2022-05-23T08:28:02+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://www.dersavage.com/fr/"
+                href="https://dersavage.github.io/main/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.dersavage.com/"
+                href="https://dersavage.github.io/main/"
                 />
   </url><url>
-    <loc>https://www.dersavage.com/posts/</loc>
+    <loc>https://dersavage.github.io/main/posts/</loc>
     <lastmod>2022-05-23T08:28:02+08:00</lastmod>
   </url><url>
-    <loc>https://www.dersavage.com/hello_julia/</loc>
+    <loc>https://dersavage.github.io/main/hello_julia/</loc>
     <lastmod>2022-05-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.dersavage.com/about/</loc>
+    <loc>https://dersavage.github.io/main/about/</loc>
     <lastmod>2022-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.dersavage.com/categories/</loc>
+    <loc>https://dersavage.github.io/main/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://www.dersavage.com/fr/categories/"
+                href="https://dersavage.github.io/main/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.dersavage.com/categories/"
+                href="https://dersavage.github.io/main/categories/"
                 />
   </url><url>
-    <loc>https://www.dersavage.com/series/</loc>
+    <loc>https://dersavage.github.io/main/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://www.dersavage.com/fr/series/"
+                href="https://dersavage.github.io/main/fr/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.dersavage.com/series/"
+                href="https://dersavage.github.io/main/series/"
                 />
   </url><url>
-    <loc>https://www.dersavage.com/tags/</loc>
+    <loc>https://dersavage.github.io/main/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://www.dersavage.com/fr/tags/"
+                href="https://dersavage.github.io/main/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.dersavage.com/tags/"
+                href="https://dersavage.github.io/main/tags/"
                 />
   </url>
 </urlset>

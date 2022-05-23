@@ -1,20 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Jan Savage</title>
-        <link>https://www.dersavage.com/posts/</link>
+        <link>https://dersavage.github.io/main/posts/</link>
         <description>Recent content in Posts on Jan Savage</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
         <lastBuildDate>Mon, 23 May 2022 08:28:02 +0800</lastBuildDate>
-        <atom:link href="https://www.dersavage.com/posts/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://dersavage.github.io/main/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
             <title>Hi</title>
-            <link>https://www.dersavage.com/posts/2022/05/hi/</link>
+            <link>https://dersavage.github.io/main/posts/2022/05/hi/</link>
             <pubDate>Mon, 23 May 2022 08:28:02 +0800</pubDate>
             
-            <guid>https://www.dersavage.com/posts/2022/05/hi/</guid>
+            <guid>https://dersavage.github.io/main/posts/2022/05/hi/</guid>
             <description>This is the first post. More coming soon.</description>
             <content type="html"><![CDATA[<p>This is the first post. More coming soon.</p>
 ]]></content>

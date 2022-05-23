@@ -2,52 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.dersavage.com/fr/categories/</loc>
+    <loc>https://dersavage.github.io/main/fr/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.dersavage.com/categories/"
+                href="https://dersavage.github.io/main/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://www.dersavage.com/fr/categories/"
+                href="https://dersavage.github.io/main/fr/categories/"
                 />
   </url><url>
-    <loc>https://www.dersavage.com/fr/</loc>
+    <loc>https://dersavage.github.io/main/fr/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.dersavage.com/"
+                href="https://dersavage.github.io/main/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://www.dersavage.com/fr/"
+                href="https://dersavage.github.io/main/fr/"
                 />
   </url><url>
-    <loc>https://www.dersavage.com/fr/series/</loc>
+    <loc>https://dersavage.github.io/main/fr/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.dersavage.com/series/"
+                href="https://dersavage.github.io/main/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://www.dersavage.com/fr/series/"
+                href="https://dersavage.github.io/main/fr/series/"
                 />
   </url><url>
-    <loc>https://www.dersavage.com/fr/tags/</loc>
+    <loc>https://dersavage.github.io/main/fr/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.dersavage.com/tags/"
+                href="https://dersavage.github.io/main/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://www.dersavage.com/fr/tags/"
+                href="https://dersavage.github.io/main/fr/tags/"
                 />
   </url>
 </urlset>
