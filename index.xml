@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jan Savage</title>
+    <link>https://www.dersavage.com/</link>
+    <description>Recent content on Jan Savage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 23 May 2022 08:28:02 +0800</lastBuildDate><atom:link href="https://www.dersavage.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hi</title>
+      <link>https://www.dersavage.com/posts/2022/05/hi/</link>
+      <pubDate>Mon, 23 May 2022 08:28:02 +0800</pubDate>
+      
+      <guid>https://www.dersavage.com/posts/2022/05/hi/</guid>
+      <description>This is the first post. More coming soon.</description>
+    </item>
+    
+    <item>
+      <title>Hello Julia?</title>
+      <link>https://www.dersavage.com/hello_julia/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.dersavage.com/hello_julia/</guid>
+      <description>﷽
+We will now directly proceed.
+Why is Julia beautiful? Suppose I want to write a &amp;ldquo;verb&amp;rdquo;, which we call a function in programming, that returns (gives us) a greeting. In Julia, this is how we do it:
+function greetbot()  return &amp;#34;how do you do?&amp;#34; end So, function is a reserved keyword that is used to construction a procedure in Julia. The name greetbot I chose can be anything that is clear and suitable to the task.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://www.dersavage.com/about/</link>
+      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.dersavage.com/about/</guid>
+      <description>﷽
+Beyond childhood, youth, and the associated tribulations, I divide my life so far into three periods. The golden period, the dreamy period, and the period of reality.
+In the golden period, which lasted nearly 15 years, I was a professor of mathematics, social and natural sciences at several universities in East Asia.
+In the dreamy period, I stopped teaching and entered the land of programming. The teacher and the programmer are still a part of me, even though I have entered the stage of reality.</description>
+    </item>
+    
+  </channel>
+</rss>
