@@ -18,14 +18,26 @@
     </item>
     
     <item>
+      <title>Howdy Ruby!</title>
+      <link>https://dersavage.github.io/main/good_ruby/</link>
+      <pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dersavage.github.io/main/good_ruby/</guid>
+      <description>﷽
+Introduction
+This is the second book in the series of programming books authored by me, Jan Savage. This book teaches both intermediate programming and intermediate Ruby: no ruby background is assumed, though. A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&amp;rsquo;s Learn to Program because it uses Ruby), or learned some programming here and there&amp;ndash;Youtube?&amp;ndash;but now wants to consolidate their gains and go to the next level.</description>
+    </item>
+    
+    <item>
       <title>Hello Julia?</title>
       <link>https://dersavage.github.io/main/hello_julia/</link>
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dersavage.github.io/main/hello_julia/</guid>
       <description>﷽
-This is the first and free chapter of my upcoming programming in Julia textbook. The book assumes no pre-requisites, but moves at a fast pace, all the while avoiding any irrational jumps, the confusing jargon overload, or the boring handwaving so typical in many programming books.
-We use Julia for two main reasons: it is a good teaching language, but also an important real-world-ready new language, which boasts C-like speed, Kotlin-like safety, Ruby-like flexibility and programmer-happiness, A touch of Lispiness, Pythonesque clarity and terseness (even clearer than Python), and Matlab-like quant powers.</description>
+Introduction
+This is the first and free chapter of my upcoming programming in Julia textbook. The digital-only book assumes no pre-requisites, but moves at a rather fast pace (no fluff, no stories about author), all the while avoiding any irrational jumps, the confusing jargon overload, or the boring handwaving so typical in many programming books.
+If you already have basic programming experience and want to go to the next level, please proceed to Ruby (see above)where the lessons are start at the advanced beginner and go all the way to the intermediate level.</description>
     </item>
     
     <item>

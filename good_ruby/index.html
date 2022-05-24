@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Jan Savage]">
+<meta name="description" content="﷽
+Introduction
+This is the second book in the series of programming books authored by me, Jan Savage. This book teaches both intermediate programming and intermediate Ruby: no ruby background is assumed, though. A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&amp;rsquo;s Learn to Program because it uses Ruby), or learned some programming here and there&amp;ndash;Youtube?&amp;ndash;but now wants to consolidate their gains and go to the next level." />
+<meta name="keywords" content="programming" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://dersavage.github.io/main/good_ruby/" />
+
+
+    <title>
+        
+            Howdy Ruby! :: Jan Savage  — The Jan Savage cave
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://dersavage.github.io/main/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dersavage.github.io/main/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dersavage.github.io/main/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dersavage.github.io/main/favicon-16x16.png">
+    <link rel="manifest" href="https://dersavage.github.io/main/site.webmanifest">
+    <link rel="mask-icon" href="https://dersavage.github.io/main/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://dersavage.github.io/main/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Howdy Ruby!">
+<meta itemprop="description" content="﷽
+Introduction
+This is the second book in the series of programming books authored by me, Jan Savage. This book teaches both intermediate programming and intermediate Ruby: no ruby background is assumed, though. A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&rsquo;s Learn to Program because it uses Ruby), or learned some programming here and there&ndash;Youtube?&ndash;but now wants to consolidate their gains and go to the next level."><meta itemprop="datePublished" content="2022-05-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-05-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="775"><meta itemprop="image" content="https://dersavage.github.io/main/"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dersavage.github.io/main/"/>
+
+<meta name="twitter:title" content="Howdy Ruby!"/>
+<meta name="twitter:description" content="﷽
+Introduction
+This is the second book in the series of programming books authored by me, Jan Savage. This book teaches both intermediate programming and intermediate Ruby: no ruby background is assumed, though. A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&rsquo;s Learn to Program because it uses Ruby), or learned some programming here and there&ndash;Youtube?&ndash;but now wants to consolidate their gains and go to the next level."/>
+
+
+
+
+    <meta property="og:title" content="Howdy Ruby!" />
+<meta property="og:description" content="﷽
+Introduction
+This is the second book in the series of programming books authored by me, Jan Savage. This book teaches both intermediate programming and intermediate Ruby: no ruby background is assumed, though. A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&rsquo;s Learn to Program because it uses Ruby), or learned some programming here and there&ndash;Youtube?&ndash;but now wants to consolidate their gains and go to the next level." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dersavage.github.io/main/good_ruby/" /><meta property="og:image" content="https://dersavage.github.io/main/"/><meta property="article:section" content="" />
+<meta property="article:published_time" content="2022-05-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-23T00:00:00+00:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2022-05-23 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://dersavage.github.io/main/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">~</span>
+            <span class="logo__text">% cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://dersavage.github.io/main/about/">About</a></li><li><a href="https://dersavage.github.io/main/posts/">Posts</a></li><li><a href="https://dersavage.github.io/main/julia/">to Julia</a></li><li><a href="https://dersavage.github.io/main/ruby/">to Ruby</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://dersavage.github.io/main/good_ruby/">Howdy Ruby!</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <p>﷽</p>
+<p><strong>Introduction</strong></p>
+<p>This is the second book in the series of programming books authored by me, Jan Savage. This book teaches both intermediate programming and intermediate Ruby: no ruby background is assumed, though. A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&rsquo;s <a href="https://pine.fm/LearnToProgram">Learn to Program</a> because it uses Ruby), or learned some programming here and there&ndash;Youtube?&ndash;but now wants to consolidate their gains and go to the next level.</p>
+<p><strong>Pedagogical model</strong></p>
+<p>Or how I teach. Please the introduction in &ldquo;to Julia&rdquo; for a deeper discussion. In short, our method is what is known as the spiral learning method: we introduce enough of something to get started, go up a bit, spiral back to the same topic to dig deeper and enhance learning and long-term memorization, and then proceed to the next-tier spiral. We also avoid demotivating learners by introducing things that were not explained, or by confusing learners by poor explanations or errata.</p>
+<p>Frequently, I will also mention how Ruby differs from other languages, but no familiarity with the other languages is assumed: sufficient explanations will be provided to ensure maximum comprehension.</p>
+<p><strong>Why Ruby?</strong></p>
+<p>Because Ruby rocks. Currently, it is one of the best languages, out there. Best for what? Well, for almost any thing. By best, I mean the following:</p>
+<ul>
+<li>Clear, expressive syntax, programmer-friendly.</li>
+<li>Superior flexibility, remarkable power. Industrial-grade.</li>
+<li>Easy to learn, useful for many domains.</li>
+<li>A true Object-oriented language that is also functional!</li>
+<li>A forward-looking old language. Big community, tons of gems.</li>
+<li>Very similar to Crystal and Elixir, if you want to branch out in new, exciting directions.</li>
+</ul>
+<p><strong>Is this a book?</strong></p>
+<p>What follows is the first (and free) chapter of this book. The book is slightly unusual in that its first chapter is only available here on this site, while the rest of the material are packed into an ebook. This ensures that the people who buy the book are those who have finished this first chapter, and doing so maximizes reader-gain and book-learner fit.</p>
+<p><strong>The Tools</strong></p>
+<p>Because this book assumes an advanced beginner level in programming, detailed installation instruction will not be given here. I assume you can install Ruby on your machine, ideally with Homebrew. However, some preferences will be laid out.</p>
+<p>First of all, it is preferred that your operating system is either a MacOS or any Unix-based OS (such as any flavor of Linux); if you have Windows, the Linux sub-system on Windows will solve this problem. I use a Mac, so I will speak from this point of view, but everything can be extrapolated to Linux as well.</p>
+<p>Next, with regard to the IDE, choose whatever you like. I use and recommend RubyMine. The next best choice is Atom.</p>
+<p>Finally, do not use your pre-installed Ruby (the system Ruby). Use Homebrew to install the latest Ruby version. All the code in this book works with Ruby 3 and up.</p>
+<p>We will now directly proceed.</p>
+<h3 id="everything-is-an-object">Everything is an Object</h3>
+<p>It is assumed that you know what are int, floats, strings, booleans, nil or null, variables, assignment, lists, dictionaries, iteration, recursion, tuples, loops, conditionals, basic object-oriented concepts such as objects, instances, classes, methods; functions, nested conditionals, nested loops, and ternary operators. If you are rusy, please proceed <em>to Julia</em>, which is a programming 101 for absolute beginners or those who need to brush up on their knowledge.</p>
+<p>Now then, in Ruby, variables are disloyal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>thing = <span style="color:#ff0;font-weight:bold">34</span>
+</span></span><span style="display:flex;"><span>thing = <span style="color:#0ff;font-weight:bold">&#34;what?&#34;</span>
+</span></span><span style="display:flex;"><span>thing = <span style="color:#fff;font-weight:bold">true</span> 
+</span></span><span style="display:flex;"><span>thing = <span style="color:#ff0;font-weight:bold">3</span>.<span style="color:#ff0;font-weight:bold">2</span>
+</span></span><span style="display:flex;"><span>thing = [<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">4</span>, <span style="color:#ff0;font-weight:bold">4</span>]
+</span></span><span style="display:flex;"><span>thing = thing.nil?
+</span></span></code></pre></div><p>In other words, our variable <code>thing</code> can assume any data type. First it became an int, then a string, then a boolean, a float, a list (called array in Ruby) and finally, a result of evaluating whether the <code>thing</code> object is a nil or not? In this case, <code>thing</code> is assigned a new boolean value (<em><code>false</code></em>).</p>
+<p>This need not be cause for alarm. Ruby also has what are called <code>constants</code>. A constant is an assignment whose value never changes. By the way, constants are always written in capital letters.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>STUBBORN = <span style="color:#0ff;font-weight:bold">&#34;you can&#39;t change me. Yohoo!&#34;</span>
+</span></span></code></pre></div><p>By contrast, variables are written in small letters and if there are more words, then a snake_case is used:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>this_is_it = <span style="color:#0ff;font-weight:bold">&#34;I became a snake&#34;</span>
+</span></span><span style="display:flex;"><span>your_birthyear = <span style="color:#ff0;font-weight:bold">1844</span>
+</span></span></code></pre></div><p>In Ruby, everything is an object. Everything:</p>
+
+    <img src="https://dersavage.github.io/main/img/rubytypes.gif"  alt="rubytypes"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>The &ldquo;class&rdquo; of an object determines what type of an object it is. A dog is of class animal, for instance. Any dog object, is the animal class, therefore. But classes can be fine-tuned. A dog can also be a canine class (but not a feline class), although both are the animal class. More on this later.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            <span><a href="https://dersavage.github.io/main/">Jan Savage</a></span>
+            
+            <span><a href="https://dersavage.github.io/main/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://dersavage.github.io/main/bundle.min.a2c5b062c87998f04d1b5dfb6a89a1b2d79786c21d0cb63a05e8a2082984b64b77d80955e3b97eab17273775162ba372511b711fea2f7608f216e68a67bb22d6.js" integrity="sha512-osWwYsh5mPBNG137aomhsteXhsIdDLY6BeiiCCmEtkt32AlV47l&#43;qxcnN3UWK6NyURtxH&#43;ovdgjyFuaKZ7si1g=="></script>
+
+
+
+    </body>
+</html>
