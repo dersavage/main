@@ -45,7 +45,7 @@ This is the second book in the series of programming books authored by me, Jan S
 Introduction
 This is the second book in the series of programming books authored by me, Jan Savage. This book teaches both intermediate programming and intermediate Ruby: no ruby background is assumed, though. A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&rsquo;s Learn to Program because it uses Ruby), or learned some programming here and there&ndash;Youtube?&ndash;but now wants to consolidate their gains and go to the next level."><meta itemprop="datePublished" content="2022-05-23T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-23T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1589"><meta itemprop="image" content="https://dersavage.github.io/main/"/>
+<meta itemprop="wordCount" content="3004"><meta itemprop="image" content="https://dersavage.github.io/main/"/>
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://dersavage.github.io/main/"/>
@@ -188,22 +188,25 @@ This is the second book in the series of programming books authored by me, Jan S
 </span></span></code></pre></div><p>By contrast, variables are written in small letters and if there are more words, then a snake_case is used:</p>
 <div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>this_is_it = <span style="color:#0ff;font-weight:bold">&#34;I became a snake&#34;</span>
 </span></span><span style="display:flex;"><span>your_birthyear = <span style="color:#ff0;font-weight:bold">1844</span>
-</span></span></code></pre></div><p>In Ruby, everything is an object. Everything:</p>
+</span></span></code></pre></div><p>Now will turn to objects. But what are objects?</p>
+<p>An object can be any object you want it to be. Okay that was not very clear (but it was recursive); objects are things and things are parts of a problem you are trying to solve.</p>
+<p>A lemonade stand is an object, but so are lemons, and the cups, sugar, customers, and the lemonade machine; in short, objects are entities that have attributes, or associated actions, or both; we can talk to objects (and they will respond to us with their pre-defined methods), or have objects talk to each other. We can use objects and their attributes without even using their methods.</p>
+<p>In Ruby, everything is an object, including a class! In other words, there is something called <code>Object</code> that is actually a class of all objects, which can be used to spawn new objects. We will return to this topic in the future, but for now, do not confuse this with the following:</p>
 
     <img src="https://dersavage.github.io/main/img/rubytypes.gif"  alt="rubytypes"  class="center"  style="border-radius: 8px;"  />
 
 
-<p>The &ldquo;class&rdquo; of an object determines what type of an object it is. A dog is of class animal, for instance. Any dog object, is the animal class, therefore.</p>
-<p>The object has methods and properties: a dog has four legs, so this is a property, while a dog can bark, so this is a method.<br>
+<p>Here the <code>.class</code> method of an object determines what class the object belongs to. We are showing that &ldquo;hi&rdquo; is an object of the class <code>String</code>, for instance.</p>
+<p>More specifically, a dog is of class animal. Any dog (object), descends from the animal (class), therefore. The object has methods and properties: a dog has four legs, so this is a property, while a dog can bark, so this is a method.<br>
 So first the <code>Animal</code> class is created, which has its own data: in our example, isMammal() is assigned as a general-class-level method to the <code>Animal</code> class to ensure that our animal is a mammal (and not an insect, for instance.).</p>
 <p>But now, we cannot assign a general-class-level method of barking to the <code>Animal</code> class, because some of our mammal friends will not be dogs. Thus, we need two other subclasses below the <code>Animal</code> class:</p>
 
     <img src="https://dersavage.github.io/main/img/class_intro.svg"  alt="class_intro"  class="center"  style="border-radius: 8px;"  />
 
 
-<p>That is, the animal class can have two other classes of its own, which can have objects specific to that subclass. Here the cat and the dog are both of the animal class, but the dog is of the canine class, while the cat is not.</p>
-<p>Because of this sub-class division, the methods that apply to the dog can be safely written because we know they only belong to the dog class. But if there is a method or an attribute that applies to both cats and dogs, then we include those in the general class, the <code>Animal</code> class.</p>
-<p>Let&rsquo;s see how we define such a &ldquo;super&rdquo; class in Ruby (without the methods to ensure clarity):</p>
+<p>That is, the animal class can have two other classes of its own, which can have object methods specific to that subclass. Here the cat and the dog are both of the animal class, but the dog is of the canine class, while the cat is not. Hence, the dog object created from the canine class will have a bark method, but any animal instantiated from the feline class, won&rsquo;t.</p>
+<p>Because of this sub-class division, the methods that apply to the dog can be safely written because we know they only belong to the dog class. But if there is a method or an attribute that applies to both cats and dogs, then we include those in the general (or super) class, the <code>Animal</code> class.</p>
+<p>Let&rsquo;s see how we define such a &ldquo;super&rdquo; class in Ruby (I have withheld the methods to focus on the <em>inheritance</em>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">class</span> Animal
 </span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">end</span> 
 </span></span><span style="display:flex;"><span>
@@ -212,13 +215,14 @@ So first the <code>Animal</code> class is created, which has its own data: in ou
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">class</span> Feline &lt; Animal
 </span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">end</span>  
-</span></span></code></pre></div><p>Please note that class names always start with a capital letter. Now, let us define the <code>isMammal()</code> (which checks if any objects created from the animal class are mammals or not) method within the <code>Animal</code> class.</p>
-<p>To do so, we define a function and place it inside the body of the class. Here is how a function is defined in Ruby:</p>
+</span></span></code></pre></div><p>Both <code>Canine</code> and <code>Feline</code> classes <em>inherit</em> attributes and methods from the <code>Animal</code> class. The <code>&lt;</code> sign ensures that. (Please note that class names always start with a capital letter.).</p>
+<p>Now, let us define the <code>isMammal()</code> (which checks if any objects created from the animal class are mammals or not) method within the <code>Animal</code> class. To do so, we define a function and place it inside the body of the class. Here is how a function is defined in Ruby:</p>
 <div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">def</span> reversor(inpt)
 </span></span><span style="display:flex;"><span>  inpt.reverse
 </span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span>
-</span></span></code></pre></div><p>Functions (and methods) are written in small letters or snake_case if needed, and they work just like functions in Python or any other mainstream Algol bastard.</p>
-<p>Now, our first task is to place an <code>isMammal</code> function inside the <code>Animal</code> class. The function (or method) should then output a Boolean <code>true</code> when it is called. I will do this one for you, so you can do the other methods for <code>Canine</code> and <code>Feline</code> classes yourself:</p>
+</span></span></code></pre></div><p>We named it <code>reversor</code>, and gave it an argument called <code>inpt</code> (name it as you like within limits); then, since we want the input to this function to be reversed. We use Ruby&rsquo;s in-built <code>.reverse</code> method. We close off the function with the <code>end</code> and there you have it.</p>
+<p>By the way, Ruby functions (and methods) are written in small letters or snake_case if needed, and they work just like functions in Python or any other mainstream Algol bastard. Also, to reiterate, classes are created with the <code>class</code> keyword, but methods and functions are created with the <code>def</code> keyword. Since, in Ruby, everything is an object, so every function is actually a method. More on this later.</p>
+<p>Now, our first task is to place an <code>isMammal</code> function inside the <code>Animal</code> class. The function (or method) should then output a Boolean <code>true</code> when it is called. I will do this one for you, so you can add the other methods for <code>Canine</code> and <code>Feline</code> classes yourself:</p>
 
     <img src="https://dersavage.github.io/main/img/animal.gif"  alt="animal"  class="center"  style="border-radius: 8px;"  />
 
@@ -239,11 +243,89 @@ So first the <code>Animal</code> class is created, which has its own data: in ou
 </span></span><span style="display:flex;"><span>  <span style="color:#0ff;font-weight:bold">&#34;Hi, </span><span style="color:#0ff;font-weight:bold">#{</span><span style="color:#fff;font-weight:bold">name</span><span style="color:#0ff;font-weight:bold">}</span><span style="color:#0ff;font-weight:bold">&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span>
 </span></span></code></pre></div><p>are the same and output the same thing. By the way, if you have noticed, we just used <em>string interpolation</em>, which is using pre-defined variables within our string for a combined output. Unlike string interpolation in Python, Ruby&rsquo;s is elegant and very easy on the eyes. (So is Kotlin&rsquo;s).</p>
-<p>If you have installed irb, you will also see how irb suggests which methods go with with object. Once I type a part of the name of the object, auto-complete can be possible by pressing the <em>tab</em> key on the keyboard. Then, typing a <code>.</code> after the object name presents a list ofall possible methods that can be called on this object.</p>
+<p>If you have installed irb, you will also see how irb suggests which methods go with with object. Once I type a part of the name of the object, auto-complete is done by pressing the <em>tab</em> key on the keyboard. Then, typing a <code>.</code> after the object name presents a list of all possible methods that can be called on this object.</p>
 <p>Now go ahead and add the methods we just mentioned to Canine and Feline classes and call them, to ensure they work. Next, create a subclass that inherits from the <code>Animal</code> class and run the <code>isMammal</code> method on it to see if it works (whether the new object of the subclass is also a mammal?).</p>
+<p>Alright, we have seen a general overview, but we need to dig deeper.</p>
+<p>That is, you recognize the need for objects because the world is also made up objects. Problems from the real world can be mapped to solutions are written in computer language&ndash;in programming objects. What is not immediately clear is that the real world is not only made up of objects.</p>
+<p>In other words, although objects are there, they are groupable according to a certain class or category. Why is there a need for this in the real world? Consider the following statement:</p>
+<pre tabindex="0"><code>Not a living thing could be found in that city.
+</code></pre><p>We have used a class here, the class of <em>all</em> living beings, which includes animals, humans, trees, <em>et cetera</em>. We saved much time and got our point across, prevented misunderstandings, and so forth. In programming, the same is true: we use classes so that we don&rsquo;t have to repeat ourselves, avoid confusion and mess, and organize our program accoding to the logic of the solution it provides.</p>
+<p>Functions do the same thing, but at a slightly lower level. That is why we can define functions within classes. So a function is an abstraction but a class is an abstraction over functions.</p>
+<p>We will briefly pause our class and object discussion so that we can focus on some other details; after we cover these details, we will combine them with our knowledge classes and objects.</p>
+<p>Earlier in the introduction we mentioned that basic familiarity with programming is assumed. This is hard to evaluate, so I will err on the side of caution and provide a gentler lesson than otherwise. Thus, before going into the next section, let&rsquo;s say you have a program that accepts or requires an input from the user; the user is prompted to enter a number within some range. Then, the function displays a list of all multiples of this number.</p>
+<p>Use your favourite language or any language you have learned before to write this, first, so that we can see its Ruby version. If you are rusty, I will list the program below (in Python because it is rather intuitive) but only as a screencast animation so that you can see it in action, and but also, to ensure that you use your own memory to write it (and not peek):</p>
+
+    <img src="https://dersavage.github.io/main/img/multiples_py.gif"  alt="multiples_py"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>To refresh your memory, we create an empty list called multips. Then we define a function called <code>multipper</code> and assign a parameter to it; the parameter&rsquo;s then requests user for input in the range 1 to 20, and converts the input into an Int. After that, it runs a for loop in the range 1 to 20, and if the iterator variable <code>num</code> is divisible over the input <code>n</code>, then it appends the result of the loop into the empty list <code>multips</code>, and then prints the list.</p>
+<p>Based on the requirement listed for this book, I expect you to be able to do this on your own, but I have included this bit only just in case, since there is much variability in the definition of an &ldquo;advanced beginner&rdquo;. In order to assertain whether you are truly an advanced beginner, take a good look at the above Python animation and see if you can find something odd?</p>
+<p>If not, here is a hint: why is the <code>multips</code> list defined outside the function? If you cannot answer that, head back to your programming 101 text, or google the concepts of local and global scope. (By the way, the <code>multips</code> empty list can also be written in the body of the <code>multipper</code> function and the outcome will still be the same.).</p>
+<p>Finally, variables should be locally scoped as much as possible. We will come to why and how of this point later on in our jorney. Now, we since we have already seen functions are defined in Ruby, let&rsquo;s see how to do a for loop, a mod, a list append, and a range in Ruby.</p>
+<p>I will list each process separately, and then require you to put them together so that you create a Ruby version of the <code>multipper</code> function. Let&rsquo;s start with the Python <code>input(n)</code> in-built function&rsquo;s equivalent. In Ruby, we have <code>gets</code>. Observe the following animation so that my explanation makes sense:</p>
+
+    <img src="https://dersavage.github.io/main/img/gets.gif"  alt="gets"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Look for the following in the above animation:</p>
+<ul>
+<li>
+<p>gets stands for <em>get string</em> by default. So whatever you supply after the <code>gets</code> command, is automatically converted to a string.</p>
+</li>
+<li>
+<p>if we add the <code>.to_i</code> method to the <code>gets</code> object, we convert the input we typed to an integer.</p>
+</li>
+<li>
+<p>in its original form, <code>gets</code> adds a newline to whatever we enter. We can remove that by prepending the <code>.chomp</code> method to it.</p>
+</li>
+<li>
+<p>the order of the chained methods matters. Wrong order leads to error.</p>
+</li>
+</ul>
+<p>Quick: does <code>gets.to_i</code> need a .<code>chomp</code>?</p>
+<p>After that, let&rsquo;s see a loop and a range in action:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> (<span style="color:#ff0;font-weight:bold">1</span>..<span style="color:#ff0;font-weight:bold">60</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">p</span> i 
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span> 
+</span></span></code></pre></div><p>This program will print all the numbers from 1 to 60. Great. And finally, how to append elements to a list:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>some_list = []
+</span></span><span style="display:flex;"><span>some_list.push(<span style="color:#ff0;font-weight:bold">123</span>)
+</span></span></code></pre></div><p>Now our <code>some_list</code> looks like this: <code>[123]</code>. Bear in mind, also, that in Ruby, a list is called an array. Here is a more involved example:</p>
+
+    <img src="https://dersavage.github.io/main/img/loopfor.gif"  alt="loopfor"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Here&rsquo;s what we did, in case you need it: we created an array of two integer elements, added three more integers into it, then ran a for loop on it that doubled each of those elements.<br>
+Now, you are ready to reproduce the <code>multipper</code> function I gave you in Python. Work on it and come back to see if your result matches our solution. For reference, here is the Python version once again:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">def</span> multipper():
+</span></span><span style="display:flex;"><span>    multips = []
+</span></span><span style="display:flex;"><span>    n = <span style="color:#fff;font-weight:bold">int</span>(<span style="color:#fff;font-weight:bold">input</span>(<span style="color:#0ff;font-weight:bold">&#34;Enter any num less than 20 &#34;</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> num in <span style="color:#fff;font-weight:bold">range</span>(<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">20</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">if</span> num % n == <span style="color:#ff0;font-weight:bold">0</span>:
+</span></span><span style="display:flex;"><span>            multips.append(num)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">print</span>(multips)
+</span></span></code></pre></div><p>Additionally, here is an important tip: in Rubny, we use <code>end</code> to clarify what starts and what ends, and as you can see, Python has none of this. This can frequently cause problems and especially when your code is long and complex. Like Julia, Ruby prevents this. To help you, add an <code>end</code> to your <code>if</code> conditional, then close your <code>for</code> loop with an <code>end</code>, and then request a <code>print</code>; use the final <code>end</code> to close the function.</p>
+<p>Here is our version:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">def</span> multipper() 
+</span></span><span style="display:flex;"><span>    multips = []
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">print</span> <span style="color:#0ff;font-weight:bold">&#34;Enter any num less than 20 &#34;</span>
+</span></span><span style="display:flex;"><span>    n = <span style="color:#fff;font-weight:bold">gets</span>.chomp.to_i
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> num <span style="color:#fff;font-weight:bold">in</span> (<span style="color:#ff0;font-weight:bold">1</span>..<span style="color:#ff0;font-weight:bold">19</span>) 
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">if</span> num % n == <span style="color:#ff0;font-weight:bold">0</span> 
+</span></span><span style="display:flex;"><span>            multips.push(num)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">p</span>(multips)
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span>
+</span></span></code></pre></div><p>The program works and here is a demonstration:</p>
+
+    <img src="https://dersavage.github.io/main/img/multipruby.gif"  alt="multipruby"  class="center"  style="border-radius: 8px;"  />
+
+
 <hr>
-<p>More coming soon.</p>
-<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div>
+<p>This is a work in progress as of this moment. More material will be added soon.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"></code></pre></div>
             </div>
         </article>
 
