@@ -25,8 +25,10 @@
       <guid>https://dersavage.github.io/main/good_ruby/</guid>
       <description>Chapter 0: Ruby Shines ﷽
 Introduction
-This is the second book in the series of programming books authored by me, Jan Savage. This book teaches both intermediate programming and intermediate Ruby: no ruby background is assumed, though.
-A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&amp;rsquo;s Learn to Program because it uses Ruby), or learned some programming here and there&amp;ndash;Youtube?&amp;ndash;but now wants to consolidate their gains and go to the next level.</description>
+This book teaches both intermediate programming and intermediate Ruby: no ruby background is assumed, though.
+A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&amp;rsquo;s Learn to Program because it uses Ruby), or learned some programming here and there&amp;ndash;Youtube?&amp;ndash;but now wants to consolidate their gains and go to the next level.
+Pedagogical model
+Or how I teach. Please the introduction in my other book, to Julia, for a deeper discussion.</description>
     </item>
     
     <item>
@@ -37,8 +39,7 @@ A typical learner would be someone who has finished programming 101 in any langu
       <guid>https://dersavage.github.io/main/hello_julia/</guid>
       <description>Chapter 0: The Elegant Julia ﷽
 Introduction
-This is the chapter zero of my upcoming programming in Julia textbook. The digital-only book assumes no pre-requisites, but moves at a rather fast pace (no fluff, no stories about author), all the while avoiding any irrational jumps, the confusing jargon overload, or the boring handwaving so typical in many programming books.
-If you already have basic programming experience and want to go to the next level, please proceed to Ruby where the lessons are start at the advanced beginner and go all the way to the intermediate level.</description>
+This is the chapter zero of my upcoming programming in Julia textbook. The digital-only book assumes no pre-requisites, but moves at a rather fast pace (no fluff, no stories or random opinions about author, no discussion of how computers work or any historical references), all the while avoiding any irrational jumps, the confusing jargon overload, the incomplete information, the flawed pedagogy, or the boring handwaving so typical in so (unfortunately) many programming books.</description>
     </item>
     
     <item>
