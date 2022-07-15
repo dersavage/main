@@ -7,14 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 23 May 2022 08:28:02 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Jun 2022 08:28:02 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hi</title>
-      <link>https://dersavage.github.io/main/posts/2022/05/hi/</link>
-      <pubDate>Mon, 23 May 2022 08:28:02 +0800</pubDate>
+      <title>BR: Darker than Amber</title>
+      <link>https://dersavage.github.io/main/posts/2022/06/br-darker-than-amber/</link>
+      <pubDate>Thu, 23 Jun 2022 08:28:02 +0800</pubDate>
       
-      <guid>https://dersavage.github.io/main/posts/2022/05/hi/</guid>
-      <description>This is the first post. More coming soon&amp;hellip;.</description>
+      <guid>https://dersavage.github.io/main/posts/2022/06/br-darker-than-amber/</guid>
+      <description>Darker than Amber John Macdonald Don&amp;rsquo;t know what the fuss is all about. I read the reviews which were glowing, but the book didn&amp;rsquo;t deliver on those reviews.
+The problem is that MacDonald is confused. He mixes his own conflated view of morality in the context of a poorly-constructed detective story, and the outcome is mangled mess of opinion and long, boring descriptions of rooms and furniture, with a few sleaze quirks thrown here and there.</description>
     </item>
     
     <item>
@@ -23,8 +24,7 @@
       <pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dersavage.github.io/main/good_ruby/</guid>
-      <description>Chapter 0: Ruby Shines ﷽
-Introduction
+      <description>Chapter 0: Ruby Shines Introduction
 This book teaches both intermediate programming and intermediate Ruby: no ruby background is assumed, though.
 A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&amp;rsquo;s Learn to Program because it uses Ruby), or learned some programming here and there&amp;ndash;Youtube?&amp;ndash;but now wants to consolidate their gains and go to the next level.
 Pedagogical model
@@ -37,8 +37,7 @@ Or how I teach. Please the introduction in my other book, to Julia, for a deeper
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dersavage.github.io/main/hello_julia/</guid>
-      <description>Chapter 0: The Elegant Julia ﷽
-Introduction
+      <description>Chapter 0: The Elegant Julia Introduction
 This is the chapter zero of my upcoming programming in Julia textbook. The digital-only book assumes no pre-requisites, but moves at a rather fast pace (no fluff, no stories or random opinions about author, no discussion of how computers work or any historical references), all the while avoiding any irrational jumps, the confusing jargon overload, the incomplete information, the flawed pedagogy, or the boring handwaving so typical in so (unfortunately) many programming books.</description>
     </item>
     
@@ -48,8 +47,7 @@ This is the chapter zero of my upcoming programming in Julia textbook. The digit
       <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dersavage.github.io/main/about/</guid>
-      <description>﷽
-Beyond childhood, youth, and the associated tribulations, I divide my life so far into three periods. The golden period, the dreamy period, and the period of reality.
+      <description>Beyond childhood, youth, and the associated tribulations, I divide my life so far into three periods. The golden period, the dreamy period, and the period of reality.
 In the golden period, which lasted nearly 15 years, I was a professor of mathematics, social and natural sciences at several universities in East Asia.
 In the dreamy period, I stopped teaching and entered the land of programming. The teacher and the programmer are still a part of me, even though I have entered the stage of reality.</description>
     </item>
