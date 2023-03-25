@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 29 Jan 2023 13:12:52 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Mar 2023 08:23:18 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LR: Why Lisp is horrible</title>
+      <link>https://dersavage.github.io/main/posts/2023/03/lr-why-lisp-is-horrible/</link>
+      <pubDate>Tue, 21 Mar 2023 08:23:18 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/posts/2023/03/lr-why-lisp-is-horrible/</guid>
+      <description>This is a first post in LR category&amp;ndash;Language Review&amp;ndash;where I will factually opine on various programming languages. And today&amp;rsquo;s victim is Lisp.
+Or first, let me say the emperor has no clothes, or Scheme is an awful language.
+I mean, not only it is an awful first language to teach beginners, or to self-learn on your own, but also in general, as a programming language in 2023, it is not as great as it&amp;rsquo;s cracked up to be.</description>
+    </item>
+    
     <item>
       <title>CR: Truly Object-oriented in &#39;Twin Peaks&#39;</title>
       <link>https://dersavage.github.io/main/posts/2023/01/cr-truly-object-oriented-in-twin-peaks/</link>
