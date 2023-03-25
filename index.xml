@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 21 Mar 2023 08:23:18 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Mar 2023 06:33:47 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SR: Psychological Game Theory in Hustle (UK)</title>
+      <link>https://dersavage.github.io/main/posts/2023/03/sr-psychological-game-theory-in-hustle-uk/</link>
+      <pubDate>Sun, 26 Mar 2023 06:33:47 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/posts/2023/03/sr-psychological-game-theory-in-hustle-uk/</guid>
+      <description>This post is a first Tv Serial review, the first being Season 1 of Hustle, a UK TV series from 2004.
+As far as I know, this serial is the only one I have seen in a long time where the actors make direct eye-contact with the viewers&amp;ndash;as if to let us in on the con they are playing.
+The team is a pot-pourri crew of friends from some &amp;lsquo;olden days&amp;rsquo;, each of whom possesses a unique con talent: they&amp;rsquo;re like objects in programming; each object capable of their own behaviours and possessing unique data (attributes).</description>
+    </item>
+    
     <item>
       <title>LR: Why Lisp is horrible</title>
       <link>https://dersavage.github.io/main/posts/2023/03/lr-why-lisp-is-horrible/</link>
@@ -104,17 +115,6 @@ Or how I teach. Please the introduction in my other book, to Julia, for a deeper
       <guid>https://dersavage.github.io/main/hello_julia/</guid>
       <description>Chapter 0: The Elegant Julia Introduction
 This is the chapter zero of my upcoming programming in Julia textbook. The digital-only book assumes no pre-requisites, but moves at a rather fast pace (no fluff, no stories or random opinions about author, no discussion of how computers work or any historical references), all the while avoiding any irrational jumps, the confusing jargon overload, the incomplete information, the flawed pedagogy, or the boring handwaving so typical in so (unfortunately) many programming books.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://dersavage.github.io/main/about/</link>
-      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://dersavage.github.io/main/about/</guid>
-      <description>Beyond childhood, youth, and the associated tribulations, I divide my life so far into three periods. The golden period, the dreamy period, and the period of reality.
-In the golden period, which lasted nearly 15 years, I was a professor of mathematics, social and natural sciences at several universities in East Asia.
-In the dreamy period, I stopped teaching and entered the land of programming. The teacher and the programmer are still a part of me, even though I have entered the stage of reality.</description>
     </item>
     
   </channel>
