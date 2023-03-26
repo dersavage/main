@@ -24,11 +24,29 @@ The team is a pot-pourri crew of friends from some &amp;lsquo;olden days&amp;rsq
 <p>What I like about this series is that if my memory serves me right, there is no dirty language in the dialogues, which again, makes it a unique serial as, most serials of this decade are hardly watchable due to the bad language etc.</p>
 <p>The casting is brilliant: each actor looks positive, energetic, confidence-inspiring, quirky in a good way, and pleasant and unique. Now that I think of it, I have not seen such positivity-oozing actors in almost any TV series either from UK, USA and Germany.</p>
 <p>There is clever humor involved, and the main draw for me is the skillful incorporation of psycological game theory:</p>
-<pre><code>The mathematical framework of psychological game theory is useful for describing many forms of motivation where preferences depend directly on one's own or others' beliefs. It allows for incorporating, for example, emotions, reciprocity, image concerns, and self-esteem in economic analysis. 
-                    (Battigalli et al., 2022)
+<pre><code>The mathematical framework of psychological game   
+
+theory is useful for describing many forms of   
+
+motivation where preferences depend directly on one's    
+
+own or others' beliefs. It allows for incorporating, 
+
+for example, emotions, reciprocity, image concerns,   
+
+and self-esteem in economic analysis.      
+                    
+                    (Battigalli et al., 2022)    
 </code></pre>
 <p>Other than this, it is a Robin Hood story with a twist: the crew finds greedy &lsquo;suckers&rsquo; who deserve to be robbed. They never rob innocent people. The idea of just thieves is quite thought-provoking, as it makes one think the reasons behind the motivations of such a crew. Is it perhaps an subtle indictment of economic inequality and modern-day feudalism?</p>
 <p>Highly recommended: 10/10.</p>
+<hr>
+<p>Recommended reading on game theory</p>
+<p>Battigalli, Pierpaolo, &amp; Martin Dufwenberg. (2022). &ldquo;Belief-Dependent Motivations and Psychological Game Theory.&rdquo; Journal of Economic Literature, 60 (3): 833-82.</p>
+<p>Binmore, K. G. (2007). Does Game Theory Work?: the Bargaining Challenge. Cambridge, Mass: MIT Press.</p>
+<p>Gintis, H. (2009). The Bounds of Reason: Game Theory and the Unification of the Behavioral Sciences (REV-Revised). Princeton University Press. <a href="http://www.jstor.org/stable/j">http://www.jstor.org/stable/j</a>.  ctt13x0svm</p>
+<p>Chwe, M. S.-Y. (2013). Jane Austen, Game Theorist (REV-Revised). Princeton University Press. <a href="http://www.jstor.org/stable/j.ctt13x0v4q">http://www.jstor.org/stable/j.ctt13x0v4q</a></p>
+<p>Straffin, P. D. (1993). Game Theory and Strategy (1st ed., Vol. 36). Mathematical Association of America. <a href="http://www.jstor.org/stable/10.4169/j.ctt19b9kx1">http://www.jstor.org/stable/10.4169/j.ctt19b9kx1</a></p>
 ]]></content>
         </item>
         
@@ -53,7 +71,8 @@ I mean, not only it is an awful first language to teach beginners, or to self-le
 </span></span><span style="display:flex;"><span>      (<span style="color:#fff;font-weight:bold">+ </span>(<span style="color:#fff;font-weight:bold">car </span>xs) (sum cdr xs)))))
 </span></span></code></pre></div><p>Phew!</p>
 <p>All that ceremony to just do this:</p>
-<pre tabindex="0"><code>sum [] = 0 
+<p>(At the top right corner of this page, switch to dark mode in order to see the code-snippets more clearly.)</p>
+<pre tabindex="0"><code class="language-Miranda" data-lang="Miranda">sum [] = 0 
 sum (x:xs) = x + sum xs
 </code></pre><p>Wasn&rsquo;t that much better?</p>
 <p>And:</p>
