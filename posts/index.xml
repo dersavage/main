@@ -24,21 +24,16 @@ The team is a pot-pourri crew of friends from some &amp;lsquo;olden days&amp;rsq
 <p>What I like about this series is that if my memory serves me right, there is no dirty language in the dialogues, which again, makes it a unique serial as, most serials of this decade are hardly watchable due to the bad language etc.</p>
 <p>The casting is brilliant: each actor looks positive, energetic, confidence-inspiring, quirky in a good way, and pleasant and unique. Now that I think of it, I have not seen such positivity-oozing actors in almost any TV series either from UK, USA and Germany.</p>
 <p>There is clever humor involved, and the main draw for me is the skillful incorporation of psycological game theory:</p>
-<pre><code>The mathematical framework of psychological game   
-
-theory is useful for describing many forms of   
-
-motivation where preferences depend directly on one's    
-
-own or others' beliefs. It allows for incorporating, 
-
-for example, emotions, reciprocity, image concerns,   
-
-and self-esteem in economic analysis.      
-                    
-                    (Battigalli et al., 2022)    
-</code></pre>
-<p>Other than this, it is a Robin Hood story with a twist: the crew finds greedy &lsquo;suckers&rsquo; who deserve to be robbed. They never rob innocent people. The idea of just thieves is quite thought-provoking, as it makes one think the reasons behind the motivations of such a crew. Is it perhaps an subtle indictment of economic inequality and modern-day feudalism?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The mathematical framework of psychological game theory  
+</span></span><span style="display:flex;"><span>is useful for describing many forms of motivation   
+</span></span><span style="display:flex;"><span>where preferences depend directly on one&#39;s own or   
+</span></span><span style="display:flex;"><span>others&#39;beliefs. It allows for incorporating,   
+</span></span><span style="display:flex;"><span>for example, emotions, reciprocity, image concerns,  
+</span></span><span style="display:flex;"><span>and self-esteem in economic analysis.       
+</span></span><span style="display:flex;"><span>                        
+</span></span><span style="display:flex;"><span>                        (Battigalli et al., 2022) 
+</span></span></code></pre></div><p>Other than this, it is a Robin Hood story with a twist: the crew finds greedy &lsquo;suckers&rsquo; who deserve to be robbed. They never rob innocent people. The idea of just thieves is quite thought-provoking, as it makes one think the reasons behind the motivations of such a crew. Is it perhaps an subtle indictment of economic inequality and modern-day feudalism?</p>
 <p>Highly recommended: 10/10.</p>
 <hr>
 <p>Recommended reading on game theory</p>
@@ -65,96 +60,96 @@ I mean, not only it is an awful first language to teach beginners, or to self-le
 <p>And that angle is the simple and useful and elegant aspects of readability and features. Programs are meant to be read more often than written, and as a programmer, I like to visually &ldquo;see&rdquo; my program in a way that matches how my brain &ldquo;sees&rdquo; the abstractness of the program. In other words, a programming language I will use to learn something should match how my brain works, rather than to force my brain to become like that language. Additionally, I would want my language to have all the standard features I need, right out of the box.</p>
 <p>Whether a language become popular in the industry is directly based on this, in my opinion.</p>
 <p>In this post I will only mention my first beef (regarding visual appeal and readability and conciseness) with Lisps including Scheme. Interestingly, my beef is not a mere rant as it is backed by a heavyweight like Wadler (Wadler, 1987) where he uses a simple example to deride Lisp&rsquo;s visual appeal:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Scheme" data-lang="Scheme"><span style="display:flex;"><span>(<span style="color:#fff;font-weight:bold">define </span>(sum xs)
-</span></span><span style="display:flex;"><span>  (<span style="color:#fff;font-weight:bold">if </span>null? xs)
-</span></span><span style="display:flex;"><span>    <span style="color:#ff0;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#fff;font-weight:bold">+ </span>(<span style="color:#fff;font-weight:bold">car </span>xs) (sum cdr xs)))))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sum</span> xs)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>null? xs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      (+ (car xs) (<span style="color:#a6e22e">sum</span> cdr xs)))))
 </span></span></code></pre></div><p>Phew!</p>
 <p>All that ceremony to just do this:</p>
 <p>(At the top right corner of this page, switch to dark mode in order to see the code-snippets more clearly.)</p>
-<pre tabindex="0"><code class="language-Miranda" data-lang="Miranda">sum [] = 0 
+<pre tabindex="0"><code class="language-miranda" data-lang="miranda">sum [] = 0 
 sum (x:xs) = x + sum xs
 </code></pre><p>Wasn&rsquo;t that much better?</p>
 <p>And:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Haskell" data-lang="Haskell"><span style="display:flex;"><span>som <span style="color:#fff;font-weight:bold">[]</span> = <span style="color:#ff0;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>som (x<span style="color:#fff;font-weight:bold">:</span>xs) = x + som xs
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">som</span> <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">som</span> (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> som xs
 </span></span></code></pre></div><p>Renaming <code>sum</code> to <code>som</code> here to avoid conflict with a Haskell primitive named <code>sum</code> (<em>Newbie tip</em>: that is, Haskell already has a built-in function of this name.).</p>
 <p>Exactly the same, right?</p>
 <p>To fully illustrate the problem, let&rsquo;s write a larger program to demonstrate how quickly you will get lost in the parenthetical jungle. We write a function that counts how many days have passed from a given date. If you don&rsquo;t know Lisp, look at the other solutions below first, before coming back to the Lisp one. Look at this mess (and this is as compact as it can be written):</p>
-<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Scheme" data-lang="Scheme"><span style="display:flex;"><span>(<span style="color:#fff;font-weight:bold">define </span>(leap-year? year)
-</span></span><span style="display:flex;"><span>  (<span style="color:#fff;font-weight:bold">if </span>(<span style="color:#fff;font-weight:bold">or </span>(<span style="color:#fff;font-weight:bold">not </span>(<span style="color:#fff;font-weight:bold">zero? </span>(<span style="color:#fff;font-weight:bold">remainder </span>year <span style="color:#ff0;font-weight:bold">4</span>)))
-</span></span><span style="display:flex;"><span>          (<span style="color:#fff;font-weight:bold">and </span>(<span style="color:#fff;font-weight:bold">zero? </span>(<span style="color:#fff;font-weight:bold">remainder </span>year <span style="color:#ff0;font-weight:bold">100</span>))
-</span></span><span style="display:flex;"><span>               (<span style="color:#fff;font-weight:bold">not </span>(<span style="color:#fff;font-weight:bold">zero? </span>(<span style="color:#fff;font-weight:bold">remainder </span>year <span style="color:#ff0;font-weight:bold">400</span>)))))
-</span></span><span style="display:flex;"><span>      #f
-</span></span><span style="display:flex;"><span>      #t))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">leap-year?</span> year)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>(<span style="color:#66d9ef">or </span>(not (zero? (remainder year <span style="color:#ae81ff">4</span>)))
+</span></span><span style="display:flex;"><span>          (<span style="color:#66d9ef">and </span>(zero? (remainder year <span style="color:#ae81ff">100</span>))
+</span></span><span style="display:flex;"><span>               (not (zero? (remainder year <span style="color:#ae81ff">400</span>)))))
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">#f</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">#t</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#fff;font-weight:bold">define </span>(days-since year month day)
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">days-since</span> year month day)
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  (<span style="color:#fff;font-weight:bold">define </span>month-days (<span style="color:#fff;font-weight:bold">list </span><span style="color:#ff0;font-weight:bold">31</span> <span style="color:#ff0;font-weight:bold">28</span> <span style="color:#ff0;font-weight:bold">31</span> <span style="color:#ff0;font-weight:bold">30</span> <span style="color:#ff0;font-weight:bold">31</span> <span style="color:#ff0;font-weight:bold">30</span> <span style="color:#ff0;font-weight:bold">31</span> <span style="color:#ff0;font-weight:bold">31</span> <span style="color:#ff0;font-weight:bold">30</span> <span style="color:#ff0;font-weight:bold">31</span> <span style="color:#ff0;font-weight:bold">30</span> <span style="color:#ff0;font-weight:bold">31</span>))
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">define </span>month-days (list <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">28</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">30</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">30</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">30</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">30</span> <span style="color:#ae81ff">31</span>))
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  (<span style="color:#fff;font-weight:bold">let </span>((total-days (<span style="color:#fff;font-weight:bold">* </span>(<span style="color:#ff0;font-weight:bold">1</span>- year) <span style="color:#ff0;font-weight:bold">365</span>)))
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">let </span>((<span style="color:#a6e22e">total-days</span> (* (<span style="color:#ae81ff">1</span>- year) <span style="color:#ae81ff">365</span>)))
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    (<span style="color:#fff;font-weight:bold">set! </span>total-days (<span style="color:#fff;font-weight:bold">+ </span>total-days (<span style="color:#fff;font-weight:bold">quotient </span>(<span style="color:#ff0;font-weight:bold">1</span>- year) <span style="color:#ff0;font-weight:bold">4</span>)))
-</span></span><span style="display:flex;"><span>    (<span style="color:#fff;font-weight:bold">set! </span>total-days (<span style="color:#fff;font-weight:bold">- </span>total-days (<span style="color:#fff;font-weight:bold">quotient </span>(<span style="color:#ff0;font-weight:bold">1</span>- year) <span style="color:#ff0;font-weight:bold">100</span>)))
-</span></span><span style="display:flex;"><span>    (<span style="color:#fff;font-weight:bold">set! </span>total-days (<span style="color:#fff;font-weight:bold">+ </span>total-days (<span style="color:#fff;font-weight:bold">quotient </span>(<span style="color:#ff0;font-weight:bold">1</span>- year) <span style="color:#ff0;font-weight:bold">400</span>)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">set! </span>total-days (+ total-days (quotient (<span style="color:#ae81ff">1</span>- year) <span style="color:#ae81ff">4</span>)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">set! </span>total-days (- total-days (quotient (<span style="color:#ae81ff">1</span>- year) <span style="color:#ae81ff">100</span>)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">set! </span>total-days (+ total-days (quotient (<span style="color:#ae81ff">1</span>- year) <span style="color:#ae81ff">400</span>)))
 </span></span><span style="display:flex;"><span>   
-</span></span><span style="display:flex;"><span>    (<span style="color:#fff;font-weight:bold">do </span>((i <span style="color:#ff0;font-weight:bold">0</span> (add1 i)))
-</span></span><span style="display:flex;"><span>        ((<span style="color:#fff;font-weight:bold">= </span>i (<span style="color:#ff0;font-weight:bold">1</span>- month)) total-days)
-</span></span><span style="display:flex;"><span>      (<span style="color:#fff;font-weight:bold">set! </span>total-days (<span style="color:#fff;font-weight:bold">+ </span>total-days (<span style="color:#fff;font-weight:bold">list-ref </span>month-days i))))
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">do </span>((<span style="color:#a6e22e">i</span> <span style="color:#ae81ff">0</span> (<span style="color:#a6e22e">add1</span> i)))
+</span></span><span style="display:flex;"><span>        ((= i (<span style="color:#ae81ff">1</span>- month)) total-days)
+</span></span><span style="display:flex;"><span>      (<span style="color:#66d9ef">set! </span>total-days (+ total-days (list-ref month-days i))))
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    (<span style="color:#fff;font-weight:bold">if </span>(<span style="color:#fff;font-weight:bold">and </span>(leap-year? year) (<span style="color:#fff;font-weight:bold">&gt; </span>month <span style="color:#ff0;font-weight:bold">2</span>))
-</span></span><span style="display:flex;"><span>        (<span style="color:#fff;font-weight:bold">set! </span>total-days (add1 total-days)))
-</span></span><span style="display:flex;"><span>    (<span style="color:#fff;font-weight:bold">set! </span>total-days (<span style="color:#fff;font-weight:bold">+ </span>total-days day))
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">if </span>(<span style="color:#66d9ef">and </span>(<span style="color:#a6e22e">leap-year?</span> year) (&gt; month <span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>        (<span style="color:#66d9ef">set! </span>total-days (<span style="color:#a6e22e">add1</span> total-days)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">set! </span>total-days (+ total-days day))
 </span></span><span style="display:flex;"><span>    total-days))
 </span></span></code></pre></div><p>That&rsquo;s horrible. Imagine reading 20000 lines of this. No, thank you, but no means no.</p>
 <p>Let&rsquo;s see the same in the elegant language that I have grown to love. In Swift, it is simply a matter of:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> daysSince(year: <span style="color:#fff;font-weight:bold">Int</span>, month: <span style="color:#fff;font-weight:bold">Int</span>, day: <span style="color:#fff;font-weight:bold">Int</span>) -&gt; <span style="color:#fff;font-weight:bold">Int</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">daysSince</span>(year: Int, month: Int, day: Int) -&gt; Int {
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Array to store days in each month</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">let</span> monthDays = [<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">28</span>,<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">30</span>,<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">30</span>,<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">30</span>,<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">30</span>,<span style="color:#ff0;font-weight:bold">31</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Array to store days in each month</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> monthDays = [<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">28</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>]
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Calculate the total number of days in the years before the given year</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">var</span> totalDays = (year - <span style="color:#ff0;font-weight:bold">1</span>) * <span style="color:#ff0;font-weight:bold">365</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Calculate the total number of days in the years before the given year</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> totalDays = (year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">365</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Add one extra day for each leap year</span>
-</span></span><span style="display:flex;"><span>    totalDays += ((year - <span style="color:#ff0;font-weight:bold">1</span>) / <span style="color:#ff0;font-weight:bold">4</span>) - ((year - <span style="color:#ff0;font-weight:bold">1</span>) / <span style="color:#ff0;font-weight:bold">100</span>) + ((year - <span style="color:#ff0;font-weight:bold">1</span>) / <span style="color:#ff0;font-weight:bold">400</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add one extra day for each leap year</span>
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+=</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>) <span style="color:#f92672">-</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">400</span>)
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Calculate the total number of days in the given year</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">0.</span>.&lt;(month-<span style="color:#ff0;font-weight:bold">1</span>) {
-</span></span><span style="display:flex;"><span>        totalDays += monthDays[i]
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Calculate the total number of days in the given year</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0.</span>.<span style="color:#f92672">&lt;</span>(month<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> monthDays[i]
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Add one extra day if it&#39;s a leap year and we&#39;re past February</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">if</span> month &gt; <span style="color:#ff0;font-weight:bold">2</span> &amp;&amp; ((year % <span style="color:#ff0;font-weight:bold">4</span> == <span style="color:#ff0;font-weight:bold">0</span> &amp;&amp; year % <span style="color:#ff0;font-weight:bold">100</span> != <span style="color:#ff0;font-weight:bold">0</span>) || year % <span style="color:#ff0;font-weight:bold">400</span> == <span style="color:#ff0;font-weight:bold">0</span>) {
-</span></span><span style="display:flex;"><span>        totalDays += <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add one extra day if it&#39;s a leap year and we&#39;re past February</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> month <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> ((year <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span> == <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">||</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">400</span> == <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Add the number of days in the current month</span>
-</span></span><span style="display:flex;"><span>    totalDays += day
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add the number of days in the current month</span>
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+=</span> day
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">return</span> totalDays
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> totalDays
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The annotations make it wordy, but the program logic is visually appealing and clear even without comments (which were added for the benefit of newbies reading this blog). Here is the un-annotated version:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> daysSince(year: <span style="color:#fff;font-weight:bold">Int</span>, month: <span style="color:#fff;font-weight:bold">Int</span>, day: <span style="color:#fff;font-weight:bold">Int</span>) -&gt; <span style="color:#fff;font-weight:bold">Int</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">daysSince</span>(year: Int, month: Int, day: Int) -&gt; Int {
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">let</span> monthDays = [<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">28</span>,<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">30</span>,<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">30</span>,<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">30</span>,<span style="color:#ff0;font-weight:bold">31</span>,<span style="color:#ff0;font-weight:bold">30</span>,<span style="color:#ff0;font-weight:bold">31</span>]
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">var</span> totalDays = (year - <span style="color:#ff0;font-weight:bold">1</span>) * <span style="color:#ff0;font-weight:bold">365</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> monthDays = [<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">28</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> totalDays = (year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">365</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    totalDays += ((year - <span style="color:#ff0;font-weight:bold">1</span>) / <span style="color:#ff0;font-weight:bold">4</span>) - ((year - <span style="color:#ff0;font-weight:bold">1</span>) / <span style="color:#ff0;font-weight:bold">100</span>) + ((year - <span style="color:#ff0;font-weight:bold">1</span>) / <span style="color:#ff0;font-weight:bold">400</span>)
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+=</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>) <span style="color:#f92672">-</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">400</span>)
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">0.</span>.&lt;(month-<span style="color:#ff0;font-weight:bold">1</span>) {
-</span></span><span style="display:flex;"><span>        totalDays += monthDays[i]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0.</span>.<span style="color:#f92672">&lt;</span>(month<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> monthDays[i]
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">if</span> month &gt; <span style="color:#ff0;font-weight:bold">2</span> &amp;&amp; ((year % <span style="color:#ff0;font-weight:bold">4</span> == <span style="color:#ff0;font-weight:bold">0</span> &amp;&amp; year % <span style="color:#ff0;font-weight:bold">100</span> != <span style="color:#ff0;font-weight:bold">0</span>) || year % <span style="color:#ff0;font-weight:bold">400</span> == <span style="color:#ff0;font-weight:bold">0</span>) {
-</span></span><span style="display:flex;"><span>        totalDays += <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> month <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> ((year <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span> == <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">||</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">400</span> == <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    totalDays += day
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">return</span> totalDays
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+=</span> day
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> totalDays
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Actually, the clearest programming language is Hope, which is no longer alive, except it is, because Swift seems like modern Hope. Here is the same in Hope:</p>
-<pre tabindex="0"><code class="language-Hope" data-lang="Hope">
+<pre tabindex="0"><code class="language-hope" data-lang="hope">
 program DaysSince
 
 function days-since(year: int, month: int, day: int) -&gt; int
@@ -180,47 +175,47 @@ function days-since(year: int, month: int, day: int) -&gt; int
     return totalDays;
 end
 </code></pre><p>It&rsquo;s even clearer than Swift, but as it is a dead language, the second best choice is Swift. This is not to say Swift is the only coolest kid on the block. Let&rsquo;s look at a few more examples, this one in F#:</p>
-<pre tabindex="0"><code class="language-F#" data-lang="F#">
-let rec daysSince year month day =
-    
-    let monthDays = [|31; 28; 31; 30; 31; 30; 31; 31; 30; 31; 30; 31|]
-    
-    let isLeapYear year =
-        year % 4 = 0 &amp;&amp; (year % 100 &lt;&gt; 0 || year % 400 = 0)
-    
-    let numberOfLeapYears year =
-        year / 4 - year / 100 + year / 400
-    
-    let mutable totalDays = (year - 1) * 365 + numberOfLeapYears year
-    
-    for i in 0..month-2 do
-        totalDays &lt;- totalDays + monthDays.[i]
-    
-    if isLeapYear year &amp;&amp; month &gt; 2 then
-        totalDays &lt;- totalDays + 1
-    
-    totalDays + day
-</code></pre><p>Pretty neat, although somewhat clanky. Scala also claims to be highly readable:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Scala" data-lang="Scala"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">def</span> daysSince(year<span style="color:#fff;font-weight:bold">:</span> <span style="color:#fff;font-weight:bold">Int</span>, month<span style="color:#fff;font-weight:bold">:</span> <span style="color:#fff;font-weight:bold">Int</span>, day<span style="color:#fff;font-weight:bold">:</span> <span style="color:#fff;font-weight:bold">Int</span>)<span style="color:#fff;font-weight:bold">:</span> <span style="color:#fff;font-weight:bold">Int</span> = {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fsharp" data-lang="fsharp"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> rec daysSince year month day <span style="color:#f92672">=</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">val</span> monthDays <span style="color:#fff;font-weight:bold">=</span> Array(<span style="color:#ff0;font-weight:bold">31</span>, <span style="color:#ff0;font-weight:bold">28</span>, <span style="color:#ff0;font-weight:bold">31</span>, <span style="color:#ff0;font-weight:bold">30</span>, <span style="color:#ff0;font-weight:bold">31</span>, <span style="color:#ff0;font-weight:bold">30</span>, <span style="color:#ff0;font-weight:bold">31</span>, <span style="color:#ff0;font-weight:bold">31</span>, <span style="color:#ff0;font-weight:bold">30</span>, <span style="color:#ff0;font-weight:bold">31</span>, <span style="color:#ff0;font-weight:bold">30</span>, <span style="color:#ff0;font-weight:bold">31</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> monthDays <span style="color:#f92672">=</span> <span style="color:#f92672">[|</span><span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">28</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">|]</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">def</span> isLeapYear(year<span style="color:#fff;font-weight:bold">:</span> <span style="color:#fff;font-weight:bold">Int</span>)<span style="color:#fff;font-weight:bold">:</span> <span style="color:#fff;font-weight:bold">Boolean</span> =
-</span></span><span style="display:flex;"><span>        year % <span style="color:#ff0;font-weight:bold">4</span> == <span style="color:#ff0;font-weight:bold">0</span> &amp;&amp; (year % <span style="color:#ff0;font-weight:bold">100</span> != <span style="color:#ff0;font-weight:bold">0</span> || year % <span style="color:#ff0;font-weight:bold">400</span> == <span style="color:#ff0;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> isLeapYear year <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>        year <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>year <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">400</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">val</span> numberOfLeapYears <span style="color:#fff;font-weight:bold">=</span> year / <span style="color:#ff0;font-weight:bold">4</span> - year / <span style="color:#ff0;font-weight:bold">100</span> + year / <span style="color:#ff0;font-weight:bold">400</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> numberOfLeapYears year <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>        year <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">-</span> year <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">+</span> year <span style="color:#f92672">/</span> <span style="color:#ae81ff">400</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">var</span> totalDays <span style="color:#fff;font-weight:bold">=</span> (year - <span style="color:#ff0;font-weight:bold">1</span>) * <span style="color:#ff0;font-weight:bold">365</span> + numberOfLeapYears
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> mutable totalDays <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">365</span> <span style="color:#f92672">+</span> numberOfLeapYears year
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> (i <span style="color:#fff;font-weight:bold">&lt;-</span> <span style="color:#ff0;font-weight:bold">0</span> until month - <span style="color:#ff0;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span>        totalDays += monthDays(i)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">..</span>month<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">&lt;-</span> totalDays <span style="color:#f92672">+</span> monthDays<span style="color:#f92672">.[</span>i<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">if</span> (isLeapYear(year) &amp;&amp; month &gt; <span style="color:#ff0;font-weight:bold">2</span>)
-</span></span><span style="display:flex;"><span>        totalDays += <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> isLeapYear year <span style="color:#f92672">&amp;&amp;</span> month <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">&lt;-</span> totalDays <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    totalDays + day
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+</span> day
+</span></span></code></pre></div><p>Pretty neat, although somewhat clanky. Scala also claims to be highly readable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> daysSince<span style="color:#f92672">(</span>year<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">,</span> month<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">,</span> day<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> monthDays <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Array</span><span style="color:#f92672">(</span><span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">28</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> isLeapYear<span style="color:#f92672">(</span>year<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>        year <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>year <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">400</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> numberOfLeapYears <span style="color:#66d9ef">=</span> year <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">-</span> year <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">+</span> year <span style="color:#f92672">/</span> <span style="color:#ae81ff">400</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> totalDays <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">365</span> <span style="color:#f92672">+</span> numberOfLeapYears
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>i <span style="color:#66d9ef">&lt;-</span> <span style="color:#ae81ff">0</span> until month <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> monthDays<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>isLeapYear<span style="color:#f92672">(</span>year<span style="color:#f92672">)</span> <span style="color:#f92672">&amp;&amp;</span> month <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+</span> day
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>That&rsquo;s good enough for me, although I dislike its <code>for</code> loop.</p>
 <p>Anyway, give me Swift and Haskell any day, over any Lisp. Life is too short for parentheses hell.</p>
 ]]></content>
@@ -242,51 +237,51 @@ The purpose of this CR is to bring learners&amp;rsquo; attention to an interesti
 <p>Besides, you must also ensure the character can turn left or right according to specific conditions (such as when it is blocked, but not blocked on the left). The problem here is, if you devise a general rule for left or right turns, such a condition would also apply midway on peak steps, causing character to turn when he should be going straight to collect gems.</p>
 <p>That occurs because the platform has been raised enough to allow character to turn left or right into the peaks. A tentative solution might have been to instruct expert to change the platform level so that the character does not turn left or right when he should not, but this would make the code longer than it should be, and also would create its own new problems.</p>
 <p>Scrabtree&rsquo;s solution: (I have renamed character and expert as ch and ex respectively, to shorten the width):</p>
-<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> totalGems = RandomNumberofGems
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ex = Expert()
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ch = <span style="color:#fff;font-weight:bold">Character</span>()
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">var</span> gemCount = <span style="color:#ff0;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>world.place(ex, facing: north, atColumn:<span style="color:#ff0;font-weight:bold">0</span>, row:<span style="color:#ff0;font-weight:bold">3</span>)
-</span></span><span style="display:flex;"><span>world.place(ch, facing: north, atColumn:<span style="color:#ff0;font-weight:bold">4</span>, row:<span style="color:#ff0;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> rowRun() {
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">1.</span>..<span style="color:#ff0;font-weight:bold">6</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">if</span> ch.isOnGem {
-</span></span><span style="display:flex;"><span>            gemCount += <span style="color:#ff0;font-weight:bold">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> totalGems = RandomNumberofGems
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> ex = Expert()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> ch = Character()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> gemCount = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>world.place(ex, facing: north, atColumn:<span style="color:#ae81ff">0</span>, row:<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>world.place(ch, facing: north, atColumn:<span style="color:#ae81ff">4</span>, row:<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">rowRun</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1.</span>..<span style="color:#ae81ff">6</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ch.isOnGem {
+</span></span><span style="display:flex;"><span>            gemCount <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>            ch.collectGem()
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        ch.jump()
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> turnLock(up:<span style="color:#fff;font-weight:bold">Bool</span>, turns: <span style="color:#fff;font-weight:bold">Int</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">if</span> up == <span style="color:#fff;font-weight:bold">true</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">1.</span>..turns {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">turnLock</span>(up:Bool, turns: Int) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> up == <span style="color:#66d9ef">true</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1.</span>..turns {
 </span></span><span style="display:flex;"><span>            ex.turnLockUp()
 </span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    } <span style="color:#fff;font-weight:bold">else</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">1.</span>..turns {
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1.</span>..turns {
 </span></span><span style="display:flex;"><span>            ex.turnLockDown()
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    ex.turnRight()
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> leftFace() {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">leftFace</span>() {
 </span></span><span style="display:flex;"><span>    ch.turnLeft()
 </span></span><span style="display:flex;"><span>    ch.moveForward()
 </span></span><span style="display:flex;"><span>    ch.turnLeft()
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> rightFace() {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">rightFace</span>() {
 </span></span><span style="display:flex;"><span>    ch.turnRight()
 </span></span><span style="display:flex;"><span>    ch.moveForward()
 </span></span><span style="display:flex;"><span>    ch.turnRight()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>ex.moveForward()
 </span></span><span style="display:flex;"><span>rowRun()
-</span></span><span style="display:flex;"><span>turnLock(up:<span style="color:#fff;font-weight:bold">true</span>, turns:<span style="color:#ff0;font-weight:bold">3</span>)
+</span></span><span style="display:flex;"><span>turnLock(up:<span style="color:#66d9ef">true</span>, turns:<span style="color:#ae81ff">3</span>)
 </span></span><span style="display:flex;"><span>leftFace()
 </span></span><span style="display:flex;"><span>rowRun()
 </span></span><span style="display:flex;"><span>rightFace()
 </span></span><span style="display:flex;"><span>rowRun()
-</span></span><span style="display:flex;"><span>turnLock(up:<span style="color:#fff;font-weight:bold">false</span>, turns:<span style="color:#ff0;font-weight:bold">3</span>)
+</span></span><span style="display:flex;"><span>turnLock(up:<span style="color:#66d9ef">false</span>, turns:<span style="color:#ae81ff">3</span>)
 </span></span><span style="display:flex;"><span>rightFace()
 </span></span><span style="display:flex;"><span>rowRun()
 </span></span><span style="display:flex;"><span>leftFace()
@@ -296,32 +291,32 @@ The purpose of this CR is to bring learners&amp;rsquo; attention to an interesti
 
 
 <p>He cites Samantha&rsquo;s solution as better because it is 31 lines. Indeed, it is quite succinct:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> totalGems = RandomNumberofGems
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ex = Expert()
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ch = <span style="color:#fff;font-weight:bold">Character</span>()
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">var</span> gemCount = <span style="color:#ff0;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> moveLong() {
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">1.</span>..<span style="color:#ff0;font-weight:bold">6</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">if</span> ch.isOnGem {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> totalGems = RandomNumberofGems
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> ex = Expert()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> ch = Character()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> gemCount = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">moveLong</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1.</span>..<span style="color:#ae81ff">6</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ch.isOnGem {
 </span></span><span style="display:flex;"><span>            ch.collectGem()
-</span></span><span style="display:flex;"><span>            gemCount += <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            gemCount <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        ch.jump()
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> moveShort() {
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">1.</span>..<span style="color:#ff0;font-weight:bold">2</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">if</span> ch.isOnGem {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">moveShort</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1.</span>..<span style="color:#ae81ff">2</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ch.isOnGem {
 </span></span><span style="display:flex;"><span>            ch.collectGem()
-</span></span><span style="display:flex;"><span>            gemCount += <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            gemCount <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        ch.jump()
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>world.place (ex, facing: north, atColumn:<span style="color:#ff0;font-weight:bold">1</span>, row:<span style="color:#ff0;font-weight:bold">4</span>)
-</span></span><span style="display:flex;"><span>world.place (ch, facing: north, atColumn:<span style="color:#ff0;font-weight:bold">3</span>, row:<span style="color:#ff0;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>ex.turnLock(up:<span style="color:#fff;font-weight:bold">true</span>, numberOfTimes:<span style="color:#ff0;font-weight:bold">2</span>)
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">while</span> gemCount &lt; totalGems {
+</span></span><span style="display:flex;"><span>world.place (ex, facing: north, atColumn:<span style="color:#ae81ff">1</span>, row:<span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>world.place (ch, facing: north, atColumn:<span style="color:#ae81ff">3</span>, row:<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>ex.turnLock(up:<span style="color:#66d9ef">true</span>, numberOfTimes:<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> gemCount <span style="color:#f92672">&lt;</span> totalGems {
 </span></span><span style="display:flex;"><span>    moveLong()
 </span></span><span style="display:flex;"><span>    ch.turnRight()
 </span></span><span style="display:flex;"><span>    moveShort()
@@ -334,21 +329,21 @@ The purpose of this CR is to bring learners&amp;rsquo; attention to an interesti
 
 
 <p>First, I created three characters and named each ch, gh, and ph. Then I instructed them to do their job along their paths, but in order to circumvent the turn issue, I instructed ch, who was born on the platform to be the trigger. As soon as ch hits the edge block, it turns around, but so do the other two then. Because ch moves one step faster than the other two, sometimes this might cause a one-square lag in gh and ph, but eventually they catch up and turn, too. I ran the simulation 40 times and the solution worked each time:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> totalGems = RandomNumberofGems
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ch = <span style="color:#fff;font-weight:bold">Character</span>(), gh = <span style="color:#fff;font-weight:bold">Character</span>(), ph = <span style="color:#fff;font-weight:bold">Character</span>()
-</span></span><span style="display:flex;"><span>world.place(ch, facing: .north, atColumn: <span style="color:#ff0;font-weight:bold">3</span>, row: <span style="color:#ff0;font-weight:bold">0</span> )
-</span></span><span style="display:flex;"><span>world.place(gh, facing: .north, atColumn: <span style="color:#ff0;font-weight:bold">2</span>, row: <span style="color:#ff0;font-weight:bold">0</span> )
-</span></span><span style="display:flex;"><span>world.place(ph, facing: .north, atColumn: <span style="color:#ff0;font-weight:bold">4</span>, row: <span style="color:#ff0;font-weight:bold">0</span> )
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">var</span> gems = <span style="color:#ff0;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">while</span> gems &lt; totalGems{
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">if</span> ch.isOnGem || gh.isOnGem || ph.isOnGem {
-</span></span><span style="display:flex;"><span>        ch.collectGem() || gh.collectGem() || ph.collectGem()
-</span></span><span style="display:flex;"><span>                gems += <span style="color:#ff0;font-weight:bold">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> totalGems = RandomNumberofGems
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> ch = Character(), gh = Character(), ph = Character()
+</span></span><span style="display:flex;"><span>world.place(ch, facing: .north, atColumn: <span style="color:#ae81ff">3</span>, row: <span style="color:#ae81ff">0</span> )
+</span></span><span style="display:flex;"><span>world.place(gh, facing: .north, atColumn: <span style="color:#ae81ff">2</span>, row: <span style="color:#ae81ff">0</span> )
+</span></span><span style="display:flex;"><span>world.place(ph, facing: .north, atColumn: <span style="color:#ae81ff">4</span>, row: <span style="color:#ae81ff">0</span> )
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> gems = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> gems <span style="color:#f92672">&lt;</span> totalGems{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ch.isOnGem <span style="color:#f92672">||</span> gh.isOnGem <span style="color:#f92672">||</span> ph.isOnGem {
+</span></span><span style="display:flex;"><span>        ch.collectGem() <span style="color:#f92672">||</span> gh.collectGem() <span style="color:#f92672">||</span> ph.collectGem()
+</span></span><span style="display:flex;"><span>                gems <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    ch.moveForward()
 </span></span><span style="display:flex;"><span>    gh.jump()
 </span></span><span style="display:flex;"><span>    ph.jump()
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">if</span> ch.isBlocked{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ch.isBlocked{
 </span></span><span style="display:flex;"><span>        ch.turnLeft()
 </span></span><span style="display:flex;"><span>        ch.turnLeft()
 </span></span><span style="display:flex;"><span>        gh.turnLeft()
