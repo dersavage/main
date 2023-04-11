@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 21 Mar 2023 08:23:18 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Apr 2023 14:25:35 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Best Translation of the Noble Qur&#39;aan</title>
+      <link>https://dersavage.github.io/main/posts/2023/04/the-best-translation-of-the-noble-quraan/</link>
+      <pubDate>Sun, 09 Apr 2023 14:25:35 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/posts/2023/04/the-best-translation-of-the-noble-quraan/</guid>
+      <description>I learned Qur&amp;rsquo;aanic Arabic (as a foreign language&amp;ndash;at the local mosque) when I was eight years old. But then decades had to pass when, after learning a great deal of worldly things, I am now feeling ready to truly study our Noble Book, and while I am brushing up on my Arabic, in the meantime, I wanted to find an English translation that was not deviating from the original in any sense.</description>
+    </item>
+    
     <item>
       <title>LR: Why Lisp is horrible</title>
       <link>https://dersavage.github.io/main/posts/2023/03/lr-why-lisp-is-horrible/</link>
@@ -104,18 +113,6 @@ Or how I teach. Please the introduction in my other book, to Julia, for a deeper
       <guid>https://dersavage.github.io/main/hello_julia/</guid>
       <description>Chapter 0: The Elegant Julia Introduction
 This is the chapter zero of my upcoming programming in Julia textbook. The digital-only book assumes no pre-requisites, but moves at a rather fast pace (no fluff, no stories or random opinions about author, no discussion of how computers work or any historical references), all the while avoiding any irrational jumps, the confusing jargon overload, the incomplete information, the flawed pedagogy, or the boring handwaving so typical in so (unfortunately) many programming books.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://dersavage.github.io/main/about/</link>
-      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://dersavage.github.io/main/about/</guid>
-      <description>About (2023 version) This is my digital cave. Here, under posts, you will find:
-ES: Essay Posts labeled ES are essays that do not fall into the &amp;lsquo;review&amp;rsquo; type of writing.
-BR: Book reviews When I read a book, I will write a reaction essay either lambasting or praising it.
-LR: Language reviews Programmers are emotional creatures. We like some languages, others we don&amp;rsquo;t. Here I will compare languages and opinionate on how different languages impress (or depress) me.</description>
     </item>
     
   </channel>

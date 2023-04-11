@@ -6,8 +6,49 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 21 Mar 2023 08:23:18 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 09 Apr 2023 14:25:35 +0800</lastBuildDate>
         <atom:link href="https://dersavage.github.io/main/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>The Best Translation of the Noble Qur&#39;aan</title>
+            <link>https://dersavage.github.io/main/posts/2023/04/the-best-translation-of-the-noble-quraan/</link>
+            <pubDate>Sun, 09 Apr 2023 14:25:35 +0800</pubDate>
+            
+            <guid>https://dersavage.github.io/main/posts/2023/04/the-best-translation-of-the-noble-quraan/</guid>
+            <description>I learned Qur&amp;rsquo;aanic Arabic (as a foreign language&amp;ndash;at the local mosque) when I was eight years old. But then decades had to pass when, after learning a great deal of worldly things, I am now feeling ready to truly study our Noble Book, and while I am brushing up on my Arabic, in the meantime, I wanted to find an English translation that was not deviating from the original in any sense.</description>
+            <content type="html"><![CDATA[<p>I learned Qur&rsquo;aanic Arabic (as a foreign language&ndash;at the local mosque) when I was eight years old. But then decades had to pass when, after learning a great deal of worldly things, I am now feeling ready to truly study our Noble Book, and while I am brushing up on my Arabic, in the meantime, I wanted to find an English translation that was not deviating from the original in any sense.</p>
+<p>Unfortunately, although the intentions were all good, most of the translations I found were not acceptable enough for me. Some had added extra phrases which were not in the original or even implied in any way, others had written the English in such a style that did not befit such a most important translation. I wanted an English translation whose style was loyal to the prestige of the original.  I also did not want to read translations by those who had their own agendas (agendas that deviate from true Islam), nor did I want the simplified translations, or ones where the language had been either archaic or &lsquo;modernized&rsquo;.</p>
+<p>I know it&rsquo;s asking a great deal because such a translation is not easy to have, at least in English, mainly because many translators could not render it into English idiom without causing translation loss. For instance, if you visit <a href="https://quran.com/87">https://quran.com/87</a> and go to the 12th Verse, you will see these translations:</p>
+<p>ٱلَّذِي يَصۡلَى ٱلنَّارَ ٱلۡكُبۡرَىٰ</p>
+<blockquote>
+<p>he who will roast in the Gigantic Fire,<br>
+— Fadel Soliman, Bridges’ translation</p>
+</blockquote>
+<blockquote>
+<p>He who will be flung to the great Fire<br>
+— English Translation (Pickthall)</p>
+</blockquote>
+<blockquote>
+<p>Who will enter the Great Fire,<br>
+— English Translation (Yusuf Ali)</p>
+</blockquote>
+<blockquote>
+<p>the one who will roast in the greatest Fire, shunts it aside;<br>
+— Dr. T. B. Irving</p>
+</blockquote>
+<blockquote>
+<p>Who will enter the great Fire (and will be made to taste its burning).<br>
+— Muhammad Taqi-ud-Din al-Hilali &amp; Muhammad Muhsin Khan</p>
+</blockquote>
+<p>The original has &rsquo;naar-al-kobraa&rsquo; where &rsquo;naar&rsquo; means fire but &lsquo;kobraa&rsquo; is a derivative of &lsquo;kabeer&rsquo; meaning big and/or great. So, while &lsquo;kabeer&rsquo; can be translated to English, there is no equivalent English word for &lsquo;kobraa&rsquo;. All except Bridges&rsquo; translation are inaccurate: great, Great, greatest are not exact translations and some feeling is lost in translation. Bridges&rsquo; &lsquo;gigantic&rsquo; comes close although it&rsquo;s not perfect. However, the original does not mention nor imply &lsquo;roast&rsquo;.</p>
+<p>Google does a slightly better version with &ldquo;who burns in the great fire&rdquo; in the first part, but the use of &lsquo;great&rsquo; is, as I mentioned, problematic. After a long search, I finally found a translation that matched my criteria. It is N.J Dawood&rsquo;s translation, specifically the 1997 edition, with parallel Arabic original given on each page. In this translation, the Verse reads:</p>
+<blockquote>
+<p>He shall burn in the gigantic Fire,</p>
+</blockquote>
+<p>which I find the closest possible in terms of translation and overall feeling. I also want to take this opportunity to remind the gentle reader that my choice was not based on only this Verse&rsquo;s translation, but the whole Surah 87, which is 19 Verses, a representative enough of a small sample. Dawood&rsquo;s translation did better on all other Verses as well, and now I am recommending it here for anyone interested in truly understanding the Noble Qur&rsquo;aan, in good, agenda-free and idiomatic English.</p>
+<p>Here is a link to this <a href="https://www.amazon.com/Koran-Parallel-Arabic-Penguin-Classics/dp/0140445420">translation.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>LR: Why Lisp is horrible</title>

@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://dersavage.github.io/main/tags/essays/</loc>
+    <lastmod>2023-04-09T14:25:35+08:00</lastmod>
+  </url><url>
     <loc>https://dersavage.github.io/main/</loc>
-    <lastmod>2023-03-21T08:23:18+08:00</lastmod>
+    <lastmod>2023-04-09T14:25:35+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -15,20 +18,11 @@
                 href="https://dersavage.github.io/main/"
                 />
   </url><url>
-    <loc>https://dersavage.github.io/main/posts/2023/03/lr-why-lisp-is-horrible/</loc>
-    <lastmod>2023-03-21T08:23:18+08:00</lastmod>
-  </url><url>
     <loc>https://dersavage.github.io/main/posts/</loc>
-    <lastmod>2023-03-21T08:23:18+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/posts/2023/01/cr-truly-object-oriented-in-twin-peaks/</loc>
-    <lastmod>2023-01-29T13:12:52+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/tags/programming-swift/</loc>
-    <lastmod>2023-01-29T13:12:52+08:00</lastmod>
+    <lastmod>2023-04-09T14:25:35+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/tags/</loc>
-    <lastmod>2023-01-29T13:12:52+08:00</lastmod>
+    <lastmod>2023-04-09T14:25:35+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -39,6 +33,18 @@
                 hreflang="en"
                 href="https://dersavage.github.io/main/tags/"
                 />
+  </url><url>
+    <loc>https://dersavage.github.io/main/posts/2023/04/the-best-translation-of-the-noble-quraan/</loc>
+    <lastmod>2023-04-09T14:25:35+08:00</lastmod>
+  </url><url>
+    <loc>https://dersavage.github.io/main/posts/2023/03/lr-why-lisp-is-horrible/</loc>
+    <lastmod>2023-03-21T08:23:18+08:00</lastmod>
+  </url><url>
+    <loc>https://dersavage.github.io/main/posts/2023/01/cr-truly-object-oriented-in-twin-peaks/</loc>
+    <lastmod>2023-01-29T13:12:52+08:00</lastmod>
+  </url><url>
+    <loc>https://dersavage.github.io/main/tags/programming-swift/</loc>
+    <lastmod>2023-01-29T13:12:52+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/tags/movies/</loc>
     <lastmod>2023-01-28T12:47:35+08:00</lastmod>
