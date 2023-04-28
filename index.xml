@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 09 Apr 2023 14:25:35 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Apr 2023 04:12:48 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I debated ChatGPT and won</title>
+      <link>https://dersavage.github.io/main/posts/2023/04/i-debated-chatgpt-and-won/</link>
+      <pubDate>Sat, 29 Apr 2023 04:12:48 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/posts/2023/04/i-debated-chatgpt-and-won/</guid>
+      <description>It had this idea after I saw some intellectual idiot ramble in a long-winded slepp-inducing lecture on that pseudo-philosopher Nietzsche. So I decided to take ChatGPT 4 to task by debating it on this topic. I won&amp;rsquo;t make any comments and post our interaction directly as it occurred:
+Round 1: Exploratory jabs Jan:
+Can you summarize Nietzsche&amp;rsquo;s view with respect to religion and belief in God? was he an atheist? or a eugenecist?</description>
+    </item>
+    
     <item>
       <title>The Best Translation of the Noble Qur&#39;aan</title>
       <link>https://dersavage.github.io/main/posts/2023/04/the-best-translation-of-the-noble-quraan/</link>
@@ -103,16 +114,6 @@ This book teaches both intermediate programming and intermediate Ruby: no ruby b
 A typical learner would be someone who has finished programming 101 in any language (say, Chris Pine&amp;rsquo;s Learn to Program because it uses Ruby), or learned some programming here and there&amp;ndash;Youtube?&amp;ndash;but now wants to consolidate their gains and go to the next level.
 Pedagogical model
 Or how I teach. Please the introduction in my other book, to Julia, for a deeper discussion.</description>
-    </item>
-    
-    <item>
-      <title>Hello Julia?</title>
-      <link>https://dersavage.github.io/main/hello_julia/</link>
-      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://dersavage.github.io/main/hello_julia/</guid>
-      <description>Chapter 0: The Elegant Julia Introduction
-This is the chapter zero of my upcoming programming in Julia textbook. The digital-only book assumes no pre-requisites, but moves at a rather fast pace (no fluff, no stories or random opinions about author, no discussion of how computers work or any historical references), all the while avoiding any irrational jumps, the confusing jargon overload, the incomplete information, the flawed pedagogy, or the boring handwaving so typical in so (unfortunately) many programming books.</description>
     </item>
     
   </channel>
