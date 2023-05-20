@@ -2,14 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dersavage.github.io/main/tags/essay/</loc>
-    <lastmod>2023-04-29T04:12:48+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/posts/2023/04/i-debated-chatgpt-and-won/</loc>
-    <lastmod>2023-04-29T04:12:48+08:00</lastmod>
+    <loc>https://dersavage.github.io/main/posts/2023/05/br-the-hobbit/</loc>
+    <lastmod>2023-05-20T23:05:14+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/</loc>
-    <lastmod>2023-04-29T04:12:48+08:00</lastmod>
+    <lastmod>2023-05-20T23:05:14+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -22,10 +19,13 @@
                 />
   </url><url>
     <loc>https://dersavage.github.io/main/posts/</loc>
-    <lastmod>2023-04-29T04:12:48+08:00</lastmod>
+    <lastmod>2023-05-20T23:05:14+08:00</lastmod>
+  </url><url>
+    <loc>https://dersavage.github.io/main/tags/reading/</loc>
+    <lastmod>2023-05-20T23:05:14+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/tags/</loc>
-    <lastmod>2023-04-29T04:12:48+08:00</lastmod>
+    <lastmod>2023-05-20T23:05:14+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
