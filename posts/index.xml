@@ -6,8 +6,70 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 20 May 2023 23:05:14 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 24 Jun 2023 17:33:57 +0800</lastBuildDate>
         <atom:link href="https://dersavage.github.io/main/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>TR: Interactive Python VSCode/Mac?</title>
+            <link>https://dersavage.github.io/main/posts/2023/06/tr-interactive-python-vscode/mac/</link>
+            <pubDate>Sat, 24 Jun 2023 17:33:57 +0800</pubDate>
+            
+            <guid>https://dersavage.github.io/main/posts/2023/06/tr-interactive-python-vscode/mac/</guid>
+            <description>Legend Potential Audience:
+Learners wanting to use a free but industrial-grade Python IDE on a Mac. Anyone having trouble using Python on Visual Studio Code because it &amp;lsquo;won&amp;rsquo;t run&amp;rsquo;. Why Mac? Unless you are Jabba, the Meister Programmer, I advise all learners to use MacOS for the smoothest possible journey in their quest to become programmers.
+That&amp;rsquo;s because at its heart, MacOS is simply a flavor of Unix and you can&amp;rsquo;t do serious programming on Windows&amp;ndash;that&amp;rsquo;s a fact acknowledged by Microsoft, too (hence their providing the WSL).</description>
+            <content type="html"><![CDATA[<h2 id="legend">Legend</h2>
+<blockquote>
+<p>Potential Audience:</p>
+</blockquote>
+<ul>
+<li>Learners wanting to use a free but industrial-grade Python IDE on a Mac.</li>
+<li>Anyone having trouble using Python on Visual Studio Code because it &lsquo;won&rsquo;t run&rsquo;.</li>
+</ul>
+<h3 id="why-mac">Why Mac?</h3>
+<p>Unless you are Jabba, the Meister Programmer, I advise all learners to use MacOS for the smoothest possible journey in their quest to become programmers.</p>
+<p>That&rsquo;s because at its heart, MacOS is simply a flavor of Unix and you can&rsquo;t do serious programming on Windows&ndash;that&rsquo;s a fact acknowledged by Microsoft, too (hence their providing the WSL).</p>
+<table>
+<thead>
+<tr>
+<th>Digression: What is WSL?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WSL stands for Windows</td>
+</tr>
+<tr>
+<td>Subsystem for Linux.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>In other words, many important tools, tips, and programming-related matters are readily available for Unix, via its terminal.</p>
+<h3 id="how-to-correctly-install-python-in-2023">How to correctly install Python in 2023?</h3>
+<p>Want extra bloatware on your already full computer? And what about path conflicts and other disasters?</p>
+<p>The easiest, most professional and bloatware-free way to install Python on your Mac to use the Homebrew! Dont&rsquo; scoff yet. Homebrew in 2023 is completely revamped and works like butter.</p>
+<p>All you have to do (in terminal):</p>
+<p><code>brew install python</code></p>
+<p>Brew creates an independent path folder that prevents conflict. Nor do you need Sudo at all (less hassle). Ok you&rsquo;ve done that, now you have also installed Visual Studio Code. You write:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Does Python hiss?&#39;</span>)
+</span></span></code></pre></div><p>There are several ways to run this program, but today you will learn the most user-friendly one (hence the justification for this post, as most Python installation and running advice elsewhere is outdated or unnecessarily complicated.)</p>
+<p>So next, install the Code Runner extention in the Plugin section (I assume you know how to do that!). After that, you will see a &lsquo;play&rsquo; button in the top right corner of your IDE. Don&rsquo;t press it!!</p>
+<p>Right-click and you will see several options. At the very bottom, you will see:</p>
+<p><code>Run current file in interactive window</code></p>
+<p>Which is what you should click. Et voila!</p>
+<h3 id="to-recap">To Recap</h3>
+<ul>
+<li>Install Python via Homebrew.</li>
+<li>Install Code Runner on VSCode.</li>
+<li>Use Interactive mode to run your Python.</li>
+</ul>
+<p>It must be noted that the interactive version is for learning and experimentation and not production or real-world use.</p>
+<p>Also, although you can do</p>
+<p><code>Python3 hello.py</code> in your terminal, it&rsquo;s boring.</p>
+<p>Finally, please note that you don&rsquo;t have to right-click each time you want to run your Python code! The first right-click selects the interactive mode, but thereafter you just click on the &lsquo;run&rsquo;play&rsquo; button and your code should run.</p>
+]]></content>
+        </item>
         
         <item>
             <title>BR: The Hobbit</title>
@@ -36,11 +98,11 @@ And with an exception or two, the books are always way, way better than the movi
         </item>
         
         <item>
-            <title>The Best Translation of the Noble Qur&#39;aan</title>
-            <link>https://dersavage.github.io/main/posts/2023/04/the-best-translation-of-the-noble-quraan/</link>
+            <title>BR: The Noble Qur&#39;aan: Translation Review</title>
+            <link>https://dersavage.github.io/main/posts/2023/04/br-the-noble-quraan-translation-review/</link>
             <pubDate>Sun, 09 Apr 2023 14:25:35 +0800</pubDate>
             
-            <guid>https://dersavage.github.io/main/posts/2023/04/the-best-translation-of-the-noble-quraan/</guid>
+            <guid>https://dersavage.github.io/main/posts/2023/04/br-the-noble-quraan-translation-review/</guid>
             <description>I learned Qur&amp;rsquo;aanic Arabic (as a foreign language&amp;ndash;at the local mosque) when I was eight years old. But then decades had to pass when, after learning a great deal of worldly things, I am now feeling ready to truly study our Noble Book, and while I am brushing up on my classical Arabic, in the meantime, I wanted to find an English translation that was not deviating from the original in any sense.</description>
             <content type="html"><![CDATA[<p>I learned Qur&rsquo;aanic Arabic (as a foreign language&ndash;at the local mosque) when I was eight years old. But then decades had to pass when, after learning a great deal of worldly things, I am now feeling ready to truly study our Noble Book, and while I am brushing up on my classical Arabic, in the meantime, I wanted to find an English translation that was not deviating from the original in any sense.</p>
 <p>Unfortunately, although the intentions were all good, most of the translations I found were not acceptable. Some had added extra phrases which were not in the original or even implied in any way, others had written the English in such a style that somehow lost the essence.</p>

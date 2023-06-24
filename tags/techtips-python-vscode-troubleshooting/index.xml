@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>techtips, python, vscode, troubleshooting on Jan Savage</title>
+    <link>https://dersavage.github.io/main/tags/techtips-python-vscode-troubleshooting/</link>
+    <description>Recent content in techtips, python, vscode, troubleshooting on Jan Savage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 24 Jun 2023 17:33:57 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tags/techtips-python-vscode-troubleshooting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TR: Interactive Python VSCode/Mac?</title>
+      <link>https://dersavage.github.io/main/posts/2023/06/tr-interactive-python-vscode/mac/</link>
+      <pubDate>Sat, 24 Jun 2023 17:33:57 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/posts/2023/06/tr-interactive-python-vscode/mac/</guid>
+      <description>Legend Potential Audience:
+Learners wanting to use a free but industrial-grade Python IDE on a Mac. Anyone having trouble using Python on Visual Studio Code because it &amp;lsquo;won&amp;rsquo;t run&amp;rsquo;. Why Mac? Unless you are Jabba, the Meister Programmer, I advise all learners to use MacOS for the smoothest possible journey in their quest to become programmers.
+That&amp;rsquo;s because at its heart, MacOS is simply a flavor of Unix and you can&amp;rsquo;t do serious programming on Windows&amp;ndash;that&amp;rsquo;s a fact acknowledged by Microsoft, too (hence their providing the WSL).</description>
+    </item>
+    
+  </channel>
+</rss>
