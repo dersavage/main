@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>book on Jan Savage</title>
+    <link>https://dersavage.github.io/main/tags/book/</link>
+    <description>Recent content in book on Jan Savage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 27 Jun 2023 19:06:52 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A To-Do app in Vlang</title>
+      <link>https://dersavage.github.io/main/books/cr-vlangapp/</link>
+      <pubDate>Tue, 27 Jun 2023 19:06:52 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/books/cr-vlangapp/</guid>
+      <description>V language, also known as Vlang promises C&amp;rsquo;s speed, Rust&amp;rsquo;s safety, Go&amp;rsquo;s syntax. However, there is only one Vlang book avaiable from Packt and even that is simply listing language features&amp;ndash;a mere simpler documentation.
+In this booklet, I provide a real-world practical example: a command-line to-do app.
+Audience:
+Students and enthusiasts who have learned some programming but don&amp;rsquo;t know what to do next. They taught you to draw shapes, now draw the owl!</description>
+    </item>
+    
+  </channel>
+</rss>

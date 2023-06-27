@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 24 Jun 2023 17:33:57 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Jun 2023 19:06:52 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A To-Do app in Vlang</title>
+      <link>https://dersavage.github.io/main/books/cr-vlangapp/</link>
+      <pubDate>Tue, 27 Jun 2023 19:06:52 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/books/cr-vlangapp/</guid>
+      <description>V language, also known as Vlang promises C&amp;rsquo;s speed, Rust&amp;rsquo;s safety, Go&amp;rsquo;s syntax. However, there is only one Vlang book avaiable from Packt and even that is simply listing language features&amp;ndash;a mere simpler documentation.
+In this booklet, I provide a real-world practical example: a command-line to-do app.
+Audience:
+Students and enthusiasts who have learned some programming but don&amp;rsquo;t know what to do next. They taught you to draw shapes, now draw the owl!</description>
+    </item>
+    
     <item>
       <title>TR: Interactive Python VSCode/Mac?</title>
       <link>https://dersavage.github.io/main/posts/2023/06/tr-interactive-python-vscode/mac/</link>
@@ -101,17 +113,6 @@ But I also disliked &amp;ldquo;George Eliot&amp;rdquo; without knowing exactly w
 Clifford Simak (BR: Book Review)
 Recently managed to go through Simak&amp;rsquo;s fantasy title: Where Evil Resides, which made me wonder why a writer like Simak became famous in the first place? But again I see morons like Updike and it doesn&amp;rsquo;t surprise me: not all readers are intelligent enough to know what they should be reading.
 Simak is nothing special. The story is flat, the characteras uni-dimensional.</description>
-    </item>
-    
-    <item>
-      <title>BR: Darker than Amber</title>
-      <link>https://dersavage.github.io/main/posts/2022/06/br-darker-than-amber/</link>
-      <pubDate>Thu, 23 Jun 2022 08:28:02 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/posts/2022/06/br-darker-than-amber/</guid>
-      <description>Darker than Amber John Macdonald (BR: Book Review)
-Don&amp;rsquo;t know what the fuss is all about. I read the reviews which were glowing, but the book didn&amp;rsquo;t deliver on those reviews.
-The problem is that MacDonald is confused. He mixes his own conflated view of morality in the context of a poorly-constructed detective story, and the outcome is mangled mess of opinion and long, boring descriptions of rooms and furniture, with a few sleaze quirks thrown here and there.</description>
     </item>
     
   </channel>

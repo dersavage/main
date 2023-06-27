@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jan Savage ">
+<meta name="description" content="V language, also known as Vlang promises C&amp;rsquo;s speed, Rust&amp;rsquo;s safety, Go&amp;rsquo;s syntax. However, there is only one Vlang book avaiable from Packt and even that is simply listing language features&amp;ndash;a mere simpler documentation.
+In this booklet, I provide a real-world practical example: a command-line to-do app.
+Audience:
+Students and enthusiasts who have learned some programming but don&amp;rsquo;t know what to do next. They taught you to draw shapes, now draw the owl!" />
+<meta name="keywords" content="programming, book" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://dersavage.github.io/main/books/cr-vlangapp/" />
+
+
+    <title>
+        
+            A To-Do app in Vlang :: Jan Savage  — The Jan Savage cave
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://dersavage.github.io/main/main.b6d528998b7b504bfd8ef86303ede1785102ea45c0c86ef0215145b1e5778a9d.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dersavage.github.io/main/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dersavage.github.io/main/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dersavage.github.io/main/favicon-16x16.png">
+    <link rel="manifest" href="https://dersavage.github.io/main/site.webmanifest">
+    <link rel="mask-icon" href="https://dersavage.github.io/main/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://dersavage.github.io/main/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="A To-Do app in Vlang">
+<meta itemprop="description" content="V language, also known as Vlang promises C&rsquo;s speed, Rust&rsquo;s safety, Go&rsquo;s syntax. However, there is only one Vlang book avaiable from Packt and even that is simply listing language features&ndash;a mere simpler documentation.
+In this booklet, I provide a real-world practical example: a command-line to-do app.
+Audience:
+Students and enthusiasts who have learned some programming but don&rsquo;t know what to do next. They taught you to draw shapes, now draw the owl!"><meta itemprop="datePublished" content="2023-06-27T19:06:52+08:00" />
+<meta itemprop="dateModified" content="2023-06-27T19:06:52+08:00" />
+<meta itemprop="wordCount" content="1438"><meta itemprop="image" content="https://dersavage.github.io/main/"/>
+<meta itemprop="keywords" content="book," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dersavage.github.io/main/"/>
+
+<meta name="twitter:title" content="A To-Do app in Vlang"/>
+<meta name="twitter:description" content="V language, also known as Vlang promises C&rsquo;s speed, Rust&rsquo;s safety, Go&rsquo;s syntax. However, there is only one Vlang book avaiable from Packt and even that is simply listing language features&ndash;a mere simpler documentation.
+In this booklet, I provide a real-world practical example: a command-line to-do app.
+Audience:
+Students and enthusiasts who have learned some programming but don&rsquo;t know what to do next. They taught you to draw shapes, now draw the owl!"/>
+
+
+
+
+    <meta property="og:title" content="A To-Do app in Vlang" />
+<meta property="og:description" content="V language, also known as Vlang promises C&rsquo;s speed, Rust&rsquo;s safety, Go&rsquo;s syntax. However, there is only one Vlang book avaiable from Packt and even that is simply listing language features&ndash;a mere simpler documentation.
+In this booklet, I provide a real-world practical example: a command-line to-do app.
+Audience:
+Students and enthusiasts who have learned some programming but don&rsquo;t know what to do next. They taught you to draw shapes, now draw the owl!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dersavage.github.io/main/books/cr-vlangapp/" /><meta property="og:image" content="https://dersavage.github.io/main/"/><meta property="article:section" content="books" />
+<meta property="article:published_time" content="2023-06-27T19:06:52+08:00" />
+<meta property="article:modified_time" content="2023-06-27T19:06:52+08:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2023-06-27 19:06:52 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://dersavage.github.io/main/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">~</span>
+            <span class="logo__text">% cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#4000ff;
+                   animation-duration:1.1s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://dersavage.github.io/main/about/">About</a></li><li><a href="https://dersavage.github.io/main/books/">Books</a></li><li><a href="https://dersavage.github.io/main/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://dersavage.github.io/main/books/cr-vlangapp/">A To-Do app in Vlang</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <p>V language, also known as Vlang promises C&rsquo;s speed, Rust&rsquo;s safety, Go&rsquo;s syntax. However, there is only one Vlang book avaiable from Packt and even that is simply listing language features&ndash;a mere simpler documentation.</p>
+<p>In this booklet, I provide a real-world practical example: a command-line to-do app.</p>
+<blockquote>
+<p>Audience:</p>
+</blockquote>
+<p>Students and enthusiasts who have learned some programming but don&rsquo;t know what to do next. They taught you to draw shapes, now draw the owl!&ndash;that type of frustrated learners who know language syntax (of any language) but don&rsquo;t know what to do with it or where to begin the next step.</p>
+<blockquote>
+<p>Why Vlang</p>
+</blockquote>
+<p>Because it&rsquo;s learner-friendly but also very modern. It is a new language, so there won&rsquo;t be any jobs etc. for it&ndash;yet&ndash;but the syntax is very clear and similar to Go&ndash;the skills can transfer. Also, it&rsquo;s fast!</p>
+<blockquote>
+<p>Prereq</p>
+</blockquote>
+<p>Familiarity with Vlang syntax. General programming 101 including structs, loops, functions, enums and IO.</p>
+<blockquote>
+<p>Help</p>
+</blockquote>
+<p>This book is in beta now, hence free. Two versions are being written now: one, for total beginners and will also teach them Vlang syntax and the programming 101 concepts, tools and techniques. Another version does not teach Vlang and programming but goes into great detail explaining each part of this program. The book will be announced on my Quora and also here.</p>
+<p>Let&rsquo;s go!</p>
+<p>First, let&rsquo;s Import the needed modules:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> flag
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> fmt
+</span></span></code></pre></div><p>Next, we define a custom type for each task:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Task</span> {
+</span></span><span style="display:flex;"><span>    id <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>    name string
+</span></span><span style="display:flex;"><span>    done <span style="color:#66d9ef">bool</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Define a global variable for the file name:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> file_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;tasks.json&#39;</span>
+</span></span></code></pre></div><p>Define a function that loads the tasks from the file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">load_tasks</span>() []<span style="color:#a6e22e">Task</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Check if the file exists
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>os.<span style="color:#a6e22e">exists</span>(file_name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Return empty array if not
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> []
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Open the file for reading
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f <span style="color:#f92672">:=</span> os.<span style="color:#a6e22e">open</span>(file_name) <span style="color:#66d9ef">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to open </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Read all the content from the file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    data <span style="color:#f92672">:=</span> f.<span style="color:#a6e22e">read_all</span>() <span style="color:#66d9ef">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to read </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Close the file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f.close() <span style="color:#66d9ef">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to close </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Decode the JSON data into an array of tasks
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    tasks <span style="color:#f92672">:=</span> json.<span style="color:#a6e22e">decode</span>([]<span style="color:#a6e22e">Task</span>, data) <span style="color:#66d9ef">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to decode JSON data: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Return the array of tasks
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> tasks
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now let&rsquo;s define a function that saves the tasks to the file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">save_tasks</span>(tasks []<span style="color:#a6e22e">Task</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Encode the array of tasks into JSON data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    data <span style="color:#f92672">:=</span> json.<span style="color:#a6e22e">encode</span>(tasks) <span style="color:#66d9ef">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to encode JSON data: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Open the file for writing
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f <span style="color:#f92672">:=</span> os.<span style="color:#a6e22e">create</span>(file_name) <span style="color:#66d9ef">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to create </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Write the JSON data to the file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f.<span style="color:#a6e22e">write</span>(data) <span style="color:#66d9ef">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to write </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Close the file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f.close() <span style="color:#66d9ef">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to close </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Next, a function that prints the usage information:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">print_usage</span>() {
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;Usage: todo [flags] [commands]&#39;</span>)
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;A simple command line to-do list app.&#39;</span>)
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;Flags:&#39;</span>)
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;  -h, --help    Show this help message and exit&#39;</span>)
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;Commands:&#39;</span>)
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;  add [name]    Add a new task with the given name&#39;</span>)
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;  list          List all the tasks&#39;</span>)
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;  done [id]     Mark the task with the given id as done&#39;</span>)
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;  delete [id]   Delete the task with the given id&#39;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Followed by a function that prints the tasks in a table format:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">print_tasks</span>(tasks []<span style="color:#a6e22e">Task</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Define some constants for the table format
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> (
+</span></span><span style="display:flex;"><span>        col1_width <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>        col2_width <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>        col3_width <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>        sep_char <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;-&#39;</span>
+</span></span><span style="display:flex;"><span>        sep_line <span style="color:#f92672">=</span> sep_char.repeat(col1_width <span style="color:#f92672">+</span> col2_width <span style="color:#f92672">+</span> col3_width <span style="color:#f92672">+</span> <span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Print the table header
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println(sep_line)
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;| ID | Name                          | Status   |&#39;</span>)
+</span></span><span style="display:flex;"><span>    println(sep_line)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Print each task in a row
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> task <span style="color:#66d9ef">in</span> tasks {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Format the task fields
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        id <span style="color:#f92672">:=</span> fmt.<span style="color:#a6e22e">pad_left</span>(task.id.str(), col1_width, <span style="color:#e6db74">&#39; &#39;</span>)
+</span></span><span style="display:flex;"><span>        name <span style="color:#f92672">:=</span> fmt.<span style="color:#a6e22e">pad_right</span>(task.name, col2_width, <span style="color:#e6db74">&#39; &#39;</span>)
+</span></span><span style="display:flex;"><span>        status <span style="color:#f92672">:=</span> <span style="color:#66d9ef">if</span> task.done { <span style="color:#e6db74">&#39;Done&#39;</span> } <span style="color:#66d9ef">else</span> { <span style="color:#e6db74">&#39;Pending&#39;</span> }
+</span></span><span style="display:flex;"><span>        status <span style="color:#f92672">=</span> fmt.<span style="color:#a6e22e">pad_right</span>(status, col3_width, <span style="color:#e6db74">&#39; &#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Print the row
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        println(<span style="color:#e6db74">&#39;| </span><span style="color:#f92672">$</span>id<span style="color:#e6db74"> | </span><span style="color:#f92672">$</span>name<span style="color:#e6db74"> | </span><span style="color:#f92672">$</span>status<span style="color:#e6db74"> |&#39;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Print the table footer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println(sep_line)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#a6e22e">Define</span> a function that adds a new task with the given name:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">add_task</span>(tasks <span style="color:#66d9ef">mut</span> []<span style="color:#a6e22e">Task</span>, name string) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Generate a unique id for the new task
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">mut</span> id <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> task <span style="color:#66d9ef">in</span> tasks {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> task.id <span style="color:#f92672">&gt;=</span> id {
+</span></span><span style="display:flex;"><span>            id <span style="color:#f92672">=</span> task.id <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create a new task with the id, name, and done status
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    new_task <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Task</span>{
+</span></span><span style="display:flex;"><span>        id: id
+</span></span><span style="display:flex;"><span>        name: name
+</span></span><span style="display:flex;"><span>        done: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Append the new task to the array of tasks
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    tasks <span style="color:#f92672">&lt;&lt;</span> new_task
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Save the tasks to the file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">save_tasks</span>(tasks)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Print a success message
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println(<span style="color:#e6db74">&#39;Added a new task: </span><span style="color:#f92672">$</span>new_task<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Define a function that marks the task with the given id as done:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">done_task</span>(tasks <span style="color:#66d9ef">mut</span> []<span style="color:#a6e22e">Task</span>, id <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Find the index of the task with the id in the array of tasks
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">mut</span> index <span style="color:#f92672">:=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i, task <span style="color:#66d9ef">in</span> tasks {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> task.id <span style="color:#f92672">==</span> id {
+</span></span><span style="display:flex;"><span>            index <span style="color:#f92672">=</span> i
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Check if the index is valid
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> index <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Print an error message if not
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Invalid task id: </span><span style="color:#f92672">$</span>id<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Mark the task as done by changing its done status to true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    tasks[index].done <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Save the tasks to the file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">save_tasks</span>(tasks)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Print a success message
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println(<span style="color:#e6db74">&#39;Marked the task as done: </span><span style="color:#f92672">$</span>tasks<span style="color:#e6db74">[index]&#39;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Define a function that deletes the task with the given id:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">delete_task</span>(tasks <span style="color:#66d9ef">mut</span> []<span style="color:#a6e22e">Task</span>, id <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Find the index of the task with the id in the array of tasks
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#66d9ef">mut</span> index <span style="color:#f92672">:=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> 
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">for</span> i, task <span style="color:#66d9ef">in</span> tasks { 
+</span></span><span style="display:flex;"><span>         <span style="color:#66d9ef">if</span> task.id <span style="color:#f92672">==</span> id { 
+</span></span><span style="display:flex;"><span>             index <span style="color:#f92672">=</span> i 
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">break</span> 
+</span></span><span style="display:flex;"><span>         } 
+</span></span><span style="display:flex;"><span>     } 
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Check if the index is valid 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#66d9ef">if</span> index <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> { 
+</span></span><span style="display:flex;"><span>         <span style="color:#75715e">// Print an error message if not 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>         eprintln(<span style="color:#e6db74">&#39;Invalid task id: </span><span style="color:#f92672">$</span>id<span style="color:#e6db74">&#39;</span>) 
+</span></span><span style="display:flex;"><span>         exit(<span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>     } 
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Delete the task by removing it from the array of tasks 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     deleted_task <span style="color:#f92672">:=</span> tasks[index] 
+</span></span><span style="display:flex;"><span>     tasks.delete(index) 
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Save the tasks to the file 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#a6e22e">save_tasks</span>(tasks) 
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Print a success message 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     println(<span style="color:#e6db74">&#39;Deleted the task: </span><span style="color:#f92672">$</span>deleted_task<span style="color:#e6db74">&#39;</span>) 
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><p>Load the tasks from the file into an array of tasks</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">mut</span> tasks <span style="color:#f92672">:=</span> <span style="color:#a6e22e">load_tasks</span>()
+</span></span></code></pre></div><p>Create a flag parser to parse command line arguments and options</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">mut</span> fp <span style="color:#f92672">:=</span> flag.<span style="color:#a6e22e">new_flag_parser</span>(os.args)
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">```v
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Add some flags to show help information and version number
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">```</span>v
+</span></span><span style="display:flex;"><span>fp.<span style="color:#a6e22e">add_bool</span>(<span style="color:#e6db74">&#39;help&#39;</span>, <span style="color:#e6db74">`h`</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#39;Show this help message and exit&#39;</span>)
+</span></span><span style="display:flex;"><span>fp.<span style="color:#a6e22e">add_string</span>(<span style="color:#e6db74">&#39;version&#39;</span>, <span style="color:#e6db74">`v`</span>, <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#e6db74">&#39;Show program version and exit&#39;</span>)
+</span></span></code></pre></div><p>Parse command line arguments and options into a map of flags and values</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span>flags <span style="color:#f92672">:=</span> fp.<span style="color:#a6e22e">parse</span>()
+</span></span></code></pre></div><p>Check if help flag is set or no command is given</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> flags[<span style="color:#e6db74">&#39;help&#39;</span>].bool() <span style="color:#f92672">||</span> fp.args.len <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e">// Print usage information and exit 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   print_usage
+</span></span><span style="display:flex;"><span>   exit(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Check if version flag is set</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> flags[<span style="color:#e6db74">&#39;version&#39;</span>].str() <span style="color:#66d9ef">!</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span> {
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e">// Print program version and exit 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   println(<span style="color:#e6db74">&#39;todo v0.1.0&#39;</span>)
+</span></span><span style="display:flex;"><span>   exit(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Get the command from the first argument</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span>command <span style="color:#f92672">:=</span> fp.args[<span style="color:#ae81ff">0</span>]
+</span></span></code></pre></div><p>Check what command is given and call the corresponding function</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">match</span> command {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;add&#39;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Check if a name is given as the second argument
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> fp.args.len &lt; <span style="color:#ae81ff">2</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Print an error message and exit if not
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            eprintln(<span style="color:#e6db74">&#39;Missing task name&#39;</span>)
+</span></span><span style="display:flex;"><span>            exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Get the name from the second argument
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        name <span style="color:#f92672">:=</span> fp.args[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Call the add_task function with the tasks array and the name
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">add_task</span>(<span style="color:#66d9ef">mut</span> tasks, name)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;list&#39;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Call the print_tasks function with the tasks array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">print_tasks</span>(tasks)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;done&#39;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Check if an id is given as the second argument
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> fp.args.len &lt; <span style="color:#ae81ff">2</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Print an error message and exit if not
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            eprintln(<span style="color:#e6db74">&#39;Missing task id&#39;</span>)
+</span></span><span style="display:flex;"><span>            exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Get the id from the second argument and convert it to an int
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        id <span style="color:#f92672">:=</span> fp.args[<span style="color:#ae81ff">1</span>].int() <span style="color:#66d9ef">or</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Print an error message and exit if conversion fails
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            eprintln(<span style="color:#e6db74">&#39;Invalid task id: </span><span style="color:#f92672">$</span>fp.args<span style="color:#e6db74">[1]&#39;</span>)
+</span></span><span style="display:flex;"><span>            exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Call the done_task function with the tasks array and the id
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">done_task</span>(<span style="color:#66d9ef">mut</span> tasks, id)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;delete&#39;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Check if an id is given as the second argument
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> fp.args.len &lt; <span style="color:#ae81ff">2</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Print an error message and exit if not
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            eprintln(<span style="color:#e6db74">&#39;Missing task id&#39;</span>)
+</span></span><span style="display:flex;"><span>            exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Get the id from the second argument and convert it to an int
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        id <span style="color:#f92672">:=</span> fp.args[<span style="color:#ae81ff">1</span>].int() <span style="color:#66d9ef">or</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Print an error message and exit if conversion fails
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            eprintln(<span style="color:#e6db74">&#39;Invalid task id: </span><span style="color:#f92672">$</span>fp.args<span style="color:#e6db74">[1]&#39;</span>)
+</span></span><span style="display:flex;"><span>            exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Call the delete_task function with the tasks array and the id
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">delete_task</span>(<span style="color:#66d9ef">mut</span> tasks, id)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Print an error message and exit if unknown command is given
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Unknown command: </span><span style="color:#f92672">$</span>command<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://dersavage.github.io/main/tags/book/">book</a></span>
+        
+    </p>
+
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2023</span>
+            <span><a href="https://dersavage.github.io/main/">Jan Savage</a></span>
+            
+            <span><a href="https://dersavage.github.io/main/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://dersavage.github.io/main/bundle.min.98fef7958ed12b899250a29a40d2a730eda779c87de1fae22a4cf6c7e87088a65ac7537f5be758af43c4f3a8876e5117be9d027b8090c55f80a610864d08e384.js" integrity="sha512-mP73lY7RK4mSUKKaQNKnMO2nech94friKkz2x&#43;hwiKZax1N/W&#43;dYr0PE86iHblEXvp0Ce4CQxV&#43;AphCGTQjjhA=="></script>
+
+
+
+    </body>
+</html>
