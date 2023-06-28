@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jan Savage ">
+<meta name="description" content="This is a first post in LR category&amp;ndash;Language Review&amp;ndash;where I will factually opine on various programming languages. And today&amp;rsquo;s victim is Lisp.
+Or first, let me say the emperor has no clothes, or Scheme is an awful language.
+I mean, not only it is an awful first language to teach beginners, or to self-learn on your own, but also in general, as a programming language in 2023, it is not as great as it&amp;rsquo;s cracked up to be." />
+<meta name="keywords" content="programming" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://dersavage.github.io/main/tutorials/why-lisp-is-horrible/" />
+
+
+    <title>
+        
+            Why Lisp is horrible :: Jan Savage  — The Jan Savage cave
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://dersavage.github.io/main/main.b6d528998b7b504bfd8ef86303ede1785102ea45c0c86ef0215145b1e5778a9d.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dersavage.github.io/main/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dersavage.github.io/main/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dersavage.github.io/main/favicon-16x16.png">
+    <link rel="manifest" href="https://dersavage.github.io/main/site.webmanifest">
+    <link rel="mask-icon" href="https://dersavage.github.io/main/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://dersavage.github.io/main/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Why Lisp is horrible">
+<meta itemprop="description" content="This is a first post in LR category&ndash;Language Review&ndash;where I will factually opine on various programming languages. And today&rsquo;s victim is Lisp.
+Or first, let me say the emperor has no clothes, or Scheme is an awful language.
+I mean, not only it is an awful first language to teach beginners, or to self-learn on your own, but also in general, as a programming language in 2023, it is not as great as it&rsquo;s cracked up to be."><meta itemprop="datePublished" content="2023-03-21T08:23:18+08:00" />
+<meta itemprop="dateModified" content="2023-03-21T08:23:18+08:00" />
+<meta itemprop="wordCount" content="1260"><meta itemprop="image" content="https://dersavage.github.io/main/"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dersavage.github.io/main/"/>
+
+<meta name="twitter:title" content="Why Lisp is horrible"/>
+<meta name="twitter:description" content="This is a first post in LR category&ndash;Language Review&ndash;where I will factually opine on various programming languages. And today&rsquo;s victim is Lisp.
+Or first, let me say the emperor has no clothes, or Scheme is an awful language.
+I mean, not only it is an awful first language to teach beginners, or to self-learn on your own, but also in general, as a programming language in 2023, it is not as great as it&rsquo;s cracked up to be."/>
+
+
+
+
+    <meta property="og:title" content="Why Lisp is horrible" />
+<meta property="og:description" content="This is a first post in LR category&ndash;Language Review&ndash;where I will factually opine on various programming languages. And today&rsquo;s victim is Lisp.
+Or first, let me say the emperor has no clothes, or Scheme is an awful language.
+I mean, not only it is an awful first language to teach beginners, or to self-learn on your own, but also in general, as a programming language in 2023, it is not as great as it&rsquo;s cracked up to be." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dersavage.github.io/main/tutorials/why-lisp-is-horrible/" /><meta property="og:image" content="https://dersavage.github.io/main/"/><meta property="article:section" content="tutorials" />
+<meta property="article:published_time" content="2023-03-21T08:23:18+08:00" />
+<meta property="article:modified_time" content="2023-03-21T08:23:18+08:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2023-03-21 08:23:18 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://dersavage.github.io/main/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">~</span>
+            <span class="logo__text">% cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#4000ff;
+                   animation-duration:1.1s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://dersavage.github.io/main/about/">Abt</a></li><li><a href="https://dersavage.github.io/main/books/">Books</a></li><li><a href="https://dersavage.github.io/main/essays/">Essays</a></li><li><a href="https://dersavage.github.io/main/reviews/">Revs</a></li><li><a href="https://dersavage.github.io/main/tutorials/">Tuts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://dersavage.github.io/main/tutorials/why-lisp-is-horrible/">Why Lisp is horrible</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <p>This is a first post in LR category&ndash;Language Review&ndash;where I will factually opine on various programming languages. And today&rsquo;s victim is Lisp.</p>
+<p>Or first, let me say the emperor has no clothes, or Scheme is an awful language.</p>
+<p>I mean, not only it is an awful first language to teach beginners, or to self-learn on your own, but also in general, as a programming language in 2023, it is not as great as it&rsquo;s cracked up to be. I will not go through all the other arguments made by others. Those are all (still) valid. I will approach this from a different angle, and given this angle, my rant applies to both Scheme and all other Lisps, including Common Lisp and Racket.</p>
+<p>And that angle is the simple and useful and elegant aspects of readability and features. Programs are meant to be read more often than written, and as a programmer, I like to visually &ldquo;see&rdquo; my program in a way that matches how my brain &ldquo;sees&rdquo; the abstractness of the program. In other words, a programming language I will use to learn something should match how my brain works, rather than to force my brain to become like that language. Additionally, I would want my language to have all the standard features I need, right out of the box.</p>
+<p>Whether a language become popular in the industry is directly based on this, in my opinion.</p>
+<p>In this post I will only mention my first beef (regarding visual appeal and readability and conciseness) with Lisps including Scheme. Interestingly, my beef is not a mere rant as it is backed by a heavyweight like Wadler (Wadler, 1987) where he uses a simple example to deride Lisp&rsquo;s visual appeal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sum</span> xs)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>null? xs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      (+ (car xs) (<span style="color:#a6e22e">sum</span> cdr xs)))))
+</span></span></code></pre></div><p>Phew!</p>
+<p>All that ceremony to just do this:</p>
+<p>(At the top right corner of this page, switch to dark mode in order to see the code-snippets more clearly.)</p>
+<pre tabindex="0"><code class="language-miranda" data-lang="miranda">sum [] = 0 
+sum (x:xs) = x + sum xs
+</code></pre><p>Wasn&rsquo;t that much better?</p>
+<p>And:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">som</span> <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">som</span> (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> som xs
+</span></span></code></pre></div><p>Renaming <code>sum</code> to <code>som</code> here to avoid conflict with a Haskell primitive named <code>sum</code> (<em>Newbie tip</em>: that is, Haskell already has a built-in function of this name.).</p>
+<p>Exactly the same, right?</p>
+<p>To fully illustrate the problem, let&rsquo;s write a larger program to demonstrate how quickly you will get lost in the parenthetical jungle. We write a function that counts how many days have passed from a given date. If you don&rsquo;t know Lisp, look at the other solutions below first, before coming back to the Lisp one. Look at this mess (and this is as compact as it can be written):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">leap-year?</span> year)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>(<span style="color:#66d9ef">or </span>(not (zero? (remainder year <span style="color:#ae81ff">4</span>)))
+</span></span><span style="display:flex;"><span>          (<span style="color:#66d9ef">and </span>(zero? (remainder year <span style="color:#ae81ff">100</span>))
+</span></span><span style="display:flex;"><span>               (not (zero? (remainder year <span style="color:#ae81ff">400</span>)))))
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">#f</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">#t</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">days-since</span> year month day)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">define </span>month-days (list <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">28</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">30</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">30</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">30</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">30</span> <span style="color:#ae81ff">31</span>))
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">let </span>((<span style="color:#a6e22e">total-days</span> (* (<span style="color:#ae81ff">1</span>- year) <span style="color:#ae81ff">365</span>)))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">set! </span>total-days (+ total-days (quotient (<span style="color:#ae81ff">1</span>- year) <span style="color:#ae81ff">4</span>)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">set! </span>total-days (- total-days (quotient (<span style="color:#ae81ff">1</span>- year) <span style="color:#ae81ff">100</span>)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">set! </span>total-days (+ total-days (quotient (<span style="color:#ae81ff">1</span>- year) <span style="color:#ae81ff">400</span>)))
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">do </span>((<span style="color:#a6e22e">i</span> <span style="color:#ae81ff">0</span> (<span style="color:#a6e22e">add1</span> i)))
+</span></span><span style="display:flex;"><span>        ((= i (<span style="color:#ae81ff">1</span>- month)) total-days)
+</span></span><span style="display:flex;"><span>      (<span style="color:#66d9ef">set! </span>total-days (+ total-days (list-ref month-days i))))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">if </span>(<span style="color:#66d9ef">and </span>(<span style="color:#a6e22e">leap-year?</span> year) (&gt; month <span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>        (<span style="color:#66d9ef">set! </span>total-days (<span style="color:#a6e22e">add1</span> total-days)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">set! </span>total-days (+ total-days day))
+</span></span><span style="display:flex;"><span>    total-days))
+</span></span></code></pre></div><p>That&rsquo;s horrible. Imagine reading 20000 lines of this. No, thank you, but no means no.</p>
+<p>Let&rsquo;s see the same in the elegant language that I have grown to love. In Swift, it is simply a matter of:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">daysSince</span>(year: Int, month: Int, day: Int) -&gt; Int {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Array to store days in each month</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> monthDays = [<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">28</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Calculate the total number of days in the years before the given year</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> totalDays = (year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">365</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add one extra day for each leap year</span>
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+=</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>) <span style="color:#f92672">-</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">400</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Calculate the total number of days in the given year</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0.</span>.<span style="color:#f92672">&lt;</span>(month<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> monthDays[i]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add one extra day if it&#39;s a leap year and we&#39;re past February</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> month <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> ((year <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span> == <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">||</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">400</span> == <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add the number of days in the current month</span>
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+=</span> day
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> totalDays
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The annotations make it wordy, but the program logic is visually appealing and clear even without comments (which were added for the benefit of newbies reading this blog). Here is the un-annotated version:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">daysSince</span>(year: Int, month: Int, day: Int) -&gt; Int {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> monthDays = [<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">28</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">31</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> totalDays = (year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">365</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+=</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>) <span style="color:#f92672">-</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> ((year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">400</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0.</span>.<span style="color:#f92672">&lt;</span>(month<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> monthDays[i]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> month <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> ((year <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span> == <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">||</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">400</span> == <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+=</span> day
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> totalDays
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Actually, the clearest programming language is Hope, which is no longer alive, except it is, because Swift seems like modern Hope. Here is the same in Hope:</p>
+<pre tabindex="0"><code class="language-hope" data-lang="hope">
+program DaysSince
+
+function days-since(year: int, month: int, day: int) -&gt; int
+    
+    var totalDays: int;
+    
+    let monthDays: vector&lt;int&gt; = [31,28,31,30,31,30,31,31,30,31,30,31];
+    
+    func is-leap-year(_ year: int) -&gt; bool
+        return (year % 4 == 0 &amp;&amp; year % 100 != 0) || year % 400 == 0;
+    end
+    
+    totalDays = (year - 1) * 365;
+    totalDays += (year - 1) / 4 - (year - 1) / 100 + (year - 1) / 400;
+    
+    for i in 0..&lt;(month - 1)
+        totalDays += monthDays[i];
+    
+    if (is-leap-year(year) &amp;&amp; month &gt; 2)
+        totalDays += 1;
+   
+    totalDays += day;
+    return totalDays;
+end
+</code></pre><p>It&rsquo;s even clearer than Swift, but as it is a dead language, the second best choice is Swift. This is not to say Swift is the only coolest kid on the block. Let&rsquo;s look at a few more examples, this one in F#:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fsharp" data-lang="fsharp"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> rec daysSince year month day <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> monthDays <span style="color:#f92672">=</span> <span style="color:#f92672">[|</span><span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">28</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">|]</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> isLeapYear year <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>        year <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>year <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">400</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> numberOfLeapYears year <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>        year <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">-</span> year <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">+</span> year <span style="color:#f92672">/</span> <span style="color:#ae81ff">400</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> mutable totalDays <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">365</span> <span style="color:#f92672">+</span> numberOfLeapYears year
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">..</span>month<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">&lt;-</span> totalDays <span style="color:#f92672">+</span> monthDays<span style="color:#f92672">.[</span>i<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> isLeapYear year <span style="color:#f92672">&amp;&amp;</span> month <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">&lt;-</span> totalDays <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+</span> day
+</span></span></code></pre></div><p>Pretty neat, although somewhat clanky. Scala also claims to be highly readable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> daysSince<span style="color:#f92672">(</span>year<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">,</span> month<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">,</span> day<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> monthDays <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Array</span><span style="color:#f92672">(</span><span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">28</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> isLeapYear<span style="color:#f92672">(</span>year<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>        year <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>year <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> year <span style="color:#f92672">%</span> <span style="color:#ae81ff">400</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> numberOfLeapYears <span style="color:#66d9ef">=</span> year <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">-</span> year <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">+</span> year <span style="color:#f92672">/</span> <span style="color:#ae81ff">400</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> totalDays <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>year <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">365</span> <span style="color:#f92672">+</span> numberOfLeapYears
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>i <span style="color:#66d9ef">&lt;-</span> <span style="color:#ae81ff">0</span> until month <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> monthDays<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>isLeapYear<span style="color:#f92672">(</span>year<span style="color:#f92672">)</span> <span style="color:#f92672">&amp;&amp;</span> month <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        totalDays <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    totalDays <span style="color:#f92672">+</span> day
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>That&rsquo;s good enough for me, although I dislike its <code>for</code> loop.</p>
+<p>Anyway, give me Swift and Haskell any day, over any Lisp. Life is too short for parentheses hell.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2023</span>
+            <span><a href="https://dersavage.github.io/main/">Jan Savage</a></span>
+            
+            <span><a href="https://dersavage.github.io/main/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://dersavage.github.io/main/bundle.min.98fef7958ed12b899250a29a40d2a730eda779c87de1fae22a4cf6c7e87088a65ac7537f5be758af43c4f3a8876e5117be9d027b8090c55f80a610864d08e384.js" integrity="sha512-mP73lY7RK4mSUKKaQNKnMO2nech94friKkz2x&#43;hwiKZax1N/W&#43;dYr0PE86iHblEXvp0Ce4CQxV&#43;AphCGTQjjhA=="></script>
+
+
+
+    </body>
+</html>

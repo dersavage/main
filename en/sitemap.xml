@@ -2,13 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dersavage.github.io/main/books/cr-vlangapp/</loc>
-    <lastmod>2023-06-27T19:06:52+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/tags/book/</loc>
-    <lastmod>2023-06-27T19:06:52+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/books/</loc>
+    <loc>https://dersavage.github.io/main/tutorials/todo-app-in-vlang/</loc>
     <lastmod>2023-06-27T19:06:52+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/</loc>
@@ -37,59 +31,65 @@
                 href="https://dersavage.github.io/main/tags/"
                 />
   </url><url>
-    <loc>https://dersavage.github.io/main/posts/</loc>
+    <loc>https://dersavage.github.io/main/tutorials/</loc>
+    <lastmod>2023-06-27T19:06:52+08:00</lastmod>
+  </url><url>
+    <loc>https://dersavage.github.io/main/tags/tutorials-programming/</loc>
+    <lastmod>2023-06-27T19:06:52+08:00</lastmod>
+  </url><url>
+    <loc>https://dersavage.github.io/main/tutorials/python-on-vscode/</loc>
     <lastmod>2023-06-24T17:33:57+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/tags/techtips-python-vscode-troubleshooting/</loc>
     <lastmod>2023-06-24T17:33:57+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/posts/2023/06/tr-interactive-python-vscode/mac/</loc>
-    <lastmod>2023-06-24T17:33:57+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/posts/2023/05/br-the-hobbit/</loc>
+    <loc>https://dersavage.github.io/main/tags/reading-reviews/</loc>
     <lastmod>2023-05-20T23:05:14+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/tags/reading/</loc>
+    <loc>https://dersavage.github.io/main/reviews/</loc>
     <lastmod>2023-05-20T23:05:14+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/posts/2023/04/br-the-noble-quraan-translation-review/</loc>
-    <lastmod>2023-04-09T14:25:35+08:00</lastmod>
+    <loc>https://dersavage.github.io/main/reviews/the-hobbit/</loc>
+    <lastmod>2023-05-20T23:05:14+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/tags/essays/</loc>
     <lastmod>2023-04-09T14:25:35+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/posts/2023/03/lr-why-lisp-is-horrible/</loc>
-    <lastmod>2023-03-21T08:23:18+08:00</lastmod>
+    <loc>https://dersavage.github.io/main/essays/</loc>
+    <lastmod>2023-04-09T14:25:35+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/posts/2023/01/cr-truly-object-oriented-in-twin-peaks/</loc>
-    <lastmod>2023-01-29T13:12:52+08:00</lastmod>
+    <loc>https://dersavage.github.io/main/essays/noble-quran-translations/</loc>
+    <lastmod>2023-04-09T14:25:35+08:00</lastmod>
+  </url><url>
+    <loc>https://dersavage.github.io/main/tutorials/why-lisp-is-horrible/</loc>
+    <lastmod>2023-03-21T08:23:18+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/tags/programming-swift/</loc>
     <lastmod>2023-01-29T13:12:52+08:00</lastmod>
   </url><url>
+    <loc>https://dersavage.github.io/main/tutorials/oop-in-swift-grounds/</loc>
+    <lastmod>2023-01-29T13:12:52+08:00</lastmod>
+  </url><url>
+    <loc>https://dersavage.github.io/main/essays/inception-/</loc>
+    <lastmod>2023-01-28T12:47:35+08:00</lastmod>
+  </url><url>
     <loc>https://dersavage.github.io/main/tags/movies/</loc>
     <lastmod>2023-01-28T12:47:35+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/posts/2023/01/mr-inception-what-on-earth/</loc>
-    <lastmod>2023-01-28T12:47:35+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/posts/2023/01/ar-rubbishing-ayn-rand/</loc>
+    <loc>https://dersavage.github.io/main/reviews/ayn-rand/</loc>
     <lastmod>2023-01-15T22:48:07+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/tags/criticism/</loc>
-    <lastmod>2023-01-15T22:48:07+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/posts/2022/11/br-middlemarch/</loc>
+    <loc>https://dersavage.github.io/main/reviews/middlemarch/</loc>
     <lastmod>2022-11-21T00:42:05+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/tags/fiction/</loc>
-    <lastmod>2022-11-21T00:42:05+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/posts/2022/10/br-where-evil-resides/</loc>
+    <loc>https://dersavage.github.io/main/reviews/-where-evil/</loc>
     <lastmod>2022-10-02T20:19:24+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/posts/2022/06/br-darker-than-amber/</loc>
+    <loc>https://dersavage.github.io/main/reviews/darker-than-amber/</loc>
     <lastmod>2022-06-23T08:28:02+08:00</lastmod>
+  </url><url>
+    <loc>https://dersavage.github.io/main/books/</loc>
+    <lastmod>2022-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/books/programming-201/</loc>
     <lastmod>2022-05-23T00:00:00+00:00</lastmod>
