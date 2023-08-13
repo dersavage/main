@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 27 Jun 2023 19:06:52 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Aug 2023 12:47:35 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Perpetuation of Ignorance</title>
+      <link>https://dersavage.github.io/main/essays/perpetuation_igno/</link>
+      <pubDate>Wed, 09 Aug 2023 12:47:35 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/perpetuation_igno/</guid>
+      <description>This morning I read an article written by a certain developer praising a certain software engineering book. But there were two problems. While the engineer seemed competent enough, and the book famous enough (it&amp;rsquo;s like Shakespeare, everyone claims it&amp;rsquo;s a masteriece but nobody seems to have read or finished it.), the book has serious problems and the engineer was unaware that he was unaware of those problems.
+For context, the problems highlighted in that &amp;lsquo;masterpiece&amp;rsquo; book were pinpointed by someone at least in the same league as the authors of the masterpiece (if not better, but I&amp;rsquo;m being conservative here.</description>
+    </item>
+    
+    <item>
+      <title>Is difficult good?</title>
+      <link>https://dersavage.github.io/main/essays/isdifficult_good/</link>
+      <pubDate>Sun, 06 Aug 2023 12:47:35 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/isdifficult_good/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>A To-Do app in Vlang</title>
       <link>https://dersavage.github.io/main/tutorials/todo-app-in-vlang/</link>
@@ -90,29 +109,6 @@ But how can it be? Out of 16000 reviews on Amazon, 95% are five- and four-star.<
       
       <guid>https://dersavage.github.io/main/reviews/ayn-rand/</guid>
       <description>Today, the victim of my incisive criticism is Ayn Rand (or more accurtately, Alissa Zinovievna Rosenbaum). Now, a discerning thinker might object: but how can you criticize someone you haven&amp;rsquo;t read? Our answer is: do we need to befriend someone whose manners in the first few minutes of our acquaintance repulsed us? Time is gold, so a few paragraphs illustrating her thoughts would provide enough ammunition for a full-scale rubbishing.</description>
-    </item>
-    
-    <item>
-      <title>Middlemarch</title>
-      <link>https://dersavage.github.io/main/reviews/middlemarch/</link>
-      <pubDate>Mon, 21 Nov 2022 00:42:05 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/reviews/middlemarch/</guid>
-      <description>Middlemarch by
-George Eliot A book that was lauded (by Woolf) as the only British novel written for grownups. I dislike Woolf and I am not even sure why. There&amp;rsquo;s something off-putting in how her name, in combination with titles of some of her works, is perceived by me.
-But I also disliked &amp;ldquo;George Eliot&amp;rdquo; without knowing exactly why. That was a long time ago, well before I knew it was a &amp;lsquo;she&amp;rsquo; and not a &amp;lsquo;he&amp;rsquo;, and &amp;ldquo;George Eliot&amp;rdquo; was a pseudonym.</description>
-    </item>
-    
-    <item>
-      <title>Where Evil Resides</title>
-      <link>https://dersavage.github.io/main/reviews/-where-evil/</link>
-      <pubDate>Sun, 02 Oct 2022 20:19:24 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/reviews/-where-evil/</guid>
-      <description>Where Evil Resides by
-Clifford Simak (BR: Book Review)
-Recently managed to go through Simak&amp;rsquo;s fantasy title: Where Evil Resides, which made me wonder why a writer like Simak became famous in the first place? But again I see morons like Updike and it doesn&amp;rsquo;t surprise me: not all readers are intelligent enough to know what they should be reading.
-Simak is nothing special. The story is flat, the characteras uni-dimensional.</description>
     </item>
     
   </channel>

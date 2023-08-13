@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>thinking on Jan Savage</title>
+    <link>https://dersavage.github.io/main/tags/thinking/</link>
+    <description>Recent content in thinking on Jan Savage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 09 Aug 2023 12:47:35 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tags/thinking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Perpetuation of Ignorance</title>
+      <link>https://dersavage.github.io/main/essays/perpetuation_igno/</link>
+      <pubDate>Wed, 09 Aug 2023 12:47:35 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/perpetuation_igno/</guid>
+      <description>This morning I read an article written by a certain developer praising a certain software engineering book. But there were two problems. While the engineer seemed competent enough, and the book famous enough (it&amp;rsquo;s like Shakespeare, everyone claims it&amp;rsquo;s a masteriece but nobody seems to have read or finished it.), the book has serious problems and the engineer was unaware that he was unaware of those problems.
+For context, the problems highlighted in that &amp;lsquo;masterpiece&amp;rsquo; book were pinpointed by someone at least in the same league as the authors of the masterpiece (if not better, but I&amp;rsquo;m being conservative here.</description>
+    </item>
+    
+    <item>
+      <title>Is difficult good?</title>
+      <link>https://dersavage.github.io/main/essays/isdifficult_good/</link>
+      <pubDate>Sun, 06 Aug 2023 12:47:35 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/isdifficult_good/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
