@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jan Savage ">
+<meta name="description" content="Programming is fundamentally about abstraction - finding ways to simplify and automate complex tasks by breaking them into logical sequences of instructions. At its core, it is the pursuit of developing structured languages to bridge the gap between human cognition and machine execution.
+The genius of programming lies in designing pragmatic artificial languages to achieve practical ends. We compose scripts in Ruby, sequences in Python, services in Scala, queries in SQL, rules in Prolog - each language a spell to conjure utility from silicon." />
+<meta name="keywords" content="programming, thinking" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://dersavage.github.io/main/essays/whatis_progr/" />
+
+
+    <title>
+        
+            What is programming? :: Jan Savage  — The Jan Savage cave
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://dersavage.github.io/main/main.b6d528998b7b504bfd8ef86303ede1785102ea45c0c86ef0215145b1e5778a9d.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dersavage.github.io/main/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dersavage.github.io/main/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dersavage.github.io/main/favicon-16x16.png">
+    <link rel="manifest" href="https://dersavage.github.io/main/site.webmanifest">
+    <link rel="mask-icon" href="https://dersavage.github.io/main/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://dersavage.github.io/main/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="What is programming?">
+<meta itemprop="description" content="Programming is fundamentally about abstraction - finding ways to simplify and automate complex tasks by breaking them into logical sequences of instructions. At its core, it is the pursuit of developing structured languages to bridge the gap between human cognition and machine execution.
+The genius of programming lies in designing pragmatic artificial languages to achieve practical ends. We compose scripts in Ruby, sequences in Python, services in Scala, queries in SQL, rules in Prolog - each language a spell to conjure utility from silicon."><meta itemprop="datePublished" content="2023-08-11T12:47:35+08:00" />
+<meta itemprop="dateModified" content="2023-08-11T12:47:35+08:00" />
+<meta itemprop="wordCount" content="822"><meta itemprop="image" content="https://dersavage.github.io/main/"/>
+<meta itemprop="keywords" content="thinking," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dersavage.github.io/main/"/>
+
+<meta name="twitter:title" content="What is programming?"/>
+<meta name="twitter:description" content="Programming is fundamentally about abstraction - finding ways to simplify and automate complex tasks by breaking them into logical sequences of instructions. At its core, it is the pursuit of developing structured languages to bridge the gap between human cognition and machine execution.
+The genius of programming lies in designing pragmatic artificial languages to achieve practical ends. We compose scripts in Ruby, sequences in Python, services in Scala, queries in SQL, rules in Prolog - each language a spell to conjure utility from silicon."/>
+
+
+
+
+    <meta property="og:title" content="What is programming?" />
+<meta property="og:description" content="Programming is fundamentally about abstraction - finding ways to simplify and automate complex tasks by breaking them into logical sequences of instructions. At its core, it is the pursuit of developing structured languages to bridge the gap between human cognition and machine execution.
+The genius of programming lies in designing pragmatic artificial languages to achieve practical ends. We compose scripts in Ruby, sequences in Python, services in Scala, queries in SQL, rules in Prolog - each language a spell to conjure utility from silicon." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dersavage.github.io/main/essays/whatis_progr/" /><meta property="og:image" content="https://dersavage.github.io/main/"/><meta property="article:section" content="essays" />
+<meta property="article:published_time" content="2023-08-11T12:47:35+08:00" />
+<meta property="article:modified_time" content="2023-08-11T12:47:35+08:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2023-08-11 12:47:35 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://dersavage.github.io/main/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">~</span>
+            <span class="logo__text">% cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#4000ff;
+                   animation-duration:1.1s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://dersavage.github.io/main/about/">Abt</a></li><li><a href="https://dersavage.github.io/main/books/">Books</a></li><li><a href="https://dersavage.github.io/main/essays/">Essays</a></li><li><a href="https://dersavage.github.io/main/reviews/">Revs</a></li><li><a href="https://dersavage.github.io/main/tutorials/">Tuts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://dersavage.github.io/main/essays/whatis_progr/">What is programming?</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <p>Programming is fundamentally about abstraction - finding ways to simplify and automate complex tasks by breaking them into logical sequences of instructions. At its core, it is the pursuit of developing structured languages to bridge the gap between human cognition and machine execution.</p>
+<p>The genius of programming lies in designing pragmatic artificial languages to achieve practical ends. We compose scripts in Ruby, sequences in Python, services in Scala, queries in SQL, rules in Prolog - each language a spell to conjure utility from silicon. Programming is applied philosophy, using symbols and syntax to model the world into deterministic problems solvable by computation.</p>
+<p>Yet programming is more alchemy than science. We scrawl arcane glyphs and runes into text files and somehow breathe life into the machine. We master esoteric arts to orchestrate pixels into apps and data into insights. We tweak constants and invoke mysterious “libraries” until the whole groaning system suddenly works, for reasons obscure to outsiders.</p>
+<p>So while programming leverages mathematical rigor and precision, creativity permeates it. Each program is a poem explaining people to computers. Hacks and heuristics prosper because engineering is artistry. Coding style matters: we indent, comment, and refactor - beautifying scripts into elegance.</p>
+<p>In unlocking the raw potential of computers, we better comprehend our own minds. Programming teaches us how to decompose ideas into logical steps, how to generalize and abstract concepts into reusable components. Within the methodical world of code, human ingenuity shines. Behind the screen sit people - programmers puzzling out how to transform human experience into machine instructions.</p>
+<p>Programming combines scientific thinking with creative problem solving. Through languages and abstractions, we embed knowledge into algorithms in our quest to mechanize intuition. Part science, part art, part alchemy, programming at its heart is pure expression of human potential.</p>
+<blockquote>
+<p>Code only answer expressed in Swift:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Import Foundation 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">automateTask</span>(complexTask: Task) {  <span style="color:#66d9ef">let</span> steps = simplify(complexTask)  <span style="color:#66d9ef">let</span> instructions = steps.map { encode($0) }  execute(instructions)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> Cogn2Exec = { (idea: Idea) -&gt; Code <span style="color:#66d9ef">in</span> encode(<span style="color:#66d9ef">struct</span>(transl(idea))) }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> programmingGenius = { (goal: Goal) -&gt; Utility <span style="color:#66d9ef">in</span> map(languageFor(goal)) { deriveUtility(encode($0)) } }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> appliedPhilosophy = { (worldModel: World) -&gt; Solution <span style="color:#66d9ef">in</span> reduce(deterministicProblems(model(worldModel))) { solve($0, by: computation) } }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">craftArtifact</span>(goal: String) -&gt; Int {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> mysticSymbols = <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    abcdefghijklmnopqrstuvwxyz
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    0123456789
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> symbols: [Character] = (<span style="color:#ae81ff">0.</span>.&lt;<span style="color:#ae81ff">100</span>).map
+</span></span><span style="display:flex;"><span>    { <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">in</span> mysticSymbols.randomElement()<span style="color:#f92672">!</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> code = String(symbols)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> essence = [<span style="color:#e6db74">&#34;pixels&#34;</span>, <span style="color:#e6db74">&#34;data&#34;</span>, <span style="color:#e6db74">&#34;insights&#34;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> livingCode = LivingCode(code: code, essence: essence)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> constants: [Int] = [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">!</span>livingCode.isActive {
+</span></span><span style="display:flex;"><span>        constants = tinker(constants)
+</span></span><span style="display:flex;"><span>        livingCode.integrate(constants)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> origins = shroud(livingCode.origins)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> livingCode.harness(goal)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">tinker</span>(parts: [Int]) -&gt; [Int] {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> parts.map { $0 <span style="color:#f92672">^</span> randomTweak() }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">randomTweak</span>() -&gt; Int {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Int.random(<span style="color:#66d9ef">in</span>: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">shroud</span>(origins: [String]) -&gt; [String] {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#34;arcane energies&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;entropic forces&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;mystic echoes&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">isActive</span>(artifact: LivingCode) -&gt; Bool {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> artifact.spark <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">LivingCode</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> code: String
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> essence: [String]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> spark: Int = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> origins: [String] = []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">integrate</span>(constants: [Int]) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0.</span>.&lt;code.count {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> code[i] == <span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#f92672">&amp;&amp;</span> constants[i] == <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>                spark <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> code[i] == <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">&amp;&amp;</span> constants[i] == <span style="color:#ae81ff">1</span> {
+</span></span><span style="display:flex;"><span>                spark <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> spark <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">100</span> {
+</span></span><span style="display:flex;"><span>            isActive = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">harness</span>(goal: String) -&gt; Int {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> isActive {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> goal == <span style="color:#e6db74">&#34;power&#34;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> spark <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> goal == <span style="color:#e6db74">&#34;knowledge&#34;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> spark <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> goal == <span style="color:#e6db74">&#34;wisdom&#34;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> spark <span style="color:#f92672">*</span> <span style="color:#ae81ff">10000</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Foundation</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">composeAlgorithm</span>(topic: Topic, audience: Computer) -&gt; Algorithm {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> blueprint = analyze(topic: topic)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> framework = constructSchema(blueprint: blueprint) 
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> lyrics = topic.keyIdeas.map { express(line: $0, framework: framework) }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> draft = compose(lyrics: lyrics, framework: framework)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> edits = clarify(draft: draft, audience: audience)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> algorithm = refine(draft: draft, edits: edits)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  perform(algorithm: algorithm, audience: audience, framework: framework)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">analyze</span>(topic: Topic) -&gt; Blueprint {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Blueprint()  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">constructSchema</span>(blueprint: Blueprint) -&gt; Framework {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Framework() 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">express</span>(line: Line, framework: Framework) -&gt; Verse {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Verse()  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">compose</span>(lyrics: [Verse], framework: Framework) -&gt; Draft {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Draft()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">clarify</span>(draft: Draft, audience: Computer) -&gt; [Edit] {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> []
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">refine</span>(draft: Draft, edits: [Edit]) -&gt; Algorithm {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Algorithm() 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">perform</span>(algorithm: Algorithm, audience: Computer, framework: Framework) {
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Idea</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> concepts: [String]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">StepType</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> action, decision
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Step</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> type: StepType
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> description: String
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Programmer</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">code</span>(idea: Idea) -&gt; Program {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> steps = decompose(idea)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> components = extractReusable(from: steps)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> program = assembleInstructions(from: components)
+</span></span><span style="display:flex;"><span>    execute(program)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">decompose</span>(idea: Idea) -&gt; [Step] {
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">extractReusable</span>(from steps: [Step]) -&gt; [Component] {
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">assembleInstructions</span>(from components: [Component]) -&gt; Program {
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">execute</span>(program: Program) {
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> name: String
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> instructions: [String]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Program</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> instructions: [String]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">programmingIsScienceAndArt</span>(problem: Problem) -&gt; Solution {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> selectOptimal(evaluateAll(generateCreativeAlgorithms(analyze(problem))))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://dersavage.github.io/main/tags/thinking/">thinking</a></span>
+        
+    </p>
+
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2023</span>
+            <span><a href="https://dersavage.github.io/main/">Jan Savage</a></span>
+            
+            <span><a href="https://dersavage.github.io/main/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://dersavage.github.io/main/bundle.min.98fef7958ed12b899250a29a40d2a730eda779c87de1fae22a4cf6c7e87088a65ac7537f5be758af43c4f3a8876e5117be9d027b8090c55f80a610864d08e384.js" integrity="sha512-mP73lY7RK4mSUKKaQNKnMO2nech94friKkz2x&#43;hwiKZax1N/W&#43;dYr0PE86iHblEXvp0Ce4CQxV&#43;AphCGTQjjhA=="></script>
+
+
+
+    </body>
+</html>

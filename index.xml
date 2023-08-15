@@ -7,25 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 09 Aug 2023 12:47:35 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Aug 2023 12:47:35 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The Perpetuation of Ignorance</title>
+      <title>What is programming?</title>
+      <link>https://dersavage.github.io/main/essays/whatis_progr/</link>
+      <pubDate>Fri, 11 Aug 2023 12:47:35 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/whatis_progr/</guid>
+      <description>Programming is fundamentally about abstraction - finding ways to simplify and automate complex tasks by breaking them into logical sequences of instructions. At its core, it is the pursuit of developing structured languages to bridge the gap between human cognition and machine execution.
+The genius of programming lies in designing pragmatic artificial languages to achieve practical ends. We compose scripts in Ruby, sequences in Python, services in Scala, queries in SQL, rules in Prolog - each language a spell to conjure utility from silicon.</description>
+    </item>
+    
+    <item>
+      <title>The Perpetuation of ignorance</title>
       <link>https://dersavage.github.io/main/essays/perpetuation_igno/</link>
-      <pubDate>Wed, 09 Aug 2023 12:47:35 +0800</pubDate>
+      <pubDate>Sun, 09 Jul 2023 12:47:35 +0800</pubDate>
       
       <guid>https://dersavage.github.io/main/essays/perpetuation_igno/</guid>
       <description>This morning I read an article written by a certain developer praising a certain software engineering book. But there were two problems. While the engineer seemed competent enough, and the book famous enough (it&amp;rsquo;s like Shakespeare, everyone claims it&amp;rsquo;s a masteriece but nobody seems to have read or finished it), the book has serious problems and the engineer was unaware that he was unaware of those problems.
 This is how ignorance is perpetuated.</description>
-    </item>
-    
-    <item>
-      <title>Is difficult good?</title>
-      <link>https://dersavage.github.io/main/essays/isdifficult_good/</link>
-      <pubDate>Sun, 06 Aug 2023 12:47:35 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/essays/isdifficult_good/</guid>
-      <description>Among programmers and even common people in general, I feel there&amp;rsquo;s an implicit consensus that &amp;lsquo;difficult is good&amp;rsquo;. I got this idea when reading a book review, where the reviewer had implied that the book was worth reading because it was difficult.
-Words are dangerous things if misused. Especially as experiences are subjective, and words reflect those experiences. So you and I might both use the word &amp;lsquo;difficult&amp;rsquo;, yet our subjective understanding of the term might vary too much to even be considered the same word.</description>
     </item>
     
     <item>
@@ -49,6 +49,16 @@ Students and enthusiasts who have learned some programming but don&amp;rsquo;t k
       <description>Legend Potential Audience:
 Learners wanting to use a free but industrial-grade Python IDE on a Mac. Anyone having trouble using Python on Visual Studio Code because it &amp;lsquo;won&amp;rsquo;t run&amp;rsquo;. Why Mac? Unless you are Jabba, the Meister Programmer, I advise all learners to use MacOS for the smoothest possible journey in their quest to become programmers.
 That&amp;rsquo;s because at its heart, MacOS is simply a flavor of Unix and you can&amp;rsquo;t do serious programming on Windows&amp;ndash;that&amp;rsquo;s a fact acknowledged by Microsoft, too (hence their providing the WSL).</description>
+    </item>
+    
+    <item>
+      <title>Is difficult good?</title>
+      <link>https://dersavage.github.io/main/essays/isdifficult_good/</link>
+      <pubDate>Tue, 06 Jun 2023 12:47:35 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/isdifficult_good/</guid>
+      <description>Among programmers and even common people in general, I feel there&amp;rsquo;s an implicit consensus that &amp;lsquo;difficult is good&amp;rsquo;. I got this idea when reading a book review, where the reviewer had implied that the book was worth reading because it was difficult.
+Words are dangerous things if misused. Especially as experiences are subjective, and words reflect those experiences. So you and I might both use the word &amp;lsquo;difficult&amp;rsquo;, yet our subjective understanding of the term might vary too much to even be considered the same word.</description>
     </item>
     
     <item>
@@ -101,15 +111,6 @@ The purpose of this CR is to bring learners&amp;rsquo; attention to an interesti
       <description>In this essay, I am going to rant about Inception.
 Please don&amp;rsquo;t think I watched it. I really couldn&amp;rsquo;t bring myself to go beyond 17 minutes (out of 2+ hours). I think 17 minutes is enough to decide whether it is rubbish or not. In my opinion, it is a rubbish of the most interesting sort.
 But how can it be? Out of 16000 reviews on Amazon, 95% are five- and four-star.</description>
-    </item>
-    
-    <item>
-      <title>Rubbishing Ayn Rand</title>
-      <link>https://dersavage.github.io/main/reviews/ayn-rand/</link>
-      <pubDate>Sun, 15 Jan 2023 22:48:07 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/reviews/ayn-rand/</guid>
-      <description>Today, the victim of my incisive criticism is Ayn Rand (or more accurtately, Alissa Zinovievna Rosenbaum). Now, a discerning thinker might object: but how can you criticize someone you haven&amp;rsquo;t read? Our answer is: do we need to befriend someone whose manners in the first few minutes of our acquaintance repulsed us? Time is gold, so a few paragraphs illustrating her thoughts would provide enough ammunition for a full-scale rubbishing.</description>
     </item>
     
   </channel>

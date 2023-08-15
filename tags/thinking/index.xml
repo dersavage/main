@@ -7,11 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 09 Aug 2023 12:47:35 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tags/thinking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Aug 2023 12:47:35 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tags/thinking/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The Perpetuation of Ignorance</title>
+      <title>What is programming?</title>
+      <link>https://dersavage.github.io/main/essays/whatis_progr/</link>
+      <pubDate>Fri, 11 Aug 2023 12:47:35 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/whatis_progr/</guid>
+      <description>Programming is fundamentally about abstraction - finding ways to simplify and automate complex tasks by breaking them into logical sequences of instructions. At its core, it is the pursuit of developing structured languages to bridge the gap between human cognition and machine execution.
+The genius of programming lies in designing pragmatic artificial languages to achieve practical ends. We compose scripts in Ruby, sequences in Python, services in Scala, queries in SQL, rules in Prolog - each language a spell to conjure utility from silicon.</description>
+    </item>
+    
+    <item>
+      <title>The Perpetuation of ignorance</title>
       <link>https://dersavage.github.io/main/essays/perpetuation_igno/</link>
-      <pubDate>Wed, 09 Aug 2023 12:47:35 +0800</pubDate>
+      <pubDate>Sun, 09 Jul 2023 12:47:35 +0800</pubDate>
       
       <guid>https://dersavage.github.io/main/essays/perpetuation_igno/</guid>
       <description>This morning I read an article written by a certain developer praising a certain software engineering book. But there were two problems. While the engineer seemed competent enough, and the book famous enough (it&amp;rsquo;s like Shakespeare, everyone claims it&amp;rsquo;s a masteriece but nobody seems to have read or finished it), the book has serious problems and the engineer was unaware that he was unaware of those problems.
@@ -21,7 +31,7 @@ This is how ignorance is perpetuated.</description>
     <item>
       <title>Is difficult good?</title>
       <link>https://dersavage.github.io/main/essays/isdifficult_good/</link>
-      <pubDate>Sun, 06 Aug 2023 12:47:35 +0800</pubDate>
+      <pubDate>Tue, 06 Jun 2023 12:47:35 +0800</pubDate>
       
       <guid>https://dersavage.github.io/main/essays/isdifficult_good/</guid>
       <description>Among programmers and even common people in general, I feel there&amp;rsquo;s an implicit consensus that &amp;lsquo;difficult is good&amp;rsquo;. I got this idea when reading a book review, where the reviewer had implied that the book was worth reading because it was difficult.
