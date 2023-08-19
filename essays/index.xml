@@ -7,17 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 11 Aug 2023 12:47:35 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/essays/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>What is programming?</title>
-      <link>https://dersavage.github.io/main/essays/whatis_progr/</link>
-      <pubDate>Fri, 11 Aug 2023 12:47:35 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/essays/whatis_progr/</guid>
-      <description>Programming is fundamentally about abstraction - finding ways to simplify and automate complex tasks by breaking them into logical sequences of instructions. At its core, it is the pursuit of developing structured languages to bridge the gap between human cognition and machine execution.
-The genius of programming lies in designing pragmatic artificial languages to achieve practical ends. We compose scripts in Ruby, sequences in Python, services in Scala, queries in SQL, rules in Prolog - each language a spell to conjure utility from silicon.</description>
-    </item>
-    
+    <lastBuildDate>Sun, 09 Jul 2023 12:47:35 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/essays/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Perpetuation of ignorance</title>
       <link>https://dersavage.github.io/main/essays/perpetuation_igno/</link>
