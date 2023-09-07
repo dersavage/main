@@ -173,268 +173,267 @@ Students and enthusiasts who have learned some programming but don&rsquo;t know 
 <p>This tutorial is in beta now. Two versions are being written: one, for total beginners and will also teach them Vlang syntax and the programming 101 concepts, tools and techniques. Another version does not teach Vlang and programming but goes into great detail explaining each part of this program. The resulting booklets will be announced on my Quora and also here.</p>
 <p>Let&rsquo;s go!</p>
 <p>First, let&rsquo;s Import the needed modules:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> flag
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> json
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> fmt
-</span></span></code></pre></div><p>Next, we define a custom type for each task:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Task</span> {
-</span></span><span style="display:flex;"><span>    id <span style="color:#66d9ef">int</span>
-</span></span><span style="display:flex;"><span>    name string
-</span></span><span style="display:flex;"><span>    done <span style="color:#66d9ef">bool</span>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span> <span style="color:#fff;font-weight:bold">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">import</span> flag
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">import</span> json
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">import</span> fmt</span></span></code></pre></div>
+<p>Next, we define a custom type for each task:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">struct</span> Task {
+</span></span><span style="display:flex;"><span>    id <span style="color:#fff;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>    name <span style="color:#fff;font-weight:bold">string</span>
+</span></span><span style="display:flex;"><span>    done <span style="color:#fff;font-weight:bold">bool</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Define a global variable for the file name:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> file_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;tasks.json&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">const</span> file_name = <span style="color:#0ff;font-weight:bold">&#39;tasks.json&#39;</span>
 </span></span></code></pre></div><p>Define a function that loads the tasks from the file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">load_tasks</span>() []<span style="color:#a6e22e">Task</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Check if the file exists
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>os.<span style="color:#a6e22e">exists</span>(file_name) {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Return empty array if not
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> []
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">fn</span> load_tasks() []Task {
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Check if the file exists
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">if</span> !os.exists(file_name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Return empty array if not
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">return</span> []
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Open the file for reading
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f <span style="color:#f92672">:=</span> os.<span style="color:#a6e22e">open</span>(file_name) <span style="color:#66d9ef">or</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to open </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Open the file for reading
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    f := os.open(file_name) <span style="color:#fff;font-weight:bold">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Failed to open </span>$file_name<span style="color:#0ff;font-weight:bold">: </span>$err<span style="color:#0ff;font-weight:bold">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Read all the content from the file
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    data <span style="color:#f92672">:=</span> f.<span style="color:#a6e22e">read_all</span>() <span style="color:#66d9ef">or</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to read </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Read all the content from the file
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    data := f.read_all() <span style="color:#fff;font-weight:bold">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Failed to read </span>$file_name<span style="color:#0ff;font-weight:bold">: </span>$err<span style="color:#0ff;font-weight:bold">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Close the file
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f.close() <span style="color:#66d9ef">or</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to close </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Close the file
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    f.<span style="color:#fff;font-weight:bold">close</span>() <span style="color:#fff;font-weight:bold">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Failed to close </span>$file_name<span style="color:#0ff;font-weight:bold">: </span>$err<span style="color:#0ff;font-weight:bold">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Decode the JSON data into an array of tasks
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    tasks <span style="color:#f92672">:=</span> json.<span style="color:#a6e22e">decode</span>([]<span style="color:#a6e22e">Task</span>, data) <span style="color:#66d9ef">or</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to decode JSON data: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Decode the JSON data into an array of tasks
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    tasks := json.decode([]Task, data) <span style="color:#fff;font-weight:bold">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Failed to decode JSON data: </span>$err<span style="color:#0ff;font-weight:bold">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Return the array of tasks
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> tasks
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Return the array of tasks
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">return</span> tasks
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Now let&rsquo;s define a function that saves the tasks to the file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">save_tasks</span>(tasks []<span style="color:#a6e22e">Task</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Encode the array of tasks into JSON data
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    data <span style="color:#f92672">:=</span> json.<span style="color:#a6e22e">encode</span>(tasks) <span style="color:#66d9ef">or</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to encode JSON data: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">fn</span> save_tasks(tasks []Task) {
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Encode the array of tasks into JSON data
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    data := json.encode(tasks) <span style="color:#fff;font-weight:bold">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Failed to encode JSON data: </span>$err<span style="color:#0ff;font-weight:bold">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Open the file for writing
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f <span style="color:#f92672">:=</span> os.<span style="color:#a6e22e">create</span>(file_name) <span style="color:#66d9ef">or</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to create </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Open the file for writing
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    f := os.create(file_name) <span style="color:#fff;font-weight:bold">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Failed to create </span>$file_name<span style="color:#0ff;font-weight:bold">: </span>$err<span style="color:#0ff;font-weight:bold">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Write the JSON data to the file
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f.<span style="color:#a6e22e">write</span>(data) <span style="color:#66d9ef">or</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to write </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Write the JSON data to the file
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    f.write(data) <span style="color:#fff;font-weight:bold">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Failed to write </span>$file_name<span style="color:#0ff;font-weight:bold">: </span>$err<span style="color:#0ff;font-weight:bold">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Close the file
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f.close() <span style="color:#66d9ef">or</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle any error
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Failed to close </span><span style="color:#f92672">$</span>file_name<span style="color:#e6db74">: </span><span style="color:#f92672">$</span>err<span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Close the file
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    f.<span style="color:#fff;font-weight:bold">close</span>() <span style="color:#fff;font-weight:bold">or</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Handle any error
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Failed to close </span>$file_name<span style="color:#0ff;font-weight:bold">: </span>$err<span style="color:#0ff;font-weight:bold">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Next, a function that prints the usage information:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">print_usage</span>() {
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;Usage: todo [flags] [commands]&#39;</span>)
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;A simple command line to-do list app.&#39;</span>)
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;Flags:&#39;</span>)
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;  -h, --help    Show this help message and exit&#39;</span>)
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;Commands:&#39;</span>)
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;  add [name]    Add a new task with the given name&#39;</span>)
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;  list          List all the tasks&#39;</span>)
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;  done [id]     Mark the task with the given id as done&#39;</span>)
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;  delete [id]   Delete the task with the given id&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">fn</span> print_usage() {
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;Usage: todo [flags] [commands]&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;A simple command line to-do list app.&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;Flags:&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;  -h, --help    Show this help message and exit&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;Commands:&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;  add [name]    Add a new task with the given name&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;  list          List all the tasks&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;  done [id]     Mark the task with the given id as done&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;  delete [id]   Delete the task with the given id&#39;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Followed by a function that prints the tasks in a table format:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">print_tasks</span>(tasks []<span style="color:#a6e22e">Task</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Define some constants for the table format
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> (
-</span></span><span style="display:flex;"><span>        col1_width <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
-</span></span><span style="display:flex;"><span>        col2_width <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
-</span></span><span style="display:flex;"><span>        col3_width <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
-</span></span><span style="display:flex;"><span>        sep_char <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;-&#39;</span>
-</span></span><span style="display:flex;"><span>        sep_line <span style="color:#f92672">=</span> sep_char.repeat(col1_width <span style="color:#f92672">+</span> col2_width <span style="color:#f92672">+</span> col3_width <span style="color:#f92672">+</span> <span style="color:#ae81ff">6</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">fn</span> print_tasks(tasks []Task) {
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Define some constants for the table format
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">const</span> (
+</span></span><span style="display:flex;"><span>        col1_width = <span style="color:#ff0;font-weight:bold">5</span>
+</span></span><span style="display:flex;"><span>        col2_width = <span style="color:#ff0;font-weight:bold">30</span>
+</span></span><span style="display:flex;"><span>        col3_width = <span style="color:#ff0;font-weight:bold">10</span>
+</span></span><span style="display:flex;"><span>        sep_char = <span style="color:#0ff;font-weight:bold">&#39;-&#39;</span>
+</span></span><span style="display:flex;"><span>        sep_line = sep_char.<span style="color:#fff;font-weight:bold">repeat</span>(col1_width + col2_width + col3_width + <span style="color:#ff0;font-weight:bold">6</span>)
 </span></span><span style="display:flex;"><span>    )
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Print the table header
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println(sep_line)
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#39;| ID | Name                          | Status   |&#39;</span>)
-</span></span><span style="display:flex;"><span>    println(sep_line)
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Print each task in a row
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> task <span style="color:#66d9ef">in</span> tasks {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Format the task fields
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        id <span style="color:#f92672">:=</span> fmt.<span style="color:#a6e22e">pad_left</span>(task.id.str(), col1_width, <span style="color:#e6db74">&#39; &#39;</span>)
-</span></span><span style="display:flex;"><span>        name <span style="color:#f92672">:=</span> fmt.<span style="color:#a6e22e">pad_right</span>(task.name, col2_width, <span style="color:#e6db74">&#39; &#39;</span>)
-</span></span><span style="display:flex;"><span>        status <span style="color:#f92672">:=</span> <span style="color:#66d9ef">if</span> task.done { <span style="color:#e6db74">&#39;Done&#39;</span> } <span style="color:#66d9ef">else</span> { <span style="color:#e6db74">&#39;Pending&#39;</span> }
-</span></span><span style="display:flex;"><span>        status <span style="color:#f92672">=</span> fmt.<span style="color:#a6e22e">pad_right</span>(status, col3_width, <span style="color:#e6db74">&#39; &#39;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Print the row
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        println(<span style="color:#e6db74">&#39;| </span><span style="color:#f92672">$</span>id<span style="color:#e6db74"> | </span><span style="color:#f92672">$</span>name<span style="color:#e6db74"> | </span><span style="color:#f92672">$</span>status<span style="color:#e6db74"> |&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Print the table header
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">println</span>(sep_line)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;| ID | Name                          | Status   |&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">println</span>(sep_line)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Print each task in a row
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">for</span> task <span style="color:#fff;font-weight:bold">in</span> tasks {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Format the task fields
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        id := fmt.pad_left(task.id.<span style="color:#fff;font-weight:bold">str</span>(), col1_width, <span style="color:#0ff;font-weight:bold">&#39; &#39;</span>)
+</span></span><span style="display:flex;"><span>        name := fmt.pad_right(task.name, col2_width, <span style="color:#0ff;font-weight:bold">&#39; &#39;</span>)
+</span></span><span style="display:flex;"><span>        status := <span style="color:#fff;font-weight:bold">if</span> task.done { <span style="color:#0ff;font-weight:bold">&#39;Done&#39;</span> } <span style="color:#fff;font-weight:bold">else</span> { <span style="color:#0ff;font-weight:bold">&#39;Pending&#39;</span> }
+</span></span><span style="display:flex;"><span>        status = fmt.pad_right(status, col3_width, <span style="color:#0ff;font-weight:bold">&#39; &#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Print the row
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;| </span>$id<span style="color:#0ff;font-weight:bold"> | </span>$name<span style="color:#0ff;font-weight:bold"> | </span>$status<span style="color:#0ff;font-weight:bold"> |&#39;</span>)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Print the table footer
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println(sep_line)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Print the table footer
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">println</span>(sep_line)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Define a function that adds a new task with the given name:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">add_task</span>(tasks <span style="color:#66d9ef">mut</span> []<span style="color:#a6e22e">Task</span>, name string) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Generate a unique id for the new task
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">mut</span> id <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> task <span style="color:#66d9ef">in</span> tasks {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> task.id <span style="color:#f92672">&gt;=</span> id {
-</span></span><span style="display:flex;"><span>            id <span style="color:#f92672">=</span> task.id <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">fn</span> add_task(tasks <span style="color:#fff;font-weight:bold">mut</span> []Task, name <span style="color:#fff;font-weight:bold">string</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Generate a unique id for the new task
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">mut</span> id := <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> task <span style="color:#fff;font-weight:bold">in</span> tasks {
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">if</span> task.id &gt;= id {
+</span></span><span style="display:flex;"><span>            id = task.id + <span style="color:#ff0;font-weight:bold">1</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create a new task with the id, name, and done status
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    new_task <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Task</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Create a new task with the id, name, and done status
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    new_task := Task{
 </span></span><span style="display:flex;"><span>        id: id
 </span></span><span style="display:flex;"><span>        name: name
-</span></span><span style="display:flex;"><span>        done: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        done: <span style="color:#fff;font-weight:bold">false</span>
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Append the new task to the array of tasks
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    tasks <span style="color:#f92672">&lt;&lt;</span> new_task
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Save the tasks to the file
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">save_tasks</span>(tasks)
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Print a success message
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println(<span style="color:#e6db74">&#39;Added a new task: </span><span style="color:#f92672">$</span>new_task<span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Append the new task to the array of tasks
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    tasks &lt;&lt; new_task
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Save the tasks to the file
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    save_tasks(tasks)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Print a success message
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;Added a new task: </span>$new_task<span style="color:#0ff;font-weight:bold">&#39;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Define a function that marks the task with the given id as done:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">done_task</span>(tasks <span style="color:#66d9ef">mut</span> []<span style="color:#a6e22e">Task</span>, id <span style="color:#66d9ef">int</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Find the index of the task with the id in the array of tasks
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">mut</span> index <span style="color:#f92672">:=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i, task <span style="color:#66d9ef">in</span> tasks {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> task.id <span style="color:#f92672">==</span> id {
-</span></span><span style="display:flex;"><span>            index <span style="color:#f92672">=</span> i
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">fn</span> done_task(tasks <span style="color:#fff;font-weight:bold">mut</span> []Task, id <span style="color:#fff;font-weight:bold">int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Find the index of the task with the id in the array of tasks
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">mut</span> index := -<span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> i, task <span style="color:#fff;font-weight:bold">in</span> tasks {
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">if</span> task.id == id {
+</span></span><span style="display:flex;"><span>            index = i
+</span></span><span style="display:flex;"><span>            <span style="color:#fff;font-weight:bold">break</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Check if the index is valid
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> index <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Print an error message if not
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Invalid task id: </span><span style="color:#f92672">$</span>id<span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Check if the index is valid
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">if</span> index == -<span style="color:#ff0;font-weight:bold">1</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Print an error message if not
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Invalid task id: </span>$id<span style="color:#0ff;font-weight:bold">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Mark the task as done by changing its done status to true
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    tasks[index].done <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Save the tasks to the file
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">save_tasks</span>(tasks)
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Print a success message
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println(<span style="color:#e6db74">&#39;Marked the task as done: </span><span style="color:#f92672">$</span>tasks<span style="color:#e6db74">[index]&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Mark the task as done by changing its done status to true
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    tasks[index].done = <span style="color:#fff;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Save the tasks to the file
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    save_tasks(tasks)
+</span></span><span style="display:flex;"><span>    <span style="color:#007f7f">// Print a success message
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;Marked the task as done: </span>$tasks<span style="color:#0ff;font-weight:bold">[index]&#39;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Define a function that deletes the task with the given id:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">delete_task</span>(tasks <span style="color:#66d9ef">mut</span> []<span style="color:#a6e22e">Task</span>, id <span style="color:#66d9ef">int</span>) {
-</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Find the index of the task with the id in the array of tasks
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#66d9ef">mut</span> index <span style="color:#f92672">:=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> 
-</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">for</span> i, task <span style="color:#66d9ef">in</span> tasks { 
-</span></span><span style="display:flex;"><span>         <span style="color:#66d9ef">if</span> task.id <span style="color:#f92672">==</span> id { 
-</span></span><span style="display:flex;"><span>             index <span style="color:#f92672">=</span> i 
-</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">break</span> 
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">fn</span> delete_task(tasks <span style="color:#fff;font-weight:bold">mut</span> []Task, id <span style="color:#fff;font-weight:bold">int</span>) {
+</span></span><span style="display:flex;"><span>     <span style="color:#007f7f">// Find the index of the task with the id in the array of tasks
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>     <span style="color:#fff;font-weight:bold">mut</span> index := -<span style="color:#ff0;font-weight:bold">1</span> 
+</span></span><span style="display:flex;"><span>     <span style="color:#fff;font-weight:bold">for</span> i, task <span style="color:#fff;font-weight:bold">in</span> tasks { 
+</span></span><span style="display:flex;"><span>         <span style="color:#fff;font-weight:bold">if</span> task.id == id { 
+</span></span><span style="display:flex;"><span>             index = i 
+</span></span><span style="display:flex;"><span>             <span style="color:#fff;font-weight:bold">break</span> 
 </span></span><span style="display:flex;"><span>         } 
 </span></span><span style="display:flex;"><span>     } 
-</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Check if the index is valid 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#66d9ef">if</span> index <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> { 
-</span></span><span style="display:flex;"><span>         <span style="color:#75715e">// Print an error message if not 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>         eprintln(<span style="color:#e6db74">&#39;Invalid task id: </span><span style="color:#f92672">$</span>id<span style="color:#e6db74">&#39;</span>) 
-</span></span><span style="display:flex;"><span>         exit(<span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>     <span style="color:#007f7f">// Check if the index is valid 
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>     <span style="color:#fff;font-weight:bold">if</span> index == -<span style="color:#ff0;font-weight:bold">1</span> { 
+</span></span><span style="display:flex;"><span>         <span style="color:#007f7f">// Print an error message if not 
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>         <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Invalid task id: </span>$id<span style="color:#0ff;font-weight:bold">&#39;</span>) 
+</span></span><span style="display:flex;"><span>         <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>) 
 </span></span><span style="display:flex;"><span>     } 
-</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Delete the task by removing it from the array of tasks 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     deleted_task <span style="color:#f92672">:=</span> tasks[index] 
-</span></span><span style="display:flex;"><span>     tasks.delete(index) 
-</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Save the tasks to the file 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#a6e22e">save_tasks</span>(tasks) 
-</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Print a success message 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     println(<span style="color:#e6db74">&#39;Deleted the task: </span><span style="color:#f92672">$</span>deleted_task<span style="color:#e6db74">&#39;</span>) 
+</span></span><span style="display:flex;"><span>     <span style="color:#007f7f">// Delete the task by removing it from the array of tasks 
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>     deleted_task := tasks[index] 
+</span></span><span style="display:flex;"><span>     tasks.<span style="color:#fff;font-weight:bold">delete</span>(index) 
+</span></span><span style="display:flex;"><span>     <span style="color:#007f7f">// Save the tasks to the file 
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>     save_tasks(tasks) 
+</span></span><span style="display:flex;"><span>     <span style="color:#007f7f">// Print a success message 
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>     <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;Deleted the task: </span>$deleted_task<span style="color:#0ff;font-weight:bold">&#39;</span>) 
 </span></span><span style="display:flex;"><span> }
 </span></span></code></pre></div><p>Load the tasks from the file into an array of tasks</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">mut</span> tasks <span style="color:#f92672">:=</span> <span style="color:#a6e22e">load_tasks</span>()
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">mut</span> tasks := load_tasks()
 </span></span></code></pre></div><p>Create a flag parser to parse command line arguments and options</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">mut</span> fp <span style="color:#f92672">:=</span> flag.<span style="color:#a6e22e">new_flag_parser</span>(os.args)
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">```v
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Add some flags to show help information and version number
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">```</span>v
-</span></span><span style="display:flex;"><span>fp.<span style="color:#a6e22e">add_bool</span>(<span style="color:#e6db74">&#39;help&#39;</span>, <span style="color:#e6db74">`h`</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#39;Show this help message and exit&#39;</span>)
-</span></span><span style="display:flex;"><span>fp.<span style="color:#a6e22e">add_string</span>(<span style="color:#e6db74">&#39;version&#39;</span>, <span style="color:#e6db74">`v`</span>, <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#e6db74">&#39;Show program version and exit&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">mut</span> fp := flag.new_flag_parser(os.args)
+</span></span><span style="display:flex;"><span><span style="color:#0ff;font-weight:bold">```v
+</span></span></span><span style="display:flex;"><span><span style="color:#0ff;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#0ff;font-weight:bold">Add some flags to show help information and version number
+</span></span></span><span style="display:flex;"><span><span style="color:#0ff;font-weight:bold">```</span>v
+</span></span><span style="display:flex;"><span>fp.add_bool(<span style="color:#0ff;font-weight:bold">&#39;help&#39;</span>, <span style="color:#0ff;font-weight:bold">`h`</span>, <span style="color:#fff;font-weight:bold">false</span>, <span style="color:#0ff;font-weight:bold">&#39;Show this help message and exit&#39;</span>)
+</span></span><span style="display:flex;"><span>fp.add_string(<span style="color:#0ff;font-weight:bold">&#39;version&#39;</span>, <span style="color:#0ff;font-weight:bold">`v`</span>, <span style="color:#0ff;font-weight:bold">&#39;&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;Show program version and exit&#39;</span>)
 </span></span></code></pre></div><p>Parse command line arguments and options into a map of flags and values</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span>flags <span style="color:#f92672">:=</span> fp.<span style="color:#a6e22e">parse</span>()
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span>flags := fp.parse()
 </span></span></code></pre></div><p>Check if help flag is set or no command is given</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> flags[<span style="color:#e6db74">&#39;help&#39;</span>].bool() <span style="color:#f92672">||</span> fp.args.len <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
-</span></span><span style="display:flex;"><span>   <span style="color:#75715e">// Print usage information and exit 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   print_usage
-</span></span><span style="display:flex;"><span>   exit(<span style="color:#ae81ff">0</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">if</span> flags[<span style="color:#0ff;font-weight:bold">&#39;help&#39;</span>].<span style="color:#fff;font-weight:bold">bool</span>() || fp.args.len == <span style="color:#ff0;font-weight:bold">0</span> {
+</span></span><span style="display:flex;"><span>   <span style="color:#007f7f">// Print usage information and exit 
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>   print_usage
+</span></span><span style="display:flex;"><span>   <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">0</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Check if version flag is set</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> flags[<span style="color:#e6db74">&#39;version&#39;</span>].str() <span style="color:#66d9ef">!</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span> {
-</span></span><span style="display:flex;"><span>   <span style="color:#75715e">// Print program version and exit 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   println(<span style="color:#e6db74">&#39;todo v0.1.0&#39;</span>)
-</span></span><span style="display:flex;"><span>   exit(<span style="color:#ae81ff">0</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">if</span> flags[<span style="color:#0ff;font-weight:bold">&#39;version&#39;</span>].<span style="color:#fff;font-weight:bold">str</span>() <span style="color:#fff;font-weight:bold">!</span>= <span style="color:#0ff;font-weight:bold">&#39;&#39;</span> {
+</span></span><span style="display:flex;"><span>   <span style="color:#007f7f">// Print program version and exit 
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>   <span style="color:#fff;font-weight:bold">println</span>(<span style="color:#0ff;font-weight:bold">&#39;todo v0.1.0&#39;</span>)
+</span></span><span style="display:flex;"><span>   <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">0</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Get the command from the first argument</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span>command <span style="color:#f92672">:=</span> fp.args[<span style="color:#ae81ff">0</span>]
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span>command := fp.args[<span style="color:#ff0;font-weight:bold">0</span>]
 </span></span></code></pre></div><p>Check what command is given and call the corresponding function</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#66d9ef">match</span> command {
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;add&#39;</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Check if a name is given as the second argument
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> fp.args.len &lt; <span style="color:#ae81ff">2</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Print an error message and exit if not
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            eprintln(<span style="color:#e6db74">&#39;Missing task name&#39;</span>)
-</span></span><span style="display:flex;"><span>            exit(<span style="color:#ae81ff">1</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">match</span> command {
+</span></span><span style="display:flex;"><span>    <span style="color:#0ff;font-weight:bold">&#39;add&#39;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Check if a name is given as the second argument
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">if</span> fp.args.len &lt; <span style="color:#ff0;font-weight:bold">2</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#007f7f">// Print an error message and exit if not
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>            <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Missing task name&#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Get the name from the second argument
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        name <span style="color:#f92672">:=</span> fp.args[<span style="color:#ae81ff">1</span>]
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Call the add_task function with the tasks array and the name
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">add_task</span>(<span style="color:#66d9ef">mut</span> tasks, name)
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Get the name from the second argument
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        name := fp.args[<span style="color:#ff0;font-weight:bold">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Call the add_task function with the tasks array and the name
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        add_task(<span style="color:#fff;font-weight:bold">mut</span> tasks, name)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;list&#39;</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Call the print_tasks function with the tasks array
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">print_tasks</span>(tasks)
+</span></span><span style="display:flex;"><span>    <span style="color:#0ff;font-weight:bold">&#39;list&#39;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Call the print_tasks function with the tasks array
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        print_tasks(tasks)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;done&#39;</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Check if an id is given as the second argument
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> fp.args.len &lt; <span style="color:#ae81ff">2</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Print an error message and exit if not
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            eprintln(<span style="color:#e6db74">&#39;Missing task id&#39;</span>)
-</span></span><span style="display:flex;"><span>            exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#0ff;font-weight:bold">&#39;done&#39;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Check if an id is given as the second argument
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">if</span> fp.args.len &lt; <span style="color:#ff0;font-weight:bold">2</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#007f7f">// Print an error message and exit if not
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>            <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Missing task id&#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Get the id from the second argument and convert it to an int
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        id <span style="color:#f92672">:=</span> fp.args[<span style="color:#ae81ff">1</span>].int() <span style="color:#66d9ef">or</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Print an error message and exit if conversion fails
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            eprintln(<span style="color:#e6db74">&#39;Invalid task id: </span><span style="color:#f92672">$</span>fp.args<span style="color:#e6db74">[1]&#39;</span>)
-</span></span><span style="display:flex;"><span>            exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Get the id from the second argument and convert it to an int
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        id := fp.args[<span style="color:#ff0;font-weight:bold">1</span>].<span style="color:#fff;font-weight:bold">int</span>() <span style="color:#fff;font-weight:bold">or</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#007f7f">// Print an error message and exit if conversion fails
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>            <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Invalid task id: </span>$fp.args<span style="color:#0ff;font-weight:bold">[1]&#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Call the done_task function with the tasks array and the id
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">done_task</span>(<span style="color:#66d9ef">mut</span> tasks, id)
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Call the done_task function with the tasks array and the id
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        done_task(<span style="color:#fff;font-weight:bold">mut</span> tasks, id)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;delete&#39;</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Check if an id is given as the second argument
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> fp.args.len &lt; <span style="color:#ae81ff">2</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Print an error message and exit if not
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            eprintln(<span style="color:#e6db74">&#39;Missing task id&#39;</span>)
-</span></span><span style="display:flex;"><span>            exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#0ff;font-weight:bold">&#39;delete&#39;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Check if an id is given as the second argument
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">if</span> fp.args.len &lt; <span style="color:#ff0;font-weight:bold">2</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#007f7f">// Print an error message and exit if not
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>            <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Missing task id&#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Get the id from the second argument and convert it to an int
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        id <span style="color:#f92672">:=</span> fp.args[<span style="color:#ae81ff">1</span>].int() <span style="color:#66d9ef">or</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Print an error message and exit if conversion fails
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            eprintln(<span style="color:#e6db74">&#39;Invalid task id: </span><span style="color:#f92672">$</span>fp.args<span style="color:#e6db74">[1]&#39;</span>)
-</span></span><span style="display:flex;"><span>            exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Get the id from the second argument and convert it to an int
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        id := fp.args[<span style="color:#ff0;font-weight:bold">1</span>].<span style="color:#fff;font-weight:bold">int</span>() <span style="color:#fff;font-weight:bold">or</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#007f7f">// Print an error message and exit if conversion fails
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>            <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Invalid task id: </span>$fp.args<span style="color:#0ff;font-weight:bold">[1]&#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Call the delete_task function with the tasks array and the id
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">delete_task</span>(<span style="color:#66d9ef">mut</span> tasks, id)
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Call the delete_task function with the tasks array and the id
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        delete_task(<span style="color:#fff;font-weight:bold">mut</span> tasks, id)
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Print an error message and exit if unknown command is given
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        eprintln(<span style="color:#e6db74">&#39;Unknown command: </span><span style="color:#f92672">$</span>command<span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#007f7f">// Print an error message and exit if unknown command is given
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">eprintln</span>(<span style="color:#0ff;font-weight:bold">&#39;Unknown command: </span>$command<span style="color:#0ff;font-weight:bold">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">exit</span>(<span style="color:#ff0;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
