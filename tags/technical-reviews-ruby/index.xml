@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>technical, reviews, ruby on Jan Savage</title>
+    <link>https://dersavage.github.io/main/tags/technical-reviews-ruby/</link>
+    <description>Recent content in technical, reviews, ruby on Jan Savage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 10 Sep 2023 17:45:19 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tags/technical-reviews-ruby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>10/10: Matsumoto&#39;s Ruby Book</title>
+      <link>https://dersavage.github.io/main/reviews/the_ruby_book/</link>
+      <pubDate>Sun, 10 Sep 2023 17:45:19 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/reviews/the_ruby_book/</guid>
+      <description>There are not many good technical books, but Matsumoto&amp;rsquo;s &amp;ldquo;The Ruby Programming Language&amp;rdquo;, co-authored with Flanagan, stands out as one of best examples of technical writing.
+Here&amp;rsquo;s why:
+The writing is succinct without being abstrusely terse. It&amp;rsquo;s clear without being simplistic. The sentences are fluff-free and the meanings are conveyed clearly, like a good Ruby program. Consider this excerpt for example from page 75:
+Every object has a well-defined class in Ruby, and that class never changes during the lifetime of the object.</description>
+    </item>
+    
+  </channel>
+</rss>
