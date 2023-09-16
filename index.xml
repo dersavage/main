@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 10 Sep 2023 17:45:19 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Sep 2023 00:58:29 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Point of Pointlessness?</title>
+      <link>https://dersavage.github.io/main/essays/point_of_pointlessness/</link>
+      <pubDate>Sat, 16 Sep 2023 00:58:29 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/point_of_pointlessness/</guid>
+      <description>In the introduction to Tristam Shandy&amp;rsquo;s Penguin edition, Christopher Ricks writes:
+“Tristram Shandy is the greatest shaggy-dog story in the language&amp;hellip;.But there were voices saying that the book was obscene, or pointless, or deficient in everything that a novel ought to provide. The fact that pointlessness was one of Sterne’s points, that he was out to flout and taunt humdrum expectations – this meant little.”
+Ricks calls the the sublimeness of literary art and its moral purpose a mere &amp;lsquo;humdrum expectations&amp;rsquo; and goes on to prattle, like Sterne, for several pages basically saying nothing at all meaningful.</description>
+    </item>
+    
     <item>
       <title>10/10: Matsumoto&#39;s Ruby Book</title>
       <link>https://dersavage.github.io/main/reviews/the_ruby_book/</link>
@@ -99,17 +110,6 @@ I mean, not only it is an awful first language to teach beginners, or to self-le
       <guid>https://dersavage.github.io/main/tutorials/oop-in-swift-grounds/</guid>
       <description>This is the first post in the CR&amp;ndash;Code Review&amp;ndash;series. I hit upon the idea after I found this interesting discussion regarding Swift playgrounds, book 2 (Let&amp;rsquo;s Code 2), chapter named &amp;lsquo;Twin Peaks&amp;rsquo; in Scrabtree&amp;rsquo;s website, where he lamented his very long solution compared to Samantha&amp;rsquo;s shorter solution.
 The purpose of this CR is to bring learners&amp;rsquo; attention to an interesting thing about object orientation: objects can be interdependent even if they were instantiated independently.</description>
-    </item>
-    
-    <item>
-      <title>Inception: What on earth?</title>
-      <link>https://dersavage.github.io/main/essays/inception-/</link>
-      <pubDate>Sat, 28 Jan 2023 12:47:35 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/essays/inception-/</guid>
-      <description>In this essay, I am going to rant about Inception.
-Please don&amp;rsquo;t think I watched it. I really couldn&amp;rsquo;t bring myself to go beyond 17 minutes (out of 2+ hours). I think 17 minutes is enough to decide whether it is rubbish or not. In my opinion, it is a rubbish of the most interesting sort.
-But how can it be? Out of 16000 reviews on Amazon, 95% are five- and four-star.</description>
     </item>
     
   </channel>
