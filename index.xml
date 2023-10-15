@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 16 Sep 2023 00:58:29 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Oct 2023 15:04:47 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Maugham surprised me</title>
+      <link>https://dersavage.github.io/main/essays/maugham/</link>
+      <pubDate>Sun, 15 Oct 2023 15:04:47 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/maugham/</guid>
+      <description>Everytime I picked Somerset Maugham&amp;rsquo;s books, two thoughts simultaneously would occur to me: the books were heavy and thick, and the print was too small. Consequently, I kept thinking, maybe when I find a better print, or when I have time. I didn&amp;rsquo;t outright reject his works as my gut feeling was pro-Maugham. And in such procrastination, several years passed&amp;hellip;.
+But then, quite accidentally, I ran into one of his short stories &amp;ldquo;A Friend in Need&amp;rdquo;.</description>
+    </item>
+    
     <item>
       <title>The Point of Pointlessness?</title>
       <link>https://dersavage.github.io/main/essays/point_of_pointlessness/</link>
@@ -100,16 +110,6 @@ And with an exception or two, the books are always way, way better than the movi
       <description>This is a first post in LR category&amp;ndash;Language Review&amp;ndash;where I will factually opine on various programming languages. And today&amp;rsquo;s victim is Lisp.
 Or first, let me say the emperor has no clothes, or Scheme is an awful language.
 I mean, not only it is an awful first language to teach beginners, or to self-learn on your own, but also in general, as a programming language in 2023, it is not as great as it&amp;rsquo;s cracked up to be.</description>
-    </item>
-    
-    <item>
-      <title>Truly Object-oriented in &#39;Twin Peaks&#39;</title>
-      <link>https://dersavage.github.io/main/tutorials/oop-in-swift-grounds/</link>
-      <pubDate>Sun, 29 Jan 2023 13:12:52 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/tutorials/oop-in-swift-grounds/</guid>
-      <description>This is the first post in the CR&amp;ndash;Code Review&amp;ndash;series. I hit upon the idea after I found this interesting discussion regarding Swift playgrounds, book 2 (Let&amp;rsquo;s Code 2), chapter named &amp;lsquo;Twin Peaks&amp;rsquo; in Scrabtree&amp;rsquo;s website, where he lamented his very long solution compared to Samantha&amp;rsquo;s shorter solution.
-The purpose of this CR is to bring learners&amp;rsquo; attention to an interesting thing about object orientation: objects can be interdependent even if they were instantiated independently.</description>
     </item>
     
   </channel>
