@@ -3,10 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dersavage.github.io/main/essays/</loc>
-    <lastmod>2023-10-15T15:04:47+08:00</lastmod>
+    <lastmod>2023-10-24T15:22:53+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/</loc>
-    <lastmod>2023-10-15T15:04:47+08:00</lastmod>
+    <lastmod>2023-10-24T15:22:53+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -17,6 +17,9 @@
                 hreflang="en"
                 href="https://dersavage.github.io/main/"
                 />
+  </url><url>
+    <loc>https://dersavage.github.io/main/essays/the_infinite_joke/</loc>
+    <lastmod>2023-10-24T15:22:53+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/essays/maugham/</loc>
     <lastmod>2023-10-15T15:04:47+08:00</lastmod>

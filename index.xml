@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 15 Oct 2023 15:04:47 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Oct 2023 15:22:53 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tears of joke: marginal functionalism</title>
+      <link>https://dersavage.github.io/main/essays/the_infinite_joke/</link>
+      <pubDate>Tue, 24 Oct 2023 15:22:53 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/the_infinite_joke/</guid>
+      <description>Did you understand the title of this essay? Probably not. Neither would I have understood, to be frank, were I not the author. That&amp;rsquo;s because when I was coming up with a title for this essay, which, in my mind, arose as an allergic reaction to the garbage that David Foster Wallace&amp;rsquo;s book, &amp;ldquo;The Infinite Jest&amp;rdquo; is, I was sort of trying to convey the idea that I was going to write an essay about the fact that some people among us are merely marginally functional&amp;ndash;functional enough to be considered legally sane&amp;ndash;but otherwise are actually seriously mentally ill, and that, this was a joke that was going to cause tears, not laughter.</description>
+    </item>
+    
     <item>
       <title>Maugham surprised me</title>
       <link>https://dersavage.github.io/main/essays/maugham/</link>
@@ -99,17 +108,6 @@ And with an exception or two, the books are always way, way better than the movi
       
       <guid>https://dersavage.github.io/main/essays/noble-quran-translations/</guid>
       <description>I learned Qur&amp;rsquo;aanic Arabic (as a foreign language&amp;ndash;at the local mosque) when I was eight years old. But then decades had to pass when, after learning a great deal of worldly things, I am now feeling ready to truly study our Noble Book, and while I am brushing up on my classical Arabic, in the meantime, I wanted to find an English translation that was not deviating from the original in any sense.</description>
-    </item>
-    
-    <item>
-      <title>Why Lisp is horrible</title>
-      <link>https://dersavage.github.io/main/tutorials/why-lisp-is-horrible/</link>
-      <pubDate>Tue, 21 Mar 2023 08:23:18 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/tutorials/why-lisp-is-horrible/</guid>
-      <description>This is a first post in LR category&amp;ndash;Language Review&amp;ndash;where I will factually opine on various programming languages. And today&amp;rsquo;s victim is Lisp.
-Or first, let me say the emperor has no clothes, or Scheme is an awful language.
-I mean, not only it is an awful first language to teach beginners, or to self-learn on your own, but also in general, as a programming language in 2023, it is not as great as it&amp;rsquo;s cracked up to be.</description>
     </item>
     
   </channel>
