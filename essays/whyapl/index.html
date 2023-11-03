@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jan Savage ">
+<meta name="description" content="Why is APL the language of the future, even though it is roughly 50 years old? Why didn&amp;rsquo;t it take off like C did? To answer this, we need to delve into probability and intelligence.
+The problem with probability is that things that seem non-random or planned may actually be random (Tarasov, 1990), whereas things that seem random, may, sometimes be deterministic or an outcome of some emergent state (where the interaction of several elements and factors causes a new state to emerge: for instance, poverty is one such fuzzy emergent state)." />
+<meta name="keywords" content="programming" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://dersavage.github.io/main/essays/whyapl/" />
+
+
+    <title>
+        
+            APL is for the intelligent :: Jan Savage  — The Jan Savage cave
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://dersavage.github.io/main/main.b6d528998b7b504bfd8ef86303ede1785102ea45c0c86ef0215145b1e5778a9d.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dersavage.github.io/main/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dersavage.github.io/main/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dersavage.github.io/main/favicon-16x16.png">
+    <link rel="manifest" href="https://dersavage.github.io/main/site.webmanifest">
+    <link rel="mask-icon" href="https://dersavage.github.io/main/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://dersavage.github.io/main/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="APL is for the intelligent">
+<meta itemprop="description" content="Why is APL the language of the future, even though it is roughly 50 years old? Why didn&rsquo;t it take off like C did? To answer this, we need to delve into probability and intelligence.
+The problem with probability is that things that seem non-random or planned may actually be random (Tarasov, 1990), whereas things that seem random, may, sometimes be deterministic or an outcome of some emergent state (where the interaction of several elements and factors causes a new state to emerge: for instance, poverty is one such fuzzy emergent state)."><meta itemprop="datePublished" content="2023-11-03T10:28:15+08:00" />
+<meta itemprop="dateModified" content="2023-11-03T10:28:15+08:00" />
+<meta itemprop="wordCount" content="1100"><meta itemprop="image" content="https://dersavage.github.io/main/"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dersavage.github.io/main/"/>
+
+<meta name="twitter:title" content="APL is for the intelligent"/>
+<meta name="twitter:description" content="Why is APL the language of the future, even though it is roughly 50 years old? Why didn&rsquo;t it take off like C did? To answer this, we need to delve into probability and intelligence.
+The problem with probability is that things that seem non-random or planned may actually be random (Tarasov, 1990), whereas things that seem random, may, sometimes be deterministic or an outcome of some emergent state (where the interaction of several elements and factors causes a new state to emerge: for instance, poverty is one such fuzzy emergent state)."/>
+
+
+
+
+    <meta property="og:title" content="APL is for the intelligent" />
+<meta property="og:description" content="Why is APL the language of the future, even though it is roughly 50 years old? Why didn&rsquo;t it take off like C did? To answer this, we need to delve into probability and intelligence.
+The problem with probability is that things that seem non-random or planned may actually be random (Tarasov, 1990), whereas things that seem random, may, sometimes be deterministic or an outcome of some emergent state (where the interaction of several elements and factors causes a new state to emerge: for instance, poverty is one such fuzzy emergent state)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dersavage.github.io/main/essays/whyapl/" /><meta property="og:image" content="https://dersavage.github.io/main/"/><meta property="article:section" content="essays" />
+<meta property="article:published_time" content="2023-11-03T10:28:15+08:00" />
+<meta property="article:modified_time" content="2023-11-03T10:28:15+08:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2023-11-03 10:28:15 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://dersavage.github.io/main/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">~</span>
+            <span class="logo__text">% cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#4000ff;
+                   animation-duration:1.1s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://dersavage.github.io/main/about/">?</a></li><li><a href="https://dersavage.github.io/main/books/">Books</a></li><li><a href="https://dersavage.github.io/main/essays/">Essays</a></li><li><a href="https://dersavage.github.io/main/reviews/">Reviews</a></li><li><a href="https://dersavage.github.io/main/tutorials/">Tuts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://dersavage.github.io/main/essays/whyapl/">APL is for the intelligent</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <p>Why is APL the language of the future, even though it is roughly 50 years old? Why didn&rsquo;t it take off like C did? To answer this, we need to delve into probability and intelligence.</p>
+<p>The problem with probability is that things that seem non-random or planned may actually be random (Tarasov, 1990), whereas things that seem random, may, sometimes be deterministic or an outcome of some emergent state (where the interaction of several elements and factors causes a new state to emerge: for instance, poverty is one such fuzzy emergent state).</p>
+<p>However, probability is quite tricky. Even some emergent states may actually be probabilistic or random, or at least some of the factors at play may be decided by randomness. (Again, in some cultural contexts, poverty may be partially stochastic.).</p>
+<p>What about intelligence, then? While some elements of intelligence, what may be termed basal (as in, starting from tabula rasa) is partially stochastic (you can&rsquo;t control how a future adult&rsquo;s mother behaves during pregnancy: did she consume alcohol? smoke? is she severely nutrient-deficient?), the good news is that increasing one&rsquo;s intelligence levels is achievable.</p>
+<p>As research on FVR shows (Krashen, 1994), reading is one example of how not just language acquisition but general mental competences can be elevated through consistent free voluntary reading (&ldquo;reading because you want to&rdquo;). Latest research confirms my long-held hunch that how we think about how we think affects how well we could think:</p>
+<blockquote>
+<p>Mindset  theory  is  an  achievement  motivation  theory<br>
+that  centers  on  the  concept  of  the  malleability <br>
+of  abilities.  According  to  mindset  theory,  students <br>
+tend  to  have  either a growth mindset or a fixed mindset<br>
+about their intelligence; students with a growth mindset<br>
+tend to believe that intelligence is malleable, whereas<br>
+students with fixed mindsets tend to believe that<br>
+intelligence is unchangeable.</p>
+</blockquote>
+<pre><code> 						Kapasi &amp; Pei, 2021 
+</code></pre>
+<p>One of the harms caused by the racist IQ theory (whose foundation rests on Darwinism) is that, in the garb of science, it promotes the idea that intelligence levels are hereditarily determined and there&rsquo;s not much you can do about it. It is safe to assume this could be why many people function with a fixed mindset: they have accepted the fake science of the supremacist Darwinists, and they have given up the Kantian courage to ask why.</p>
+<p>In the meantime, failure to have superior outcomes is attributed to a fixed low or average IQ value, whereas, in actual fact, the culprit is the mindset:</p>
+<blockquote>
+<p>As described in many empirical and theoretical papers,
+the mindset a student holds can influence important psychological
+and behavioral factors, including reaction to failure, persistence
+and level of effort, and expectations of success, which ultimately
+impact academic achievement.</p>
+</blockquote>
+<pre><code>Kapasi &amp; Pei, 2021 
+</code></pre>
+<p>Interestingly, a large body of research (Kapasi &amp; Pei, 2021) now supports the claim that mindsets can be changed and with it, mental performance. But that&rsquo;s not the issue. The problem is, in a given slice of time, what percentage of population is operating on fixed mindset? How many people have even heard of the mindset-change theories and the hope that basal intelligence can be elevated through proper methods (among them, chief: deliberate practice and FVR)?</p>
+<p>A simple and quick investigation can easily show that generally speaking, intelligence levels are normally distributed (most people have average &ldquo;IQ&rdquo;, minority percentages are either below average, or above average). Per this, if majority of the populace is operating on fixed mindset, it is natural to conclude that:</p>
+<ul>
+<li>
+<p>Mediocre-quality tools will dominate the work landscape.</p>
+</li>
+<li>
+<p>Superior-quality tools will be either ignored, or underutilized.</p>
+</li>
+</ul>
+<p>APL is one such tool that has been ignored or underutilized. A small percentage of very intelligent people are ensuring it remains alive and program in it. The rest will be happy with Java. :)</p>
+<p>But I am assuming you are still here, reading my long essay because the concept of intelligence appeals to you, or at least, you are curious about what I have to say with regard to APL. Eitherway, although Ruby is dear to my heart (another underutilized gem of a language!) it is not even in the same neighborhood as APL!</p>
+<p>Let&rsquo;s show a few demonstrations of the power of APL and how the same is done in Ruby (which, by the by, is better than most languages out there).</p>
+<p>Let&rsquo;s say you have two int arrays [1, 2, 3] and [4, 5, 6] and you want to add them element-wise, like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Ruby" data-lang="Ruby"><span style="display:flex;"><span>a, b = [*<span style="color:#ff0;font-weight:bold">1</span>..<span style="color:#ff0;font-weight:bold">2</span>], [*<span style="color:#ff0;font-weight:bold">4</span>..<span style="color:#ff0;font-weight:bold">6</span>]
+</span></span><span style="display:flex;"><span>a.zip(b).map {|x, y| x + y}
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">##==&gt; [5, 7, 9]</span>
+</span></span></code></pre></div><p>And in APL? As simple as a dyadic addition!:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-APL" data-lang="APL"><span style="display:flex;"><span><span style="color:#ff0;font-weight:bold">1</span> <span style="color:#ff0;font-weight:bold">2</span> <span style="color:#ff0;font-weight:bold">3</span> + <span style="color:#ff0;font-weight:bold">4</span> <span style="color:#ff0;font-weight:bold">5</span> <span style="color:#ff0;font-weight:bold">6</span>
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">⍝⍝==&gt; 5 7 9</span>
+</span></span></code></pre></div><p>Or let&rsquo;s create a 2 x 3 matrix in Ruby and then reverse each row:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Ruby" data-lang="Ruby"><span style="display:flex;"><span>mat = [[*<span style="color:#ff0;font-weight:bold">1</span>..<span style="color:#ff0;font-weight:bold">3</span>],[*<span style="color:#ff0;font-weight:bold">4</span>..<span style="color:#ff0;font-weight:bold">6</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">##=&gt; [[1, 2, 3], [4, 5, 6]]</span>
+</span></span></code></pre></div><p>Note that running the intuitive-sounding <code>.reverse!</code> will result in reversing the order each row appears:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Ruby" data-lang="Ruby"><span style="display:flex;"><span>mat.reverse!
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">##==&gt; [[4, 5, 6], [1, 2, 3]]</span>
+</span></span></code></pre></div><p>Whereas what we want is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Ruby" data-lang="Ruby"><span style="display:flex;"><span>mat.map(&amp;<span style="color:#0ff;font-weight:bold">:reverse!</span>)
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">## ==&gt; [[3, 2, 1], [6, 5, 4]]</span>
+</span></span></code></pre></div><p>In APL, doing this is trivial:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-APL" data-lang="APL"><span style="display:flex;"><span>mat <span style="color:#fff;font-weight:bold">←</span> <span style="color:#ff0;font-weight:bold">2</span> <span style="color:#ff0;font-weight:bold">3</span> ⍴ ⍳<span style="color:#ff0;font-weight:bold">6</span>
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">⍝⍝==&gt; mat</span>
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">⍝⍝==&gt;  1 2 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">⍝⍝==&gt;  4 5 6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>⌽ mat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">⍝⍝==&gt; 3 2 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">⍝⍝==&gt; 6 5 4</span>
+</span></span></code></pre></div><p>So basically, <code>2 3 ⍴</code> is two-three-rho, meaning create a 2 x 3 dimension something, and iota-6 <code>⍳6</code> means list all the numbers from 1 to 6 inclusive. This &lsquo;something&rsquo; created by iota-6 is then transformed by rho, into the 2 x 3 matrix. The &rsquo;trams&rsquo; <code>⌽</code> reverses the matrix. Easy peasy!</p>
+<p>Or let&rsquo;s see this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Ruby" data-lang="Ruby"><span style="display:flex;"><span>[<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">10</span>, <span style="color:#ff0;font-weight:bold">100</span>].map{ |x| x * <span style="color:#ff0;font-weight:bold">3</span>}
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">## ==&gt; [3, 30, 100]</span>
+</span></span></code></pre></div><p>Which, in APL, is simply:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-APL" data-lang="APL"><span style="display:flex;"><span><span style="color:#ff0;font-weight:bold">3</span> × <span style="color:#ff0;font-weight:bold">1</span> <span style="color:#ff0;font-weight:bold">10</span> <span style="color:#ff0;font-weight:bold">100</span>
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">⍝⍝==&gt; 3 30 300</span>
+</span></span></code></pre></div><p>Careful though as you can see:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-APL" data-lang="APL"><span style="display:flex;"><span> <span style="color:#ff0;font-weight:bold">1</span> <span style="color:#ff0;font-weight:bold">10</span> <span style="color:#ff0;font-weight:bold">100</span> * <span style="color:#ff0;font-weight:bold">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">⍝⍝==&gt; 1 1000 1000000</span>
+</span></span></code></pre></div><p>Likewise, if we were to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Ruby" data-lang="Ruby"><span style="display:flex;"><span>(<span style="color:#ff0;font-weight:bold">1</span>..(<span style="color:#ff0;font-weight:bold">2</span> + <span style="color:#ff0;font-weight:bold">5</span>)).map {|x| x * <span style="color:#ff0;font-weight:bold">10</span>}
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">## ==&gt; [10, 20, 30, 40, 50, 60, 70]</span>
+</span></span></code></pre></div><p>We&rsquo;re essentially saying, from 1 to (2 + 5) or 7 times, multiply each value in that range by 10. In APL? ell:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-APL" data-lang="APL"><span style="display:flex;"><span><span style="color:#ff0;font-weight:bold">10</span>×(⍳(<span style="color:#ff0;font-weight:bold">2</span>+<span style="color:#ff0;font-weight:bold">5</span>))
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">⍝⍝==&gt; 10 20 30 40 50 60 70</span>
+</span></span></code></pre></div><p>Now that you&rsquo;re familiar with some basic APL notation, you see it&rsquo;s not so intimidating anymore. In fact, it&rsquo;s just like a foreign language you just learned.</p>
+<p>APL is the language for the intelligent, thinking programmer.</p>
+<p>References</p>
+<p>Kapasi, A., &amp; Pei, J. (2021). Mindset theory and school psychology. Canadian Journal of School Psychology, 37(1), 57–74. <a href="https://doi.org/10.1177/08295735211053961">https://doi.org/10.1177/08295735211053961</a></p>
+<p>Krashen, S. (1994). The Power of Reading: Insights from the Research. The Modern Language Journal, 78(3), 407. <a href="https://doi.org/10.2307/330145">https://doi.org/10.2307/330145</a></p>
+<p>Tarasov, L. V. (1990). The world is built on probability. <a href="http://ci.nii.ac.jp/ncid/BA07136401">http://ci.nii.ac.jp/ncid/BA07136401</a></p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2023</span>
+            <span><a href="https://dersavage.github.io/main/">Jan Savage</a></span>
+            
+            <span><a href="https://dersavage.github.io/main/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://dersavage.github.io/main/bundle.min.98fef7958ed12b899250a29a40d2a730eda779c87de1fae22a4cf6c7e87088a65ac7537f5be758af43c4f3a8876e5117be9d027b8090c55f80a610864d08e384.js" integrity="sha512-mP73lY7RK4mSUKKaQNKnMO2nech94friKkz2x&#43;hwiKZax1N/W&#43;dYr0PE86iHblEXvp0Ce4CQxV&#43;AphCGTQjjhA=="></script>
+
+
+
+    </body>
+</html>

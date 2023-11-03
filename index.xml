@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 24 Oct 2023 15:22:53 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Nov 2023 10:28:15 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>APL is for the intelligent</title>
+      <link>https://dersavage.github.io/main/essays/whyapl/</link>
+      <pubDate>Fri, 03 Nov 2023 10:28:15 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/whyapl/</guid>
+      <description>Why is APL the language of the future, even though it is roughly 50 years old? Why didn&amp;rsquo;t it take off like C did? To answer this, we need to delve into probability and intelligence.
+The problem with probability is that things that seem non-random or planned may actually be random (Tarasov, 1990), whereas things that seem random, may, sometimes be deterministic or an outcome of some emergent state (where the interaction of several elements and factors causes a new state to emerge: for instance, poverty is one such fuzzy emergent state).</description>
+    </item>
+    
     <item>
       <title>-1/10: Tears of joke: marginal functionalism</title>
       <link>https://dersavage.github.io/main/reviews/the_infinite_joke/</link>
@@ -99,15 +109,6 @@ Words are dangerous things if misused. Especially as experiences are subjective,
       <description>I think what most people who don&amp;rsquo;t read don&amp;rsquo;t realize is that reading is a more active process than watching movie because your own imagination creates &amp;ldquo;scenes&amp;rdquo; in the deep-end of the mind.
 This is exactly why, at least for me, watching the movie then reading the book, is akin to ruining the reading experience.
 And with an exception or two, the books are always way, way better than the movies based on them.</description>
-    </item>
-    
-    <item>
-      <title>The Noble Qur&#39;aan&#39;s Translations</title>
-      <link>https://dersavage.github.io/main/essays/noble-quran-translations/</link>
-      <pubDate>Sun, 09 Apr 2023 14:25:35 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/essays/noble-quran-translations/</guid>
-      <description>I learned Qur&amp;rsquo;aanic Arabic (as a foreign language&amp;ndash;at the local mosque) when I was eight years old. But then decades had to pass when, after learning a great deal of worldly things, I am now feeling ready to truly study our Noble Book, and while I am brushing up on my classical Arabic, in the meantime, I wanted to find an English translation that was not deviating from the original in any sense.</description>
     </item>
     
   </channel>

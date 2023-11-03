@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 16 Sep 2023 00:58:29 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/essays/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Nov 2023 10:28:15 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/essays/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>APL is for the intelligent</title>
+      <link>https://dersavage.github.io/main/essays/whyapl/</link>
+      <pubDate>Fri, 03 Nov 2023 10:28:15 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/whyapl/</guid>
+      <description>Why is APL the language of the future, even though it is roughly 50 years old? Why didn&amp;rsquo;t it take off like C did? To answer this, we need to delve into probability and intelligence.
+The problem with probability is that things that seem non-random or planned may actually be random (Tarasov, 1990), whereas things that seem random, may, sometimes be deterministic or an outcome of some emergent state (where the interaction of several elements and factors causes a new state to emerge: for instance, poverty is one such fuzzy emergent state).</description>
+    </item>
+    
     <item>
       <title>The Point of Pointlessness?</title>
       <link>https://dersavage.github.io/main/essays/point_of_pointlessness/</link>
