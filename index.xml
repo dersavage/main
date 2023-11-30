@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 03 Nov 2023 10:28:15 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Nov 2023 11:39:08 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Hackernews is a 1984</title>
+      <link>https://dersavage.github.io/main/essays/hackernews/</link>
+      <pubDate>Thu, 30 Nov 2023 11:39:08 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/hackernews/</guid>
+      <description>I occasionally read Y Combinator&amp;rsquo;s &amp;lsquo;Hackernews&amp;rsquo; but each time I do, I&amp;rsquo;m reminded how it resembles Winston&amp;rsquo;s world in the novel 1984.
+My visits are programming related; I just want to know &amp;lsquo;what&amp;rsquo;s new&amp;rsquo;, or &amp;lsquo;what&amp;rsquo;s up&amp;rsquo;; within the context of new information. To this end, it serves a useful niche, to be fair.
+What I take issue with, is the commenting system. While it&amp;rsquo;s understandable that a moderator should control comment quality, the current system employed within HN is ridiculously authoritarian.</description>
+    </item>
+    
     <item>
       <title>APL is for the intelligent</title>
       <link>https://dersavage.github.io/main/essays/whyapl/</link>
@@ -98,17 +109,6 @@ This is how ignorance is perpetuated.</description>
       <guid>https://dersavage.github.io/main/essays/isdifficult_good/</guid>
       <description>Among programmers and even common people in general, I feel there&amp;rsquo;s an implicit consensus that &amp;lsquo;difficult is good&amp;rsquo;. I got this idea when reading a book review, where the reviewer had implied that the book was worth reading because it was difficult.
 Words are dangerous things if misused. Especially as experiences are subjective, and words reflect those experiences. So you and I might both use the word &amp;lsquo;difficult&amp;rsquo;, yet our subjective understanding of the term might vary too much to even be considered the same word.</description>
-    </item>
-    
-    <item>
-      <title>4/10: The Hobbit</title>
-      <link>https://dersavage.github.io/main/reviews/the-hobbit/</link>
-      <pubDate>Sat, 20 May 2023 23:05:14 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/reviews/the-hobbit/</guid>
-      <description>I think what most people who don&amp;rsquo;t read don&amp;rsquo;t realize is that reading is a more active process than watching movie because your own imagination creates &amp;ldquo;scenes&amp;rdquo; in the deep-end of the mind.
-This is exactly why, at least for me, watching the movie then reading the book, is akin to ruining the reading experience.
-And with an exception or two, the books are always way, way better than the movies based on them.</description>
     </item>
     
   </channel>

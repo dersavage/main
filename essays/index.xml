@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 03 Nov 2023 10:28:15 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/essays/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Nov 2023 11:39:08 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/essays/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Hackernews is a 1984</title>
+      <link>https://dersavage.github.io/main/essays/hackernews/</link>
+      <pubDate>Thu, 30 Nov 2023 11:39:08 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/hackernews/</guid>
+      <description>I occasionally read Y Combinator&amp;rsquo;s &amp;lsquo;Hackernews&amp;rsquo; but each time I do, I&amp;rsquo;m reminded how it resembles Winston&amp;rsquo;s world in the novel 1984.
+My visits are programming related; I just want to know &amp;lsquo;what&amp;rsquo;s new&amp;rsquo;, or &amp;lsquo;what&amp;rsquo;s up&amp;rsquo;; within the context of new information. To this end, it serves a useful niche, to be fair.
+What I take issue with, is the commenting system. While it&amp;rsquo;s understandable that a moderator should control comment quality, the current system employed within HN is ridiculously authoritarian.</description>
+    </item>
+    
     <item>
       <title>APL is for the intelligent</title>
       <link>https://dersavage.github.io/main/essays/whyapl/</link>
