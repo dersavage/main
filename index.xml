@@ -16,7 +16,7 @@
       <guid>https://dersavage.github.io/main/tutorials/blackjackincs/</guid>
       <description>Some of you from Quora know that I am very pro-C#. But what has C# got that Java, C and C++ haven&amp;rsquo;t?
 I guess the simplest possible answer is that C# is programmer-friendlier than the above three combined, carries most of their advantages and none of their disadvantages.
-If you know some Python, I invite you to take a look at this simple game of Blackjack I wrote in C#:</description>
+More importantly, C#, now in version 12 (as of November 2023) has many new goodies that will make development in C# pure joy.</description>
     </item>
     
     <item>
