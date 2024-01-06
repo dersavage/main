@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 30 Nov 2023 11:39:08 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Jan 2024 14:34:23 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blackjack in C#</title>
+      <link>https://dersavage.github.io/main/tutorials/blackjackincs/</link>
+      <pubDate>Sat, 06 Jan 2024 14:34:23 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/tutorials/blackjackincs/</guid>
+      <description>Some of you from Quora know that I am very pro-C#. But what has C# got that Java, C and C++ haven&amp;rsquo;t?
+I guess the simplest possible answer is that C# is programmer-friendlier than the above three combined, carries most of their advantages and none of their disadvantages.
+If you know some Python, I invite you to take a look at this simple game of Blackjack I wrote in C#:</description>
+    </item>
+    
     <item>
       <title>Why Hackernews is a 1984</title>
       <link>https://dersavage.github.io/main/essays/hackernews/</link>
@@ -29,7 +40,7 @@ The problem with probability is that things that seem non-random or planned may 
     </item>
     
     <item>
-      <title>-1/10: Tears of joke: marginal functionalism</title>
+      <title>☆☆☆☆☆☆☆☆☆☆: Tears of joke: marginal functionalism</title>
       <link>https://dersavage.github.io/main/reviews/the_infinite_joke/</link>
       <pubDate>Tue, 24 Oct 2023 15:22:53 +0800</pubDate>
       
@@ -38,7 +49,7 @@ The problem with probability is that things that seem non-random or planned may 
     </item>
     
     <item>
-      <title>7/10: Maugham surprised me</title>
+      <title>☆☆☆★★★★★★★: Maugham surprised me</title>
       <link>https://dersavage.github.io/main/reviews/maugham/</link>
       <pubDate>Sun, 15 Oct 2023 15:04:47 +0800</pubDate>
       
@@ -59,7 +70,7 @@ Ricks calls the the sublimeness of literary art and its moral purpose a mere &am
     </item>
     
     <item>
-      <title>9/10: Matsumoto&#39;s Ruby Book</title>
+      <title>☆☆☆★★★★★★★: Matsumoto&#39;s Ruby Book</title>
       <link>https://dersavage.github.io/main/reviews/the_ruby_book/</link>
       <pubDate>Sun, 10 Sep 2023 17:45:19 +0800</pubDate>
       
@@ -81,7 +92,7 @@ It was heartbreaking but I was not going to give up on her.</description>
     </item>
     
     <item>
-      <title>0/10: The Girl With The...</title>
+      <title>☆☆☆☆☆☆☆☆☆☆: The Girl With The...</title>
       <link>https://dersavage.github.io/main/reviews/the-girl-with-the/</link>
       <pubDate>Wed, 06 Sep 2023 21:05:14 +0800</pubDate>
       
@@ -98,16 +109,6 @@ IN 2023, however, I had no other books to read in the toilet, so I decided to se
       <guid>https://dersavage.github.io/main/essays/perpetuation_igno/</guid>
       <description>This morning I read an article written by a certain developer praising a certain software engineering book. But there were two problems. While the engineer seemed competent enough, and the book famous enough (it&amp;rsquo;s like Shakespeare, everyone claims it&amp;rsquo;s a masteriece but nobody seems to have read or finished it), the book has serious problems and the engineer was unaware that he was unaware of those problems.
 This is how ignorance is perpetuated.</description>
-    </item>
-    
-    <item>
-      <title>Is difficult good?</title>
-      <link>https://dersavage.github.io/main/essays/isdifficult_good/</link>
-      <pubDate>Tue, 06 Jun 2023 12:47:35 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/essays/isdifficult_good/</guid>
-      <description>Among programmers and even common people in general, I feel there&amp;rsquo;s an implicit consensus that &amp;lsquo;difficult is good&amp;rsquo;. I got this idea when reading a book review, where the reviewer had implied that the book was worth reading because it was difficult.
-Words are dangerous things if misused. Especially as experiences are subjective, and words reflect those experiences. So you and I might both use the word &amp;lsquo;difficult&amp;rsquo;, yet our subjective understanding of the term might vary too much to even be considered the same word.</description>
     </item>
     
   </channel>

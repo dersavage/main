@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 29 Jan 2023 13:12:52 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Jan 2024 14:34:23 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blackjack in C#</title>
+      <link>https://dersavage.github.io/main/tutorials/blackjackincs/</link>
+      <pubDate>Sat, 06 Jan 2024 14:34:23 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/tutorials/blackjackincs/</guid>
+      <description>Some of you from Quora know that I am very pro-C#. But what has C# got that Java, C and C++ haven&amp;rsquo;t?
+I guess the simplest possible answer is that C# is programmer-friendlier than the above three combined, carries most of their advantages and none of their disadvantages.
+If you know some Python, I invite you to take a look at this simple game of Blackjack I wrote in C#:</description>
+    </item>
+    
     <item>
       <title>Truly Object-oriented in &#39;Twin Peaks&#39;</title>
       <link>https://dersavage.github.io/main/tutorials/oop-in-swift-grounds/</link>
