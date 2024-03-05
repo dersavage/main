@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 21 Feb 2024 15:45:19 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Mar 2024 14:40:17 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>☆☆☆☆☆☆☆☆☆f: Herbert&#39;s Dune</title>
+      <link>https://dersavage.github.io/main/reviews/dune/</link>
+      <pubDate>Tue, 05 Mar 2024 14:40:17 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/reviews/dune/</guid>
+      <description>Finally, it&amp;rsquo;s over.
+But was it worth it? And why did I put up with it?
+On Amazon, Dune has 99000 or so reviews, 97% of them five-star. I had to read this stupid book just in the interest of science, to see whether I should trust a large number of positive reviews in 2024.
+It turns out, my poor opinion of this book is also, indirectly, an indictment of the intellects of those people who found the book worth five stars.</description>
+    </item>
+    
     <item>
       <title>The Epidemic of Narcissism</title>
       <link>https://dersavage.github.io/main/essays/narcissism/</link>
@@ -19,7 +31,7 @@ I remember a world where as a five-year-old foreign child living in a foreign co
     </item>
     
     <item>
-      <title>☆★★★★★★★★★: Diary of a Madman</title>
+      <title>☆★★★★★★★★★: Gogol&#39;s Diary of a Madman</title>
       <link>https://dersavage.github.io/main/reviews/diary_of_madman/</link>
       <pubDate>Wed, 21 Feb 2024 14:47:46 +0800</pubDate>
       
@@ -29,7 +41,7 @@ Translations of foreign novels rare rarely loyal but everytime I find a good tra
     </item>
     
     <item>
-      <title>★★★★★★★★★★: Eight Below Zero</title>
+      <title>★★★★★★★★★★: FILM: Eight Below Zero</title>
       <link>https://dersavage.github.io/main/reviews/eight_below/</link>
       <pubDate>Fri, 19 Jan 2024 12:17:09 +0800</pubDate>
       
@@ -80,7 +92,7 @@ The problem with probability is that things that seem non-random or planned may 
     </item>
     
     <item>
-      <title>☆☆☆★★★★★★★: Maugham surprised me</title>
+      <title>☆☆☆★★★★★★★: Maugham&#39;s A Friend in Need</title>
       <link>https://dersavage.github.io/main/reviews/maugham/</link>
       <pubDate>Sun, 15 Oct 2023 15:04:47 +0800</pubDate>
       
@@ -98,18 +110,6 @@ A few days ago and quite accidentally, I ran into one of his short stories &amp;
       <description>In the introduction to Tristam Shandy&amp;rsquo;s Penguin edition, Christopher Ricks writes:
 “Tristram Shandy is the greatest shaggy-dog story in the language&amp;hellip;.But there were voices saying that the book was obscene, or pointless, or deficient in everything that a novel ought to provide. The fact that pointlessness was one of Sterne’s points, that he was out to flout and taunt humdrum expectations – this meant little.”
 Ricks calls the the sublimeness of literary art and its moral purpose a mere &amp;lsquo;humdrum expectations&amp;rsquo; and goes on to prattle, like Sterne, for several pages basically saying nothing at all meaningful.</description>
-    </item>
-    
-    <item>
-      <title>☆☆☆★★★★★★★: Matsumoto&#39;s Ruby Book</title>
-      <link>https://dersavage.github.io/main/reviews/the_ruby_book/</link>
-      <pubDate>Sun, 10 Sep 2023 17:45:19 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/reviews/the_ruby_book/</guid>
-      <description>There are not many good technical books, but Matsumoto&amp;rsquo;s &amp;ldquo;The Ruby Programming Language&amp;rdquo;, co-authored with Flanagan, stands out as one of best examples of technical writing.
-Here&amp;rsquo;s why:
-The writing is succinct without being abstrusely terse. It&amp;rsquo;s clear without being simplistic. The sentences are fluff-free and the meanings are conveyed clearly, like a good Ruby program. Consider this excerpt for example from page 75:
-Every object has a well-defined class in Ruby, and that class never changes during the lifetime of the object.</description>
     </item>
     
   </channel>
