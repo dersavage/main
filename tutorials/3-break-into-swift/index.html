@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jan Savage ">
+<meta name="description" content="I found this interesting discussion regarding Swift playgrounds, book 2 (Let&amp;rsquo;s Code 2), chapter named &amp;lsquo;Twin Peaks&amp;rsquo; in Scrabtree&amp;rsquo;s website, where he lamented his very long solution compared to Samantha&amp;rsquo;s shorter solution.
+In this challenge, you are supposed to create an Expert() object, and a Character() object, where the expert&amp;rsquo;s task is to tinker with the lock that controls the adjustable platform in the middle between the the twin peaks. Then the character is supposed to jump and move, collecting gems as they randomly appear." />
+<meta name="keywords" content="programming, programming, swift" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://dersavage.github.io/main/tutorials/3-break-into-swift/" />
+
+
+    <title>
+        
+            Break into Swift :: Jan Savage  — The Jan Savage cave
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://dersavage.github.io/main/main.b6d528998b7b504bfd8ef86303ede1785102ea45c0c86ef0215145b1e5778a9d.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dersavage.github.io/main/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dersavage.github.io/main/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dersavage.github.io/main/favicon-16x16.png">
+    <link rel="manifest" href="https://dersavage.github.io/main/site.webmanifest">
+    <link rel="mask-icon" href="https://dersavage.github.io/main/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://dersavage.github.io/main/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Break into Swift">
+<meta itemprop="description" content="I found this interesting discussion regarding Swift playgrounds, book 2 (Let&rsquo;s Code 2), chapter named &lsquo;Twin Peaks&rsquo; in Scrabtree&rsquo;s website, where he lamented his very long solution compared to Samantha&rsquo;s shorter solution.
+In this challenge, you are supposed to create an Expert() object, and a Character() object, where the expert&rsquo;s task is to tinker with the lock that controls the adjustable platform in the middle between the the twin peaks. Then the character is supposed to jump and move, collecting gems as they randomly appear."><meta itemprop="datePublished" content="2023-01-29T13:12:52+08:00" />
+<meta itemprop="dateModified" content="2023-01-29T13:12:52+08:00" />
+<meta itemprop="wordCount" content="920"><meta itemprop="image" content="https://dersavage.github.io/main/"/>
+<meta itemprop="keywords" content="programming, swift," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dersavage.github.io/main/"/>
+
+<meta name="twitter:title" content="Break into Swift"/>
+<meta name="twitter:description" content="I found this interesting discussion regarding Swift playgrounds, book 2 (Let&rsquo;s Code 2), chapter named &lsquo;Twin Peaks&rsquo; in Scrabtree&rsquo;s website, where he lamented his very long solution compared to Samantha&rsquo;s shorter solution.
+In this challenge, you are supposed to create an Expert() object, and a Character() object, where the expert&rsquo;s task is to tinker with the lock that controls the adjustable platform in the middle between the the twin peaks. Then the character is supposed to jump and move, collecting gems as they randomly appear."/>
+
+
+
+
+    <meta property="og:title" content="Break into Swift" />
+<meta property="og:description" content="I found this interesting discussion regarding Swift playgrounds, book 2 (Let&rsquo;s Code 2), chapter named &lsquo;Twin Peaks&rsquo; in Scrabtree&rsquo;s website, where he lamented his very long solution compared to Samantha&rsquo;s shorter solution.
+In this challenge, you are supposed to create an Expert() object, and a Character() object, where the expert&rsquo;s task is to tinker with the lock that controls the adjustable platform in the middle between the the twin peaks. Then the character is supposed to jump and move, collecting gems as they randomly appear." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dersavage.github.io/main/tutorials/3-break-into-swift/" /><meta property="og:image" content="https://dersavage.github.io/main/"/><meta property="article:section" content="tutorials" />
+<meta property="article:published_time" content="2023-01-29T13:12:52+08:00" />
+<meta property="article:modified_time" content="2023-01-29T13:12:52+08:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2023-01-29 13:12:52 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://dersavage.github.io/main/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">~</span>
+            <span class="logo__text">% cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#4000ff;
+                   animation-duration:1.1s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://dersavage.github.io/main/about/">?</a></li><li><a href="https://dersavage.github.io/main/essays/">Essays</a></li><li><a href="https://dersavage.github.io/main/reviews/">Reviews</a></li><li><a href="https://dersavage.github.io/main/tutorials/">Tuts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://dersavage.github.io/main/tutorials/3-break-into-swift/">Break into Swift</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <p>I found this interesting discussion regarding Swift playgrounds, book 2 (Let&rsquo;s Code 2), chapter named &lsquo;Twin Peaks&rsquo; in <a href="https://scrabtree.svbtle.com/swift-twin-peaks">Scrabtree&rsquo;s website</a>, where he lamented his very long solution compared to <a href="https://youtu.be/oYZrIigmW_U">Samantha&rsquo;s shorter solution</a>.</p>
+<p>In this challenge, you are supposed to create an Expert() object, and a Character() object, where the expert&rsquo;s task is to tinker with the lock that controls the adjustable platform in the middle between the the twin peaks. Then the character is supposed to jump and move, collecting gems as they randomly appear. By the way, you are given the ability to place them whereever you like.</p>
+<p>If the character reaches the end of the land (hits a block) it has to turn around. If we don&rsquo;t create such a turn-around rule, then character cannot turn around and continue moving and picking gems when it hits blockades at the outer edges of the land.</p>
+<p>But, if we devise a turn-around rule for a blockade, the character would turn around on each step of the peaks. This can be overcome with the character.jump() method, but if we apply this rule, then it would not turn around when reaching the outer-edge blockades but simply keep on jumping.</p>
+<p>Besides, you must also ensure the character can turn left or right according to specific conditions (such as when it is blocked, but not blocked on the left). The problem here is, if you devise a general rule for left or right turns, such a condition would also apply midway on peak steps, causing character to turn when he should be going straight to collect gems.</p>
+<p>That occurs because the platform has been raised enough to allow character to turn left or right into the peaks. A tentative solution might have been to instruct expert to change the platform level so that the character does not turn left or right when he should not, but this would make the code longer than it should be, and also would create its own new problems.</p>
+<p>Scrabtree&rsquo;s solution: (I have renamed character and expert as ch and ex respectively, to shorten the width):</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> totalGems = RandomNumberofGems
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ex = Expert()
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ch = <span style="color:#fff;font-weight:bold">Character</span>()
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">var</span> gemCount = <span style="color:#ff0;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>world.place(ex, facing: north, atColumn:<span style="color:#ff0;font-weight:bold">0</span>, row:<span style="color:#ff0;font-weight:bold">3</span>)
+</span></span><span style="display:flex;"><span>world.place(ch, facing: north, atColumn:<span style="color:#ff0;font-weight:bold">4</span>, row:<span style="color:#ff0;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> rowRun() {
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">1.</span>..<span style="color:#ff0;font-weight:bold">6</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">if</span> ch.isOnGem {
+</span></span><span style="display:flex;"><span>            gemCount += <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            ch.collectGem()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ch.jump()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> turnLock(up:<span style="color:#fff;font-weight:bold">Bool</span>, turns: <span style="color:#fff;font-weight:bold">Int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">if</span> up == <span style="color:#fff;font-weight:bold">true</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">1.</span>..turns {
+</span></span><span style="display:flex;"><span>            ex.turnLockUp()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    } <span style="color:#fff;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">1.</span>..turns {
+</span></span><span style="display:flex;"><span>            ex.turnLockDown()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    ex.turnRight()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> leftFace() {
+</span></span><span style="display:flex;"><span>    ch.turnLeft()
+</span></span><span style="display:flex;"><span>    ch.moveForward()
+</span></span><span style="display:flex;"><span>    ch.turnLeft()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> rightFace() {
+</span></span><span style="display:flex;"><span>    ch.turnRight()
+</span></span><span style="display:flex;"><span>    ch.moveForward()
+</span></span><span style="display:flex;"><span>    ch.turnRight()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>ex.moveForward()
+</span></span><span style="display:flex;"><span>rowRun()
+</span></span><span style="display:flex;"><span>turnLock(up:<span style="color:#fff;font-weight:bold">true</span>, turns:<span style="color:#ff0;font-weight:bold">3</span>)
+</span></span><span style="display:flex;"><span>leftFace()
+</span></span><span style="display:flex;"><span>rowRun()
+</span></span><span style="display:flex;"><span>rightFace()
+</span></span><span style="display:flex;"><span>rowRun()
+</span></span><span style="display:flex;"><span>turnLock(up:<span style="color:#fff;font-weight:bold">false</span>, turns:<span style="color:#ff0;font-weight:bold">3</span>)
+</span></span><span style="display:flex;"><span>rightFace()
+</span></span><span style="display:flex;"><span>rowRun()
+</span></span><span style="display:flex;"><span>leftFace()
+</span></span></code></pre></div><p>By the way, his solution does not solve the puzzle:</p>
+
+    <img src="https://dersavage.github.io/main/img/LowDrag.gif"  alt="lowdrag"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>He cites Samantha&rsquo;s solution as better because it is 31 lines. Indeed, it is quite succinct:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> totalGems = RandomNumberofGems
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ex = Expert()
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ch = <span style="color:#fff;font-weight:bold">Character</span>()
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">var</span> gemCount = <span style="color:#ff0;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> moveLong() {
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">1.</span>..<span style="color:#ff0;font-weight:bold">6</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">if</span> ch.isOnGem {
+</span></span><span style="display:flex;"><span>            ch.collectGem()
+</span></span><span style="display:flex;"><span>            gemCount += <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ch.jump()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> moveShort() {
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> i <span style="color:#fff;font-weight:bold">in</span> <span style="color:#ff0;font-weight:bold">1.</span>..<span style="color:#ff0;font-weight:bold">2</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">if</span> ch.isOnGem {
+</span></span><span style="display:flex;"><span>            ch.collectGem()
+</span></span><span style="display:flex;"><span>            gemCount += <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ch.jump()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>world.place (ex, facing: north, atColumn:<span style="color:#ff0;font-weight:bold">1</span>, row:<span style="color:#ff0;font-weight:bold">4</span>)
+</span></span><span style="display:flex;"><span>world.place (ch, facing: north, atColumn:<span style="color:#ff0;font-weight:bold">3</span>, row:<span style="color:#ff0;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span>ex.turnLock(up:<span style="color:#fff;font-weight:bold">true</span>, numberOfTimes:<span style="color:#ff0;font-weight:bold">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">while</span> gemCount &lt; totalGems {
+</span></span><span style="display:flex;"><span>    moveLong()
+</span></span><span style="display:flex;"><span>    ch.turnRight()
+</span></span><span style="display:flex;"><span>    moveShort()
+</span></span><span style="display:flex;"><span>    ch.turnRight()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Samantha&rsquo;s solution works everytime.</p>
+<p>Here is my first solution which is even shorter (23 lines) and did not even make use of functions, but I believe it is much clearer because I created three characters, made good use of OR and did away with the so-called expert.</p>
+<p>Here is a demonstration which also takes less time (one-third because now there are three objects, and also there is no time wasted on the expert) to finish the task:</p>
+
+    <img src="https://dersavage.github.io/main/img/twinpeaks.gif"  alt="twinpeaks"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>First, I created three characters and named each ch, gh, and ph. Then I instructed them to do their job along their paths, but in order to circumvent the turn issue, I instructed ch, who was born on the platform to be the trigger. As soon as ch hits the edge block, it turns around, but so do the other two then. Because ch moves one step faster than the other two, sometimes this might cause a one-square lag in gh and ph, but eventually they catch up and turn, too. I ran the simulation 40 times and the solution worked each time:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> totalGems = RandomNumberofGems
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ch = <span style="color:#fff;font-weight:bold">Character</span>(), gh = <span style="color:#fff;font-weight:bold">Character</span>(), ph = <span style="color:#fff;font-weight:bold">Character</span>()
+</span></span><span style="display:flex;"><span>world.place(ch, facing: .north, atColumn: <span style="color:#ff0;font-weight:bold">3</span>, row: <span style="color:#ff0;font-weight:bold">0</span> )
+</span></span><span style="display:flex;"><span>world.place(gh, facing: .north, atColumn: <span style="color:#ff0;font-weight:bold">2</span>, row: <span style="color:#ff0;font-weight:bold">0</span> )
+</span></span><span style="display:flex;"><span>world.place(ph, facing: .north, atColumn: <span style="color:#ff0;font-weight:bold">4</span>, row: <span style="color:#ff0;font-weight:bold">0</span> )
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">var</span> gems = <span style="color:#ff0;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">while</span> gems &lt; totalGems{
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">if</span> ch.isOnGem || gh.isOnGem || ph.isOnGem {
+</span></span><span style="display:flex;"><span>        ch.collectGem() || gh.collectGem() || ph.collectGem()
+</span></span><span style="display:flex;"><span>                gems += <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    ch.moveForward()
+</span></span><span style="display:flex;"><span>    gh.jump()
+</span></span><span style="display:flex;"><span>    ph.jump()
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">if</span> ch.isBlocked{
+</span></span><span style="display:flex;"><span>        ch.turnLeft()
+</span></span><span style="display:flex;"><span>        ch.turnLeft()
+</span></span><span style="display:flex;"><span>        gh.turnLeft()
+</span></span><span style="display:flex;"><span>        gh.turnLeft()
+</span></span><span style="display:flex;"><span>        ph.turnLeft()
+</span></span><span style="display:flex;"><span>        ph.turnLeft()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>As you can see, in my solution, it is easy to reason about the program. It make sense in one glance.</p>
+<p>But it can be further refactored:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> totalGems = RandomNumberofGems
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> (cols, rous) = ([<span style="color:#ff0;font-weight:bold">2</span>, <span style="color:#ff0;font-weight:bold">3</span>, <span style="color:#ff0;font-weight:bold">4</span>], <span style="color:#fff;font-weight:bold">Array</span>(<span style="color:#ff0;font-weight:bold">0.</span>..<span style="color:#ff0;font-weight:bold">6</span>))
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">var</span> gems = <span style="color:#ff0;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">let</span> ch = <span style="color:#fff;font-weight:bold">Character</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">while</span> gems &lt; totalGems {
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">for</span> c <span style="color:#fff;font-weight:bold">in</span> cols {
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">for</span> r <span style="color:#fff;font-weight:bold">in</span> rous {
+</span></span><span style="display:flex;"><span>            world.place(ch, facing: .north, 
+</span></span><span style="display:flex;"><span>                        atColumn: c, row: r)
+</span></span><span style="display:flex;"><span>            <span style="color:#fff;font-weight:bold">if</span>  ch.isOnGem {
+</span></span><span style="display:flex;"><span>                ch.collectGem()
+</span></span><span style="display:flex;"><span>                gems += <span style="color:#ff0;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now one object is instantiated everywhere where a gem is or appears again. Neat!</p>
+<p>The purpose of this post was to persuade the good reader to learn Swift. What a fine language!</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://dersavage.github.io/main/tags/programming-swift/">programming, swift</a></span>
+        
+    </p>
+
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            <span><a href="https://dersavage.github.io/main/">Jan Savage</a></span>
+            
+            <span><a href="https://dersavage.github.io/main/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://dersavage.github.io/main/bundle.min.98fef7958ed12b899250a29a40d2a730eda779c87de1fae22a4cf6c7e87088a65ac7537f5be758af43c4f3a8876e5117be9d027b8090c55f80a610864d08e384.js" integrity="sha512-mP73lY7RK4mSUKKaQNKnMO2nech94friKkz2x&#43;hwiKZax1N/W&#43;dYr0PE86iHblEXvp0Ce4CQxV&#43;AphCGTQjjhA=="></script>
+
+
+
+    </body>
+</html>

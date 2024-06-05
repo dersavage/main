@@ -31,16 +31,6 @@ It turns out, my poor opinion of this book is also, indirectly, an indictment of
     </item>
     
     <item>
-      <title>The Epidemic of Narcissism</title>
-      <link>https://dersavage.github.io/main/essays/narcissism/</link>
-      <pubDate>Wed, 21 Feb 2024 15:45:19 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/essays/narcissism/</guid>
-      <description>I was born in the latter years of the 70&amp;rsquo;s, so when I was growing up in the 80&amp;rsquo;s, I remember a world very different from the one in 2024, some four decades later.
-I remember a world where as a five-year-old foreign child living in a foreign country (USSR), my mom would send me to get bread from the bakery without worrying about anything happening to me. The bakery was far enough, perhaps over a kilometer, and the snow on the roadside nearly reaching my neck.</description>
-    </item>
-    
-    <item>
       <title>☆★★★★★★★★★: Gogol&#39;s Diary of a Madman</title>
       <link>https://dersavage.github.io/main/reviews/diary_of_madman/</link>
       <pubDate>Wed, 21 Feb 2024 14:47:46 +0800</pubDate>
@@ -51,25 +41,15 @@ Translations of foreign novels rare rarely loyal but everytime I find a good tra
     </item>
     
     <item>
-      <title>★★★★★★★★★★: FILM: Eight Below Zero</title>
-      <link>https://dersavage.github.io/main/reviews/eight_below/</link>
-      <pubDate>Fri, 19 Jan 2024 12:17:09 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/reviews/eight_below/</guid>
-      <description>I finally got round to watching Eight Below Zero. And I&amp;rsquo;m glad I did.
-This here is a movie unlike much of the recent garbage coming out of Hollywood. For starters, there is no profanity and no obscenities; the female lead is decently dressed, and there is no anti-religious agenda pushed through the movie. The movie is artless and pure, like the the huskies featuring in it.
-Paul Walker (rest in peace, brother) brings his superb and realistic acting skills to the screen and it is clear that Walker is a dog-person and his affection for the huskies is real and unpretentious.</description>
-    </item>
-    
-    <item>
-      <title>Blackjack in C#</title>
-      <link>https://dersavage.github.io/main/tutorials/blackjackincs/</link>
+      <title>Break into C#</title>
+      <link>https://dersavage.github.io/main/tutorials/4-break-into-c#/</link>
       <pubDate>Sat, 06 Jan 2024 14:34:23 +0800</pubDate>
       
-      <guid>https://dersavage.github.io/main/tutorials/blackjackincs/</guid>
-      <description>Some of you from Quora know that I am very pro-C#. But what has C# got that Java, C and C++ haven&amp;rsquo;t?
-I guess the simplest possible answer is that C# is programmer-friendlier than the above three combined, carries most of their advantages and none of their disadvantages.
-More importantly, C#, now in version 12 (as of November 2023) has many new goodies that will make development in C# pure joy.</description>
+      <guid>https://dersavage.github.io/main/tutorials/4-break-into-c#/</guid>
+      <description>The pre-requisite for this chapter is &amp;lsquo;Break into Ruby&amp;rsquo;.
+Do you think the program makes sense even though you&amp;rsquo;re new to C#? The aim here is to introduce you to just enough C# to let you decide whether it&amp;rsquo;s worth learning.
+(If you want to download and try the game on your computer, head on to my github.)
+1using System; 2using System.Collections.Generic; 3 4public class Program 5{ 6 static void Main() 7 { 8 var deck = new Deck(); 9 var playerHand = new Hand(); 10 var dealerHand = new Hand(); 11 12 playerHand.</description>
     </item>
     
     <item>
@@ -102,13 +82,36 @@ The problem with probability is that things that seem non-random or planned may 
     </item>
     
     <item>
-      <title>☆☆☆★★★★★★★: Maugham&#39;s A Friend in Need</title>
-      <link>https://dersavage.github.io/main/reviews/maugham/</link>
-      <pubDate>Sun, 15 Oct 2023 15:04:47 +0800</pubDate>
+      <title>The Point of Pointlessness?</title>
+      <link>https://dersavage.github.io/main/essays/point_of_pointlessness/</link>
+      <pubDate>Sat, 16 Sep 2023 00:58:29 +0800</pubDate>
       
-      <guid>https://dersavage.github.io/main/reviews/maugham/</guid>
-      <description>Everytime I picked Somerset Maugham&amp;rsquo;s books, two thoughts simultaneously would occur to me: the books were heavy and thick, and the print was too small. Consequently, I kept thinking, maybe when I find a better print, or when I have time.
-A few days ago and quite accidentally, I ran into one of his short stories &amp;ldquo;A Friend in Need&amp;rdquo;. Now, normally, were I a somewhat-educated person, I would not have understood it.</description>
+      <guid>https://dersavage.github.io/main/essays/point_of_pointlessness/</guid>
+      <description>In the introduction to Tristam Shandy&amp;rsquo;s Penguin edition, Christopher Ricks writes:
+“Tristram Shandy is the greatest shaggy-dog story in the language&amp;hellip;.But there were voices saying that the book was obscene, or pointless, or deficient in everything that a novel ought to provide. The fact that pointlessness was one of Sterne’s points, that he was out to flout and taunt humdrum expectations – this meant little.”
+Ricks calls the the sublimeness of literary art and its moral purpose a mere &amp;lsquo;humdrum expectations&amp;rsquo; and goes on to prattle, like Sterne, for several pages basically saying nothing at all meaningful.</description>
+    </item>
+    
+    <item>
+      <title>☆☆☆★★★★★★★: Matsumoto&#39;s Ruby Book</title>
+      <link>https://dersavage.github.io/main/reviews/the_ruby_book/</link>
+      <pubDate>Sun, 10 Sep 2023 17:45:19 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/reviews/the_ruby_book/</guid>
+      <description>There are not many good technical books, but Matsumoto&amp;rsquo;s &amp;ldquo;The Ruby Programming Language&amp;rdquo;, co-authored with Flanagan, stands out as one of best examples of technical writing.
+Here&amp;rsquo;s why:
+The writing is succinct without being abstrusely terse. It&amp;rsquo;s clear without being simplistic. The sentences are fluff-free and the meanings are conveyed clearly, like a good Ruby program. Consider this excerpt for example from page 75:
+Every object has a well-defined class in Ruby, and that class never changes during the lifetime of the object.</description>
+    </item>
+    
+    <item>
+      <title>Does Allah (ج) _need_ our praise?</title>
+      <link>https://dersavage.github.io/main/essays/whypraise/</link>
+      <pubDate>Sat, 09 Sep 2023 00:37:10 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/whypraise/</guid>
+      <description>Missy A few months ago I found a poor kitty who was merely skin and bones, but most probably, she had been someone&amp;rsquo;s discarded or abandoned pet because she was not feral; she was friendly and let me pet her. She seemed to have a lot of health issues, so I took her to the vet, where, for some strange reason, she began hyperventilating:
+It was heartbreaking but I was not going to give up on her.</description>
     </item>
     
   </channel>

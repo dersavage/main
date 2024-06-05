@@ -27,16 +27,10 @@
     <loc>https://dersavage.github.io/main/reviews/</loc>
     <lastmod>2024-03-05T14:40:17+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/essays/narcissism/</loc>
-    <lastmod>2024-02-21T15:45:19+08:00</lastmod>
-  </url><url>
     <loc>https://dersavage.github.io/main/reviews/diary_of_madman/</loc>
     <lastmod>2024-02-21T14:47:46+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/reviews/eight_below/</loc>
-    <lastmod>2024-01-19T12:17:09+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/tutorials/blackjackincs/</loc>
+    <loc>https://dersavage.github.io/main/tutorials/4-break-into-c#/</loc>
     <lastmod>2024-01-06T14:34:23+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/tutorials/</loc>
@@ -66,9 +60,6 @@
                 hreflang="en"
                 href="https://dersavage.github.io/main/tags/"
                 />
-  </url><url>
-    <loc>https://dersavage.github.io/main/reviews/maugham/</loc>
-    <lastmod>2023-10-15T15:04:47+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/essays/point_of_pointlessness/</loc>
     <lastmod>2023-09-16T00:58:29+08:00</lastmod>
@@ -106,17 +97,11 @@
     <loc>https://dersavage.github.io/main/essays/noble-quran-translations/</loc>
     <lastmod>2023-04-09T14:25:35+08:00</lastmod>
   </url><url>
+    <loc>https://dersavage.github.io/main/tutorials/3-break-into-swift/</loc>
+    <lastmod>2023-01-29T13:12:52+08:00</lastmod>
+  </url><url>
     <loc>https://dersavage.github.io/main/tags/programming-swift/</loc>
     <lastmod>2023-01-29T13:12:52+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/tutorials/oop-in-swift-grounds/</loc>
-    <lastmod>2023-01-29T13:12:52+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/reviews/inception-/</loc>
-    <lastmod>2023-01-28T12:47:35+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/tags/movies/</loc>
-    <lastmod>2023-01-28T12:47:35+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/reviews/ayn-rand/</loc>
     <lastmod>2023-01-15T22:48:07+08:00</lastmod>
@@ -130,10 +115,10 @@
     <loc>https://dersavage.github.io/main/reviews/darker-than-amber/</loc>
     <lastmod>2022-06-23T08:28:02+08:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/tutorials/how-i-teach/</loc>
+    <loc>https://dersavage.github.io/main/tutorials/1-break-into-julia/</loc>
     <lastmod>2022-05-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dersavage.github.io/main/tutorials/programming-101/</loc>
+    <loc>https://dersavage.github.io/main/tutorials/2-break-into-ruby/</loc>
     <lastmod>2022-05-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/about/</loc>

@@ -9,44 +9,49 @@
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 06 Jan 2024 14:34:23 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tutorials/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Blackjack in C#</title>
-      <link>https://dersavage.github.io/main/tutorials/blackjackincs/</link>
+      <title>Break into C#</title>
+      <link>https://dersavage.github.io/main/tutorials/4-break-into-c#/</link>
       <pubDate>Sat, 06 Jan 2024 14:34:23 +0800</pubDate>
       
-      <guid>https://dersavage.github.io/main/tutorials/blackjackincs/</guid>
-      <description>Some of you from Quora know that I am very pro-C#. But what has C# got that Java, C and C++ haven&amp;rsquo;t?
-I guess the simplest possible answer is that C# is programmer-friendlier than the above three combined, carries most of their advantages and none of their disadvantages.
-More importantly, C#, now in version 12 (as of November 2023) has many new goodies that will make development in C# pure joy.</description>
+      <guid>https://dersavage.github.io/main/tutorials/4-break-into-c#/</guid>
+      <description>The pre-requisite for this chapter is &amp;lsquo;Break into Ruby&amp;rsquo;.
+Do you think the program makes sense even though you&amp;rsquo;re new to C#? The aim here is to introduce you to just enough C# to let you decide whether it&amp;rsquo;s worth learning.
+(If you want to download and try the game on your computer, head on to my github.)
+1using System; 2using System.Collections.Generic; 3 4public class Program 5{ 6 static void Main() 7 { 8 var deck = new Deck(); 9 var playerHand = new Hand(); 10 var dealerHand = new Hand(); 11 12 playerHand.</description>
     </item>
     
     <item>
-      <title>Truly Object-oriented in &#39;Twin Peaks&#39;</title>
-      <link>https://dersavage.github.io/main/tutorials/oop-in-swift-grounds/</link>
+      <title>Break into Swift</title>
+      <link>https://dersavage.github.io/main/tutorials/3-break-into-swift/</link>
       <pubDate>Sun, 29 Jan 2023 13:12:52 +0800</pubDate>
       
-      <guid>https://dersavage.github.io/main/tutorials/oop-in-swift-grounds/</guid>
-      <description>This is the first post in the CR&amp;ndash;Code Review&amp;ndash;series. I hit upon the idea after I found this interesting discussion regarding Swift playgrounds, book 2 (Let&amp;rsquo;s Code 2), chapter named &amp;lsquo;Twin Peaks&amp;rsquo; in Scrabtree&amp;rsquo;s website, where he lamented his very long solution compared to Samantha&amp;rsquo;s shorter solution.
-The purpose of this CR is to bring learners&amp;rsquo; attention to an interesting thing about object orientation: objects can be interdependent even if they were instantiated independently.</description>
+      <guid>https://dersavage.github.io/main/tutorials/3-break-into-swift/</guid>
+      <description>I found this interesting discussion regarding Swift playgrounds, book 2 (Let&amp;rsquo;s Code 2), chapter named &amp;lsquo;Twin Peaks&amp;rsquo; in Scrabtree&amp;rsquo;s website, where he lamented his very long solution compared to Samantha&amp;rsquo;s shorter solution.
+In this challenge, you are supposed to create an Expert() object, and a Character() object, where the expert&amp;rsquo;s task is to tinker with the lock that controls the adjustable platform in the middle between the the twin peaks. Then the character is supposed to jump and move, collecting gems as they randomly appear.</description>
     </item>
     
     <item>
-      <title>How I teach</title>
-      <link>https://dersavage.github.io/main/tutorials/how-i-teach/</link>
+      <title>Break into Ruby</title>
+      <link>https://dersavage.github.io/main/tutorials/1-break-into-julia/</link>
       <pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dersavage.github.io/main/tutorials/how-i-teach/</guid>
-      <description>This post showcases how I teach, but it can also be useful to someone who has been through the tutorial hell and wants to experience real learning. The topic is a brief introduction to objects in Ruby, and no assumptions have been made except the most rudimentary experience with programming, say, the Is programming for you chapter in the Tuts category.
-Everything is an Object Now then, in Ruby, variables are disloyal:</description>
+      <guid>https://dersavage.github.io/main/tutorials/1-break-into-julia/</guid>
+      <description>The only pre-requisite is &amp;lsquo;Break into Julia&amp;rsquo;. This chapter aims to persuade you, a beginner or an intermediate-level programmer, to learn Ruby, a fine language.
+Here we go.
+Everything is an Object Now then, in Ruby, variables are disloyal:
+thing = 34 thing = &amp;#34;what?&amp;#34; thing = true thing = 3.2 thing = [1, 4, 4] thing = thing.nil? In other words, our variable thing can assume any data type. First it became an int, then a string, then a boolean, a float, a list (called array in Ruby) and finally, a result of evaluating whether the thing object is a nil or not?</description>
     </item>
     
     <item>
-      <title>Is programming for you?</title>
-      <link>https://dersavage.github.io/main/tutorials/programming-101/</link>
+      <title>Break into Julia</title>
+      <link>https://dersavage.github.io/main/tutorials/2-break-into-ruby/</link>
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dersavage.github.io/main/tutorials/programming-101/</guid>
-      <description>Suppose I want to write a &amp;ldquo;verb&amp;rdquo;, which we call a function in programming, that returns (gives us) a greeting. In Julia language, this is how we do it:
-function greetbot() return &amp;#34;how do you do?&amp;#34; end So, function is a reserved keyword that is used to construction a procedure in Julia. The name greetbot I chose can be anything that is clear and suitable to the task. It must be followed by () so as to give the impression that this is a function, a verb, a procedure.</description>
+      <guid>https://dersavage.github.io/main/tutorials/2-break-into-ruby/</guid>
+      <description>This is the first post in the series. Beyond the ability to install Julia on your computer, no other assumption are made.
+Let&amp;rsquo;s go.
+Suppose I want to write a &amp;ldquo;verb&amp;rdquo;, which we call a function in programming, that returns (gives us) a greeting. In Julia language, this is how we do it:
+function greetbot() return &amp;#34;how do you do?&amp;#34; end So, function is a reserved keyword that is used to construction a procedure in Julia.</description>
     </item>
     
   </channel>
