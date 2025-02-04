@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 07 Oct 2024 20:22:08 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Nov 2024 20:22:08 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>☆☆☆★★★★★★★: PKD&#39;s The Adjustment Team</title>
       <link>https://dersavage.github.io/main/reviews/adjustment_team/</link>
-      <pubDate>Mon, 07 Oct 2024 20:22:08 +0800</pubDate>
+      <pubDate>Sun, 10 Nov 2024 20:22:08 +0800</pubDate>
       
       <guid>https://dersavage.github.io/main/reviews/adjustment_team/</guid>
-      <description>It&amp;rsquo;s been a while. Around eight months! But I&amp;rsquo;ve been through a lot in these eight months. I struggled with death only five months ago. I won&amp;rsquo;t go into the details here, but suffice it to say that I survived my Black Swan and I&amp;rsquo;m here again.
-And back on track. Out of pure randomness, I ran into PKD&amp;rsquo;s short story &amp;ldquo;The Adjustment Team&amp;rdquo; which was intriguing and interesting. The scenery was described quite artistically, and only some of the characters were properly described, such as the old man with &amp;lsquo;his faded blue eyes mild&amp;ndash; a deep, ancient mildness that made the Clerk tremble even more&amp;rsquo;.</description>
+      <description>It&amp;rsquo;s been a while.
+Out of pure randomness, I ran into PKD&amp;rsquo;s short story &amp;ldquo;The Adjustment Team&amp;rdquo; which was intriguing and interesting. The scenery was described quite artistically, and only some of the characters were properly described, such as the old man with &amp;lsquo;his faded blue eyes mild&amp;ndash; a deep, ancient mildness that made the Clerk tremble even more&amp;rsquo;. I think this selective description was on purpose, to show relative importances in a social hierarchy.</description>
     </item>
     
     <item>
@@ -24,8 +24,8 @@ And back on track. Out of pure randomness, I ran into PKD&amp;rsquo;s short stor
       <pubDate>Thu, 14 Mar 2024 07:26:24 +0800</pubDate>
       
       <guid>https://dersavage.github.io/main/essays/adhd/</guid>
-      <description>As an empath and a left-handed person who thinks he&amp;rsquo;s ADHD, I&amp;rsquo;ve come to a stage in my life now, that looking at someone&amp;rsquo;s photo evokes feelings in my mind, that usually if not always, prove accurate.
-I need to establish my qualifications first, so that my essay makes sense. I only became conscious or discovered the fact that I am an empath, in 2022. That means, for nearly four decades, I&amp;rsquo;ve been aware of a sort of power in my mind, which both fascinated me and irritated those who were on the receiving end of my estimation of their mental states.</description>
+      <description>As an empath and a left-handed person who thinks he&amp;rsquo;s ADHD, I&amp;rsquo;ve come to a stage in my life now, that just looking at someone&amp;rsquo;s photo evokes feelings in my mind, that usually if not always, prove to be mostly accurate.
+Actually, I only became conscious or discovered the fact that I am an empath, in late 2022. But for nearly four decades, I&amp;rsquo;ve been aware of a sort of power in my mind, which both fascinated me and irritated those who had underestimated me.</description>
     </item>
     
     <item>
@@ -48,18 +48,6 @@ It turns out, my poor opinion of this book is also, indirectly, an indictment of
       <guid>https://dersavage.github.io/main/reviews/diary_of_madman/</guid>
       <description>Before reading a translated work, I often find as many translations as I can in order to choose the best. To me, the best means close to the original in both how words must have sounded in the original, but also rendering it in English in such a way that it should, by itself, have its own literary merits in English.
 Translations of foreign novels rare rarely loyal but everytime I find a good translation, it confirms my hunch that the translator must be a writer and an artist of a high caliber.</description>
-    </item>
-    
-    <item>
-      <title>Break into C#</title>
-      <link>https://dersavage.github.io/main/tutorials/4-break-into-c#/</link>
-      <pubDate>Sat, 06 Jan 2024 14:34:23 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/tutorials/4-break-into-c#/</guid>
-      <description>The pre-requisite for this chapter is &amp;lsquo;Break into Ruby&amp;rsquo;.
-Do you think the program makes sense even though you&amp;rsquo;re new to C#? The aim here is to introduce you to just enough C# to let you decide whether it&amp;rsquo;s worth learning.
-(If you want to download and try the game on your computer, head on to my github.)
-1using System; 2using System.Collections.Generic; 3 4public class Program 5{ 6 static void Main() 7 { 8 var deck = new Deck(); 9 var playerHand = new Hand(); 10 var dealerHand = new Hand(); 11 12 playerHand.</description>
     </item>
     
     <item>
@@ -112,6 +100,16 @@ Ricks calls the the sublimeness of literary art and its moral purpose a mere &am
 Here&amp;rsquo;s why:
 The writing is succinct without being abstrusely terse. It&amp;rsquo;s clear without being simplistic. The sentences are fluff-free and the meanings are conveyed clearly, like a good Ruby program. Consider this excerpt for example from page 75:
 Every object has a well-defined class in Ruby, and that class never changes during the lifetime of the object.</description>
+    </item>
+    
+    <item>
+      <title>Does Allah (ج) _need_ our praise?</title>
+      <link>https://dersavage.github.io/main/essays/whypraise/</link>
+      <pubDate>Sat, 09 Sep 2023 00:37:10 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/essays/whypraise/</guid>
+      <description>Missy A few months ago I found a poor kitty who was merely skin and bones, but most probably, she had been someone&amp;rsquo;s discarded or abandoned pet because she was not feral; she was friendly and let me pet her. She seemed to have a lot of health issues, so I took her to the vet, where, for some strange reason, she began hyperventilating:
+It was heartbreaking but I was not going to give up on her.</description>
     </item>
     
   </channel>

@@ -7,19 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 06 Jan 2024 14:34:23 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tutorials/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Break into C#</title>
-      <link>https://dersavage.github.io/main/tutorials/4-break-into-c#/</link>
-      <pubDate>Sat, 06 Jan 2024 14:34:23 +0800</pubDate>
-      
-      <guid>https://dersavage.github.io/main/tutorials/4-break-into-c#/</guid>
-      <description>The pre-requisite for this chapter is &amp;lsquo;Break into Ruby&amp;rsquo;.
-Do you think the program makes sense even though you&amp;rsquo;re new to C#? The aim here is to introduce you to just enough C# to let you decide whether it&amp;rsquo;s worth learning.
-(If you want to download and try the game on your computer, head on to my github.)
-1using System; 2using System.Collections.Generic; 3 4public class Program 5{ 6 static void Main() 7 { 8 var deck = new Deck(); 9 var playerHand = new Hand(); 10 var dealerHand = new Hand(); 11 12 playerHand.</description>
-    </item>
-    
+    <lastBuildDate>Sun, 29 Jan 2023 13:12:52 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tutorials/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Break into Swift</title>
       <link>https://dersavage.github.io/main/tutorials/3-break-into-swift/</link>
