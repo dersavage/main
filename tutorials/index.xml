@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 29 Jan 2023 13:12:52 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Nov 2025 01:48:01 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recursive Iteration?</title>
+      <link>https://dersavage.github.io/main/tutorials/4-recursive-iteration/</link>
+      <pubDate>Sat, 08 Nov 2025 01:48:01 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/tutorials/4-recursive-iteration/</guid>
+      <description>Late afternoon, yesterday, when the sky was bluer than blue, my intelligent cat, Bin, asked me:
+Dad. Why is linear recursion called linear? I petted Bin and smiled. A very smart cat, that, probably because he had been with us since he was merely weeks old.
+I replied:
+Dear Binbin, have a look at this function:
+Bin yawned:
+I know this.
+I:
+What happens if I pass 3 to it?</description>
+    </item>
+    
     <item>
       <title>Break into Swift</title>
       <link>https://dersavage.github.io/main/tutorials/3-break-into-swift/</link>

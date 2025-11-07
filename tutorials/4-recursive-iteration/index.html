@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jan Savage ">
+<meta name="description" content="Late afternoon, yesterday, when the sky was bluer than blue, my intelligent cat, Bin, asked me:
+Dad. Why is linear recursion called linear? I petted Bin and smiled. A very smart cat, that, probably because he had been with us since he was merely weeks old.
+I replied:
+Dear Binbin, have a look at this function:
+Bin yawned:
+I know this.
+I:
+What happens if I pass 3 to it?" />
+<meta name="keywords" content="programming" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://dersavage.github.io/main/tutorials/4-recursive-iteration/" />
+
+
+    <title>
+        
+            Recursive Iteration? :: Jan Savage  — The Jan Savage cave
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://dersavage.github.io/main/main.b6d528998b7b504bfd8ef86303ede1785102ea45c0c86ef0215145b1e5778a9d.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dersavage.github.io/main/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dersavage.github.io/main/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dersavage.github.io/main/favicon-16x16.png">
+    <link rel="manifest" href="https://dersavage.github.io/main/site.webmanifest">
+    <link rel="mask-icon" href="https://dersavage.github.io/main/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://dersavage.github.io/main/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Recursive Iteration?">
+<meta itemprop="description" content="Late afternoon, yesterday, when the sky was bluer than blue, my intelligent cat, Bin, asked me:
+Dad. Why is linear recursion called linear? I petted Bin and smiled. A very smart cat, that, probably because he had been with us since he was merely weeks old.
+I replied:
+Dear Binbin, have a look at this function:
+Bin yawned:
+I know this.
+I:
+What happens if I pass 3 to it?"><meta itemprop="datePublished" content="2025-11-08T01:48:01+08:00" />
+<meta itemprop="dateModified" content="2025-11-08T01:48:01+08:00" />
+<meta itemprop="wordCount" content="886"><meta itemprop="image" content="https://dersavage.github.io/main/"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dersavage.github.io/main/"/>
+
+<meta name="twitter:title" content="Recursive Iteration?"/>
+<meta name="twitter:description" content="Late afternoon, yesterday, when the sky was bluer than blue, my intelligent cat, Bin, asked me:
+Dad. Why is linear recursion called linear? I petted Bin and smiled. A very smart cat, that, probably because he had been with us since he was merely weeks old.
+I replied:
+Dear Binbin, have a look at this function:
+Bin yawned:
+I know this.
+I:
+What happens if I pass 3 to it?"/>
+
+
+
+
+    <meta property="og:title" content="Recursive Iteration?" />
+<meta property="og:description" content="Late afternoon, yesterday, when the sky was bluer than blue, my intelligent cat, Bin, asked me:
+Dad. Why is linear recursion called linear? I petted Bin and smiled. A very smart cat, that, probably because he had been with us since he was merely weeks old.
+I replied:
+Dear Binbin, have a look at this function:
+Bin yawned:
+I know this.
+I:
+What happens if I pass 3 to it?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dersavage.github.io/main/tutorials/4-recursive-iteration/" /><meta property="og:image" content="https://dersavage.github.io/main/"/><meta property="article:section" content="tutorials" />
+<meta property="article:published_time" content="2025-11-08T01:48:01+08:00" />
+<meta property="article:modified_time" content="2025-11-08T01:48:01+08:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2025-11-08 01:48:01 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://dersavage.github.io/main/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">~</span>
+            <span class="logo__text">% cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#4000ff;
+                   animation-duration:1.1s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://dersavage.github.io/main/about/">?</a></li><li><a href="https://dersavage.github.io/main/essays/">Essays</a></li><li><a href="https://dersavage.github.io/main/reviews/">Reviews</a></li><li><a href="https://dersavage.github.io/main/tutorials/">Tuts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://dersavage.github.io/main/tutorials/4-recursive-iteration/">Recursive Iteration?</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <p>Late afternoon, yesterday, when the sky was bluer than blue, my
+intelligent cat, Bin, asked me:</p>
+<blockquote>
+<p>Dad. Why is linear recursion called linear? I petted Bin and smiled.
+A very smart cat, that, probably because he had been with us since
+he was merely weeks old.</p>
+</blockquote>
+<p>I replied:</p>
+<blockquote>
+<blockquote>
+<p>Dear Binbin, have a look at this function:</p>
+</blockquote>
+</blockquote>
+
+    <img src="https://dersavage.github.io/main/img/bin-facto1.png"  alt="bin-facto1"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Bin yawned:</p>
+<blockquote>
+<p>I know this.</p>
+</blockquote>
+<p>I:</p>
+<blockquote>
+<blockquote>
+<p>What happens if I pass 3 to it?</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Well, something like 1 * 2 * 3 = 6.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Does it all happen at once?</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Lemesee. As I do (factorial 3), Since it&rsquo;s n is 3 and not 0, we go to recursive call. Here, some
+outcome should be multiplied to our n. Oh I see! This multiplication
+to n does not happen immediately. It has to wait for some other
+process to complete.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Your intelligence amazes me, Bin. Here’s a snack. Eat it later!
+Now look at this, in particular, look at line 4:</p>
+</blockquote>
+</blockquote>
+
+    <img src="https://dersavage.github.io/main/img/bin-facto2.png"  alt="bin-facto2"  class="center"  style="border-radius: 8px;"  />
+
+
+<blockquote>
+<p>What am I looking at?</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>The darker green shade implies that, that is what is computed
+first. It’s computation priority inside the list processing
+languages like Scheme and Lisp.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Ah! I can say it, I can say it. Before 3 is multiplied to anything it
+can be multiplied to—</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>A number.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Yes, a number, don’t interrupt dad. It has to wait for the recursive
+call to go all the way to the base case.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>More precisely son, each * waits for the inner factorial to
+finish before it can execute. The call stack builds up as you
+go deeper (3 → 2 → 1 → 0), then collapses as results bubble
+back up.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Whoa, whoa, easy dad. Let me show you how to write more intuitively
+(though less rigorously):</p>
+</blockquote>
+
+     <img src="https://dersavage.github.io/main/img/bin-exp1.png"  alt="bin-exp1"  class="center"  style="border-radius: 8px;"  />
+ 
+
+<blockquote>
+<p>At line 5, in the previous image, all this unstacks and</p>
+</blockquote>
+
+     <img src="https://dersavage.github.io/main/img/bin-exp2.png"  alt="bin-exp2"  class="center"  style="border-radius: 8px;"  />
+ 
+
+<blockquote>
+<p>So now I understand those arrows you showed in the first screenshot.
+Everything happens linearly, one after another. Right?</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Absolutely. Now let’s look at another function, which we have
+written like so:</p>
+</blockquote>
+</blockquote>
+
+     <img src="https://dersavage.github.io/main/img/bin-facto3.png"  alt="bin-facto3"  class="center"  style="border-radius: 8px;"  />
+ 
+
+<blockquote>
+<p>Dad, whoa, whoa, what’s happening and when?</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Let’s run an x-ray on it:</p>
+</blockquote>
+</blockquote>
+
+     <img src="https://dersavage.github.io/main/img/bin-facto4.png"  alt="bin-facto4"  class="center"  style="border-radius: 8px;"  />
+ 
+
+<blockquote>
+<blockquote>
+<p>The darker areas are computed first. In this case, line 5, as
+the whole line is green, whereas the if-clause’s if is
+slightly lighter.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Ok, so far it makes sense. Then what?</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Then, we created a helper function inside (factorial n). It
+takes n but also an accumulator. Since n is continually
+decreased, eventually the base case is saying: return the
+accumulator once n is 0.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Oh, oh, and since in (factorial 3) n is not 0, it goes to
+(iter….) line. There, the n parameter for (iter n acc) is (- n 1)
+and the acc parameter is (* n acc). Am I right?</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>You are. Thus, there’s no waiting—each call immediately
+computes the new accumulator and passes it to the next call.
+The stack never grows because the recursive call is the final
+operation.</p>
+</blockquote>
+</blockquote>
+
+     <img src="https://dersavage.github.io/main/img/bin-iter1.png"  alt="bin-iter1"  class="center"  style="border-radius: 8px;"  />
+ 
+
+<blockquote>
+<p>Dad, let me rephrase you so that even cats can understand it:</p>
+</blockquote>
+
+     <img src="https://dersavage.github.io/main/img/bin-iter2.png"  alt="bin-iter2"  class="center"  style="border-radius: 8px;"  />
+ 
+
+<blockquote>
+<p>So, correct me if I am wrong: this is iterative?</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>The recursive call is the last operation (aka tail position).
+R5RS mandates that Scheme implementations optimize this into a
+loop—so the call stack remains constant regardless of depth.
+This is functionally iterative despite syntactic recursion.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Dad, please don’t show off your dense writing. I know you can write a
+fluffier version, please do, since the above went well over my head.
+I chuckled. My cat is a stickler for clarity.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>As you wish Bin. Let’s go back a bit. In(define (iter n acc)
+(if (= n 0) acc(iter (- n 1) (* n acc))))</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>The last operation is (iter (- n 1) (* n acc)). After that line
+executes, there&rsquo;s nothing else to do—no waiting, no
+multiplication to perform on the result.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Now compare to linear recursion:(define (factorial n)(if (= n
+0) 1(* n (factorial (- n 1)))))</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>The recursive call is (factorial (- n 1)), but it&rsquo;s not the
+last operation. After it returns, you still need to do
+(* n &hellip;) with that result. The * operation is waiting.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Ah I see. And?</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>And that, when Scheme sees a recursive call in tail position,
+it doesn&rsquo;t create a new stack frame—it reuses the current one.
+So syntactically it&rsquo;s still recursion (we wrote a recursive
+function), but operationally it behaves like a loop.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Grrrr. Wattt? Bin always makes me laugh. Especially when I say
+something that may sound confusing. So I pulled a respectable
+textbook  by authors who are passionate about both programming and
+teaching, and showed him this:</p>
+</blockquote>
+
+      <img src="https://dersavage.github.io/main/img/bin-concabs.png"  alt="bin-concabs"  class="center"  style="border-radius: 8px;"  />
+  
+
+<p>Bin’s eyes distended:</p>
+<blockquote>
+<p>So, Scheme considers recursive procedures as iteration?</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Why not? Performance-wise at least, they are the same. Scheme
+takes something like:</p>
+</blockquote>
+</blockquote>
+<pre><code>   
+           <img src="https://dersavage.github.io/main/img/bin-iter3.png"  alt="bin-iter3"  class="center"  style="border-radius: 8px;"  />
+       
+
+</code></pre>
+<blockquote>
+<blockquote>
+<p>And optimizes it to roughly something like this:</p>
+</blockquote>
+</blockquote>
+
+    <img src="https://dersavage.github.io/main/img/bin-iter4.png"  alt="bin-iter4"  class="center"  style="border-radius: 8px;"  />
+
+
+<blockquote>
+<blockquote>
+<p>Same stack frame gets reused, same memory usage. Bin said:</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Let me improve the above sentence, since you write like a
+mathematician:</p>
+</blockquote>
+<blockquote>
+<p>Scheme says: &ldquo;If you write it recursively in tail position, we&rsquo;ll
+execute it as a loop.&rdquo;</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Proud of you, Bin! Well done. I confess I get impatient and
+want to say as much as possible in as few words as I can.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Yeah, dad, but don’t over do it. When you’re teaching, or writing
+tutorials, you could relax a bit and write with patience.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Noted, Bin. Thanks little fella for the reminder. It&rsquo;s always
+so easy to forget one (too) was a beginner once.</p>
+</blockquote>
+</blockquote>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2025</span>
+            <span><a href="https://dersavage.github.io/main/">Jan Savage</a></span>
+            
+            <span><a href="https://dersavage.github.io/main/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://dersavage.github.io/main/bundle.min.98fef7958ed12b899250a29a40d2a730eda779c87de1fae22a4cf6c7e87088a65ac7537f5be758af43c4f3a8876e5117be9d027b8090c55f80a610864d08e384.js" integrity="sha512-mP73lY7RK4mSUKKaQNKnMO2nech94friKkz2x&#43;hwiKZax1N/W&#43;dYr0PE86iHblEXvp0Ce4CQxV&#43;AphCGTQjjhA=="></script>
+
+
+
+    </body>
+</html>
