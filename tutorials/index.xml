@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on Jan Savage</title>
+    <link>https://dersavage.github.io/main/tutorials/</link>
+    <description>Recent content in Tutorials on Jan Savage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 08 Nov 2025 01:48:01 +0800</lastBuildDate><atom:link href="https://dersavage.github.io/main/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recursive Iteration?</title>
+      <link>https://dersavage.github.io/main/tutorials/4-recursive-iteration/</link>
+      <pubDate>Sat, 08 Nov 2025 01:48:01 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/tutorials/4-recursive-iteration/</guid>
+      <description>Late afternoon, yesterday, when the sky was bluer than blue, my intelligent cat, Bin, asked me:
+Dad. Why is linear recursion called linear? I petted Bin and smiled. A very smart cat, that, probably because he had been with us since he was merely weeks old.
+I replied:
+Dear Binbin, have a look at this function:
+Bin yawned:
+I know this.
+I:
+What happens if I pass 3 to it?</description>
+    </item>
+    
+    <item>
+      <title>Break into Swift</title>
+      <link>https://dersavage.github.io/main/tutorials/3-break-into-swift/</link>
+      <pubDate>Sun, 29 Jan 2023 13:12:52 +0800</pubDate>
+      
+      <guid>https://dersavage.github.io/main/tutorials/3-break-into-swift/</guid>
+      <description>I found this interesting discussion regarding Swift playgrounds, book 2 (Let&amp;rsquo;s Code 2), chapter named &amp;lsquo;Twin Peaks&amp;rsquo; in Scrabtree&amp;rsquo;s website, where he lamented his very long solution compared to Samantha&amp;rsquo;s shorter solution.
+In this challenge, you are supposed to create an Expert() object, and a Character() object, where the expert&amp;rsquo;s task is to tinker with the lock that controls the adjustable platform in the middle between the the twin peaks. Then the character is supposed to jump and move, collecting gems as they randomly appear.</description>
+    </item>
+    
+    <item>
+      <title>Break into Ruby</title>
+      <link>https://dersavage.github.io/main/tutorials/1-break-into-julia/</link>
+      <pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dersavage.github.io/main/tutorials/1-break-into-julia/</guid>
+      <description>The only pre-requisite is &amp;lsquo;Break into Julia&amp;rsquo;. This chapter aims to persuade you, a beginner or an intermediate-level programmer, to learn Ruby, a fine language.
+Here we go.
+Everything is an Object Now then, in Ruby, variables are disloyal:
+thing = 34 thing = &amp;#34;what?&amp;#34; thing = true thing = 3.2 thing = [1, 4, 4] thing = thing.nil? In other words, our variable thing can assume any data type. First it became an int, then a string, then a boolean, a float, a list (called array in Ruby) and finally, a result of evaluating whether the thing object is a nil or not?</description>
+    </item>
+    
+    <item>
+      <title>Break into Julia</title>
+      <link>https://dersavage.github.io/main/tutorials/2-break-into-ruby/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dersavage.github.io/main/tutorials/2-break-into-ruby/</guid>
+      <description>This is the first post in the series. Beyond the ability to install Julia on your computer, no other assumption are made.
+Let&amp;rsquo;s go.
+Suppose I want to write a &amp;ldquo;verb&amp;rdquo;, which we call a function in programming, that returns (gives us) a greeting. In Julia language, this is how we do it:
+function greetbot() return &amp;#34;how do you do?&amp;#34; end So, function is a reserved keyword that is used to construction a procedure in Julia.</description>
+    </item>
+    
+  </channel>
+</rss>
