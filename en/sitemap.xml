@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dersavage.github.io/main/reviews/the_eustace_diamonds/</loc>
-    <lastmod>2026-08-03T10:51:08+08:00</lastmod>
+    <loc>https://dersavage.github.io/main/essays/</loc>
+    <lastmod>2026-08-03T10:54:17+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/</loc>
-    <lastmod>2026-08-03T10:51:08+08:00</lastmod>
+    <lastmod>2026-08-03T10:54:17+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -18,6 +18,12 @@
                 href="https://dersavage.github.io/main/"
                 />
   </url><url>
+    <loc>https://dersavage.github.io/main/essays/why_write/</loc>
+    <lastmod>2026-08-03T10:54:17+08:00</lastmod>
+  </url><url>
+    <loc>https://dersavage.github.io/main/reviews/the_eustace_diamonds/</loc>
+    <lastmod>2026-08-03T10:51:08+08:00</lastmod>
+  </url><url>
     <loc>https://dersavage.github.io/main/reviews/</loc>
     <lastmod>2026-08-03T10:51:08+08:00</lastmod>
   </url><url>
@@ -26,9 +32,6 @@
   </url><url>
     <loc>https://dersavage.github.io/main/reviews/a_hero_of_our_time/</loc>
     <lastmod>2026-06-11T17:24:05+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/essays/</loc>
-    <lastmod>2025-11-08T00:45:40+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/essays/iamalive/</loc>
     <lastmod>2025-11-08T00:45:40+08:00</lastmod>
@@ -44,9 +47,6 @@
   </url><url>
     <loc>https://dersavage.github.io/main/reviews/diary_of_madman/</loc>
     <lastmod>2024-02-21T14:47:46+08:00</lastmod>
-  </url><url>
-    <loc>https://dersavage.github.io/main/essays/hackernews/</loc>
-    <lastmod>2023-11-30T11:39:08+08:00</lastmod>
   </url><url>
     <loc>https://dersavage.github.io/main/reviews/the_infinite_joke/</loc>
     <lastmod>2023-10-24T15:22:53+08:00</lastmod>
