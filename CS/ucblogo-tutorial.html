@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UCB LOGO 6.2 — Interactive Tutor by Jan M. Savage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Fira+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  /* Styled after the HtDP 2e book (Matthew Butterick's Scribble "manual" style):
+     pure white page, black text, serif body, Fira headings and navigation,
+     blue-grey table-of-contents column, #07A links, cream callouts, and code
+     set off by a thin dotted rule rather than a colored box. */
+  :root{
+    --page:#ffffff;
+    --ink:#000000;
+    --heading:#333333;
+    --link:#0077aa;                       /* #07A */
+    --toc-bg:hsl(216,15%,70%);            /* sidebar */
+    --toc-hover:hsl(216,78%,95%);
+    --callout-bg:hsl(60,29%,94%);         /* margin-note cream */
+    --callout-edge:#ccccbb;
+    --panel-blue:hsl(216,78%,95%);        /* boxed panel */
+    --muted:#5f6472;
+    --rule:#99a;
+    --good:#1b6e1b;
+    --bad:#9c2020;
+    --serif:"Source Serif 4","Charter","Iowan Old Style",Georgia,serif;
+    --sans:"Fira Sans","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:"Fira Mono","Source Code Pro","Consolas",Menlo,monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+  html{font-size:15px;}
+  @media (max-width:940px){html{font-size:14px;}}
+  @media (max-width:740px){html{font-size:13px;}}
+  html,body{height:100%;}
+  body{
+    background:var(--page);
+    color:var(--ink);
+    font-family:var(--serif);
+  }
+  a{color:var(--link); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* The app fills the window like the book does: sidebar left, text column right. */
+  #tp{
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    background:var(--page);
+  }
+
+  /* Top strip (the book's "version" line) */
+  #menubar{
+    display:flex; align-items:baseline; gap:1.2rem;
+    padding:.5rem 1rem;
+    font-family:var(--sans); font-weight:300; font-size:.9rem;
+    color:var(--heading);
+    border-bottom:1px solid #eee;
+    background:var(--page);
+    flex-shrink:0;
+  }
+  #menubar .brand{font-weight:500; color:var(--heading); margin-right:auto; font-size:1rem;}
+  #menubar .brand span{color:var(--muted);}
+  #menubar span.mi{display:none;}
+  #menubar span.mi.active{display:inline; color:var(--link); cursor:pointer;}
+  #menubar span.mi.active:hover{text-decoration:underline;}
+  #menubar span.mi u{text-decoration:none;}
+
+  #tp-body{flex:1; display:flex; min-height:0;}
+
+  /* ===== Sidebar: the book's blue-grey table of contents ===== */
+  #sidebar{
+    width:15rem; flex-shrink:0;
+    background:var(--toc-bg);
+    overflow-y:auto;
+    padding:1rem .5rem 1rem .5rem;
+    font-family:var(--sans);
+  }
+  #sidebar .grp-label{
+    font-size:.62rem; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+    color:#000; padding:.5rem .5rem .6rem;
+  }
+  .lesson-item{
+    display:flex; align-items:baseline; gap:.5rem;
+    padding:.28rem .5rem;
+    font-size:.95rem; font-weight:400; line-height:1.25;
+    color:#000; cursor:pointer;
+    font-feature-settings:'tnum' 1;
+  }
+  .lesson-item:hover{background:var(--toc-hover);}
+  .lesson-item .num{color:#000; flex-shrink:0; width:1.7rem;}
+  .lesson-item.active{color:#000; background:#fff; font-weight:500; box-shadow:inset .25rem 0 0 var(--link);}
+  .lesson-item.active .num{color:#000;}
+  .lesson-item.active:hover{background:#fff;}
+  .lesson-item .chk{margin-left:auto; color:#0a4a0a; font-weight:600; flex-shrink:0;}
+  .lesson-item.active .chk{color:#0a4a0a;}
+
+  /* ===== Main text column ===== */
+  #main{flex:1; min-width:0; display:flex; flex-direction:column;}
+  #editwin{flex:1; display:flex; flex-direction:column; min-height:0;}
+  #editwin .titlebar{
+    font-family:var(--sans); font-size:.8rem; font-weight:300; color:var(--muted);
+    padding:.35rem 2rem; flex-shrink:0; border-bottom:1px solid #eee;
+  }
+  #editwin .titlebar b{font-weight:500; color:var(--heading);}
+  #content-scroll{
+    flex:1; overflow-y:auto;
+    padding:2rem 2rem 6rem 3rem;
+  }
+  #content-scroll > *{max-width:700px;}       /* book column width */
+
+  #content-scroll h2{
+    font-family:var(--sans); font-weight:500;
+    font-size:2.1rem; line-height:1.15; color:var(--heading);
+    margin:1rem 0 .4rem;
+  }
+  #content-scroll .subtitle{
+    font-family:var(--sans); font-weight:300; font-size:1.05rem; font-style:normal;
+    color:var(--muted); margin:0 0 1.6rem; line-height:1.4;
+  }
+  #content-scroll p{
+    font-family:var(--serif); font-size:1.18rem; line-height:1.5;
+    color:var(--ink); font-weight:400; margin:0 0 1em;
+  }
+  #content-scroll p em{font-style:italic; color:var(--ink);}
+  #content-scroll p strong{font-weight:600; color:var(--ink);}
+  #content-scroll strong{font-weight:600; color:var(--ink);}
+
+  /* Code: thin dotted left rule, no colored box (the book's .SCodeFlow) */
+  .codebox{
+    margin:1.1em 0 1.3em; background:transparent; border:none;
+    border-left:1px dotted #000; padding:0 0 0 1em;
+  }
+  .codebox .cb-head{display:none;}
+  .codebox pre{
+    margin:0; padding:0; overflow-x:auto;
+    font-family:var(--mono); font-size:1rem; line-height:1.5;
+    color:#000; background:transparent;
+  }
+
+  /* Syntax colors: restrained, drawn from the book's own hues (#07A blue family
+     for procedures, dark neutrals elsewhere). Categories differ by hue AND weight
+     so they stay distinguishable without a colored background. */
+  .kw-control{color:#7a1f1f; font-weight:500;}   /* to, if, repeat, output...  */
+  .kw-vardef {color:#5b2a86; font-weight:500;}   /* make, local, ask...        */
+  .kw-io     {color:#0077aa; font-weight:500;}   /* print, show, type...       */
+  .kw-turtle {color:#1a6a3a;}                    /* forward, right, penup...   */
+  .kw-math   {color:#a0500a;}                    /* sum, and, or, lessp...     */
+  .kw-data   {color:#00658a; font-weight:500; font-style:normal;} /* word, list, first... */
+  .bo{color:#9c2020; font-weight:500;}           /* true / false */
+  .st{color:#555522;}                            /* "words and :variables */
+  .br{color:#5a5f70;}                            /* [ ] */
+  .nm{color:#1a6a3a;}                            /* numbers */
+  .cm{color:#5f6472; font-style:italic;}            /* ; comments */
+
+  /* Callouts (kept for compatibility; the book's cream margin-note style) */
+  .note,.warn{
+    font-family:var(--sans); font-size:1rem; line-height:1.5;
+    background:var(--callout-bg); border:1px solid var(--callout-edge);
+    border-left:.4rem solid var(--callout-edge); padding:.5em .9em; margin:1.4em 0; color:#000;
+  }
+
+  /* ===== Quiz: the book's pale-blue "boxed" panel ===== */
+  .quiz{
+    margin:2em 0 0; padding:.9em 1.1em 1.1em;
+    background:var(--panel-blue); border-top:1px solid #99b;
+    max-width:700px;
+  }
+  .quiz .qhead{
+    font-family:var(--sans); font-size:.62rem; font-weight:600; letter-spacing:2px;
+    text-transform:uppercase; color:#000; margin-bottom:.6rem;
+  }
+  .quiz .qtext{font-family:var(--serif); font-size:1.1rem; line-height:1.45; color:#000; margin-bottom:.7rem;}
+  .quiz label{
+    display:block; font-family:var(--serif); font-size:1.05rem; line-height:1.4;
+    color:#000; padding:.3rem .5rem; cursor:pointer; border:1px solid transparent;
+  }
+  .quiz label:hover{background:#fff; border-color:#99b;}
+  .quiz input[type=radio]{margin-right:.55rem; accent-color:var(--link);}
+  .quiz .qbtn{
+    margin-top:.7rem; font-family:var(--sans); font-size:.9rem; font-weight:500;
+    color:#fff; background:var(--link); border:none; padding:.4rem .9rem; cursor:pointer;
+  }
+  .quiz .qbtn:hover{background:#005f88;}
+  .qresult{margin-top:.8rem; font-family:var(--sans); font-size:.95rem; line-height:1.45; padding:.5rem .7rem; display:none;}
+  .qresult.ok{display:block; color:#0d4a0d; background:#eaf5ea; border-left:.4rem solid var(--good);}
+  .qresult.bad{display:block; color:#6b1414; background:#f8ecec; border-left:.4rem solid var(--bad);}
+
+  /* ===== Bottom nav strip ===== */
+  #statusbar{
+    display:flex; gap:1.4rem; flex-wrap:wrap; align-items:baseline; flex-shrink:0;
+    padding:.45rem 1rem;
+    background:var(--toc-bg); color:#000;
+    font-family:var(--sans); font-size:.9rem; font-weight:400;
+  }
+  #statusbar b{font-weight:600; margin-right:.35rem; background:transparent; color:#000; padding:0;}
+  #statusbar span{cursor:pointer;}
+  #statusbar span:hover{background:var(--toc-hover);}
+  #credit-bar{
+    background:#fff !important; color:var(--muted) !important;
+    font-family:var(--sans) !important; font-weight:300 !important; font-size:.85rem !important;
+    border-top:1px solid #eee !important; padding:.5rem .8rem !important; text-align:center;
+  }
+  #credit-bar strong{color:var(--heading) !important; font-weight:500 !important;}
+  #credit-bar .attribution{display:block; font-size:.75rem; margin-top:.15rem; color:#8a8f97;}
+
+  /* ===== Reference modal ===== */
+  #modal-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,.35);
+    display:none; align-items:center; justify-content:center; z-index:50; padding:1.2rem;
+  }
+  #modal-overlay.show{display:flex;}
+  #modal{
+    width:100%; max-width:720px; max-height:82vh; background:#fff;
+    border:1px solid #99a; display:flex; flex-direction:column;
+    box-shadow:0 8px 30px rgba(0,0,0,.18);
+  }
+  #modal .titlebar{
+    background:var(--toc-bg); color:#000; font-family:var(--sans); font-weight:500; font-size:1rem;
+    padding:.5rem .9rem; display:flex; justify-content:space-between; align-items:center;
+  }
+  #modal .titlebar button{
+    background:transparent; color:#000; border:none; font-family:var(--sans);
+    font-size:1rem; font-weight:500; cursor:pointer; padding:0 .4rem;
+  }
+  #modal .titlebar button:hover{background:var(--toc-hover);}
+  #modal .mbody{padding:1rem 1.2rem 1.4rem; overflow-y:auto; font-family:var(--serif); font-size:1.05rem; line-height:1.5; color:#000;}
+  #modal .mbody h3{
+    font-family:var(--sans); font-weight:400; font-size:1.15rem; color:var(--heading);
+    border-top:1px solid #000; padding-top:.15em; margin:1.6em 0 .5em;
+  }
+  #modal .mbody h3:first-child{margin-top:0;}
+  #modal .mbody p{margin:0 0 .8em;}
+  #modal .mbody table{width:100%; border-collapse:collapse; margin-bottom:.4rem;}
+  #modal .mbody td{padding:.22rem .5rem .22rem 0; vertical-align:top; border-bottom:1px solid #eee; font-family:var(--serif);}
+  #modal .mbody td.k{font-family:var(--mono); font-size:.92rem; color:var(--link); white-space:nowrap; font-weight:500;}
+  #modal .mbody td.v{color:#444;}
+
+  ::-webkit-scrollbar{width:10px; height:10px;}
+  ::-webkit-scrollbar-track{background:#f4f4f4;}
+  ::-webkit-scrollbar-thumb{background:#c4c8d0;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--toc-bg);}
+
+  :focus-visible{outline:2px solid var(--link); outline-offset:2px;}
+
+  @media (max-width:760px){
+    #tp-body{flex-direction:column;}
+    #sidebar{width:100%; max-height:32vh; padding:.5rem;}
+    #content-scroll{padding:1.2rem 1rem 4rem 1rem;}
+    #content-scroll h2{font-size:1.7rem;}
+    #statusbar{gap:.8rem; padding:.4rem .6rem;}
+  }
+  @media print{
+    #sidebar,#menubar,#statusbar,#credit-bar{display:none;}
+  }
+</style>
+
+</head>
+<body>
+<div id="tp">
+  <div id="menubar">
+    <span class="brand">UCB Logo: An Interactive Tutorial <span>&mdash; by Jan M. Savage</span></span>
+    <span class="mi active" id="mi-help">Reference (F1)</span>
+  </div>
+
+  <div id="tp-body">
+    <div id="sidebar"></div>
+
+    <div id="main">
+      <div id="editwin">
+        <div class="titlebar" id="titlebar"></div>
+        <div id="content-scroll"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="statusbar">
+    <span id="sb-f1"><b>F1</b>Help / Reference</span>
+    <span id="sb-prev"><b>F2</b>Prev lesson</span>
+    <span id="sb-next"><b>F3</b>Next lesson</span>
+    <span id="sb-progress" style="margin-left:auto; cursor:default;"></span>
+  </div>
+  <div id="credit-bar">
+    &copy; 2026 <strong>Jan M. Savage</strong>
+    <span class="attribution">Content adapted from the UC Berkeley Logo Reference Manual by Brian Harvey, University of California, Berkeley.</span>
+  </div>
+</div>
+
+<div id="modal-overlay">
+  <div id="modal">
+    <div class="titlebar"><span>Quick Reference</span><button id="modal-close" aria-label="Close">Close &times;</button></div>
+    <div class="mbody" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+/* ================= SYNTAX HIGHLIGHTER =================
+   A single left-to-right tokenizer: at every position we try each
+   token type in priority order and consume the longest match. This
+   guarantees categories never collide or nest incorrectly, unlike
+   sequential global regex replacement. */
+const CONTROL = ["to","end","output","op","stop","if","ifelse","test","iftrue","ift","iffalse","iff",
+  "repeat","forever","for","while","until","do.while","do.until","foreach","run","runresult","catch","throw",
+  "error","pause","continue","co","goto","tag","ignore","apply","invoke",
+  "case","cond","macrop","macroexpand"];
+const VARDEF = ["make","local","localmake","global","name","thing",
+  "kindof","oneof","something","exist","have","havemake","talkto","ask","usual"];
+const DATA = ["word","list","sentence","se","fput","lput","array","mdarray","listtoarray","arraytolist",
+  "combine","reverse","gensym","first","firsts","last","butfirst","bf","butfirsts","bfs","butlast","bl",
+  "item","mditem","pick","remove","remdup","quoted","setitem","mdsetitem","push","pop","queue","dequeue",
+  "wordp","listp","arrayp","emptyp","equalp","notequalp","beforep","memberp","substringp","numberp",
+  "count","ascii","rawascii","char","member","lowercase","uppercase","standout","parse","runparse",
+  "map","map.se","filter","find","reduce","crossmap","cascade","cascade.2","transfer"];
+const IO = ["print","pr","type","show","readlist","rl","readword","rw","readchar","rc","readchars","rcs",
+  "readrawline","shell","openread","openwrite","openappend","openupdate","close","allopen","closeall",
+  "erasefile","erf","dribble","nodribble","setread","setwrite","reader","writer"];
+const TURTLE = ["forward","fd","back","bk","left","lt","right","rt","setpos","setxy","setx","sety","setheading",
+  "seth","home","arc","pos","xcor","ycor","heading","towards","scrunch","showturtle","st","hideturtle",
+  "ht","clean","clearscreen","cs","wrap","window","fence","fill","filled","label","setlabelheight",
+  "pendown","pd","penup","pu","penpaint","ppt","penerase","pe","penreverse","px","setpencolor","setpc",
+  "setpalette","setpensize","setpenpattern","setpen","setbackground","setbg","pendownp","penmode",
+  "pencolor","pc","palette","pensize","pen","background","bg","repcount"];
+const MATHLOGIC = ["sum","difference","minus","product","quotient","remainder","modulo","int","round","sqrt","power",
+  "exp","log10","ln","sin","cos","arctan","radsin","radcos","radarctan","iseq","rseq",
+  "lessp","greaterp","lessequalp","greaterequalp","random","rerandom","form",
+  "bitand","bitor","bitxor","bitnot","ashift","lshift","and","or","not"];
+const TYPES = ["true","false"];
+
+// Build one lookup: word (lowercase) -> css class
+const WORDCLASS = new Map();
+const register = (list, cls) => list.forEach(w => WORDCLASS.set(w, cls));
+register(CONTROL,   "kw-control");
+register(VARDEF,    "kw-vardef");
+register(DATA,      "kw-data");
+register(IO,        "kw-io");
+register(TURTLE,    "kw-turtle");
+register(MATHLOGIC, "kw-math");
+register(TYPES,     "bo");
+
+function escapeHtml(s){
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function highlight(code){
+  const n = code.length;
+  let i = 0;
+  let out = "";
+  const isWordChar = ch => /[a-zA-Z0-9_.?!]/.test(ch);
+
+  while(i < n){
+    const ch = code[i];
+
+    // Comment: ; to end of line
+    if(ch === ';'){
+      let j = i;
+      while(j < n && code[j] !== '\n') j++;
+      out += `<span class="cm">${escapeHtml(code.slice(i,j))}</span>`;
+      i = j;
+      continue;
+    }
+
+    // Bracket
+    if(ch === '[' || ch === ']'){
+      out += `<span class="br">${ch}</span>`;
+      i++;
+      continue;
+    }
+
+    // Quoted word: " followed by word chars (possibly empty, e.g. bare quote)
+    if(ch === '"'){
+      let j = i+1;
+      while(j < n && isWordChar(code[j])) j++;
+      out += `<span class="st">${escapeHtml(code.slice(i,j))}</span>`;
+      i = j;
+      continue;
+    }
+
+    // Variable: : followed by word chars
+    if(ch === ':'){
+      let j = i+1;
+      while(j < n && isWordChar(code[j])) j++;
+      out += `<span class="st">${escapeHtml(code.slice(i,j))}</span>`;
+      i = j;
+      continue;
+    }
+
+    // Number
+    if(/[0-9]/.test(ch)){
+      let j = i;
+      while(j < n && /[0-9.]/.test(code[j])) j++;
+      out += `<span class="nm">${escapeHtml(code.slice(i,j))}</span>`;
+      i = j;
+      continue;
+    }
+
+    // Word (letters, may contain . inside like map.se, do.while, or a leading . like .macro)
+    if(/[a-zA-Z.]/.test(ch)){
+      let j = i;
+      while(j < n && isWordChar(code[j])) j++;
+      const raw = code.slice(i,j);
+      const lower = raw.toLowerCase();
+      const cls = WORDCLASS.get(lower);
+      if(cls){
+        out += `<span class="${cls}">${escapeHtml(raw)}</span>`;
+      } else {
+        out += escapeHtml(raw);
+      }
+      i = j;
+      continue;
+    }
+
+    // anything else (whitespace, parens, operators, commas, backtick, etc.)
+    out += escapeHtml(ch);
+    i++;
+  }
+  return out;
+}
+
+
+/* ================= LESSON DATA ================= */
+const LESSONS = [
+{
+  id:"intro", file:"CH01.LOGO", num:"01", title:"Introduction & Syntax",
+  subtitle:"What Berkeley Logo is, and the punctuation that makes it tick.",
+  body:[
+    {t:"p", v:"Berkeley Logo (UCBLogo) is a dialect of Logo originally implemented in 1988 at Berkeley, tracing back to LSRHS Logo on PDP-11 computers in the 1970s. Its special features include source compatibility across Unix, Windows, and Mac; random-access <em>arrays</em>; a variable number of inputs to user-defined procedures; dangerous-but-powerful list mutators; pause-on-error debugging; comments and continuation lines that survive editing; Terrapin-style tokenization combined with LCSI-style syntax (no special forms except TO); first-class instruction and expression templates (see APPLY); and macros. Robotics, music, animation, parallelism, and multimedia are <strong>not</strong> part of Berkeley Logo — a different implementation is needed for those."},
+    {t:"p", v:"Logo distinguishes <strong>procedures</strong> (instructions to carry out a computation) from <strong>variables</strong> (named containers holding a value). A plain, unquoted word invokes a procedure; a word preceded by a quotation mark represents the word itself, not a call."},
+    {t:"code", v:"print first \"word\n; print and first are invoked (procedures); word is data (the word \"word\")"},
+    {t:"p", v:"To store a value in a variable, use <strong>make</strong>, which takes the variable's name (quoted) and the new value: <em>make \"my.var first \"word</em> gives MY.VAR the value <em>w</em>. To retrieve a variable's value, use <strong>thing</strong>: <em>print thing \"my.var</em> prints <em>w</em>. Because reading a variable is so common, Logo provides the colon abbreviation, which combines THING with quote — the colon replaces <em>thing \"</em>. So <em>print :my.var</em> is identical to <em>print thing \"my.var</em>."},
+    {t:"code", v:"make \"my.var first \"word\nprint thing \"my.var    ; prints W\nprint :my.var          ; same thing, using colon notation"},
+    {t:"p", v:"The same word can name both a procedure and a variable at once. This matters for procedures like:"},
+    {t:"code", v:"to plural :word\noutput word :word \"S\nend\n? print plural \"computer\ncomputers"},
+    {t:"p", v:"Here <em>word</em> (no colon) invokes Logo's primitive that concatenates two words; <em>:word</em> (with colon) is the local variable holding the input. Because a nonexistent-procedure name could instead be treated as a variable reference, Berkeley Logo offers an alternative to strict colon/quote punctuation: <strong>getter/setter notation</strong>. If the variable named <em>AllowGetSet</em> is TRUE (the default), then when Logo meets an unknown procedure name, it tries two steps: (1) if the name is at least four characters, starts with SET (any case), is followed by another value, and the name minus SET is an existing variable, Logo invokes MAKE on that variable with that value; (2) otherwise, if the name is an accessible variable, Logo invokes THING on it. This lets you write <em>setfoo 7</em> instead of <em>make \"foo 7</em>, and plain <em>foo</em> instead of <em>:foo</em> — provided your variable names don't collide with real procedure names. The command <strong>global</strong> creates a variable with no value so SETxxx has something to find."},
+    {t:"p", v:"The TO command is special: the rest of a TO line is not evaluated as ordinary Logo — it's taken literally, as if every word were quoted. Because of this, Berkeley Logo makes the colons in a TO line's input names <strong>optional</strong>: <em>to foo :in1 :in2</em> and <em>to foo in1 in2</em> are both valid."},
+    {t:"p", v:"<strong>Tokenization rules:</strong> procedure, variable, and property-list names are case-insensitive, as are END, TRUE, and FALSE — though the case you type is preserved for display. Inside square brackets, a word is delimited only by spaces and brackets, so <em>[2+3]</em> is a single-member list containing the word <em>2+3</em> (RUN, IF, and friends reparse such lists as instructions). Outside brackets, after a quotation mark, a word ends at a space, bracket, or parenthesis. Outside brackets and not after a quote, a word also ends at an infix operator (<em>+ - * / = &lt; &gt;</em>); each operator character is its own word, except that <em>&lt;=</em>, <em>&gt;=</em>, and <em>&lt;&gt;</em> (not-equal) are recognized as single two-character words when written with no space."},
+    {t:"p", v:"A line ending in a tilde (<em>~</em>) continues onto the next line; READWORD preserves the tilde and newline, READLIST does not, and lines read with READRAWLINE are never continued. An instruction line (or one read by READLIST) is <em>automatically</em> continued, as if a tilde were present, whenever brackets, parentheses, braces, or vertical bars are left unmatched — though a continuation line consisting only of the word END is an error, to catch runaway definitions."},
+    {t:"p", v:"A semicolon starts a <strong>comment</strong> running to the end of the line (a trailing tilde still continues the line, just not the comment). The two-character sequence <em>#!</em> at the start of a line also begins a comment, letting Unix users write self-executing Logo scripts starting with <em>#! /usr/local/bin/logo</em>."},
+    {t:"p", v:"Backslash (<em>\\</em>) escapes an otherwise-delimiting character so it becomes part of a word; a trailing backslash continues the word onto the next line; <em>\\\\</em> yields a literal backslash. Vertical bars (<em>| |</em>) are an alternative: everything between them is treated as if it were letters, useful for words containing spaces or punctuation. Characters entered between vertical bars stay special forever, even after later reparsing with PARSE or RUNPARSE — whereas backslashed characters lose their special quality once a quoted word containing them is runparsed. The predicate <strong>vbarredp</strong> distinguishes a character that was originally vertical-barred from an ordinary one, though it only returns TRUE for characters where the distinction actually matters (whitespace, brackets, parens, infix operators, backslash, vertical bar, tilde, quote, question mark, colon, semicolon)."},
+    {t:"p", v:"To start Logo: on Unix type <em>logo</em>; on DOS run <em>ucblogo</em> (large-memory) or <em>bl</em> (640K); on Mac double-click the LOGO icon; on Windows double-click UCBWLOGO. Leave with the <strong>bye</strong> command. On startup Logo loads <em>startup.lg</em> from the system library, then from the user's directory, if present — a good place to predefine procedures or non-English primitive names. If you invoke an undefined procedure, Logo looks for <em>proc.lg</em> in the current directory, then for a file named <em>proc</em> (no extension) in the library directory, loading whichever it finds first."}
+  ],
+  quiz:[
+    {q:"In `print first \"word`, why isn't the procedure named WORD invoked?", opts:["WORD is not a real primitive", "The quotation mark makes \"WORD data (the word W-O-R-D), not a procedure call", "FIRST always blocks the next word from being invoked", "PRINT only accepts one procedure call per line"], a:1,
+     ex:"The leading quotation mark turns WORD into a literal word, so FIRST receives that word as its input rather than the result of invoking a procedure called WORD."},
+    {q:"What does the colon in `:my.var` abbreviate?", opts:["MAKE \"MY.VAR", "GLOBAL \"MY.VAR", "THING \"MY.VAR", "LOCAL \"MY.VAR"], a:2,
+     ex:"The colon notation is shorthand for THING with a quoted name — `:foo` means `thing \"foo`, i.e. \"fetch the value of the variable named FOO.\""},
+    {q:"If AllowGetSet is TRUE and FOO already exists as a variable, what does calling the undefined procedure SETFOO 7 do?", opts:["Signals an error, since SETFOO isn't a real procedure", "Invokes MAKE \"FOO 7", "Invokes THING \"FOO", "Creates a new procedure named SETFOO"], a:1,
+     ex:"Because the name starts with SET, is followed by a value, and FOO already exists as a variable, Logo treats SETFOO 7 as an implicit MAKE \"FOO 7."}
+  ]
+},
+{
+  id:"data", file:"CH02.LOGO", num:"02", title:"Data Structure Primitives",
+  subtitle:"Constructors, selectors, mutators, predicates, and queries for words, lists, and arrays.",
+  body:[
+    {t:"p", v:"<strong>Constructors</strong> build new data. <em>word word1 word2</em> (or <em>(word w1 w2 w3 ...)</em>) concatenates words. <em>list thing1 thing2</em> builds a list whose members are exactly its inputs, whatever their type. <em>sentence thing1 thing2</em> (abbreviated <em>se</em>) also builds a list, but if an input is itself a list, its <em>members</em> — not the list itself — become members of the result."},
+    {t:"code", v:"? show word \"abc \"def\nabcdef\n? show list \"a [b c]\n[a [b c]]\n? show sentence \"a [b c]\n[a b c]"},
+    {t:"p", v:"<em>fput thing list</em> and <em>lput thing list</em> add one member to the front or back of a list respectively (or, if the second input is a word, they behave like WORD — the first input must be a single letter). <em>array size</em> creates an array of that many empty-list members, indexed from 1 by default, or from a given origin with <em>(array size origin)</em> — arrays print inside curly braces, with the origin shown as <em>{a b c}@0</em> when nonzero. The library also provides <strong>mdarray</strong> for multi-dimensional arrays, <strong>listtoarray</strong> / <strong>arraytolist</strong> for converting between the two, <strong>combine</strong> (WORD or FPUT depending on the second input's type), <strong>reverse</strong>, and <strong>gensym</strong> (outputs a fresh unique word like G1, G2, ... on each call)."},
+    {t:"code", v:"(mdarray [3 5] 0)  ; a 2D array from [0 0] to [2 4]\nshow reverse [a b c]   ; [c b a]"},
+    {t:"p", v:"<strong>Selectors</strong> pick data apart. <em>first</em> gives the first character of a word, first member of a list, or the origin index of an array. <em>last</em> and <em>butfirst</em> (BF) / <em>butlast</em> (BL) work symmetrically on words and lists. <em>firsts</em> and <em>butfirsts</em> (BFS) apply FIRST/BUTFIRST to every member of a list of lists at once — a speed-optimized primitive equivalent to <em>map \"first :list</em>, used to make MAP, MAP.SE, and FOREACH fast. <em>item index thing</em> retrieves the indexth character/member (1-based for words and lists; array indexing starts at the array's own origin)."},
+    {t:"code", v:"to transpose :matrix\nif emptyp first :matrix [op []]\nop fput firsts :matrix transpose bfs :matrix\nend"},
+    {t:"p", v:"Library selectors round this out: <em>mditem</em> (multi-dimensional ITEM), <em>pick</em> (a random member of a list), <em>remove thing list</em> (a copy with every occurrence of <em>thing</em> deleted), <em>remdup</em> (removes duplicates, keeping the rightmost occurrence of each), and <em>quoted</em> (prepends a quote mark to a word, leaves a list unchanged)."},
+    {t:"p", v:"<strong>Mutators</strong> change existing structures in place. <em>setitem index array value</em> replaces one array member, refusing to create a circular array. Three dangerous primitives — named with a leading period as a warning — bypass safety checks: <em>.setfirst</em>, <em>.setbf</em>, and <em>.setitem</em> can create circular structures that send ordinary Logo primitives into infinite loops, or corrupt data that shares storage with what's being modified. The library adds stack/queue helpers: <em>push stackname thing</em> and <em>pop stackname</em> (add/remove at the front of a list-valued variable), and <em>queue queuename thing</em> / <em>dequeue queuename</em> (add at the back, remove from the front)."},
+    {t:"p", v:"<strong>Predicates</strong> answer TRUE/FALSE type and equality questions: <em>wordp</em>, <em>listp</em>, <em>arrayp</em>, <em>emptyp</em> (true for the empty word or empty list), <em>equalp</em> (numbers compare by value; words compare character-by-character, case-insensitively if CASEIGNOREDP is TRUE; lists compare member-by-member; an array equals only itself, never a separately-created array with identical members, since arrays are mutable), <em>notequalp</em>, <em>beforep</em> (ASCII/alphabetical ordering — note <em>beforep 3 12</em> is FALSE, since \"3\" collates after \"1\" as characters), <em>.eq</em> (true only if two expressions denote the literal same mutable datum — dangerous, since mutating one changes the other), <em>memberp</em>, <em>substringp</em>, <em>numberp</em>, and <em>vbarredp</em>."},
+    {t:"p", v:"<strong>Queries</strong> extract information: <em>count</em> (character count of a word, member count of a list or array), <em>ascii</em> / <em>rawascii</em> (character to code 0-255; ASCII interprets vbarred punctuation specially, RAWASCII does not), <em>char</em> (code to character, the inverse of ASCII), <em>member thing1 thing2</em> (outputs the tail of thing2 starting at thing1, or empty if absent), <em>lowercase</em> / <em>uppercase</em>, <em>standout</em> (wraps a value in machine-specific display codes for boldface/reverse-video), <em>parse</em> (turns a word into the list READLIST would have produced from those characters), and <em>runparse</em> (turns a word or list into instruction-line tokens, separating out infix operators and parentheses as their own members)."}
+  ],
+  quiz:[
+    {q:"What is the key difference between LIST and SENTENCE (SE)?", opts:["LIST only accepts two inputs; SENTENCE accepts any number", "SENTENCE flattens list inputs into individual members; LIST keeps each input as one member, whatever its type", "LIST works on words only; SENTENCE works on lists only", "There is no difference — they are aliases"], a:1,
+     ex:"SENTENCE (SE) merges the members of any list inputs into the result, so `se \"a [b c]` gives `[a b c]`, while LIST always makes each input exactly one member, giving `[a [b c]]`."},
+    {q:"Why do primitives like `.setfirst` and `.setitem` start with a period?", opts:["It's purely a stylistic convention with no meaning", "To mark them as dangerous — they can create circular structures or corrupt shared data", "Periods mark every mutator in Logo, dangerous or not", "It indicates the procedure is a library procedure, not a primitive"], a:1,
+     ex:"The manual explicitly warns that leading-period primitives are dangerous for non-experts, since misuse can produce circular lists/arrays that send other primitives into infinite loops."},
+    {q:"Why is `beforep 3 12` FALSE even though 3 is numerically less than 12?", opts:["BEFOREP only works on words of letters, so numbers always return FALSE", "BEFOREP compares by ASCII/alphabetical order of the characters, and \"3\" collates after \"1\"", "This is a bug in Berkeley Logo", "BEFOREP requires both inputs to be the same length"], a:1,
+     ex:"BEFOREP orders by character collating sequence, not numeric value — treating the inputs as the words \"3\" and \"12\", where \"1\" comes before \"3\", so 12 collates before 3."}
+  ]
+},
+{
+  id:"objects", file:"CH03.LOGO", num:"03", title:"Objects",
+  subtitle:"Berkeley Logo's optional, still-evolving prototype-based object system.",
+  body:[
+    {t:"p", v:"An <strong>object</strong> is a data structure like a list, except its elements are named — each is either a variable or a procedure (a procedure belonging to an object is called a <em>method</em>). One object can ask another to do something for it. At any moment there is a <strong>current object</strong>; that object may supply its own versions of otherwise-global operations, so workspace commands like POTS or ERASE can behave differently depending on which object is current."},
+    {t:"p", v:"The initial current object is called <strong>logo</strong>, and there is a primitive that outputs it. Every object has one or more parents, and tracing parent-of-parent... eventually always reaches <em>logo</em>. All the primitive procedures described in this manual, and all global variables, belong to the logo object."},
+    {t:"p", v:"<strong>Turtles are objects</strong> too — which is what lets you customize a turtle's behavior (say, swapping LEFT and RIGHT for a kaleidoscope simulation). Even though the current object starts out as <em>logo</em>, not a turtle, you can still say <em>forward 100</em> without first creating a turtle object, because there is also a <em>default turtle</em>: every turtle procedure has a logo-object version that does the equivalent of <em>ask defaultturtle [forward :distance]</em>."},
+    {t:"p", v:"Unlike class-based OOP languages, Berkeley Logo uses <strong>prototyping OOP</strong>: there is no distinction between a class and an instance — any object can serve as the prototype for other objects. Class/instance OOP suits large teams that need a detailed specification before coding; prototyping OOP suits tinkering — building one concrete example (a dog, with a specific position and color) and then making more objects that use it as their model."},
+    {t:"p", v:"Two constructors make child objects from a parent. <strong>kindof</strong> takes an object (or a list of objects) and outputs a new object that inherits from it — useful for building a subclass that overrides certain behaviors. <strong>oneof</strong> does the same but additionally asks the new object to <em>exist</em> before outputting it; the result is usually called an <em>instance</em>."},
+    {t:"code", v:"kindof object\n(kindof object1 object2 ...)   ; new object inheriting from one or more parents\n\noneof object\n(oneof object input1 input2 ...)   ; asks the new object to exist, then outputs it"},
+    {t:"p", v:"<strong>something</strong> creates an object whose parent is the logo object directly — <em>make \"foo something</em> is equivalent to <em>make \"foo kindof logo</em>."},
+    {t:"p", v:"<strong>exist</strong> initializes a new object and is run automatically by ONEOF. Before the object is asked to exist, ONEOF collects all inputs after the first into a list and stores it in the global variable <strong>initlist</strong>, by convention alternating names and values. The default EXIST procedure reads those pairs and creates object-local variables accordingly:"},
+    {t:"code", v:"make \"obj (oneof logo \"foo \"bar \"baz \"garply)\n; internally behaves like:\n;   havemake \"foo \"bar\n;   havemake \"baz \"garply"},
+    {t:"p", v:"<strong>have name</strong> tells the current object to create an object-local variable (with no value yet); <em>have namelist</em> does this for several names at once. <strong>havemake name value</strong> creates the variable and immediately gives it a value — since inputs are evaluated before the procedure runs, the value expression can legally reference the parent's variable of the same name, e.g. <em>havemake \"size :size/2</em>."},
+    {t:"p", v:"<strong>Selectors</strong> all apply to the current object (use ASK to select from a different one). <em>self</em> outputs the current object itself (not its name). <em>parents</em> outputs a list of the current object's parent objects (every object but logo has at least one). <em>mynames</em> lists the names of variables owned — not inherited — by the current object, and <em>mynamep</em> tests membership in that list; <em>myprocs</em> and <em>myprocp</em> do the same for owned procedures (methods)."},
+    {t:"p", v:"<strong>Messages</strong> change which object is current. <strong>talkto object</strong> permanently switches the current object (usable only at toplevel or inside a pause, never inside a running procedure). <strong>ask object runlist</strong> temporarily makes <em>object</em> current only while running or evaluating <em>runlist</em>, then restores the previous current object — and if runlist is an expression, ASK outputs its value."},
+    {t:"p", v:"<strong>Queries</strong> aid debugging: <em>whosename name</em> outputs the object that owns the currently-accessible variable of that name (signals an error if none, or if it's procedure-local); <em>whoseproc name</em> does the equivalent for procedures."},
+    {t:"p", v:"<strong>usual</strong> is not itself a procedure — it's special notation usable only inside a procedure definition, written <em>usual.foo</em> inside the definition of <em>foo</em>. It refers to whatever <em>foo</em> would have been inherited from a parent, letting a specialized method invoke the general version it's overriding:"},
+    {t:"code", v:"make \"bigturtle kindof turtle\nask :bigturtle [to forward :length]\nusual.forward 2 * :length\nend"},
+    {t:"p", v:"If an object has multiple parents (say A then B, in that order), <em>usual.foo</em> inside the object's own <em>foo</em> refers to A's <em>foo</em>; but <em>usual.foo</em> inside A's <em>foo</em> refers to B's <em>foo</em> in this situation — even though B isn't A's parent. With no inherited procedure of that name at all, calling <em>usual.___</em> is a no-op as a command, or outputs the empty list as an operation."}
+  ],
+  quiz:[
+    {q:"How does Berkeley Logo's object system differ from traditional class-based OOP?", opts:["It has no concept of inheritance at all", "It uses prototyping OOP: any object, not just a special \"class\" object, can serve as the model for other objects", "Classes and instances are identical concepts with different names", "Objects cannot own procedures, only variables"], a:1,
+     ex:"Berkeley Logo doesn't distinguish classes from instances; any concrete object (like a particular dog with its own position and color) can act as the prototype other objects inherit from."},
+    {q:"What is the difference between KINDOF and ONEOF?", opts:["KINDOF only works on turtles; ONEOF works on any object", "They are identical in every way", "ONEOF does everything KINDOF does, but also asks the new object to EXIST before outputting it", "KINDOF requires a list of parents; ONEOF requires exactly one parent"], a:2,
+     ex:"Both create a child object inheriting from the given parent(s), but ONEOF additionally runs the new object's EXIST procedure first — the result of ONEOF is typically called an instance."},
+    {q:"Inside `ask :bigturtle [to forward :length] ... usual.forward 2 * :length ... end`, what does `usual.forward` refer to?", opts:["The FORWARD procedure this same object previously called", "An error, since USUAL doesn't exist in Logo", "The FORWARD procedure that :bigturtle would have inherited from its parent if this override didn't exist", "A completely unrelated primitive"], a:2,
+     ex:"USUAL.foo lets a redefined method invoke the version of foo it is overriding — the one inherited from a parent object, letting the new method extend rather than fully replace the old behavior."}
+  ]
+},
+{
+  id:"comm", file:"CH04.LOGO", num:"04", title:"Communication",
+  subtitle:"Printing, reading, files, and terminal access.",
+  body:[
+    {t:"p", v:"<strong>Transmitters</strong> send output to the current write stream (the screen, by default). <em>print thing</em> (PR) prints one or more inputs on a single line separated by spaces, ending with a newline; a list input prints without its own outer brackets, though nested sublists keep theirs, and arrays always print with braces. <em>type thing</em> is like PRINT but adds no newline and no separating spaces between multiple inputs — because screen output is line-buffered, characters printed with TYPE may not appear until a newline is printed or Logo reads from the keyboard; <strong>wait 0</strong> forces buffered output to appear immediately. <em>show thing</em> is like PRINT but always keeps a list input's own square brackets."},
+    {t:"p", v:"Two special variables affect all of these: if <strong>printdepthlimit</strong> is a nonnegative integer, structures nested deeper than that print as an ellipsis per omitted level (so an over-deep two-member list prints as <em>[... ...]</em>); if <strong>printwidthlimit</strong> is a nonnegative integer, only that many members of any list or array print, with a single ellipsis for the rest (a value under 10 is treated as 10 when applied to words). If <strong>fullprintp</strong> is TRUE, words built with backslash or vertical bars print with those characters visible, so the printed form could be re-read to reproduce the same value — and under FULLPRINTP the empty word prints as <em>||</em> rather than nothing."},
+    {t:"p", v:"<strong>Receivers</strong> read from the current read stream (the keyboard, by default). <em>readlist</em> (RL) reads a line and returns it as a list, exactly as if it had been typed inside square brackets; at end-of-file on a file stream it outputs the empty <em>word</em> (not list) as a sentinel. <em>readword</em> (RW) reads a line as a single word, preserving any line-continuation tilde and vertical bars, though not backslashes; at EOF it outputs the empty <em>list</em>. <em>readrawline</em> reads the exact characters with no special meaning for backslash, vertical bar, or tilde. <em>readchar</em> (RC) and <em>readchars num</em> (RCS) read one or several raw characters, turning off keyboard echo until line-mode reading resumes."},
+    {t:"p", v:"<strong>shell command</strong> (Unix and MacOS X) runs a shell command via <em>/bin/sh</em> and outputs a list, one member per line of output — each line as a list (as if READLIST'd), or as a word if a second input is given (as if READWORD'd):"},
+    {t:"code", v:"to dayofweek\noutput first first shell [date]\nend"},
+    {t:"p", v:"Under DOS, SHELL is a command (not an operation) that sends input to the command processor without collecting output. Under Windows, the wxWidgets version behaves like Unix (using <em>dir</em> rather than <em>ls</em>); the non-wxWidgets version behaves like DOS."},
+    {t:"p", v:"<strong>File access</strong> starts with <em>setprefix string</em>, which sets an implicit filename prefix used by OPENREAD, OPENWRITE, OPENAPPEND, OPENUPDATE, LOAD, and SAVE (Logo inserts the right path separator for the platform); <em>prefix</em> reads back the current prefix, or <em>[]</em> if none. <em>openread</em>, <em>openwrite</em>, <em>openappend</em>, and <em>openupdate</em> open a named file for reading, writing (truncating any existing file), appending, or both reading-and-writing respectively; update mode shares one file position for both directions, so you must SETREADPOS between a write and a read, and SETWRITEPOS between a read and a write. OPENWRITE alone can also take a two-element list (a variable name and a buffer size) to write into an in-memory character buffer instead of a real file."},
+    {t:"p", v:"<em>close filename</em> closes a file, reverting the reader/writer to keyboard/screen if that file was currently in use for either. <em>allopen</em> lists every currently open filename (excluding any dribble file); the library's <em>closeall</em> abbreviates <em>foreach allopen [close ?]</em>. <em>erasefile</em> (ERF) deletes a named, currently-unopened file."},
+    {t:"p", v:"<strong>dribble filename</strong> opens a transcript file and begins recording everything read from the keyboard or written to the terminal, in addition to normal output; <em>nodribble</em> stops and closes it. <strong>setread</strong> / <strong>setwrite</strong> redirect the active read/write stream to an already-open file (or back to keyboard/screen with an empty-list input) without closing whatever stream was previously active, so you can alternate between files. <strong>reader</strong> / <strong>writer</strong> report the name of the current read/write stream file, or <em>[]</em> for the terminal. <strong>setreadpos</strong> / <strong>setwritepos</strong> jump the file pointer to a given character offset (counting from 0); <strong>readpos</strong> / <strong>writepos</strong> report the current offset. <strong>eofp</strong> (EOF?) reports whether the read stream has any characters left, and <strong>filep</strong> (FILE?, a library procedure) reports whether a named file exists and is readable."},
+    {t:"p", v:"<strong>Terminal access</strong> includes <em>keyp</em> (KEY?, true if a character is waiting — on the terminal this switches to cbreak/character-at-a-time mode) and <em>linep</em> (LINE?, true if a full line is waiting). <em>cleartext</em> (CT) clears the text window. <em>setcursor vector</em> moves the text cursor to an [x y] position (origin top-left, forcing any buffered TYPE output to print immediately); <em>cursor</em> reports the current position. <em>setmargins vector</em> shifts all further printing down-and-right by the given amount, to compensate for lecture-hall monitors that clip the screen edges."},
+    {t:"p", v:"wxWidgets-only commands round out terminal control: <em>settextcolor</em> (SETTC) sets foreground/background text colors; <em>increasefont</em> / <em>decreasefont</em> step the text/edit-window font size up or down; <em>settextsize height</em> / <em>textsize</em> set or query the point size directly; <em>setfont fontname</em> / <em>font</em> set or query the font family (monospace fonts like Courier are recommended, since not all fonts are available on all machines)."}
+  ],
+  quiz:[
+    {q:"What is the key difference in output between PRINT and SHOW when given a list as input?", opts:["They are exactly identical in every case", "PRINT omits the list's own outer square brackets; SHOW keeps them", "SHOW only works with words, never lists", "PRINT adds extra spaces that SHOW omits"], a:1,
+     ex:"PRINT drops the outermost brackets of a list input (though nested sublists still show theirs), while SHOW always displays the brackets around the whole list."},
+    {q:"Why might TYPE output not appear on screen immediately after being called?", opts:["TYPE is broken and should never be used", "Screen output is line-buffered; TYPE's characters wait until a newline prints or Logo reads from the keyboard", "TYPE only works inside procedures, never at the top level", "TYPE requires WAIT to be called first before it can print anything"], a:1,
+     ex:"For performance, printing is line-buffered, so TYPE's un-newlined output may sit in the buffer until something forces a flush — PRINT/SHOW, a keyboard read, or an explicit WAIT 0."},
+    {q:"In OPENUPDATE mode, why must you call SETREADPOS between a write and a read?", opts:["OPENUPDATE mode doesn't actually exist in Berkeley Logo", "An open file has only one file position shared by both reading and writing, so switching direction requires repositioning", "SETREADPOS is unrelated to OPENUPDATE", "Reading and writing always use completely separate, independent file pointers"], a:1,
+     ex:"Because a file opened for update has a single shared position for both reading and writing, alternating between the two requires explicitly resetting position with SETREADPOS or SETWRITEPOS."}
+  ]
+},
+{
+  id:"arith", file:"CH05.LOGO", num:"05", title:"Arithmetic",
+  subtitle:"Numeric operations, predicates, random numbers, print formatting, and bitwise operations.",
+  body:[
+    {t:"p", v:"<strong>Numeric operations</strong>: <em>sum</em> (+), <em>difference</em> (-), and <em>product</em> (*) work as expected, accepting any number of inputs in parenthesized form. <strong>minus</strong> negates a single input, and Logo distinguishes unary minus from infix subtraction by spacing and context: <em>minus 3 + 4</em> means <em>-(3+4)</em>, but <em>- 3 + 4</em> (space before, none after) means <em>(-3)+4</em> — minus is unary when the previous token is an infix operator or open parenthesis, or when preceded by a space and followed directly by a non-space."},
+    {t:"code", v:"minus 3 + 4        ; means -(3+4) = -7\n- 3 + 4            ; means (-3)+4 = 1"},
+    {t:"p", v:"<strong>quotient num1 num2</strong> (or / ) divides, giving an integer result only when the dividend is an exact multiple of the divisor — so <em>quotient 5 2</em> is 2.5, but <em>quotient 4 2</em> is the integer 2, not 2.0. A single-input <em>(quotient num)</em> gives the reciprocal. <strong>remainder</strong> and <strong>modulo</strong> both compute a remainder on integer division, but differ in sign: REMAINDER's result takes the sign of num1, while MODULO's takes the sign of num2."},
+    {t:"p", v:"<strong>int</strong> truncates toward zero; <strong>round</strong> rounds to the nearest integer; <strong>sqrt</strong> requires a nonnegative input; <strong>power num1 num2</strong> raises num1 to the num2 power (num2 must be an integer if num1 is negative); <strong>exp</strong> raises e to a power; <strong>log10</strong> and <strong>ln</strong> give common and natural logarithms."},
+    {t:"p", v:"Trigonometric functions come in degree and radian pairs: <strong>sin</strong>/<strong>cos</strong> take degrees, <strong>radsin</strong>/<strong>radcos</strong> take radians. <strong>arctan num</strong> gives degrees; with two inputs, <em>(arctan x y)</em> gives the arctangent of y/x (or ±90 if x is zero, depending on y's sign). <strong>radarctan</strong> is the radian equivalent — and <em>2 * (radarctan 0 1)</em> is a handy way to obtain the value of pi."},
+    {t:"p", v:"Two library procedures generate number sequences: <strong>iseq from to</strong> outputs the list of integers from <em>from</em> to <em>to</em> inclusive (counting down if <em>from</em> &gt; <em>to</em>), and <strong>rseq from to count</strong> outputs <em>count</em> equally spaced rational numbers between <em>from</em> and <em>to</em>, inclusive."},
+    {t:"code", v:"? show iseq 3 7\n[3 4 5 6 7]\n? show rseq 3 5 5\n[3 3.5 4 4.5 5]"},
+    {t:"p", v:"<strong>Numeric predicates</strong> — <em>lessp</em> (&lt;), <em>greaterp</em> (&gt;), <em>lessequalp</em> (&lt;=), <em>greaterequalp</em> (&gt;=) — compare two numbers and output TRUE or FALSE."},
+    {t:"p", v:"<strong>Random numbers</strong>: <em>random num</em> outputs a random nonnegative integer strictly less than <em>num</em>; <em>(random start end)</em> outputs a random integer between the two, inclusive (so <em>(random 3 8)</em> is equivalent to <em>(random 6)+3</em>). <strong>rerandom</strong> makes the sequence reproducible for debugging — call it before the first RANDOM to reset the seed; an optional integer input selects among multiple distinct reproducible sequences."},
+    {t:"p", v:"<strong>form num width precision</strong> formats a number as a printable word (not usable in further arithmetic), padded with leading spaces to at least <em>width</em> characters, with exactly <em>precision</em> digits after the decimal point (0 precision omits the decimal point entirely). As a debugging aid, <em>(form num -1 format)</em> applies a raw C printf-style format string, letting you inspect a float's exact bit pattern."},
+    {t:"p", v:"<strong>Bitwise operations</strong> — all require integer inputs. <em>bitand</em>, <em>bitor</em>, and <em>bitxor</em> take any number of inputs (in parenthesized form) and compute the bitwise AND/OR/exclusive-OR; <em>bitnot</em> takes one input and computes its bitwise complement. <em>ashift num1 num2</em> performs an arithmetic left shift (right shift with sign extension if num2 is negative); <em>lshift num1 num2</em> performs a logical left shift (right shift with zero fill if negative)."}
+  ],
+  quiz:[
+    {q:"What distinguishes REMAINDER from MODULO?", opts:["They are identical in every case", "REMAINDER's result takes the sign of the first input; MODULO's takes the sign of the second", "MODULO only works with positive numbers", "REMAINDER works on real numbers; MODULO only on integers"], a:1,
+     ex:"Both compute a remainder on integer division, but REMAINDER's sign matches num1 while MODULO's sign matches num2 — they can disagree when the inputs have different signs."},
+    {q:"Why does `minus 3 + 4` evaluate differently from `- 3 + 4`?", opts:["They are actually identical expressions", "MINUS always binds to just the next number, while the bare minus sign's meaning (unary vs infix) depends on spacing and context", "MINUS is a syntax error in Berkeley Logo", "The + operator has different precedence depending on which minus form is used"], a:1,
+     ex:"MINUS 3 + 4 means -(3+4) since MINUS as a named procedure takes everything after it, but a bare minus preceded by a space and followed by a non-space is unary and binds tightly, so - 3 + 4 means (-3)+4."},
+    {q:"What does `(random 3 8)` output?", opts:["A random integer from 0 up to but not including 3", "A random integer between 3 and 8, inclusive of both endpoints", "Always exactly 3 or 8", "A random real number between 3 and 8"], a:1,
+     ex:"The two-input form of RANDOM outputs a random integer greater than or equal to the first input and less than or equal to the second — here, an integer from 3 to 8 inclusive."}
+  ]
+},
+{
+  id:"logic", file:"CH06.LOGO", num:"06", title:"Logical Operations",
+  subtitle:"AND, OR, and NOT — with short-circuit evaluation via list expressions.",
+  body:[
+    {t:"p", v:"Berkeley Logo provides three boolean primitives: <strong>and</strong>, <strong>or</strong>, and <strong>not</strong>. All inputs must be the word TRUE or FALSE (compared case-insensitively regardless of CASEIGNOREDP — <em>true</em>, <em>True</em>, and <em>true</em> are always the same) — or a <em>list</em>, which is treated as an expression to run, and which must itself produce a TRUE or FALSE value."},
+    {t:"p", v:"<strong>and tf1 tf2</strong> (or <em>(and tf1 tf2 tf3 ...)</em>) outputs TRUE only if every input is TRUE. Critically, when inputs are given as lists, they are evaluated left to right, and evaluation <strong>stops as soon as a false value is found</strong> — the remaining list inputs are never run. This short-circuiting lets you guard against errors:"},
+    {t:"code", v:"make \"result and [not (:X = 0)] [(1 / :X) > .5]\n; the division by zero in the second list only runs if :X isn't 0"},
+    {t:"p", v:"<strong>or tf1 tf2</strong> (or <em>(or tf1 tf2 tf3 ...)</em>) outputs TRUE if any input is TRUE, evaluating list inputs left to right and stopping as soon as a TRUE value is found — skipping the rest:"},
+    {t:"code", v:"if or :X=0 [some.long.computation] [...]\n; avoids running some.long.computation if :X=0 is already true"},
+    {t:"p", v:"<strong>not tf</strong> outputs TRUE if its input is FALSE, and vice versa. Like AND and OR, its input can be a list expression to evaluate:"},
+    {t:"code", v:"print not \"false\n; prints true"}
+  ],
+  quiz:[
+    {q:"In `make \"result and [not (:X = 0)] [(1 / :X) > .5]`, why does this avoid a division-by-zero error when :X is 0?", opts:["Logo automatically catches all division errors silently", "AND evaluates its list inputs left to right and stops as soon as a FALSE result is found, so the second list never runs when :X is 0", "The parentheses around (1 / :X) suppress errors", "AND always evaluates every input regardless of earlier results"], a:1,
+     ex:"AND short-circuits: once `not (:X = 0)` evaluates to FALSE (because :X is 0), AND already knows the overall result must be FALSE and never runs the second list containing the division."},
+    {q:"What must every input to AND, OR, or NOT ultimately produce, if given as a list?", opts:["Any Logo value at all", "A word or a list", "A TRUE or FALSE value", "A number"], a:2,
+     ex:"A list input to AND, OR, or NOT is treated as an expression to run, but that expression's result must itself be TRUE or FALSE — these are strictly boolean operators."}
+  ]
+},
+{
+  id:"graphics", file:"CH07.LOGO", num:"07", title:"Graphics",
+  subtitle:"Turtle motion, window control, pen and color, saving pictures, and mouse queries.",
+  body:[
+    {t:"p", v:"Berkeley Logo provides traditional single-turtle graphics (no multiple turtles, dynamic turtles, or collision detection). Logo scales the graphics window so turtle coordinates [-100 -100] to [100 100] fit with a 1:1 aspect ratio. The window's center is [0 0]; positive X is right, positive Y is up. <strong>Headings are measured in degrees clockwise from the positive Y axis</strong> — the opposite convention from ordinary math, which measures counterclockwise from positive X. The turtle renders as an isoceles triangle, positioned at the midpoint of its short base, but drawn one step behind its actual position so its body doesn't obscure a perpendicular line just drawn (as would otherwise happen after a square)."},
+    {t:"p", v:"Colors 0-7 are hardware-independent: 0 black, 1 blue, 2 green, 3 cyan, 4 red, 5 magenta, 6 yellow, 7 white. Where at least 16 colors are available, Logo also standardizes 8-15: brown, tan, forest, aqua, salmon, purple, orange, grey. Logo starts with a black background and white pen."},
+    {t:"p", v:"<strong>Turtle motion</strong>: <em>forward dist</em> (FD) and <em>back dist</em> (BK) move along the current heading (BACK doesn't change heading). <em>left degrees</em> (LT) and <em>right degrees</em> (RT) turn in place. <em>setpos pos</em> and <em>setxy xcor ycor</em> jump to an absolute position (the former takes a two-number list, the latter two separate numbers); <em>setx</em> and <em>sety</em> move along just one axis. <em>setheading degrees</em> (SETH) sets an absolute heading. <em>home</em> is equivalent to <em>setpos [0 0] setheading 0</em>. <em>arc angle radius</em> draws an arc centered on the turtle's current position, without moving the turtle."},
+    {t:"p", v:"<strong>Turtle motion queries</strong>: <em>pos</em> outputs [x y]; library procedures <em>xcor</em> and <em>ycor</em> give the individual coordinates; <em>heading</em> gives the current heading in degrees; <em>towards pos</em> computes the heading that would point at a given position from here; <em>scrunch</em> outputs the current [xscale yscale] pair used by SETSCRUNCH."},
+    {t:"p", v:"<strong>Turtle and window control</strong>: <em>showturtle</em> (ST) / <em>hideturtle</em> (HT) toggle visibility — hiding speeds up complex drawings substantially. <em>clean</em> erases drawn lines without moving the turtle; <em>clearscreen</em> (CS) does CLEAN plus HOME. Three boundary modes govern what happens when the turtle tries to move past the window edge: <em>wrap</em> (the default — reappears on the opposite edge, like a torus), <em>window</em> (moves onto an infinite offscreen plane; HOME brings it back), and <em>fence</em> (stops at the edge with an out-of-bounds error)."},
+    {t:"code", v:"to square :size\n  repeat 4 [forward :size right 90]\nend"},
+    {t:"p", v:"<em>fill</em> fills an enclosed region containing the turtle (non-portable — behavior varies by machine); <em>filled color instructions</em> (wxWidgets only) runs a set of turtle motions to trace a polygon, then fills it with the given color. <em>label text</em> prints a word or list on the graphics window starting at the turtle's position; <em>setlabelheight height</em> (wxWidgets) sets the font size so label characters are a given number of turtle steps tall."},
+    {t:"p", v:"Screen layout: <em>textscreen</em> (TS), <em>fullscreen</em> (FS), and <em>splitscreen</em> (SS) maximize text space, graphics space, or a mix respectively — Logo automatically drops back from fullscreen to splitscreen whenever anything is printed, since printing (including the prompt) needs a text window. <em>setscrunch xscale yscale</em> adjusts the aspect ratio, multiplying horizontal/vertical motion extents — useful when squares don't come out square, or deliberately, to draw ellipses."},
+    {t:"p", v:"<em>refresh</em> (the default) tells Logo to remember turtle motions for high-resolution printing or window redraw; <em>norefresh</em> disables this to save time/memory for interactive or animated programs."},
+    {t:"p", v:"<strong>Turtle and window queries</strong>: <em>shownp</em> (SHOWN?) reports turtle visibility; <em>screenmode</em> reports TEXTSCREEN/SPLITSCREEN/FULLSCREEN; <em>turtlemode</em> reports WRAP/FENCE/WINDOW; <em>labelsize</em> (wxWidgets) reports the [width height] of LABEL's font in turtle steps."},
+    {t:"p", v:"<strong>Pen and background control</strong>: the pen can be UP (moving doesn't draw) or DOWN, and when DOWN, in one of three modes — PAINT (draws), ERASE (erases along the path), or REVERSE (inverts each point crossed). <em>pendown</em> (PD) / <em>penup</em> (PU) toggle position without changing mode; <em>penpaint</em> (PPT), <em>penerase</em> (PE), and <em>penreverse</em> (PX) set position to DOWN plus the named mode in one step. <em>setpencolor</em> (SETPC) and <em>setbackground</em> (SETBG) accept either a color-slot number or an RGB list (three numbers 0-99, percent saturation of red/green/blue); <em>setpalette colornumber rgblist</em> reassigns what an existing slot number (8 or higher — Logo tries to keep 0-7 fixed) actually looks like. <em>setpensize size</em> sets pen thickness (one number, or a list of two for horizontal/vertical); <em>setpenpattern</em> sets hardware-dependent characteristics; the library's <em>setpen list</em> restores a full pen state captured earlier by PEN."},
+    {t:"p", v:"<strong>Pen queries</strong> mirror the setters: <em>pendownp</em> (PENDOWN?), <em>penmode</em> (outputs PAINT/ERASE/REVERSE), <em>pencolor</em> (PC), <em>palette colornumber</em> (the RGB values behind a slot), <em>pensize</em>, <em>penpattern</em>, the library's <em>pen</em> (full pen state for SETPEN), and <em>background</em> (BG)."},
+    {t:"p", v:"<strong>Saving and loading pictures</strong>: <em>savepict filename</em> writes the graphics window's state, including palette, in Logo's own internal (non-portable) format, restorable with <em>loadpict filename</em> (which clears any existing drawing first). <em>epspict filename</em> exports an Encapsulated PostScript file for use in other programs — restricted to drawings that don't use FILL, PENERASE, or PENREVERSE, which are silently dropped in translation."},
+    {t:"p", v:"<strong>Mouse queries</strong>: <em>mousepos</em> gives the mouse's current turtle-coordinate position (or the last in-window position if the mouse has left, unless a button is held while dragging out); <em>clickpos</em> (wxWidgets) gives the position at the most recent button press; <em>buttonp</em> (BUTTON?) reports whether a button is currently held down over the graphics window; <em>button</em> reports which button (1=left, 2=right, 3=center, conventionally) was most recently pressed since the last check, or 0 if none."}
+  ],
+  quiz:[
+    {q:"How are turtle headings measured in Berkeley Logo, and how does this differ from standard math convention?", opts:["Counterclockwise from positive X, same as standard math", "Clockwise from positive Y — the opposite of the usual mathematical counterclockwise-from-X convention", "Clockwise from positive X, same as standard math", "In radians, counterclockwise from positive Y"], a:1,
+     ex:"Logo measures headings in degrees clockwise from the positive Y axis, which is a deliberate departure from the everyday math convention of counterclockwise from positive X."},
+    {q:"What is the difference between WRAP, WINDOW, and FENCE turtle modes?", opts:["They only affect pen color, not turtle movement", "WRAP reappears on the opposite edge; WINDOW allows moving onto an infinite offscreen plane; FENCE stops the turtle at the edge with an error", "They are three names for the exact same behavior", "FENCE wraps around; WRAP stops at the edge"], a:1,
+     ex:"WRAP treats the window like a torus (opposite edges connect); WINDOW treats the visible area as part of an infinite plane the turtle can leave; FENCE treats the edge as an impassable boundary that raises an out-of-bounds error."},
+    {q:"Why might a programmer call HIDETURTLE before a complex drawing?", opts:["HIDETURTLE is required before any drawing can happen at all", "Hiding the turtle substantially speeds up drawing, since Logo doesn't need to keep redrawing the turtle icon after every move", "It has no performance effect, purely cosmetic", "It automatically switches to FENCE mode"], a:1,
+     ex:"The manual notes hiding the turtle is a good idea during complicated drawings specifically because it speeds up the drawing substantially."}
+  ]
+},
+{
+  id:"workspace", file:"CH08.LOGO", num:"08", title:"Workspace Management",
+  subtitle:"Defining procedures and variables, property lists, and querying what's in the workspace.",
+  body:[
+    {t:"p", v:"<strong>to procname :input1 :input2 ...</strong> is a special form — unlike every other Logo procedure, it takes the literal words typed on the line rather than evaluating expressions. It prepares Logo to accept a definition: the prompt changes from <em>?</em> to <em>&gt;</em>, and everything typed becomes part of the body until a line containing only <em>end</em>."},
+    {t:"p", v:"Berkeley Logo allows a variable number of inputs, specified in a strict order after the procedure name: (1) zero or more <strong>required</strong> inputs, written <em>:name</em>; (2) zero or more <strong>optional</strong> inputs, written <em>[:name default-expr]</em>, evaluated left to right so later defaults can reference earlier inputs; (3) zero or one <strong>rest</strong> input, written <em>[:name]</em> with no default, which collects every leftover actual input into a list; (4) an optional trailing <strong>default number</strong>, which is how many inputs the procedure takes when called without enclosing parentheses (normally equal to the minimum)."},
+    {t:"code", v:"to proc :inlist [:startvalue first :inlist]\n; proc [a b c]           -> inlist=[a b c], startvalue=a (default used)\n; (proc [a b c] \"x)      -> inlist=[a b c], startvalue=x (explicit)\n\nto proc :in1 [:in2 \"foo] [:in3 \"baz] [:in4]\n; proc \"x                        -> in1=x in2=foo in3=baz in4=[]\n; (proc \"a \"b \"c \"d \"e)          -> in1=a in2=b in3=c in4=[d e]"},
+    {t:"p", v:"The minimum input count is the number of required inputs; the maximum is infinite if a rest input exists, otherwise required+optional; the default (used without parentheses) is normally the minimum, unless overridden by a trailing number on the TO line: <em>to proc :in1 [:in2 \"foo] [:in3] 3</em> has minimum 1, default 3, maximum infinite."},
+    {t:"p", v:"<strong>define procname text</strong> defines or replaces a procedure programmatically: <em>text</em> is a list of lists, whose first sublist looks like a TO line's inputs (without TO, the name, or colons), and whose remaining sublists are the body's instruction lines (no END line). Redefining a primitive this way is an error unless <strong>redefp</strong> is TRUE. <strong>text procname</strong> outputs a procedure's definition in exactly this DEFINE-compatible form (losing original formatting like continuation lines). <strong>fulltext procname</strong> instead preserves formatting — a list of words (one per source line, as READWORD would read it) for a TO/EDIT/LOAD-defined procedure, but note its output is <em>not</em> suitable as input to DEFINE. <strong>copydef newname oldname</strong> makes newname an identical copy of oldname (which may be a primitive) — note the input order is \"MAKE order,\" the reverse of some other Logo dialects' NAME order."},
+    {t:"p", v:"<strong>Variable definition</strong>: <em>make varname value</em> assigns a value, creating a new global variable if none exists by that name, or changing the existing one. The library's <em>name value varname</em> is MAKE with inputs reversed. <em>local varname</em> (or a list of names) creates one or more variables scoped to the currently running procedure — following Logo's <strong>dynamic scope</strong> rules, a local variable is visible to any subprocedure that gets called, not just the defining procedure's own body; LOCAL-created variables start with no value and must be MAKE'd before use. The library's <em>localmake varname value</em> combines LOCAL and MAKE in one step. <em>thing varname</em> reads a variable's value (colon notation <em>:foo</em> abbreviates <em>thing \"foo</em>) — if several variables share a name, the innermost local one wins. <em>global varname</em> pre-creates a global variable with no value, solely so that SETxxx getter/setter notation has something to find; note it does <strong>not</strong> shadow an existing local of the same name."},
+    {t:"p", v:"<strong>Property lists</strong>: every possible word is, in principle, the name of a property list, initially empty — so there's never a \"no such property list\" error, though CONTENTS/PLISTS-style queries only list nonempty ones. Property-list names are always case-insensitive; individual property names follow <strong>caseignoredp</strong>. <em>pprop plistname propname value</em> adds or updates a property; <em>gprop plistname propname</em> reads one (or outputs <em>[]</em> if absent); <em>remprop plistname propname</em> deletes one; <em>plist plistname</em> outputs a flat copy — odd members are names, even members are the corresponding values."},
+    {t:"p", v:"<strong>Workspace predicates</strong>: <em>procedurep</em> (PROCEDURE?) tests whether a name is any procedure; <em>primitivep</em> (PRIMITIVE?) tests whether it's specifically built into Logo (as opposed to a library procedure); <em>definedp</em> (DEFINED?) tests for a user-defined procedure, library procedures included; <em>namep</em> (NAME?) tests whether a name is a variable; <em>plistp</em> (PLIST?) tests whether a name is a <em>nonempty</em> property list."},
+    {t:"p", v:"<strong>Workspace queries</strong> generally accept, or return, a <em>contents list</em> — a list of three sublists naming procedures, variables, and property lists respectively. <em>contents</em> outputs every unburied named item; <em>buried</em>, <em>traced</em>, and <em>stepped</em> give the buried/traced/stepped equivalents. <em>procedures</em> and <em>primitives</em> output flat name lists (not contents lists) of unburied user-defined and built-in procedures respectively. <em>names</em> outputs a contents list with an empty procedures-slot, listing only unburied variables; <em>plists</em> similarly lists only nonempty property lists. The library's <em>namelist</em> and <em>pllist</em> wrap a single name or name-list into contents-list form, for feeding to workspace-control procedures that expect one. <em>arity procedurename</em> outputs the [minimum default maximum] input counts for a procedure (maximum -1 means unlimited). <em>nodes</em> outputs [currently-in-use maximum-since-last-check] memory node counts, useful for tracking an algorithm's memory footprint (call <em>gc</em> first each iteration for accurate numbers)."},
+    {t:"p", v:"<strong>Workspace inspection</strong> prints definitions: <em>po contentslist</em> (PRINTOUT) prints full definitions of named procedures/variables/property-lists; library abbreviations <em>poall</em> (= PO CONTENTS), <em>pops</em> (= PO PROCEDURES), <em>pons</em> (= PO NAMES), <em>popls</em> (= PO PLISTS), <em>pon varname</em>, and <em>popl plname</em> cover common cases. <em>pot contentslist</em> is a terser variant, printing just procedure title lines (not full bodies) plus variable/property-list contents on a single line each; <em>pots</em> abbreviates <em>pot procedures</em>."},
+    {t:"p", v:"<strong>Workspace control</strong> lets you erase, bury, and edit items. <em>erase contentslist</em> (ER) removes named procedures/variables/property-lists (primitives require REDEFP TRUE to erase); library shortcuts <em>erall</em>, <em>erps</em>, <em>erns</em>, <em>erpls</em>, <em>ern</em>, and <em>erpl</em> parallel the PO family. <em>bury contentslist</em> hides items from CONTENTS/PROCEDURES/NAMES/PLISTS (and from POALL and SAVE) while keeping them fully usable — they still appear via BURIED; <em>buryall</em> and <em>buryname</em> are shortcuts. <em>unbury</em>, <em>unburyall</em>, and <em>unburyname</em> reverse this. <em>buriedp</em> (BURIED?) tests whether the <em>first</em> item named in a contents list is buried."},
+    {t:"p", v:"<em>trace contentslist</em> marks items so that invoking a traced procedure prints its actual input values and its STOP/OUTPUT result, assigning a traced variable via MAKE prints a message, and giving a traced property list a new PPROP prints a message; <em>untrace</em> reverses this, and <em>tracedp</em> (TRACED?) tests it. <em>step contentslist</em> marks items so each instruction line of a stepped procedure prints before executing, pausing for a keypress — also warning if a stepped variable gets shadowed by a same-named local; <em>unstep</em> and <em>steppedp</em> (STEPPED?) parallel TRACE's family."},
+    {t:"p", v:"<em>edit contentslist</em> (ED) writes named definitions to a temporary file and opens your editor (built-in for wxWidgets/Mac Classic; otherwise your <em>$editor</em>, or jove by default) — leaving the editor re-reads the file back into the workspace. Calling EDIT with no input re-edits the last file from EDIT or EDITFILE. If <strong>loadnoisily</strong> is TRUE, each TO in the reloaded file prints '<em>procname</em> defined'. <em>editfile filename</em> is a LOAD/SAVE alternative: it edits a specific file directly (letting you control ordering, comments, etc. yourself) and remembers that filename for a bare subsequent EDIT. Library shortcuts <em>edall</em>, <em>edps</em>, <em>edns</em>, <em>edpls</em>, <em>edn</em>, and <em>edpl</em> mirror the ERASE/PO families."},
+    {t:"p", v:"<em>save filename</em> writes all unburied procedures, variables, and nonempty property lists to a file (equivalent to opening the file, running POALL with output redirected there, and closing); called bare (no parentheses, nothing following it) it reuses the filename from the most recent LOAD or SAVE. The library's <em>savel contentslist filename</em> saves only the specified items. <em>load filename</em> reads and executes instructions from a file, accepting TO redefinitions of existing procedures; if the file assigns a list to the variable <strong>startup</strong>, that list runs as instructions immediately after loading finishes. <em>cslsload name</em> loads a named file from the Computer Science Logo Style program directory instead of the user's own directory."},
+    {t:"p", v:"<em>help name</em> prints reference-manual information about a primitive (or, called with no input, lists every primitive with help available); for a user-defined procedure with no help file, it prints the title line plus any leading semicolon-comment lines from the body. <em>seteditor</em>, <em>setlibloc</em>, <em>setcslsloc</em>, <em>sethelploc</em>, and <em>settemploc</em> each redirect Logo to a custom path for the editor, the procedure library, CSLSLOAD's directory, HELP's files, or editor temp files respectively."},
+    {t:"p", v:"<em>gc</em> runs the garbage collector on demand — useful before checking NODES for meaningful numbers, or to schedule a pause before/after time-critical animation rather than let Logo choose the moment. Called bare it does a fast generational collection (recently created nodes only); called with any argument it does a full collection including GCTWA (reclaiming words that used to be procedure/variable names but no longer are). <em>.setsegmentsize num</em> — dot-prefixed as a warning that misuse can misbehave — sets how many memory nodes Logo requests from the OS at once (default 16,000 on most systems); a larger value trades memory for fewer, less frequent collections."}
+  ],
+  quiz:[
+    {q:"In a Logo procedure definition, what is the required order of the four kinds of inputs?", opts:["Optional, required, rest, default number", "Required, optional, rest, default number", "Rest, required, optional, default number", "Default number, required, optional, rest"], a:1,
+     ex:"The manual specifies a fixed order: zero or more required inputs first, then zero or more optional inputs, then at most one rest input, then an optional trailing default-number — in exactly that sequence."},
+    {q:"What is the key behavioral difference between LOCAL and GLOBAL regarding an existing local variable of the same name?", opts:["They behave identically in every situation", "LOCAL creates a procedure-scoped variable available to subprocedures (dynamic scope); GLOBAL creates a global variable but explicitly does NOT override an existing local of the same name", "GLOBAL always overrides any local variable immediately", "LOCAL variables are never visible to subprocedures at all"], a:1,
+     ex:"LOCAL variables follow dynamic scoping, so they're visible to any subprocedure invoked afterward. GLOBAL is only for pre-creating a variable for SETxxx notation, and the manual explicitly notes it does not make Logo prefer the global value over an existing local of the same name."},
+    {q:"What is the practical effect of BURY on a procedure, variable, or property list?", opts:["It deletes the item permanently, unrecoverably", "It hides the item from CONTENTS, PROCEDURES, NAMES, PLISTS, POALL, and SAVE, while leaving it fully usable and visible via BURIED", "It makes the item read-only but still visible everywhere", "It renames the item to prevent accidental use"], a:1,
+     ex:"Burying an item removes it from the ordinary workspace listings and from what SAVE writes out, but the item still works exactly as before when called — it's just hidden from casual inspection, and BURIED still reveals it."}
+  ]
+},
+{
+  id:"control", file:"CH09.LOGO", num:"09", title:"Control Structures",
+  subtitle:"Conditionals, loops, error handling, and template-based iteration tools.",
+  body:[
+    {t:"p", v:"An <em>instructionlist</em> can be a list or a word (a word gets parsed into list form first, so <em>run readword</em> works, though a list is slightly preferable since it allows a continuation line with a comment on the first line). A <em>tf</em> input must be the word TRUE, FALSE, or a list evaluating to one of those (case-insensitively). A <em>runlist</em> can be a single expression that outputs a value, or several instructions that don't."},
+    {t:"p", v:"<strong>run instructionlist</strong> executes Logo instructions from a list, outputting a value if the list contains an outputting expression. <strong>runresult instructionlist</strong> is a variant useful for building command-or-operation control structures: it outputs the empty list if the instructions produce no value, or a one-member list wrapping the value if they do — letting you distinguish \"no output\" from \"output was the empty list\":"},
+    {t:"code", v:"local \"result\nmake \"result runresult [something]\nif emptyp :result [stop]\noutput first :result"},
+    {t:"p", v:"<strong>repeat num instructionlist</strong> runs a block a fixed number of times. <strong>forever instructionlist</strong> runs until something inside — typically STOP or THROW — makes it stop. <strong>repcount</strong> (abbreviated <em>#</em>, except inside a higher-order template where # means something else) outputs the current repetition count of the innermost active REPEAT or FOREVER, starting from 1, or -1 if none is active."},
+    {t:"p", v:"<strong>if tf instructionlist</strong> runs its second input only if the first is TRUE; given a third input, <em>(if tf list1 list2)</em> behaves like IFELSE. For backward compatibility, an unparenthesized IF followed immediately by a literal bracketed list is silently treated as IFELSE, with a one-time warning per procedure per session. <strong>ifelse tf list1 list2</strong> runs list1 if tf is TRUE, list2 if FALSE, and can output a value either way."},
+    {t:"p", v:"<strong>test tf</strong> remembers a TRUE/FALSE value (scoped to the current procedure and any subprocedures it calls) for later use by <strong>iftrue</strong> (IFT) and <strong>iffalse</strong> (IFF), which run their instructionlist only if the most recent TEST in the same procedure or a superprocedure was TRUE or FALSE respectively."},
+    {t:"p", v:"<strong>stop</strong> ends the current procedure without an output value, returning control to the caller. <strong>output value</strong> (OP) ends the current procedure <em>and</em> supplies a value to the caller — note that OUTPUT itself is a command, even though the procedure that calls it becomes, by virtue of calling OUTPUT, an operation."},
+    {t:"p", v:"<strong>catch tag instructionlist</strong> runs its instructions, outputting whatever they output — unless a matching <em>throw</em> with an equal tag (case-insensitive) fires during execution, in which case the instructionlist is aborted immediately and CATCH outputs whatever value THROW supplied, if any. If the tag is the word <strong>error</strong>, any runtime error during the instructionlist behaves like <em>throw \"error</em> instead of printing a message and returning to toplevel — and CATCH \"ERROR temporarily unbinds the special variable ERRACT while running."},
+    {t:"p", v:"<strong>throw tag</strong> (or <em>(throw tag value)</em>) must run within a matching CATCH's scope; the two-input form supplies CATCH's output value. <em>throw \"toplevel</em> aborts every running procedure and pause, returning straight to the top-level prompt — equivalent to the interrupt key (alt-S in wxWidgets, usually ctrl-C on Unix). <em>throw \"error</em> with a second input generates a user error whose message is that second input, reported as if it came from wherever the throwing procedure was itself called — letting user procedures raise errors that look primitive-native. <em>throw \"system</em> exits Logo immediately, without the usual parting message and without cleaning up editor temp files."},
+    {t:"p", v:"<strong>error</strong> outputs a four-member list describing the most recently caught error (or the empty list if none): an integer error code, the message text, the procedure name where it occurred, and the offending instruction line."},
+    {t:"p", v:"<strong>pause</strong> enters an interactive sub-prompt with access to the local variables of the procedure where it was invoked; it outputs a value only if ended via <em>continue value</em> (CO). If the special variable <strong>erract</strong> exists, its contents run as an instructionlist automatically whenever an error occurs — typically set to <em>[pause]</em>, enabling interactive post-mortem debugging. <strong>continue</strong> (CO), called bare, ends the current pause with no output."},
+    {t:"p", v:"<strong>wait time</strong> pauses execution for <em>time</em> sixtieths of a second, also flushing any buffered terminal output — <em>wait 0</em> flushes without actually waiting. <strong>bye</strong> exits Logo entirely."},
+    {t:"p", v:"<strong>.maybeoutput value</strong> (a special form, dot-prefixed as an advanced/exception-prone feature) behaves like OUTPUT, except the input expression is allowed to not actually produce a value — in which case the effect is like STOP instead. This is meant for control-structure definitions where you can't know in advance whether an inner expression will output:"},
+    {t:"code", v:"to invoke :function [:inputs] 2\n.maybeoutput apply :function :inputs\nend"},
+    {t:"p", v:"<strong>goto word</strong> jumps execution to the matching <strong>tag quoted.word</strong> command elsewhere in the same procedure (GOTO is meaningless outside a procedure body; TAG itself does nothing except mark the jump target — its input must be a literal quoted word, not a computed one)."},
+    {t:"p", v:"The library's <strong>ignore value</strong> does nothing — used to evaluate an expression purely for a side effect while discarding its actual result."},
+    {t:"p", v:"<strong>Backquote (`) list</strong> is a template-substitution tool: within the list, a member that's the word comma (<em>,</em>) is followed by an instructionlist whose output replaces the comma-pair; comma-atsign (<em>,@</em>) instead splices in the <em>members</em> of a list-valued result. Backquotes can nest, with substitution applying only at the matching depth."},
+    {t:"p", v:"<strong>for forcontrol instructionlist</strong> is a classic counting loop: forcontrol is a 3- or 4-member list — a control variable name, a starting-value expression, a limit-value expression, and an optional step-size expression (defaulting to +1 or -1 depending on whether the limit exceeds the start). FOR assigns the start value, compares to the limit, runs the body if not yet done, adds the step, and repeats; it finishes once the sign of (current − limit) matches the sign of the step:"},
+    {t:"code", v:"? for [i 2 7 1.5] [print :i]\n2\n3.5\n5\n6.5"},
+    {t:"p", v:"<strong>while tfexpression instructionlist</strong> tests first, so the body may never run; <strong>do.while instructionlist tfexpression</strong> runs the body first, so it always runs at least once — both continue as long as the test stays TRUE. <strong>until</strong> and <strong>do.until</strong> are the FALSE-continuing mirror images, with the same test-first/run-first distinction."},
+    {t:"p", v:"<strong>case value clauses</strong> and <strong>cond clauses</strong> are multi-branch conditionals over a list of clauses. Each CASE clause pairs a list of candidate values (or the word ELSE) with a result expression; CASE outputs the result of the first clause whose value-list contains <em>value</em>, or whose tag is ELSE. Each COND clause instead pairs a TRUE/FALSE expression (or ELSE) with a result; COND evaluates each condition in turn and outputs the result of the first one that's TRUE."},
+    {t:"code", v:"to vowelp :letter\noutput case :letter [ [[a e i o u] \"true] [else \"false] ]\nend"}
+  ],
+  quiz:[
+    {q:"What is the essential difference between WHILE and DO.WHILE?", opts:["They are exactly identical", "WHILE tests the condition before running the body (may never run); DO.WHILE runs the body first (always runs at least once)", "DO.WHILE only works with numeric conditions", "WHILE can only be used inside REPEAT loops"], a:1,
+     ex:"WHILE checks its test expression before each execution of the body, so the body might never run at all if the test starts FALSE; DO.WHILE always executes the body once before its first check."},
+    {q:"What does `catch \"error instructionlist` change about how runtime errors behave during that instructionlist?", opts:["It has no special effect on errors at all", "Instead of printing a message and returning to toplevel, an error behaves like THROW \"ERROR, letting CATCH intercept it", "It prevents all errors from ever occurring", "It automatically fixes any error and continues normally"], a:1,
+     ex:"CATCH with the tag ERROR turns any runtime error during its instructionlist into an internal THROW \"ERROR that CATCH itself intercepts, rather than the default behavior of printing a message and unwinding to the top level."},
+    {q:"In `for [i 2 7 1.5] [print :i]`, when does the FOR loop stop?", opts:["After exactly 5 iterations, always", "When the sign of (current value minus limit) matches the sign of the step size — here, once :i exceeds 7", "As soon as :i becomes an integer", "FOR loops never stop automatically"], a:1,
+     ex:"FOR keeps running as long as the sign of (current − limit) differs from the step's sign; with a positive step of 1.5 counting up to 7, it stops once i passes 7, having printed 2, 3.5, 5, and 6.5."}
+  ]
+},
+{
+  id:"iteration", file:"CH09B.LOGO", num:"09b", title:"Templates & Iteration Tools",
+  subtitle:"Four template forms, and the higher-order procedures built on them: MAP, FILTER, REDUCE, and more.",
+  body:[
+    {t:"p", v:"Berkeley Logo's iteration tools are built on the idea of a <strong>template</strong> — a generalized instruction or expression list with slots the tool fills in with varying data. There are four template forms."},
+    {t:"p", v:"The most common is <strong>explicit-slot (question mark) form</strong>: a question mark inside the template list is replaced by data on each evaluation."},
+    {t:"code", v:"? show map [? * ?] [2 3 4 5]\n[4 9 16 25]"},
+    {t:"p", v:"For tools that provide more than one datum in parallel, numbered slots <em>?1</em>, <em>?2</em>, etc. pick out the first, second, and so on:"},
+    {t:"code", v:"? show (map [(word ?1 ?2 ?1)] [a b c] [d e f])\n[ada beb cfc]"},
+    {t:"p", v:"The second form is <strong>named-procedure form</strong>: if the template is a bare word rather than a list, it names a procedure that must accept as many inputs as there are parallel data slots, applied to all available data in order:"},
+    {t:"code", v:"? show (map \"word [a b c] [d e f])\n[ad be cf]\n\nto dotprod :a :b\nop apply \"sum (map \"product :a :b)\nend"},
+    {t:"p", v:"The third is <strong>named-slot (lambda) form</strong>: a template list of more than one member whose first member is itself a list of names. Those names become local variables bound to the available data, in order — needed mainly when nesting one iteration tool inside another's template, where <em>?</em> would otherwise be ambiguous:"},
+    {t:"code", v:"to matmul :m1 :m2 [:tm2 transpose :m2]\noutput map [[row] map [[col] dotprod :row :col] :tm2] :m1\nend"},
+    {t:"p", v:"The fourth is <strong>procedure-text form</strong>, a variant of lambda form used by DEFINE and TEXT, where the template list has at least two members, all of which are lists. Logo treats this as its own independent defined procedure for OUTPUT/STOP purposes — so a named-slot template like <em>[[x] :x+3]</em> lets the expression's value flow out normally, while a procedure-text template like <em>[[x] [output :x+3]]</em> must use OUTPUT explicitly, exactly as a real TO-defined procedure would."},
+    {t:"p", v:"<strong>apply template inputlist</strong> is the foundational tool: it fills the template's slots with inputlist's members (whose count must be an acceptable number of slots) and outputs whatever the template outputs, if anything. (Applying the special form TO is illegal; anything else is fine.) The library's <strong>invoke template input1 input2 ...</strong> does the same but with inputs given as separate arguments rather than packed into one list."},
+    {t:"p", v:"<strong>foreach data template</strong> (or with several parallel data lists) runs the template once per member (or, for a word input, once per character). Two special template symbols are available inside FOREACH, MAP, and MAP.SE: <strong>?rest</strong> represents everything in the data to the right of the current slot-filler, and <strong>#</strong> represents the current slot-filler's position (1-based) within the data."},
+    {t:"p", v:"<strong>map template data</strong> (or several data inputs in parallel) outputs a word or list of the same length as the data, each member being the template's result for the corresponding input(s); when producing a word, template results must themselves be words, concatenated with WORD. <strong>map.se template data</strong> instead concatenates results with SENTENCE, so the output can be a different length than the input (an empty-list result contributes nothing)."},
+    {t:"p", v:"<strong>filter tftemplate data</strong> outputs the subsequence of members/characters for which the template evaluates TRUE:"},
+    {t:"code", v:"? print filter \"vowelp \"elephant\neea"},
+    {t:"p", v:"<strong>find tftemplate data</strong> outputs the first constituent for which the template is TRUE, or the empty list if none qualifies."},
+    {t:"p", v:"<strong>reduce template data</strong> accumulates a two-slot template across the data, right to left conceptually: with one constituent, that's the output; otherwise the template first combines the last two constituents, then combines that result with the next one to the left, and so on until the data is exhausted (which must be nonempty). REDUCE suits associative two-input functions:"},
+    {t:"code", v:"to max :a :b\noutput ifelse :a > :b [:a] [:b]\nend\nprint reduce \"max [3 9 2 7]      ; 9"},
+    {t:"p", v:"<strong>crossmap template listlist</strong> (or several data lists) outputs a list from evaluating the template across <em>every combination</em> of members across the data lists, unlike MAP's parallel (same-position) pairing — the data lists need not be the same length:"},
+    {t:"code", v:"? show (crossmap [word ?1 ?2] [a b c] [1 2 3 4])\n[a1 a2 a3 a4 b1 b2 b3 b4 c1 c2 c3 c4]"},
+    {t:"p", v:"<strong>cascade endtest template startvalue</strong> repeatedly applies a one-slot template, first filling the slot with startvalue, then with each prior result, for either a fixed count (if endtest is a nonnegative integer) or until a predicate endtest template becomes TRUE. Inside a CASCADE template, <strong>#</strong> represents the 1-based count of evaluations so far:"},
+    {t:"code", v:"? show cascade 5 [# * ?] 1\n120\n; equivalent to 5 factorial: 1*1, 2*2, 3*6, 4*24, 5*120\n\nto fibonacci :n\noutput (cascade :n [?1 + ?2] 1 [?1] 0)\nend"},
+    {t:"p", v:"Additional template/startvalue pairs can be given to CASCADE to compute several cascaded results in parallel — <strong>cascade.2</strong> is a library shortcut with the same behavior but a default of five inputs instead of three."},
+    {t:"p", v:"<strong>transfer endtest template inbasket</strong> evaluates a template once per member of <em>inbasket</em>, threading an accumulating <em>outbasket</em> (initially empty) through each step. Inside its template, <strong>?in</strong> represents the current inbasket member and <strong>?out</strong> represents the entire current outbasket. If endtest is the empty list, TRANSFER processes every inbasket member; otherwise it's a predicate template, and processing stops early once it becomes TRUE."}
+  ],
+  quiz:[
+    {q:"What distinguishes the explicit-slot (?) template form from named-procedure form?", opts:["They cannot both be used with MAP", "Explicit-slot form uses a list with ? markers filled by data; named-procedure form uses a bare word naming a procedure applied to the data", "Named-procedure form is only for FOREACH, never MAP", "There is no difference between them"], a:1,
+     ex:"[? * ?] is a list template with question-mark slots, while a bare word like \"word is taken as the name of a procedure to apply directly to the available data — two different template mechanisms serving the same iteration tools."},
+    {q:"How does CROSSMAP differ from MAP when given multiple data list inputs?", opts:["CROSSMAP and MAP behave identically", "MAP pairs data from each list by matching position (parallel); CROSSMAP evaluates the template across every possible combination of members from the lists", "CROSSMAP requires all lists to be the same length while MAP does not", "MAP only works with two data lists; CROSSMAP requires exactly three"], a:1,
+     ex:"MAP walks multiple data lists in lockstep, combining same-position elements; CROSSMAP instead produces one result for every combination of elements across the lists, which need not even be the same length."},
+    {q:"Inside a REDUCE template applied to `[3 9 2 7]` with a two-input MAX function, what is the general accumulation order?", opts:["Left to right only, one pass, no intermediate results", "Conceptually starts by combining the last two constituents, then folds in remaining constituents from the right going left, carrying the running result forward", "REDUCE requires exactly two data elements, no more", "REDUCE ignores the actual values and just counts elements"], a:1,
+     ex:"REDUCE applies its two-slot template starting with the last two constituents, then repeatedly combines the running result with the next constituent to its left, continuing until all constituents have been folded in."}
+  ]
+},
+{
+  id:"macros", file:"CH10.LOGO", num:"10", title:"Macros",
+  subtitle:"Building new control structures whose output is evaluated as instructions in the caller's context.",
+  body:[
+    {t:"p", v:"A <strong>macro</strong> is a special kind of procedure whose <em>output</em> is evaluated as Logo instructions in the context of the macro's caller, rather than being used as an ordinary return value. <strong>.macro procname :input1 :input2 ...</strong> (a special form) works exactly like TO, except the new procedure becomes a macro; <strong>.defmacro procname text</strong> is exactly like DEFINE, with the same exception. Both names start with a dot, marking macros as an advanced, easy-to-misuse feature — a badly written macro can fail to terminate, or fail to construct its output instruction list correctly."},
+    {t:"p", v:"Macros exist because ordinary procedures can almost, but not quite, duplicate control structures like REPEAT or IF. Consider an ordinary-procedure reimplementation of REPEAT:"},
+    {t:"code", v:"to my.repeat :num :instructions\nif :num=0 [stop]\nrun :instructions\nmy.repeat :num-1 :instructions\nend"},
+    {t:"p", v:"This works for simple cases like <em>my.repeat 5 [print \"hello]</em>, but breaks if the repeated instructions themselves need to use OUTPUT, STOP, or LOCAL — because those would affect MY.REPEAT's own execution, not the caller's. For example, a procedure using REPEAT with an embedded STOP to exit early works correctly with the real REPEAT, but would incorrectly stop MY.REPEAT instead of the outer procedure if MY.REPEAT were substituted."},
+    {t:"p", v:"The fix is to make MY.REPEAT a <strong>macro</strong>. Instead of performing the computation directly, a macro returns a <em>list of Logo instructions</em>, which get evaluated as though they appeared in place of the macro call itself:"},
+    {t:"code", v:".macro my.repeat :num :instructions\nif :num=0 [output []]\noutput sentence :instructions ~\n                (list \"my.repeat :num-1 :instructions)\nend"},
+    {t:"p", v:"Every macro is necessarily an operation — it must always output <em>something</em>, even if that something is just an empty instruction list in the base case. For <em>my.repeat 5 [print \"hello]</em>, the macro outputs <em>[print \"hello my.repeat 4 [print \"hello]]</em>, and Logo runs those instructions in place of the original call — printing hello once, then recursing for the next repetition."},
+    {t:"p", v:"This simple technique is slow, since every repetition constructs a fresh instruction list. A faster approach makes MY.REPEAT behave like the non-macro version unless OUTPUT or STOP actually occurs inside the repeated instructions, using CATCH/THROW to detect the difference and only construct special output instructions when truly needed."},
+    {t:"p", v:"Here's a second illustrative macro, avoiding a quoting headache for MAKE's second input:"},
+    {t:"code", v:".macro localmake :name :value\noutput (list \"local          ~\n             word \"\" :name   ~\n             \"apply          ~\n                \"make          ~\n                (list :name :value))\nend"},
+    {t:"p", v:"Calling <em>localmake \"garply \"hello</em> outputs <em>[local \"garply apply \"make [garply hello]]</em> — using APPLY sidesteps having to decide in advance whether MAKE's second input needs a quotation mark (it would if the value were a word, but not if it were a list). The backquote (`) tool often simplifies constructing such instruction lists, though it's comparatively slow, being tree-recursive and written in Logo itself:"},
+    {t:"code", v:".macro localmake :name :value\nop `[local ,[word \"\" :name] apply \"make [,[:name] ,[:value]]]\nend"},
+    {t:"p", v:"Important: Logo macros, unlike Lisp macros, are <strong>not special forms</strong> — a macro's inputs are evaluated normally, exactly as for any other procedure. It's only the macro's <em>output</em> that receives special treatment (being run as instructions rather than returned as data)."},
+    {t:"p", v:"<strong>.defmacro</strong> is DEFINE's macro equivalent, mentioned above. <strong>macrop name</strong> (MACRO?) outputs TRUE if a name refers to a macro. The library's <strong>macroexpand expr</strong> takes an expression that invokes a macro and outputs the Logo expression the macro would translate it into — useful for debugging what a macro actually produces:"},
+    {t:"code", v:".macro localmake :name :value\nop `[local ,[word \"\" :name] apply \"make [,[:name] ,[:value]]]\nend\n\n? show macroexpand [localmake \"pi 3.14159]\n[local \"pi apply \"make [pi 3.14159]]"}
+  ],
+  quiz:[
+    {q:"What is fundamentally different about a macro's output compared to an ordinary procedure's output?", opts:["Macros can never output anything at all", "A macro's output is evaluated as Logo instructions in the caller's own context, rather than simply being returned as a value", "Macro output must always be a single number", "There is no difference — macros and procedures behave identically"], a:1,
+     ex:"Where a normal procedure's OUTPUT just hands back a value to the caller, a macro's output is itself treated as a list of instructions and run as if it had appeared directly where the macro was called — which is what lets a macro-based REPEAT support an embedded STOP or OUTPUT that affects the caller, not the macro itself."},
+    {q:"Why does an ordinary-procedure version of REPEAT fail when its instructions include STOP?", opts:["STOP is not a valid Logo primitive", "STOP would end the REPEAT-like procedure itself, rather than the outer procedure that called it, because it isn't a macro", "Procedures can never contain a REPEAT call", "STOP only works inside macros, never inside procedures"], a:1,
+     ex:"Since MY.REPEAT (as an ordinary procedure) is just another procedure call, a STOP inside the repeated instructions stops MY.REPEAT's own execution rather than propagating out to stop the procedure that originally called MY.REPEAT — only the macro version correctly lets STOP escape to the true caller."},
+    {q:"Are the inputs to a Logo macro evaluated differently from inputs to an ordinary procedure?", opts:["Yes, macro inputs are never evaluated at all", "No — macro inputs are evaluated completely normally; only the macro's output receives special treatment", "Yes, macro inputs are always doubly-evaluated", "Macros cannot accept any inputs"], a:1,
+     ex:"The manual explicitly notes that, unlike Lisp macros, Logo macros are not special forms — their inputs go through the same ordinary evaluation as any other procedure call. The special handling applies only to what the macro outputs."}
+  ]
+},
+{
+  id:"errors", file:"CH11.LOGO", num:"11", title:"Error Processing",
+  subtitle:"How Logo handles errors, ERRACT, and the full table of numbered error codes.",
+  body:[
+    {t:"p", v:"When an error occurs, Logo first checks whether the special variable <strong>erract</strong> exists. If so, its value is taken as an instructionlist and run; the operation <strong>error</strong> can be used once within those instructions to examine the error condition. If the ERRACT instructions invoke PAUSE, the error message is printed <em>before</em> the pause begins. For certain recoverable error types, if the ERRACT instructionlist outputs a value, that value is substituted in place of the expression that caused the error in the first place — effectively letting you patch around the problem interactively (if ERRACT invokes PAUSE and the user then calls CONTINUE with an input, that input becomes PAUSE's output, and therefore ERRACT's output)."},
+    {t:"p", v:"To guard against infinite loops from a misbehaving ERRACT (one that produces an inappropriate or missing value, causing the same error to recur), Logo detects when the identical error condition happens twice in a row from an ERRACT instructionlist with no user interaction in between; in that case it prints '<em>Erract loop</em>' and returns to toplevel rather than looping forever. \"Without user interaction\" specifically means: if ERRACT invokes PAUSE and the user supplies an incorrect value, that doesn't count as the loop-breaking condition — the user gets to try again."},
+    {t:"p", v:"While ERRACT's own instructionlist is running, <strong>erract is temporarily unbound</strong> — so an error occurring within the ERRACT-handling code itself won't recursively trigger ERRACT again. In particular, an error during a pause won't cause a pause-within-a-pause, unless the user explicitly reassigns <em>[pause]</em> to ERRACT while already inside the pause; even then, such a nested error stays within the original pause loop rather than returning to toplevel."},
+    {t:"p", v:"If there is no available ERRACT value, Logo instead generates an internal <strong>throw \"error</strong> (a user program can also deliberately trigger this same mechanism by calling THROW itself). If nothing catches this throw with a <em>catch \"error</em>, it eventually reaches either the toplevel loop or an active pause loop, either of which prints the error message. Calling CATCH \"ERROR in a user program locally unbinds ERRACT for the duration, so whichever of ERRACT or CATCH \"ERROR is more locally in scope takes precedence over the other."},
+    {t:"p", v:"A special note on floating-point errors: if an arithmetic overflow occurs, or a two-input math function like POWER receives an illegal combination of inputs, the resulting \"doesn't like\" error message technically names the <em>second</em> operand — but should really be understood as describing the combination of both inputs together, not a fault purely in the second one."},
+    {t:"p", v:"<strong>Error Codes</strong> — every error Logo can raise has a numeric code, used as the first member of the list output by ERROR. Some codes appear twice, once for a recoverable and once for a non-recoverable variant of essentially the same condition; some are warnings, not true errors, and are never caught. Codes 0 and 32 are so severe that Logo exits immediately, uncatchable:"},
+    {t:"code", v:"0  Fatal internal error              (can't be caught)\n1  Out of memory\n2  Stack overflow\n3  Turtle out of bounds\n4  proc doesn't like datum as input   (not recoverable)\n5  proc didn't output to proc\n6  Not enough inputs to proc\n7  proc doesn't like datum as input   (recoverable)\n8  Too much inside ()'s\n9  You don't say what to do with datum\n10 ')' not found\n11 var has no value\n12 Unexpected ')'\n13 I don't know how to proc           (recoverable)\n14 Can't find catch tag for throwtag\n15 proc is already defined\n16 Stopped\n17 Already dribbling\n18 File system error\n19 Assuming you mean ifelse, not if   (warning only)\n20 var shadowed by local in procedure call (warning only)\n21 Throw \"Error\n22 proc is a primitive\n23 Can't use to inside a procedure\n24 I don't know how to proc           (not recoverable)\n25 iftrue/iffalse without test\n26 Unexpected ']'\n27 Unexpected '}'\n28 Couldn't initialize graphics\n29 Macro returned value instead of a list\n30 You don't say what to do with value\n31 Can only use stop or output inside a procedure\n32 apply doesn't like badthing as input  (can't be caught)\n33 end inside multi-line instruction\n34 Really out of memory                  (can't be caught)\n35 user-generated error message (throw \"error message)\n36 end inside multi-line instruction\n37 Bad default expression for optional input\n38 Can't use output or stop inside runresult\n39 Assuming you meant 'fd 100', not fd100 (or similar)\n40 I can't open file filename\n41 File filename already open\n42 File filename not open\n43 Runlist has more than one expression"}
+  ],
+  quiz:[
+    {q:"What happens to the special variable ERRACT while its own instructionlist is running?", opts:["It becomes TRUE automatically", "It is temporarily unbound, preventing an error inside the error-handling code from recursively re-triggering ERRACT", "It is deleted permanently", "It is automatically set to [PAUSE]"], a:1,
+     ex:"Logo locally unbinds ERRACT during its own execution specifically to prevent a bug in the error handler itself from causing infinite recursive error handling."},
+    {q:"What message does Logo print, and what does it do, if the same error condition recurs twice in a row from ERRACT with no user interaction?", opts:["It silently ignores the second occurrence and continues", "It prints 'Erract loop' and returns to toplevel, to prevent an infinite loop", "It crashes with a fatal internal error", "It automatically increases the recursion limit and keeps trying"], a:1,
+     ex:"This safeguard exists because a broken ERRACT could otherwise cause the same error to recur forever; detecting two identical consecutive occurrences without intervening user interaction triggers an 'Erract loop' message and a return to toplevel."},
+    {q:"According to the error code table, which two error codes are described as so severe that they cannot be caught at all?", opts:["Codes 13 and 24", "Codes 0 and 32 (also 34, 'Really out of memory')", "Codes 19 and 20", "Codes 40 and 41"], a:1,
+     ex:"The manual specifically marks error 0 (Fatal internal error) and error 32 (or 34, Really out of memory) as uncatchable, causing Logo to exit immediately rather than allowing any CATCH or ERRACT mechanism to intervene."}
+  ]
+},
+{
+  id:"specialvars", file:"CH12.LOGO", num:"12", title:"Special Variables",
+  subtitle:"Reserved variable names that Logo treats specially, and the two read-only version variables.",
+  body:[
+    {t:"p", v:"Logo takes special action whenever certain reserved variable names exist. These follow normal dynamic-scope rules, so a procedure can locally set one of them to limit the effect to just its own (and its subprocedures') execution. Initially, no special variables exist except <strong>allowgetset</strong>, <strong>caseignoredp</strong>, and <strong>unburyonedit</strong>, which all start out TRUE and buried."},
+    {t:"p", v:"<strong>allowgetset</strong> — if TRUE, an attempt to call a nonexistent procedure is instead treated as an implicit getter or setter for a same-named variable (a setter specifically when the name's first three letters are SET), as detailed in Lesson 1."},
+    {t:"p", v:"<strong>buttonact</strong> — if nonempty, an instructionlist evaluated whenever a mouse button is pressed (the user may have already released the button by the time it actually runs; BUTTON still reports which button was most recently pressed, and CLICKPOS the position at that moment, which can differ from the current MOUSEPOS if the mouse has since moved). Because a new button-press during the instructionlist's own execution could cause confusing re-entrant behavior, a common safeguard is to temporarily clear BUTTONACT to the empty list for the duration:"},
+    {t:"code", v:"make \"buttonact [button.action]\n\nto button.action [:buttonact []]\n... ; whatever you want the button to do\nend"},
+    {t:"p", v:"<strong>caseignoredp</strong> — if TRUE (the default, and buried from the start), upper- and lower-case letters are treated as equal by EQUALP, BEFOREP, MEMBERP, and similar comparison primitives."},
+    {t:"p", v:"<strong>commandline</strong> — holds any text following a hyphen on the command line used to start Logo."},
+    {t:"p", v:"<strong>erract</strong> — an instructionlist run automatically whenever an error occurs; typically set to <em>[pause]</em> to enable interactive debugging, as covered in the previous lesson."},
+    {t:"p", v:"<strong>fullprintp</strong> — if TRUE, words built using backslash or vertical bars print with those characters visible, so the printed form could be re-read to reproduce an identical value; under FULLPRINTP, the empty word specifically prints as <em>||</em> rather than as nothing."},
+    {t:"p", v:"<strong>keyact</strong> — if nonempty, an instructionlist evaluated whenever a character-producing key is pressed (SHIFT or CONTROL alone don't count); the instructionlist can call READCHAR to discover which key. As with BUTTONACT, a key pressed during the instructionlist's own execution could re-trigger it, so the same temporary-clear pattern is recommended."},
+    {t:"p", v:"<strong>loadnoisily</strong> — if TRUE, prints the name of each procedure as it's defined while loading from a file, including the temporary file EDIT creates."},
+    {t:"p", v:"<strong>printdepthlimit</strong> and <strong>printwidthlimit</strong> — if set to a nonnegative integer, cap the maximum nesting depth or maximum member count that PRINT (and friends) will actually display, substituting ellipses for anything past the limit — covered in the Communication lesson."},
+    {t:"p", v:"<strong>redefp</strong> — if TRUE, permits primitives to be erased with ERASE or redefined with COPYDEF, which is disallowed by default to prevent accidental clobbering of built-in behavior."},
+    {t:"p", v:"<strong>startup</strong> — if a file loaded via LOAD assigns this variable a list value, that list is automatically run as an instructionlist immediately after the file finishes loading."},
+    {t:"p", v:"<strong>unburyonedit</strong> — if TRUE (the default, buried), causes any procedure defined while inside EDIT or LOAD to be automatically unburied, ensuring it will be included in a later SAVE. Files intending to both define and then bury procedures must do those two things in that specific order."},
+    {t:"p", v:"<strong>usealternatenames</strong> — if TRUE, causes Logo to generate non-English words (drawn from the Messages file) in place of TRUE, FALSE, END, and similar built-in vocabulary — see the Internationalization lesson."},
+    {t:"p", v:"Two further buried variables are provided purely for programs to query, not to configure: <strong>logoversion</strong>, a real number giving the running Logo's version (e.g. 5.5), and <strong>logoplatform</strong>, one of the words <em>wxWidgets</em>, <em>x11</em>, <em>Windows</em>, or <em>Unix-nographics</em>, identifying which build of Logo is running."}
+  ],
+  quiz:[
+    {q:"Which three special variables exist by default from the moment Logo starts, and what is true of all three initially?", opts:["ERRACT, STARTUP, and REDEFP — all initially FALSE", "ALLOWGETSET, CASEIGNOREDP, and UNBURYONEDIT — all initially TRUE and buried", "LOGOVERSION, LOGOPLATFORM, and COMMANDLINE — all initially empty", "PRINTDEPTHLIMIT, PRINTWIDTHLIMIT, and FULLPRINTP — all initially set to 0"], a:1,
+     ex:"The manual states that initially no special variables exist except ALLOWGETSET, CASEIGNOREDP, and UNBURYONEDIT, which are all TRUE and buried by default — every other special variable must be explicitly created before it has any effect."},
+    {q:"Why would a programmer temporarily set BUTTONACT to the empty list inside the very instructionlist that BUTTONACT itself triggers?", opts:["It's required syntax with no functional purpose", "To prevent a new button press occurring during that instructionlist's own execution from causing confusing re-entrant triggering", "BUTTONACT must always be emptied immediately after any use", "This has no relationship to BUTTONACT's actual behavior"], a:1,
+     ex:"Since it's possible for the user to press a button again while the BUTTONACT instructions are still running, temporarily clearing BUTTONACT during that execution avoids a potentially confusing re-entrant re-triggering of the same handler."},
+    {q:"What does REDEFP control, and what is its default state?", opts:["Whether variables can be renamed; defaults to TRUE", "Whether primitive procedures can be erased or redefined; defaults to FALSE (disallowed) to prevent accidental clobbering", "Whether the turtle can move past screen edges; defaults to TRUE", "Whether comments are allowed in procedure definitions; defaults to FALSE"], a:1,
+     ex:"REDEFP gates whether ERASE or COPYDEF may target a built-in primitive; it isn't in the initially-TRUE trio, so by default this protection against accidentally overwriting primitives is active."}
+  ]
+},
+{
+  id:"i18n", file:"CH13.LOGO", num:"13", title:"Internationalization",
+  subtitle:"Adapting Berkeley Logo's primitive names, error messages, and documentation for other languages.",
+  body:[
+    {t:"p", v:"Berkeley Logo has limited support for non-English-speaking users — notably, there is <strong>no Unicode support</strong>, and high-bit-on ASCII codes work in some contexts but not others. Translating Berkeley Logo for another language involves three separate tasks: primitive names, error (and other system) messages, and documentation."},
+    {t:"p", v:"<strong>Primitive names</strong>: the simplest approach is a startup file defining aliases for the English names using COPYDEF:"},
+    {t:"code", v:"copydef \"avant \"forward"},
+    {t:"p", v:"This suffices unless your language's name for one primitive happens to be spelled like the English name of a <em>different</em> primitive — in that case you must turn on REDEFP and be careful to copy the non-conflicting name first, before overwriting the conflicting one. \"Primitives\" that are actually library procedures can simply be replaced or supplemented with native-language-named Logo procedures and matching filenames. Of course, Logo code still won't read like a sentence in your native language if word order differs substantially — especially in languages that don't put verbs before their objects."},
+    {t:"p", v:"<strong>Error messages</strong> live in a file named <strong>Messages</strong> in the logolib directory, one message per line; you can substitute your own translated file. Lines must not be added, deleted, or reordered, since Logo locates messages purely by line number. Special sequences <em>%p</em>, <em>%s</em>, and <em>%t</em> mark variable parts of a message and must not be translated: %p PRINTs the variable part, %s SHOWs it (i.e., whether brackets are shown around a list), and %t means the variable part is a raw C text string rather than a Logo object."},
+    {t:"p", v:"If you need to reverse the order of two variable parts within a message (no message needs more than two), a leading plus sign after the first percent sign signals the reversal — for instance replacing"},
+    {t:"code", v:"%p doesn't like %s as input"},
+    {t:"p", v:"with"},
+    {t:"code", v:"%+s is a lousy input to %p"},
+    {t:"p", v:"The sequence <em>\\n</em> within a message represents a newline character — don't mistake the <em>n</em> for part of the following word. Some messages deliberately appear twice (not a mistake); the message containing only <em>%p</em> is specifically for user-supplied error text via <em>throw \"error</em>; a fixed phrase indicating where in a procedure an error occurred can be localized too (e.g., translating the word \"in\"); and the phrase LOAD prints for each defined procedure when LOADNOISILY is TRUE, and the template EDIT writes for a not-yet-defined procedure, are both also configurable this way."},
+    {t:"p", v:"The Messages file also contains single-word lines — starting with the word <em>true</em> — some recognized by Logo in user input, some generated by Logo as output, some both. For example, TRUE and FALSE are recognized as boolean values by IF/IFELSE and are also generated as outputs by predicates like EQUALP; END is recognized as ending a procedure definition and may be regenerated by PO or EDIT. Replacing an English word with a translation means Logo will recognize <strong>both</strong> the English original and your new alternate — for example, replacing <em>true</em> with <em>vrai</em> means both <em>if \"true [...]</em> and <em>if \"vrai [...]</em> work."},
+    {t:"p", v:"The variable <strong>usealternatenames</strong> controls whether Logo <em>generates</em> other-language words as output (for example, whether predicate functions return the alternate-language TRUE/FALSE) — it's FALSE by default, so English words are generated even after translation. A middle path is possible: leave USEALTERNATENAMES FALSE, keep English-named predicates producing English TRUE/FALSE, but define separate other-language-named predicate wrappers that translate their result:"},
+    {t:"code", v:"to french.boolean :bool\nif equalp :bool \"true [output \"vrai]\nif equalp :bool \"false [output \"faux]\noutput :bool\nend\n\nto make.french.predicate :french :english :arity\ndefine :french `[[[inputs] ,[:arity]]\n                 [output french.boolean\n    apply ,[word \"\" :english] :inputs]]\nend\n\n? make.french.predicate \"egal? \"equal? 2\n? pr egal? 3 4\nfaux\n? pr equal? 3 4\nfalse"},
+    {t:"p", v:"This approach isn't perfect, since infix predicates (<em>=</em>, <em>&lt;</em>, <em>&gt;</em>) would still output English regardless — achieving fully alternate-language infix output requires setting USEALTERNATENAMES to TRUE instead. Some words in the Messages file are themselves the names of Logo primitives (OUTPUT, STOP, GOTO, TAG, IF, IFELSE, TO, .MACRO) — translating these requires <em>both</em> the COPYDEF step described earlier <em>and</em> a consistent change in Messages, including remembering the period in <em>.macro</em>."},
+    {t:"p", v:"<strong>Documentation</strong> comes in two forms: this manual, and the individual HELP files. On Unix, help files are generated automatically from the manual itself, so translating just the manual (while preserving its exact formatting — the generator notices capital letters, tabs, hyphens, and equal signs at the start of lines) is sufficient. The <em>makefile.c</em> build script may need adjustment, since a few primitive names are special cases (LOG10 being the only name containing digits). Without Unix tools, individual help files can be translated one at a time; a period within a primitive's name becomes the letter D in its help filename, and there are no separate files for question-mark names, since HELP looks for the file matching the corresponding P-suffixed name instead."}
+  ],
+  quiz:[
+    {q:"What do the sequences %p, %s, and %t represent inside a Messages file entry, and should they be translated?", opts:["They are typos and should be deleted", "They mark variable parts of a message (PRINT-style, SHOW-style, or raw C text respectively) and must NOT be translated", "They are optional decorative characters with no functional meaning", "They represent line numbers within the file"], a:1,
+     ex:"%p, %s, and %t are functional placeholders — controlling how the variable part of a message is displayed (printed, shown with brackets, or inserted as raw text) — and translating or altering them would break the message substitution mechanism."},
+    {q:"If you replace the English word \"true\" with \"vrai\" in the Messages file, what happens to code using the original English word?", opts:["The English word \"true\" stops working entirely, only \"vrai\" is recognized", "Logo recognizes BOTH the English word and the new alternate word", "Logo now requires \"vrai\" to be capitalized differently than \"true\" was", "Nothing changes since Messages file edits require a full reinstall"], a:1,
+     ex:"The manual specifically notes that replacing an English word with a non-English alternative in Messages causes Logo to recognize both the English original and the new alternate name going forward."},
+    {q:"What does the special variable USEALTERNATENAMES control?", opts:["Whether Logo accepts alternate-language names as INPUT — this is always allowed regardless of the setting", "Whether Logo GENERATES alternate-language words (like a translated TRUE/FALSE) as OUTPUT from predicates and primitives", "Whether comments can be written in a non-English language", "Whether the manual itself displays in translated form"], a:1,
+     ex:"Recognizing alternate names as input always works once they're defined in Messages; USEALTERNATENAMES specifically governs whether Logo's own generated output (e.g., what a predicate returns) uses the alternate-language words instead of the English defaults."}
+  ]
+}
+];
+
+const REFERENCE = "\n<p style=\"color:#5f6472; font-size:.95rem; margin-top:0;\">Quick reference compiled by <strong>Jan M. Savage</strong> for this interactive UCB Logo tutor. Covers every primitive and library procedure in the Berkeley Logo 6.2 manual.</p>\n\n<h3>Ch.1 &mdash; Syntax Essentials</h3>\n<table>\n<tr><td class=\"k\">MAKE \"name val</td><td class=\"v\">assign a global variable</td></tr>\n<tr><td class=\"k\">THING \"name / :name</td><td class=\"v\">read a variable's value</td></tr>\n<tr><td class=\"k\">TO / END</td><td class=\"v\">define a procedure</td></tr>\n<tr><td class=\"k\">SETFOO val</td><td class=\"v\">getter/setter shorthand for MAKE \"FOO val</td></tr>\n<tr><td class=\"k\">; comment</td><td class=\"v\">rest of line ignored</td></tr>\n<tr><td class=\"k\">~</td><td class=\"v\">line continuation</td></tr>\n<tr><td class=\"k\">\\ char / |chars|</td><td class=\"v\">escape / literal delimiters</td></tr>\n</table>\n\n<h3>Ch.2 &mdash; Data Structures</h3>\n<table>\n<tr><td class=\"k\">WORD, LIST, SENTENCE (SE)</td><td class=\"v\">constructors</td></tr>\n<tr><td class=\"k\">FPUT, LPUT</td><td class=\"v\">add to front/back of list</td></tr>\n<tr><td class=\"k\">ARRAY, MDARRAY, LISTTOARRAY, ARRAYTOLIST</td><td class=\"v\">arrays</td></tr>\n<tr><td class=\"k\">COMBINE, REVERSE, GENSYM</td><td class=\"v\">library constructors</td></tr>\n<tr><td class=\"k\">FIRST, LAST, BUTFIRST (BF), BUTLAST (BL)</td><td class=\"v\">selectors</td></tr>\n<tr><td class=\"k\">FIRSTS, BUTFIRSTS (BFS)</td><td class=\"v\">map FIRST/BUTFIRST over a list</td></tr>\n<tr><td class=\"k\">ITEM, MDITEM, PICK, REMOVE, REMDUP, QUOTED</td><td class=\"v\">more selectors</td></tr>\n<tr><td class=\"k\">SETITEM, .SETFIRST, .SETBF, .SETITEM</td><td class=\"v\">mutators (dotted = dangerous)</td></tr>\n<tr><td class=\"k\">PUSH, POP, QUEUE, DEQUEUE</td><td class=\"v\">stack/queue helpers</td></tr>\n<tr><td class=\"k\">WORDP, LISTP, ARRAYP, EMPTYP, EQUALP, NOTEQUALP</td><td class=\"v\">type/equality predicates</td></tr>\n<tr><td class=\"k\">BEFOREP, .EQ, MEMBERP, SUBSTRINGP, NUMBERP, VBARREDP</td><td class=\"v\">more predicates</td></tr>\n<tr><td class=\"k\">COUNT, ASCII, RAWASCII, CHAR, MEMBER</td><td class=\"v\">queries</td></tr>\n<tr><td class=\"k\">LOWERCASE, UPPERCASE, STANDOUT, PARSE, RUNPARSE</td><td class=\"v\">more queries</td></tr>\n</table>\n\n<h3>Ch.3 &mdash; Objects</h3>\n<table>\n<tr><td class=\"k\">KINDOF, SOMETHING, ONEOF</td><td class=\"v\">constructors</td></tr>\n<tr><td class=\"k\">EXIST, HAVE, HAVEMAKE</td><td class=\"v\">mutators</td></tr>\n<tr><td class=\"k\">SELF, PARENTS, MYNAMES, MYNAMEP, MYPROCS, MYPROCP</td><td class=\"v\">selectors</td></tr>\n<tr><td class=\"k\">TALKTO, ASK</td><td class=\"v\">messages / changing current object</td></tr>\n<tr><td class=\"k\">WHOSENAME, WHOSEPROC</td><td class=\"v\">queries</td></tr>\n<tr><td class=\"k\">USUAL.foo</td><td class=\"v\">invoke inherited version of foo</td></tr>\n</table>\n\n<h3>Ch.4 &mdash; Communication</h3>\n<table>\n<tr><td class=\"k\">PRINT (PR), TYPE, SHOW</td><td class=\"v\">transmitters</td></tr>\n<tr><td class=\"k\">READLIST (RL), READWORD (RW), READRAWLINE</td><td class=\"v\">receivers</td></tr>\n<tr><td class=\"k\">READCHAR (RC), READCHARS (RCS), SHELL</td><td class=\"v\">more receivers</td></tr>\n<tr><td class=\"k\">SETPREFIX, PREFIX, OPENREAD, OPENWRITE, OPENAPPEND, OPENUPDATE</td><td class=\"v\">file access</td></tr>\n<tr><td class=\"k\">CLOSE, ALLOPEN, CLOSEALL, ERASEFILE (ERF)</td><td class=\"v\">more file access</td></tr>\n<tr><td class=\"k\">DRIBBLE, NODRIBBLE, SETREAD, SETWRITE</td><td class=\"v\">streams</td></tr>\n<tr><td class=\"k\">READER, WRITER, SETREADPOS, SETWRITEPOS, READPOS, WRITEPOS</td><td class=\"v\">stream position</td></tr>\n<tr><td class=\"k\">EOFP, FILEP</td><td class=\"v\">file predicates</td></tr>\n<tr><td class=\"k\">KEYP, LINEP, CLEARTEXT (CT)</td><td class=\"v\">terminal access</td></tr>\n<tr><td class=\"k\">SETCURSOR, CURSOR, SETMARGINS</td><td class=\"v\">cursor control</td></tr>\n<tr><td class=\"k\">SETTEXTCOLOR, INCREASEFONT, SETTEXTSIZE, SETFONT</td><td class=\"v\">wxWidgets text styling</td></tr>\n</table>\n\n<h3>Ch.5 &mdash; Arithmetic</h3>\n<table>\n<tr><td class=\"k\">SUM, DIFFERENCE, MINUS, PRODUCT, QUOTIENT</td><td class=\"v\">basic operations</td></tr>\n<tr><td class=\"k\">REMAINDER, MODULO, INT, ROUND, SQRT, POWER</td><td class=\"v\">more operations</td></tr>\n<tr><td class=\"k\">EXP, LOG10, LN</td><td class=\"v\">logs / exponent</td></tr>\n<tr><td class=\"k\">SIN, COS, ARCTAN / RADSIN, RADCOS, RADARCTAN</td><td class=\"v\">trig (degrees / radians)</td></tr>\n<tr><td class=\"k\">ISEQ, RSEQ</td><td class=\"v\">sequence generators</td></tr>\n<tr><td class=\"k\">LESSP, GREATERP, LESSEQUALP, GREATEREQUALP</td><td class=\"v\">numeric predicates</td></tr>\n<tr><td class=\"k\">RANDOM, RERANDOM</td><td class=\"v\">random numbers</td></tr>\n<tr><td class=\"k\">FORM</td><td class=\"v\">print formatting</td></tr>\n<tr><td class=\"k\">BITAND, BITOR, BITXOR, BITNOT, ASHIFT, LSHIFT</td><td class=\"v\">bitwise operations</td></tr>\n</table>\n\n<h3>Ch.6 &mdash; Logical Operations</h3>\n<table>\n<tr><td class=\"k\">AND, OR, NOT</td><td class=\"v\">short-circuiting booleans (list inputs = expressions)</td></tr>\n</table>\n\n<h3>Ch.7 &mdash; Graphics</h3>\n<table>\n<tr><td class=\"k\">FORWARD (FD), BACK (BK), LEFT (LT), RIGHT (RT)</td><td class=\"v\">turtle motion</td></tr>\n<tr><td class=\"k\">SETPOS, SETXY, SETX, SETY, SETHEADING (SETH), HOME, ARC</td><td class=\"v\">absolute motion</td></tr>\n<tr><td class=\"k\">POS, XCOR, YCOR, HEADING, TOWARDS, SCRUNCH</td><td class=\"v\">motion queries</td></tr>\n<tr><td class=\"k\">SHOWTURTLE (ST), HIDETURTLE (HT), CLEAN, CLEARSCREEN (CS)</td><td class=\"v\">turtle/window control</td></tr>\n<tr><td class=\"k\">WRAP, WINDOW, FENCE</td><td class=\"v\">boundary modes</td></tr>\n<tr><td class=\"k\">FILL, FILLED, LABEL, SETLABELHEIGHT</td><td class=\"v\">fills and labels</td></tr>\n<tr><td class=\"k\">TEXTSCREEN (TS), FULLSCREEN (FS), SPLITSCREEN (SS)</td><td class=\"v\">screen layout</td></tr>\n<tr><td class=\"k\">SETSCRUNCH, REFRESH, NOREFRESH</td><td class=\"v\">scaling and refresh</td></tr>\n<tr><td class=\"k\">SHOWNP, SCREENMODE, TURTLEMODE, LABELSIZE</td><td class=\"v\">window queries</td></tr>\n<tr><td class=\"k\">PENDOWN (PD), PENUP (PU), PENPAINT, PENERASE, PENREVERSE</td><td class=\"v\">pen state</td></tr>\n<tr><td class=\"k\">SETPENCOLOR (SETPC), SETPALETTE, SETPENSIZE, SETPEN, SETBACKGROUND (SETBG)</td><td class=\"v\">pen/background color</td></tr>\n<tr><td class=\"k\">PENDOWNP, PENMODE, PENCOLOR (PC), PALETTE, PENSIZE, PEN, BACKGROUND (BG)</td><td class=\"v\">pen queries</td></tr>\n<tr><td class=\"k\">SAVEPICT, LOADPICT, EPSPICT</td><td class=\"v\">saving/loading pictures</td></tr>\n<tr><td class=\"k\">MOUSEPOS, CLICKPOS, BUTTONP, BUTTON</td><td class=\"v\">mouse queries</td></tr>\n</table>\n\n<h3>Ch.8 &mdash; Workspace Management</h3>\n<table>\n<tr><td class=\"k\">TO, DEFINE, TEXT, FULLTEXT, COPYDEF</td><td class=\"v\">procedure definition</td></tr>\n<tr><td class=\"k\">MAKE, NAME, LOCAL, LOCALMAKE, THING, GLOBAL</td><td class=\"v\">variable definition</td></tr>\n<tr><td class=\"k\">PPROP, GPROP, REMPROP, PLIST</td><td class=\"v\">property lists</td></tr>\n<tr><td class=\"k\">PROCEDUREP, PRIMITIVEP, DEFINEDP, NAMEP, PLISTP</td><td class=\"v\">workspace predicates</td></tr>\n<tr><td class=\"k\">CONTENTS, BURIED, TRACED, STEPPED</td><td class=\"v\">contents lists</td></tr>\n<tr><td class=\"k\">PROCEDURES, PRIMITIVES, NAMES, PLISTS, ARITY, NODES</td><td class=\"v\">workspace queries</td></tr>\n<tr><td class=\"k\">PO, POALL, POPS, PONS, POPLS, PON, POPL, POT, POTS</td><td class=\"v\">workspace inspection</td></tr>\n<tr><td class=\"k\">ERASE (ER), ERALL, ERPS, ERNS, ERPLS, ERN, ERPL</td><td class=\"v\">erasing</td></tr>\n<tr><td class=\"k\">BURY, BURYALL, BURYNAME, UNBURY, UNBURYALL, BURIEDP</td><td class=\"v\">burying</td></tr>\n<tr><td class=\"k\">TRACE, UNTRACE, TRACEDP, STEP, UNSTEP, STEPPEDP</td><td class=\"v\">tracing/stepping</td></tr>\n<tr><td class=\"k\">EDIT (ED), EDITFILE, EDALL, EDPS, EDNS, EDPLS, EDN, EDPL</td><td class=\"v\">editing</td></tr>\n<tr><td class=\"k\">SAVE, SAVEL, LOAD, CSLSLOAD, HELP</td><td class=\"v\">saving/loading/help</td></tr>\n<tr><td class=\"k\">SETEDITOR, SETLIBLOC, SETCSLSLOC, SETHELPLOC, SETTEMPLOC</td><td class=\"v\">path configuration</td></tr>\n<tr><td class=\"k\">GC, .SETSEGMENTSIZE</td><td class=\"v\">memory management</td></tr>\n</table>\n\n<h3>Ch.9 &mdash; Control Structures</h3>\n<table>\n<tr><td class=\"k\">RUN, RUNRESULT, REPEAT, FOREVER, REPCOUNT (#)</td><td class=\"v\">basic control</td></tr>\n<tr><td class=\"k\">IF, IFELSE, TEST, IFTRUE (IFT), IFFALSE (IFF)</td><td class=\"v\">conditionals</td></tr>\n<tr><td class=\"k\">STOP, OUTPUT (OP)</td><td class=\"v\">ending a procedure</td></tr>\n<tr><td class=\"k\">CATCH, THROW, ERROR</td><td class=\"v\">error/exception handling</td></tr>\n<tr><td class=\"k\">PAUSE, CONTINUE (CO), WAIT, BYE</td><td class=\"v\">interactive control</td></tr>\n<tr><td class=\"k\">.MAYBEOUTPUT, GOTO, TAG, IGNORE, ` (backquote)</td><td class=\"v\">advanced control</td></tr>\n<tr><td class=\"k\">FOR, WHILE, DO.WHILE, UNTIL, DO.UNTIL</td><td class=\"v\">loops (library)</td></tr>\n<tr><td class=\"k\">CASE, COND</td><td class=\"v\">multi-branch conditionals (library)</td></tr>\n<tr><td class=\"k\">APPLY, INVOKE, FOREACH</td><td class=\"v\">template application</td></tr>\n<tr><td class=\"k\">MAP, MAP.SE, FILTER, FIND, REDUCE</td><td class=\"v\">iteration tools</td></tr>\n<tr><td class=\"k\">CROSSMAP, CASCADE, CASCADE.2, TRANSFER</td><td class=\"v\">advanced iteration tools</td></tr>\n</table>\n\n<h3>Ch.10 &mdash; Macros</h3>\n<table>\n<tr><td class=\"k\">.MACRO, .DEFMACRO</td><td class=\"v\">define a macro</td></tr>\n<tr><td class=\"k\">MACROP, MACROEXPAND</td><td class=\"v\">macro predicates/debugging</td></tr>\n</table>\n\n<h3>Ch.11 &mdash; Error Processing</h3>\n<table>\n<tr><td class=\"k\">ERRACT</td><td class=\"v\">instructionlist run on error</td></tr>\n<tr><td class=\"k\">Codes 0, 32, 34</td><td class=\"v\">uncatchable fatal errors</td></tr>\n<tr><td class=\"k\">Codes 4-43</td><td class=\"v\">full catchable error table (see lesson)</td></tr>\n</table>\n\n<h3>Ch.12 &mdash; Special Variables</h3>\n<table>\n<tr><td class=\"k\">ALLOWGETSET, CASEIGNOREDP, UNBURYONEDIT</td><td class=\"v\">TRUE &amp; buried by default</td></tr>\n<tr><td class=\"k\">BUTTONACT, KEYACT</td><td class=\"v\">event handler instructionlists</td></tr>\n<tr><td class=\"k\">ERRACT, LOADNOISILY, REDEFP, STARTUP</td><td class=\"v\">behavior toggles</td></tr>\n<tr><td class=\"k\">FULLPRINTP, PRINTDEPTHLIMIT, PRINTWIDTHLIMIT</td><td class=\"v\">print formatting toggles</td></tr>\n<tr><td class=\"k\">USEALTERNATENAMES, LOGOVERSION, LOGOPLATFORM</td><td class=\"v\">i18n / version info</td></tr>\n</table>\n\n<h3>Ch.13 &mdash; Internationalization</h3>\n<table>\n<tr><td class=\"k\">COPYDEF \"alias \"PRIMITIVE</td><td class=\"v\">alias a primitive name</td></tr>\n<tr><td class=\"k\">Messages file</td><td class=\"v\">translatable system messages (%p %s %t)</td></tr>\n<tr><td class=\"k\">USEALTERNATENAMES</td><td class=\"v\">generate alternate-language output</td></tr>\n</table>\n";
+
+
+/* ================= APP LOGIC ================= */
+let currentIndex = 0;
+const progress = new Set();
+
+function renderSidebar(){
+  const sb = document.getElementById('sidebar');
+  sb.innerHTML = '';
+  const label = document.createElement('div');
+  label.className = 'grp-label';
+  label.textContent = 'Contents';
+  sb.appendChild(label);
+  LESSONS.forEach((l, i) => {
+    const el = document.createElement('div');
+    el.className = 'lesson-item' + (i === currentIndex ? ' active' : '');
+    el.setAttribute('role','button');
+    el.tabIndex = 0;
+    el.innerHTML = `<span class="num">${l.num}</span><span>${l.title}</span><span class="chk">${progress.has(l.id) ? '✓' : ''}</span>`;
+    el.addEventListener('click', () => loadLesson(i));
+    el.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); loadLesson(i);} });
+    sb.appendChild(el);
+  });
+}
+
+function renderBody(block){
+  if(block.t === 'p') return `<p>${block.v}</p>`;
+  if(block.t === 'code') return `<div class="codebox"><div class="cb-head">LOGO</div><pre>${highlight(block.v)}</pre></div>`;
+  return '';
+}
+
+function renderQuiz(lesson){
+  if(!lesson.quiz || !lesson.quiz.length) return '';
+  let html = '';
+  lesson.quiz.forEach((q, qi) => {
+    const name = `${lesson.id}-q${qi}`;
+    html += `<div class="quiz">
+      <div class="qhead">QUICK CHECK ${qi+1} / ${lesson.quiz.length}</div>
+      <div class="qtext">${q.q}</div>`;
+    q.opts.forEach((opt, oi) => {
+      html += `<label><input type="radio" name="${name}" value="${oi}"> ${opt}</label>`;
+    });
+    html += `<button class="qbtn" data-name="${name}" data-answer="${q.a}" data-ex="${encodeURIComponent(q.ex)}" data-lesson="${lesson.id}">Check answer</button>
+      <div class="qresult" id="res-${name}"></div>
+    </div>`;
+  });
+  return html;
+}
+
+function loadLesson(i){
+  currentIndex = i;
+  const lesson = LESSONS[i];
+  document.getElementById('titlebar').innerHTML = `<b>UCB Logo</b> &nbsp;&rsaquo;&nbsp; Chapter ${lesson.num}`;
+  const scroll = document.getElementById('content-scroll');
+  let html = `<h2>${lesson.num}. ${lesson.title}</h2><p class="subtitle">${lesson.subtitle}</p>`;
+  lesson.body.forEach(b => html += renderBody(b));
+  html += renderQuiz(lesson);
+  scroll.innerHTML = html;
+  scroll.scrollTop = 0;
+  attachQuizHandlers(lesson);
+  renderSidebar();
+  updateStatus();
+}
+
+function attachQuizHandlers(lesson){
+  document.querySelectorAll('.qbtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.getAttribute('data-name');
+      const answer = parseInt(btn.getAttribute('data-answer'), 10);
+      const ex = decodeURIComponent(btn.getAttribute('data-ex'));
+      const lessonId = btn.getAttribute('data-lesson');
+      const checked = document.querySelector(`input[name="${name}"]:checked`);
+      const resBox = document.getElementById(`res-${name}`);
+      if(!checked){
+        resBox.className = 'qresult bad';
+        resBox.textContent = 'Select an answer first.';
+        return;
+      }
+      const chosen = parseInt(checked.value, 10);
+      if(chosen === answer){
+        resBox.className = 'qresult ok';
+        resBox.textContent = '✓ Correct — ' + ex;
+        checkLessonComplete(lessonId);
+      } else {
+        resBox.className = 'qresult bad';
+        resBox.textContent = '✗ Not quite — ' + ex;
+      }
+    });
+  });
+}
+
+function checkLessonComplete(lessonId){
+  const lesson = LESSONS.find(l => l.id === lessonId);
+  const allCorrect = lesson.quiz.every((q, qi) => {
+    const resBox = document.getElementById(`res-${lessonId}-q${qi}`);
+    return resBox && resBox.classList.contains('ok');
+  });
+  if(allCorrect && !progress.has(lessonId)){
+    progress.add(lessonId);
+    renderSidebar();
+    updateStatus();
+  }
+}
+
+function updateStatus(){
+  document.getElementById('sb-progress').textContent =
+    `Lesson ${currentIndex+1}/${LESSONS.length}   Progress: ${progress.size}/${LESSONS.length} ✓`;
+}
+
+/* ---- modal / help ---- */
+function openModal(){
+  document.getElementById('modal-body').innerHTML = REFERENCE;
+  document.getElementById('modal-overlay').classList.add('show');
+}
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('show');
+}
+document.getElementById('mi-help').addEventListener('click', openModal);
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal-overlay').addEventListener('click', e => {
+  if(e.target.id === 'modal-overlay') closeModal();
+});
+document.getElementById('sb-f1').addEventListener('click', openModal);
+document.getElementById('sb-prev').addEventListener('click', () => {
+  if(currentIndex > 0) loadLesson(currentIndex - 1);
+});
+document.getElementById('sb-next').addEventListener('click', () => {
+  if(currentIndex < LESSONS.length - 1) loadLesson(currentIndex + 1);
+});
+document.addEventListener('keydown', e => {
+  if(e.key === 'F1'){ e.preventDefault(); openModal(); }
+  if(e.key === 'F2'){ e.preventDefault(); if(currentIndex > 0) loadLesson(currentIndex - 1); }
+  if(e.key === 'F3'){ e.preventDefault(); if(currentIndex < LESSONS.length - 1) loadLesson(currentIndex + 1); }
+  if(e.key === 'Escape'){ closeModal(); }
+});
+
+/* ---- init ---- */
+renderSidebar();
+loadLesson(0);
+</script>
+</body>
+</html>
